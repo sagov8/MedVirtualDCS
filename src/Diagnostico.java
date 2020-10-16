@@ -1,6 +1,7 @@
 package src;
 //Diana
 public class Diagnostico {
+
     //Atributos
     private int idDiagnostico;
     private String fechaDiagnostico;
