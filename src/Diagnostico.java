@@ -2,7 +2,7 @@ package src;
 //Diana
 public class Diagnostico {
 
-    int prueba;
+    private int idDiagnostico;
     
 
 }
