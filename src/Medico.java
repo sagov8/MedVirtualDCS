@@ -58,6 +58,14 @@ public class Medico {
     }
 
     //Constructor
+    public Medico() {
+        this.idMedico = 0;
+        this.numeroTelefonicoMedico = 0;
+        this.nombreMedico = " ";
+        this.apellidoMedico = " ";
+        this.correoMedico = " ";
+        this.especialidad = " ";
+    }
     public Medico(int idMedico, int numeroTelefonicoMedico, String nombreMedico, String apellidoMedico, String correoMedico, String especialidad) {
         this.idMedico = idMedico;
         this.numeroTelefonicoMedico = numeroTelefonicoMedico;
