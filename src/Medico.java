@@ -9,6 +9,24 @@ public class Medico {
     private String correoMedico;
     private String especialidad;
 
+    //Constructor
+    public Medico() {
+        this.idMedico = 0;
+        this.numeroTelefonicoMedico = 0;
+        this.nombreMedico = " ";
+        this.apellidoMedico = " ";
+        this.correoMedico = " ";
+        this.especialidad = " ";
+    }
+    public Medico(int idMedico, int numeroTelefonicoMedico, String nombreMedico, String apellidoMedico, String correoMedico, String especialidad) {
+        this.idMedico = idMedico;
+        this.numeroTelefonicoMedico = numeroTelefonicoMedico;
+        this.nombreMedico = nombreMedico;
+        this.apellidoMedico = apellidoMedico;
+        this.correoMedico = correoMedico;
+        this.especialidad = especialidad;
+    }
+
     public int getIdMedico() {
         return idMedico;
     }
@@ -54,24 +72,6 @@ public class Medico {
     }
 
     public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
-    }
-
-    //Constructor
-    public Medico() {
-        this.idMedico = 0;
-        this.numeroTelefonicoMedico = 0;
-        this.nombreMedico = " ";
-        this.apellidoMedico = " ";
-        this.correoMedico = " ";
-        this.especialidad = " ";
-    }
-    public Medico(int idMedico, int numeroTelefonicoMedico, String nombreMedico, String apellidoMedico, String correoMedico, String especialidad) {
-        this.idMedico = idMedico;
-        this.numeroTelefonicoMedico = numeroTelefonicoMedico;
-        this.nombreMedico = nombreMedico;
-        this.apellidoMedico = apellidoMedico;
-        this.correoMedico = correoMedico;
         this.especialidad = especialidad;
     }
 
