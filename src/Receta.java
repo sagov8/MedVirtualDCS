@@ -1,0 +1,3 @@
+//Diana
+public class Receta {
+}

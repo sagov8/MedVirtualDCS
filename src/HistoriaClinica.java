@@ -1,0 +1,3 @@
+//Santiago
+public class HistoriaClinica {
+}
