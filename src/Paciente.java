@@ -16,6 +16,7 @@ public class Paciente {
     private String genero;
     private float peso;
 
-
-
 }
+
+
+
