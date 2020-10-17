@@ -3,7 +3,7 @@ package src;
 public class Medico {
     //Atributos
     private int idMedico;
-    private int numeroTelefonicoMedico;
+    private String numeroTelefonicoMedico;
     private String nombreMedico;
     private String apellidoMedico;
     private String correoMedico;
@@ -12,13 +12,13 @@ public class Medico {
     //Constructor
     public Medico() {
         this.idMedico = 0;
-        this.numeroTelefonicoMedico = 0;
+        this.numeroTelefonicoMedico = " ";
         this.nombreMedico = " ";
         this.apellidoMedico = " ";
         this.correoMedico = " ";
         this.especialidad = " ";
     }
-    public Medico(int idMedico, int numeroTelefonicoMedico, String nombreMedico, String apellidoMedico, String correoMedico, String especialidad) {
+    public Medico(int idMedico, String numeroTelefonicoMedico, String nombreMedico, String apellidoMedico, String correoMedico, String especialidad) {
         this.idMedico = idMedico;
         this.numeroTelefonicoMedico = numeroTelefonicoMedico;
         this.nombreMedico = nombreMedico;
@@ -35,11 +35,11 @@ public class Medico {
         this.idMedico = idMedico;
     }
 
-    public int getNumeroTelefonicoMedico() {
+    public String getNumeroTelefonicoMedico() {
         return numeroTelefonicoMedico;
     }
 
-    public void setNumeroTelefonicoMedico(int numeroTelefonicoMedico) {
+    public void setNumeroTelefonicoMedico(String numeroTelefonicoMedico) {
         this.numeroTelefonicoMedico = numeroTelefonicoMedico;
     }
 
@@ -76,6 +76,11 @@ public class Medico {
     }
 
     //Métodos y funciones
+
+    public String toString(){
+        return "Nombre: "+nombreMedico+"\nApellido: "+apellidoMedico+"\nEspecialidad: "+especialidad+
+                "\nCorreo: "+correoMedico+"\nCelular: "+numeroTelefonicoMedico;
+    }
     public String crearDiagnostico(int idPaciente){
         return "";
     }
