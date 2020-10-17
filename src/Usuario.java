@@ -16,8 +16,7 @@ public class Usuario {
         this.idUsuario= 0;
         this.nombreUsuario= "";
         this.password= "";
-        this.tipoUsuario= "";
-        
+        this.tipoUsuario= "";  
     }
 
     public Usuario(int idUsuario, String nombreUsuario, String password, String tipoUsuario) {
