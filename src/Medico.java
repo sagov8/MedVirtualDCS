@@ -91,5 +91,8 @@ public class Medico {
     public String actualizarHistoriaClinica(int idPaciente, int idHistoriaClinica){
         return "";
     }
+    
+    
+    //Procedi
 
 }
