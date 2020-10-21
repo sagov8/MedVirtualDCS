@@ -19,12 +19,12 @@ public class Main {
                                 "\nBIENVENIDO A MEDVIRTUALDCS"+
                                 "\n**************************");
             System.out.println("\nMenú de opciones: "+"\n1. Registrar usuario."
-                                +"\n2. Iniciar sesión."+"\n3. Salir");
+                                +"\n2. Iniciar sesión."+"\n3. Salir.");
 
             int opcion = t.nextInt();
 
             switch (opcion) {
-                case 1 -> {
+                case 1:
                     System.out.println("\nElegir entre las siguientes opciones:" + "\n1. Paciente" +
                             "\n2. Médico");
                     int tipoDeUsuario = t.nextInt();//Recibe el tipo de usuario
@@ -41,8 +41,8 @@ public class Main {
                     } else {
                         System.out.println("Por favor ingrese una opción válida.");
                     }
-                }
-                case 2 -> {
+                break;
+                case 2:
                     System.out.println("Ingrese su nombre de usuario:");
                     String nombreUsuario = t.next();
 
@@ -68,12 +68,12 @@ public class Main {
                     if (!usuarioExistente){
                         System.out.println("Usuario no encontrado");
                     }
-                }
-                case 3 -> {
+                break;
+                case 3:
                     System.out.println("Gracias por usar MedVirtualDCS, vuelva pronto.");
                     salir = true;
-                }
-                default -> System.out.println("Ingrese una opción válida");
+                break;
+                default: System.out.println("Ingrese una opción válida");
             }
         }while(!salir);
         //Código de prueba
