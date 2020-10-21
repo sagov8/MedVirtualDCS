@@ -79,7 +79,6 @@ public class Medico {
     public String crearDiagnostico(int idPaciente){
         return "";
     }
-
     public String crearReceta(int idPaciente){
         return "";
     }
