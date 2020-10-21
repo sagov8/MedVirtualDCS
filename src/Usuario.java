@@ -1,13 +1,15 @@
 package src;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 //Camilo
 public class Usuario {
 
     //Atributos usuario
     private int idUsuario;
+    private static int idNext = 1;
     private String nombreUsuario;
     private String password;
     private String tipoUsuario;
@@ -16,7 +18,7 @@ public class Usuario {
     
     public Usuario (){
         
-        this.idUsuario= 0;
+        this.idUsuario= idNext++;
         this.nombreUsuario= "";
         this.password= "";
         this.tipoUsuario= "";  
@@ -28,7 +30,7 @@ public class Usuario {
         this.password = password;
         this.tipoUsuario = tipoUsuario;
     }
-    
+
     //Getter y Setter
 
     public int getIdUsuario() {
@@ -65,16 +67,16 @@ public class Usuario {
     
     //Metodos y funciones
     
-    public void registrarUsuario(int tipoUsuario){
+    public void registrarUsuario(int tipoUsuario, TreeMap<String, HashMap<String, String>> usuario){
         Scanner t = new Scanner(System.in);
         System.out.println("Ingrese el nombre de usuario: ");//Hacer excepciones
         this.nombreUsuario = t.next();
         //Hacer excepciones
         boolean salir = false;
         do{
-            System.out.println("Ingrese el password");
+            System.out.println("Ingrese el password:");
             this.password = t.next();
-            System.out.println("Ingrese de nuevo el password");
+            System.out.println("Ingrese de nuevo el password:");
             String confirmacionPassword = t.next();
             if(password.equals(confirmacionPassword)){
                 this.tipoUsuario = String.valueOf(tipoUsuario);
@@ -86,7 +88,6 @@ public class Usuario {
                 salir = false;
             }
         }while(!salir);
-
     }
     
     public void verificarLogin (){

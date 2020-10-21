@@ -15,7 +15,7 @@ public class Medico extends Usuario{
     private String correoMedico;
     private String especialidad;
 
-    //Constructor
+    //Constructores
     public Medico() {
         this.idMedico = "";
         this.numeroTelefonicoMedico = " ";
@@ -25,6 +25,13 @@ public class Medico extends Usuario{
         this.correoMedico = " ";
         this.especialidad = " ";
     }
+
+    public Medico(String nombreUsuario, String password, String tipoUsuario){
+        setNombreUsuario(nombreUsuario);
+        setPassword(password);
+        setTipoUsuario(tipoUsuario);
+    }
+
     public Medico(String idMedico, String numeroTelefonicoMedico, String nombreMedico, String apellidoMedico,
                   String cedulaMedico, String correoMedico, String especialidad) {
         this.idMedico = idMedico;
@@ -95,8 +102,8 @@ public class Medico extends Usuario{
     //Métodos y funciones
     @Override
     public String toString(){
-        Calendar colombiaToday = Calendar.getInstance(TimeZone.getDefault());
-        return colombiaToday.getTime()+"\nNombre: "+nombreMedico+"\nApellido: "+apellidoMedico+
+
+        return "id:"+idMedico +"\nNombre: "+nombreMedico+"\nApellido: "+apellidoMedico+
                 "\nEspecialidad: "+especialidad+ "\nCorreo: "+correoMedico+"\nCelular: "+
                 numeroTelefonicoMedico;
     }
