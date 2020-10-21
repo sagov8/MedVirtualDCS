@@ -9,41 +9,36 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner t = new Scanner (System.in);
-
-        TreeMap<String, HashMap<String, String>> usuarios = new TreeMap<>();
-        //Menú de opciones
+        //Un TreeMap guarda datos de manera ordenada según la clave asignada.
+        TreeMap<String, HashMap<String, String>> coleccionUsuarios = new TreeMap<>();
+        HashMap<String, String> coleccionMedicos = new HashMap<>();
         boolean salir = false;//variable de salida
+        //Menú de opciones
         do {
-            //Encabezado pantalla de inicio
             System.out.println("**************************"+
                                 "\nBIENVENIDO A MEDVIRTUALDCS"+
                                 "\n**************************");
             System.out.println("\nMenú de opciones: "+"\n1. Registrar usuario."
                                 +"\n2. Iniciar sesión."+"\n3. Salir");
-            int opcion = t.nextInt();//Registra la opción de inicio de sesión, registro o salida
-            Medico medico = new Medico();
-            Paciente paciente = new Paciente();
-            //Selecciona una opción
+
+            int opcion = t.nextInt();
+
             switch (opcion) {
-                //Registro de Usuario
                 case 1 -> {
                     System.out.println("\nElegir entre las siguientes opciones:" + "\n1. Paciente" +
                             "\n2. Médico");
                     int tipoDeUsuario = t.nextInt();//Recibe el tipo de usuario
 
                     if (tipoDeUsuario == 1) {
-                        //Instancia un objeto Paciente
-                        paciente.registrarUsuario(tipoDeUsuario, usuarios);
+                        Paciente paciente = new Paciente();
+                        paciente.registrarUsuario(tipoDeUsuario, coleccionUsuarios, paciente.getIdUsuario());
                     } else if (tipoDeUsuario == 2) {
-                        //Instancia un objeto Medico
+                        Medico medico = new Medico();
+                        medico.registrarUsuario(tipoDeUsuario, coleccionUsuarios, medico.getIdUsuario());
+                        System.out.println(coleccionUsuarios.get(String.valueOf(medico.getIdUsuario())).get("nombre"));
 
-                        //Pide los datos al usuario médico
-                        medico.registrarUsuario(tipoDeUsuario, usuarios);// Falta Verificar si nombre de usuario no se encuentra disponible
-                        //Se guarda en un HashMap: usuarios, la información de médico
-                        System.out.println(usuarios.get(String.valueOf(medico.getIdUsuario())).get("nombre"));
-                        //Registra los datos del Médico
-                        medico.registrarMedico();
-                        //Guarda la información del médico en HashMap: médicos
+                        medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
+
                     } else {
                         System.out.println("Por favor ingrese una opción válida.");
                     }
@@ -55,10 +50,10 @@ public class Main {
                     int i = 0;
                     boolean usuarioExistente = false;
                     do {
-                        if (usuarios.get(String.valueOf(i)).get("nombreUsuario").equals(nombreUsuario)) {
+                        if (coleccionUsuarios.get(String.valueOf(i)).get("nombreUsuario").equals(nombreUsuario)) {
                             System.out.println("Digite su contraseña:");
                             String password = t.next();
-                            if (usuarios.get(String.valueOf(i)).get("password").equals(password)) {
+                            if (coleccionUsuarios.get(String.valueOf(i)).get("password").equals(password)) {
                                 System.out.println("Bienvenido al sistema");
                                 usuarioExistente = true;
                             }else{
@@ -67,7 +62,7 @@ public class Main {
 
                         }
                         i++;
-                    } while (i < usuarios.size());
+                    } while (i < coleccionUsuarios.size());
                     if (!usuarioExistente){
                         System.out.println("Usuario no encontrado");
                     }
@@ -80,6 +75,6 @@ public class Main {
             }
         }while(!salir);
         //Código de prueba
-        System.out.println(usuarios);
+        System.out.println(coleccionUsuarios);
     }
 }

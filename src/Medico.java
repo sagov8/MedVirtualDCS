@@ -1,8 +1,7 @@
 package src;
 
-import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Scanner;
-import java.util.TimeZone;
 
 //Santiago
 public class Medico extends Usuario{
@@ -107,18 +106,18 @@ public class Medico extends Usuario{
                 "\nEspecialidad: "+especialidad+ "\nCorreo: "+correoMedico+"\nCelular: "+
                 numeroTelefonicoMedico;
     }
-    public void registrarMedico(){
+    public void registrarMedico(int id, HashMap<String, String> coleccionMedicos){
         Scanner t = new Scanner(System.in);
         System.out.println("\nIngrese su nombre:");
-        this.nombreMedico = t.nextLine();
+        coleccionMedicos.put("nombreMedico",t.next());
         System.out.println("Ingrese su apellido:");
-        this.apellidoMedico = t.nextLine();
+        coleccionMedicos.put("apellido",t.next());
         System.out.println("Ingrese su especialidad");
-        this.especialidad = t.nextLine();
+        coleccionMedicos.put("especialidad",t.next());
         System.out.println("Ingrese su teléfono:");
-        this.numeroTelefonicoMedico = t.next();
+        coleccionMedicos.put("telefono",t.next());
         System.out.println("Ingrese su correo");
-        this.correoMedico = t.next();
+        coleccionMedicos.put("correo",t.next());
         System.out.println("Su información ha sido registrada con éxito.");
     }
 }
