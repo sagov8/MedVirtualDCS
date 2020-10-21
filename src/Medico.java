@@ -111,7 +111,7 @@ public class Medico extends Usuario{
         System.out.println("\nIngrese su nombre:");
         coleccionMedicos.put("nombreMedico",t.next());
         System.out.println("Ingrese su apellido:");
-        coleccionMedicos.put("apellido",t.next());
+        coleccionMedicos.put("apellidoMedico",t.next());
         System.out.println("Ingrese su especialidad");
         coleccionMedicos.put("especialidad",t.next());
         System.out.println("Ingrese su teléfono:");

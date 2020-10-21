@@ -53,8 +53,11 @@ public class Main {
                             System.out.println("Digite su contraseña:");
                             String password = t.next();
                             if (coleccionUsuarios.get(String.valueOf(i)).get("password").equals(password)) {
-                                System.out.println("Bienvenido al sistema");
+                                System.out.println("Bienvenido a MedVirtualDCS Dr. "+
+                                        coleccionMedicos.get("nombreMedico")+" "+
+                                        coleccionMedicos.get("apellidoMedico"));
                                 usuarioExistente = true;
+                                salir = true;
                             }else{
                                 System.out.println("Contraseña incorrecta");
                             }
@@ -74,6 +77,5 @@ public class Main {
             }
         }while(!salir);
         //Código de prueba
-        System.out.println(coleccionUsuarios);
     }
 }
