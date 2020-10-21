@@ -44,6 +44,10 @@ public class Receta {
     }
     
     //Métodos
+    public String crearReceta(int idPaciente){
+        return "";
+    }
+
     public void imprimirReceta(){
         
     }

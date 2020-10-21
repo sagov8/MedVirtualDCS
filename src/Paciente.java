@@ -1,7 +1,7 @@
 package src;
 
 //Camilo
-public class Paciente {
+public class Paciente extends Usuario {
     
     //Atributos paciente
     
@@ -133,19 +133,10 @@ public class Paciente {
     }
     
     //Metodos y funciones
-    
-    public void consultarDiagnostico (){
-        
+
+    public String toString(){
+        return "Nombre: "+nombrePaciente+"\nNombre de usuario: "+getNombreUsuario();
     }
-    
-    public void consultarReceta (){
-        
-    }
-    
-    public void registrarEvolucion (){
-        
-    }
-    
 
 }
 
