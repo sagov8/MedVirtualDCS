@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         Medico medico = new Medico(1,"3112345678",
-                "Juan","Perez","abc@abs.com",
+                "Juan","Perez","fredsds@abs.com",
                 "Medicina interna");
 
         System.out.println(medico);
