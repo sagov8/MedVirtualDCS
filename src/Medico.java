@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 //Santiago
-public class Medico {
+public class Medico extends Usuario{
     //Atributos
     private int idMedico;
     private String numeroTelefonicoMedico;
