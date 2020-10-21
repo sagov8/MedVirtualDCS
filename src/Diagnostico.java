@@ -53,6 +53,9 @@ public class Diagnostico {
         this.estadoPaciente = estadoPaciente;
     }
     //Métodos
+    public String crearDiagnostico(int idPaciente){
+        return "";
+    }
     public void imprimirDiagnostico(){
         
     }
