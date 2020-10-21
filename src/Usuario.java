@@ -1,5 +1,6 @@
 package src;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 //Camilo
@@ -82,14 +83,9 @@ public class Usuario {
                 salir = true;
             }else{
                 System.out.println("Los password ingresados no coinciden.");
+                salir = false;
             }
         }while(!salir);
-        if(tipoUsuario == 1){
-            System.out.println("\nIngrese su nombre: ");
-
-        }
-    }
-    public void guardarUsuario(){
 
     }
     

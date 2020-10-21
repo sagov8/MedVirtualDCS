@@ -1,12 +1,19 @@
 package src;
 
+import java.util.HashMap;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Main {
 
     public static void main(String[] args) {
 
         Scanner t = new Scanner (System.in);
+
+        TreeMap<String, String> usuarios = new TreeMap<>();
+        HashMap<String, String> pacientes = new HashMap<>();
+        HashMap<String, Object> medicos = new HashMap<>();
+
         //Menú de opciones
         boolean salir = false;
         do {
@@ -27,12 +34,31 @@ public class Main {
                         paciente.registrarUsuario(tipoDeUsuario);
                     } else if (tipoDeUsuario == 2) {
                         Medico medico = new Medico();
-                        medico.registrarUsuario(tipoDeUsuario);
+                        medico.registrarUsuario(tipoDeUsuario);//Verificar si nombre de usuario no se encuentra disponible
+                        usuarios.put(medico.getNombreUsuario(), medico.getPassword());
+                        medico.registrarMedico();
+                        medicos.put(medico.getNombreUsuario(),medico);
                     } else {
                         System.out.println("Por favor ingrese una opción válida.");
                     }
                 }
-                case 2 -> System.out.println("Ingrese su nombre de usuario:");
+                case 2 -> {
+                    System.out.println("Ingrese su nombre de usuario:");
+                    String nombreUsuario = t.next();
+                    if(usuarios.containsKey(nombreUsuario)){
+                        System.out.println("Digite su contraseña:");
+                        String password = t.next();
+                        if(usuarios.get(nombreUsuario).equals(password)){
+                            System.out.println("\nBienvenido al sistema");
+                            System.out.println(medicos.get(nombreUsuario));
+
+                        }else{
+                            System.out.println("Contraseña errónea");
+                        }
+                    }else{
+                        System.out.println("Usuario no registrado.");
+                    }
+                }
                 case 3 -> {
                     System.out.println("Gracias por usar MedVirtualDCS, vuelva pronto.");
                     salir = true;
@@ -41,29 +67,6 @@ public class Main {
             }
         }while(!salir);
         //Código de prueba
-        Medico medico = new Medico(1,"3112345678",
-                "Juan","Perez","fredsds@abs.com",
-                "Medicina interna");
-
-        System.out.println(medico);
-
-        Paciente paciente = new Paciente();
-        paciente.setNombrePaciente("Pepito");
-        paciente.setNombreUsuario("Ppto");
-
-        System.out.println(paciente);
-
-        HistoriaClinica historia = new HistoriaClinica();
-        String [] historiaClinica;
-        historiaClinica = historia.crearHistoriaClinica("Nombre paciente: "+
-                        paciente.getNombrePaciente(),
-                "Datos médico:"+medico,
-                "Diabetes tipo A",
-                "El paciente dice estar medio bien");
-
-        for (String s : historiaClinica) {
-            System.out.println(s);
-        }
 
     }
 }
