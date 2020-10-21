@@ -91,14 +91,14 @@ public class Medico extends Usuario{
         return "";
     }
 
-    public String actualizarHistoriaClinica(int idPaciente, int idHistoriaClinica){
+    public String actualizarHistoriaClinica(int idPaciente, int idHistoriaClinica) {
         return "";
-
+    }
     @Override
     public String toString(){
         Calendar colombiaToday = Calendar.getInstance(TimeZone.getDefault());
-        return colombiaToday.getTime()+"\nNombre: "+nombreMedico+"\nApellido: "+apellidoMedico+"\nEspecialidad: "+especialidad+
-                "\nCorreo: "+correoMedico+"\nCelular: "+numeroTelefonicoMedico;
+        return colombiaToday.getTime() + "\nNombre: " + nombreMedico + "\nApellido: " + apellidoMedico + "\nEspecialidad: " + especialidad +
+                "\nCorreo: " + correoMedico + "\nCelular: " + numeroTelefonicoMedico;
 
     }
 }
