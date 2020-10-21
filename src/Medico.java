@@ -1,4 +1,8 @@
 package src;
+
+import java.util.Calendar;
+import java.util.TimeZone;
+
 //Santiago
 public class Medico {
     //Atributos
@@ -76,28 +80,10 @@ public class Medico {
     }
 
     //Métodos y funciones
-
+    @Override
     public String toString(){
-        return "Nombre: "+nombreMedico+"\nApellido: "+apellidoMedico+"\nEspecialidad: "+especialidad+
+        Calendar colombiaToday = Calendar.getInstance(TimeZone.getDefault());
+        return colombiaToday.getTime()+"\nNombre: "+nombreMedico+"\nApellido: "+apellidoMedico+"\nEspecialidad: "+especialidad+
                 "\nCorreo: "+correoMedico+"\nCelular: "+numeroTelefonicoMedico;
     }
-    public String crearDiagnostico(int idPaciente){
-        return "";
-    }
-
-    public String crearReceta(int idPaciente){
-        return "";
-    }
-
-    public String consultarHistoriaClinica(int idPaciente){
-        return "";
-    }
-
-    public String actualizarHistoriaClinica(int idPaciente, int idHistoriaClinica){
-        return "";
-    }
-    
-    
-
-
 }

@@ -1,8 +1,6 @@
 package src;
 
 import java.util.Scanner;
-import java.util.Calendar;
-import java.util.TimeZone;
 
 public class Main {
 
@@ -15,8 +13,24 @@ public class Main {
                 "Medicina interna");
 
         System.out.println(medico);
-        Calendar colombiaToday = Calendar.getInstance(TimeZone.getDefault());
-        System.out.println(colombiaToday.getTime());
+
+        Paciente paciente = new Paciente();
+        paciente.setNombrePaciente("Pepito");
+        paciente.setNombreUsuario("Ppto");
+
+        System.out.println(paciente);
+
+        HistoriaClinica historia = new HistoriaClinica();
+        String [] historiaClinica = new String[4];
+        historiaClinica = historia.crearHistoriaClinica("Nombre paciente: "+
+                        paciente.getNombrePaciente(),
+                "Datos médico:"+medico,
+                "Diabetes tipo A",
+                "El paciente dice estar medio bien");
+
+        for (String s : historiaClinica) {
+            System.out.println(s);
+        }
 
     }
 }

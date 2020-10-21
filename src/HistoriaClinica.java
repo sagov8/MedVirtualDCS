@@ -36,7 +36,21 @@ public class HistoriaClinica {
     }
 
     //Métodos y funciones
-    public void imprimirHistoria(int idHistoria){
-
+    @Override
+    public String toString(){
+        return "Fecha de creación: "+fechaDeCreacion +
+                "id: "+idHistoria;
     }
+    //anamnesis
+    public String[] crearHistoriaClinica(String infoPaciente, String infoMedico,
+                                       String diagnostico, String evolucion){
+        String [] historia = new String[4];
+        historia[0] = infoPaciente;
+        historia[1] = infoMedico;
+        historia[2] = diagnostico;
+        historia[3] = evolucion;
+
+        return historia;
+    }
+
 }
