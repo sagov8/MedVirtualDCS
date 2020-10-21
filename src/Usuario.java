@@ -1,5 +1,7 @@
 package src;
 
+import java.util.Scanner;
+
 //Camilo
 public class Usuario {
 
@@ -62,8 +64,33 @@ public class Usuario {
     
     //Metodos y funciones
     
-    public void registrarUsuario(){
-        
+    public void registrarUsuario(int tipoUsuario){
+        Scanner t = new Scanner(System.in);
+        System.out.println("Ingrese el nombre de usuario: ");//Hacer excepciones
+        this.nombreUsuario = t.next();
+        //Hacer excepciones
+        boolean salir = false;
+        do{
+            System.out.println("Ingrese el password");
+            this.password = t.next();
+            System.out.println("Ingrese de nuevo el password");
+            String confirmacionPassword = t.next();
+            if(password.equals(confirmacionPassword)){
+                this.tipoUsuario = String.valueOf(tipoUsuario);
+                this.idUsuario = 1;
+                System.out.println("Usuario Registrado con éxito.");
+                salir = true;
+            }else{
+                System.out.println("Los password ingresados no coinciden.");
+            }
+        }while(!salir);
+        if(tipoUsuario == 1){
+            System.out.println("\nIngrese su nombre: ");
+
+        }
+    }
+    public void guardarUsuario(){
+
     }
     
     public void verificarLogin (){
