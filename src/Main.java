@@ -35,10 +35,9 @@ public class Main {
                     } else if (tipoDeUsuario == 2) {
                         Medico medico = new Medico();
                         medico.registrarUsuario(tipoDeUsuario, coleccionUsuarios, medico.getIdUsuario());
-                        System.out.println(coleccionUsuarios.get(String.valueOf(medico.getIdUsuario())).get("nombre"));
 
                         medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
-
+                        System.out.println(coleccionUsuarios);
                     } else {
                         System.out.println("Por favor ingrese una opción válida.");
                     }
@@ -50,7 +49,7 @@ public class Main {
                     int i = 0;
                     boolean usuarioExistente = false;
                     do {
-                        if (coleccionUsuarios.get(String.valueOf(i)).get("nombreUsuario").equals(nombreUsuario)) {
+                        if (coleccionUsuarios.get(String.valueOf(i)).get("nombre").equals(nombreUsuario)) {
                             System.out.println("Digite su contraseña:");
                             String password = t.next();
                             if (coleccionUsuarios.get(String.valueOf(i)).get("password").equals(password)) {
