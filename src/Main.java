@@ -9,9 +9,12 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner t = new Scanner (System.in);
+
         //Un TreeMap guarda datos de manera ordenada según la clave asignada.
         TreeMap<String, HashMap<String, String>> coleccionUsuarios = new TreeMap<>();
+        //HashMap organiza datos de la manera <k, v> (clave, valor)
         HashMap<String, String> coleccionMedicos = new HashMap<>();
+
         boolean salir = false;//variable de salida
         //Menú de opciones
         do {
@@ -34,8 +37,9 @@ public class Main {
                         paciente.registrarUsuario(tipoDeUsuario, coleccionUsuarios, paciente.getIdUsuario());
                     } else if (tipoDeUsuario == 2) {
                         Medico medico = new Medico();
+                        //Registar como usuario
                         medico.registrarUsuario(tipoDeUsuario, coleccionUsuarios, medico.getIdUsuario());
-
+                        //Registrar como médico
                         medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
                         System.out.println(coleccionUsuarios);
                     } else {
