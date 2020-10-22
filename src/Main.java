@@ -61,7 +61,6 @@ public class Main {
                             }else{
                                 System.out.println("Contraseña incorrecta");
                             }
-
                         }
                         i++;
                     } while (i < coleccionUsuarios.size());
@@ -77,5 +76,6 @@ public class Main {
             }
         }while(!salir);
         //Código de prueba
+
     }
 }

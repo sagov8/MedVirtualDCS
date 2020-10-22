@@ -71,8 +71,10 @@ public class Usuario {
                                  int idUsuario){
         Scanner t = new Scanner(System.in);
         System.out.println("Ingrese el nombre de usuario: ");
-        HashMap <String, String> datosUsuario = new HashMap<>();
         this.nombreUsuario = t.next();
+
+        HashMap <String, String> datosUsuario = new HashMap<>();
+
         int i = 0;
         do{
             /*
@@ -96,7 +98,7 @@ public class Usuario {
                             datosUsuario.put("tipoUsuario", "medico");
                         }
                         datosUsuario.put("id", String.valueOf(idUsuario));
-                        usuario.put(String.valueOf(i),datosUsuario);
+                        usuario.put(String.valueOf(idUsuario),datosUsuario);
                         System.out.println("Usuario Registrado con éxito.");
                         salir = true;
                     }else{

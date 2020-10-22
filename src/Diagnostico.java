@@ -60,6 +60,6 @@ public class Diagnostico {
         
     }
     public void guardarDiagnostico(int idHistoriaClinica){
-        
+
     }
 }
