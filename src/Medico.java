@@ -1,41 +1,52 @@
 package src;
 
-import java.util.Calendar;
-import java.util.TimeZone;
+import java.util.HashMap;
+import java.util.Scanner;
 
 //Santiago
 public class Medico extends Usuario{
     //Atributos
-    private int idMedico;
+    private String idMedico;
     private String numeroTelefonicoMedico;
     private String nombreMedico;
     private String apellidoMedico;
+    private String cedulaMedico;
     private String correoMedico;
     private String especialidad;
 
-    //Constructor
+    //Constructores
     public Medico() {
-        this.idMedico = 0;
+        this.idMedico = "";
         this.numeroTelefonicoMedico = " ";
         this.nombreMedico = " ";
         this.apellidoMedico = " ";
+        this.cedulaMedico = " ";
         this.correoMedico = " ";
         this.especialidad = " ";
     }
-    public Medico(int idMedico, String numeroTelefonicoMedico, String nombreMedico, String apellidoMedico, String correoMedico, String especialidad) {
+
+    public Medico(String nombreUsuario, String password, String tipoUsuario){
+        setNombreUsuario(nombreUsuario);
+        setPassword(password);
+        setTipoUsuario(tipoUsuario);
+    }
+
+    public Medico(String idMedico, String numeroTelefonicoMedico, String nombreMedico, String apellidoMedico,
+                  String cedulaMedico, String correoMedico, String especialidad) {
         this.idMedico = idMedico;
         this.numeroTelefonicoMedico = numeroTelefonicoMedico;
         this.nombreMedico = nombreMedico;
         this.apellidoMedico = apellidoMedico;
+        this.cedulaMedico = cedulaMedico;
         this.correoMedico = correoMedico;
         this.especialidad = especialidad;
     }
 
-    public int getIdMedico() {
+    public String getIdMedico() {
         return idMedico;
     }
 
-    public void setIdMedico(int idMedico) {
+    public void setIdMedico(String idMedico) {
         this.idMedico = idMedico;
     }
 
@@ -63,6 +74,14 @@ public class Medico extends Usuario{
         this.apellidoMedico = apellidoMedico;
     }
 
+    public String getCedulaMedico() {
+        return cedulaMedico;
+    }
+
+    public void setCedulaMedico(String cedulaMedico) {
+        this.cedulaMedico = cedulaMedico;
+    }
+
     public String getCorreoMedico() {
         return correoMedico;
     }
@@ -82,8 +101,23 @@ public class Medico extends Usuario{
     //Métodos y funciones
     @Override
     public String toString(){
-        Calendar colombiaToday = Calendar.getInstance(TimeZone.getDefault());
-        return colombiaToday.getTime()+"\nNombre: "+nombreMedico+"\nApellido: "+apellidoMedico+"\nEspecialidad: "+especialidad+
-                "\nCorreo: "+correoMedico+"\nCelular: "+numeroTelefonicoMedico;
+
+        return "id:"+idMedico +"\nNombre: "+nombreMedico+"\nApellido: "+apellidoMedico+
+                "\nEspecialidad: "+especialidad+ "\nCorreo: "+correoMedico+"\nCelular: "+
+                numeroTelefonicoMedico;
+    }
+    public void registrarMedico(int id, HashMap<String, String> coleccionMedicos){
+        Scanner t = new Scanner(System.in);
+        System.out.println("\nIngrese su nombre:");
+        coleccionMedicos.put("nombreMedico",t.next());
+        System.out.println("Ingrese su apellido:");
+        coleccionMedicos.put("apellidoMedico",t.next());
+        System.out.println("Ingrese su especialidad");
+        coleccionMedicos.put("especialidad",t.next());
+        System.out.println("Ingrese su teléfono:");
+        coleccionMedicos.put("telefono",t.next());
+        System.out.println("Ingrese su correo");
+        coleccionMedicos.put("correo",t.next());
+        System.out.println("Su información ha sido registrada con éxito.");
     }
 }
