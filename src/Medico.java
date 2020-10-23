@@ -26,12 +26,6 @@ public class Medico extends Usuario{
         this.especialidad = " ";
     }
 
-    public Medico(String nombreUsuario, String password, String tipoUsuario){
-        setNombreUsuario(nombreUsuario);
-        setPassword(password);
-        setTipoUsuario(tipoUsuario);
-    }
-
     public Medico(int idMedico, String numeroTelefonicoMedico, String nombreMedico, String apellidoMedico,
                   String cedulaMedico, String correoMedico, String especialidad) {
         this.idMedico = idMedico;

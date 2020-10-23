@@ -22,13 +22,6 @@ public class Usuario {
         this.tipoUsuario = "";
     }
 
-    public Usuario(int idUsuario, String nombreUsuario, String password, String tipoUsuario) {
-        this.idUsuario = idUsuario;
-        this.nombreUsuario = nombreUsuario;
-        this.password = password;
-        this.tipoUsuario = tipoUsuario;
-    }
-
     //Getter y Setter
 
     public int getIdUsuario() {
