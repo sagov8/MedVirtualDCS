@@ -76,14 +76,14 @@ public class Usuario {
         boolean usuarioDisponible = false;
 
         while (!salir) {
-            /*
+
             for (String datos : coleccionUsuarios.values()) {
                 if (datos.contains(nombreUsuario)) {
                     System.out.println("Usuario existente, elija otro nombre de usuario.");
                 } else {
                     usuarioDisponible = true;
                 }
-            }*/
+            }
             if (usuarioDisponible = true) {
                 boolean passwordConfirmado = false;
                 while (!passwordConfirmado) {
@@ -112,17 +112,16 @@ public class Usuario {
         try {
             for (String datos : coleccionUsuarios.values()) {
                 System.out.println(datos);
-                if (datos.contains(nombreUsuario)) {
-                    if (datos.contains(password)) {
-                        System.out.println("Bienvenido a MedVirtualDCS");
-                    }
-                    System.out.println("Contraseña incorrecta");
+                if (datos.contains(nombreUsuario) && datos.contains(password)) {
+                    System.out.println("Bienvenido a MedVirtualDCS");
+                } else {
+                    System.out.println("Usuario no encontrado o Contraseña incorrecta");
                 }
             }
         } catch (NullPointerException e) {
             System.out.println("No hay usuarios registrados.");
         }
-        System.out.println("Usuario no encontrado");
+
     }
 
 }

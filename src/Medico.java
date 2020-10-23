@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Medico extends Usuario{
     //Atributos
     private int idMedico;
-    private static int idNext = 1;
     private String numeroTelefonicoMedico;
     private String nombreMedico;
     private String apellidoMedico;
@@ -17,7 +16,7 @@ public class Medico extends Usuario{
 
     //Constructores
     public Medico() {
-        this.idMedico = idNext++;
+        this.idMedico = 0;
         this.numeroTelefonicoMedico = " ";
         this.nombreMedico = " ";
         this.apellidoMedico = " ";
