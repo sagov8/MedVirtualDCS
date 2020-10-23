@@ -109,23 +109,22 @@ public class Usuario {
 
     }
 
-    public static void verificarLogin(String nombreUsuario, String password,
+    public static Boolean verificarLogin(String nombreUsuario, String password,
                                       HashMap<Integer, String> coleccionUsuarios) {
         try {
-            for (String datos : coleccionUsuarios.values()) {
-                System.out.println(datos);
-                if (datos.contains(nombreUsuario) && datos.contains(password)) {
+            for (String usuarios : coleccionUsuarios.values()) {
+                if (usuarios.contains(nombreUsuario) && usuarios.contains(password)) {
                     System.out.println("Bienvenido a MedVirtualDCS");
+                    return true;
                 } else {
                     System.out.println("Usuario no encontrado o Contraseña incorrecta");
+                    return false;
                 }
             }
         } catch (NullPointerException e) {
             System.out.println("No hay usuarios registrados.");
-        }finally {
-            System.out.println("No hay usuarios registrados.");
         }
-
+        return false;
     }
 
 }

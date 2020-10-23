@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner t = new Scanner(System.in);
-        int i = 0;
+        int id = 0;
         //HashMap organiza datos de la manera <k, v> (clave, valor)
         HashMap<Integer, String> coleccionUsuarios = new HashMap<>();
         HashMap<Integer, String> coleccionMedicos = new HashMap<>();
@@ -30,17 +30,17 @@ public class Main {
                 case 1:
                     System.out.println("\nEscriba el tipo de usuario (medico/paciente):");
                     String tipoDeUsuario = t.next();
-                    i++;
+                    id++;
                     if (tipoDeUsuario.equalsIgnoreCase("paciente")) {
                         Paciente paciente = new Paciente();
                         paciente.setTipoUsuario(tipoDeUsuario);
-                        paciente.setIdUsuario(i);
+                        paciente.setIdUsuario(id);
                         paciente.registrarUsuario(coleccionUsuarios, paciente.getNombreUsuario());
 
                     } else if (tipoDeUsuario.equalsIgnoreCase("medico")) {
                         Medico medico = new Medico();
                         medico.setTipoUsuario(tipoDeUsuario);
-                        medico.setIdUsuario(i);
+                        medico.setIdUsuario(id);
 
                         System.out.println("Ingrese nombre de usuario: ");
                         medico.setNombreUsuario(t.next());
@@ -56,11 +56,14 @@ public class Main {
                     }
                     break;
                 case 2:
-                    System.out.println("Ingrese su nombre de usuario:");
-                    String nombreUsuario = t.next();
-                    System.out.println("Digite su contraseña:");
-                    String password = t.next();
-                    Usuario.verificarLogin(nombreUsuario, password, coleccionUsuarios);
+                    boolean verificado = false;
+                    while(!verificado){
+                        System.out.println("Ingrese su nombre de usuario:");
+                        String nombreUsuario = t.next();
+                        System.out.println("Digite su contraseña:");
+                        String password = t.next();
+                        verificado = Usuario.verificarLogin(nombreUsuario, password, coleccionUsuarios);
+                    }
                     salir = true;
                     break;
                 case 3:
