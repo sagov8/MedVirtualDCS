@@ -96,8 +96,8 @@ public class Medico extends Usuario{
     @Override
     public String toString(){
 
-        return "id:"+getIdUsuario() +"\nNombre: "+nombreMedico+"\nApellido: "+apellidoMedico+
-                "\nEspecialidad: "+especialidad+ "\nCorreo: "+correoMedico+"\nCelular: "+
+        return "id: "+getIdUsuario() +"&Nombre: "+nombreMedico+"&Apellido: "+apellidoMedico+
+                "&Especialidad: "+especialidad+ "&Correo: "+correoMedico+"&Celular: "+
                 numeroTelefonicoMedico;
     }
     public void registrarMedico(int id, HashMap<Integer, String> coleccionMedicos){
@@ -114,6 +114,6 @@ public class Medico extends Usuario{
         correoMedico = t.next();
         idMedico = id;
         coleccionMedicos.put(id, toString());
-        System.out.println("Su información ha sido registrada con éxito.");
+        System.out.println("\nSu información ha sido registrada con éxito.\n");
     }
 }

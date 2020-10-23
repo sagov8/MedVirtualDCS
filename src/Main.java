@@ -30,12 +30,14 @@ public class Main {
                 case 1:
                     System.out.println("\nEscriba el tipo de usuario (medico/paciente):");
                     String tipoDeUsuario = t.next();
-                    id++;
+
                     if (tipoDeUsuario.equalsIgnoreCase("paciente")) {
                         Paciente paciente = new Paciente();
                         paciente.setTipoUsuario(tipoDeUsuario);
                         paciente.setIdUsuario(id);
+
                         paciente.registrarUsuario(coleccionUsuarios, paciente.getNombreUsuario());
+                        id++;
 
                     } else if (tipoDeUsuario.equalsIgnoreCase("medico")) {
                         Medico medico = new Medico();
@@ -48,34 +50,38 @@ public class Main {
                         medico.registrarUsuario(coleccionUsuarios, medico.getNombreUsuario());
 
                         medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
+                        id++;
 
-                        System.out.println(coleccionUsuarios);
-                        System.out.println(coleccionMedicos);
                     } else {
                         System.out.println("Por favor ingrese una opción válida.");
                     }
                     break;
                 case 2:
                     boolean verificado = false;
-                    while(!verificado){
-                        System.out.println("Ingrese su nombre de usuario:");
-                        String nombreUsuario = t.next();
-                        System.out.println("Digite su contraseña:");
-                        String password = t.next();
-                        verificado = Usuario.verificarLogin(nombreUsuario, password, coleccionUsuarios);
+                    if (coleccionUsuarios.size() != 0) {
+                        while (!verificado) {
+                            System.out.println("Ingrese su nombre de usuario:");
+                            String nombreUsuario = t.next();
+                            System.out.println("Digite su contraseña:");
+                            String password = t.next();
+                            verificado = Usuario.verificarLogin(nombreUsuario, password, coleccionUsuarios);
+                        }
+                        salir = true;
+                    } else {
+                        System.out.println("No hay usuarios registrados.");
                     }
-                    salir = true;
                     break;
                 case 3:
                     System.out.println("Gracias por usar MedVirtualDCS, vuelva pronto.");
                     salir = true;
-                    break;
+                break;
                 default:
                     System.out.println("Ingrese una opción válida");
+                    }
             }
-        } while (!salir);
-        //Código de prueba
-        System.out.println(coleccionUsuarios.values());
-        System.out.println(coleccionMedicos.values());
+            while (!salir) ;
+            //Código de prueba
+            System.out.println(coleccionUsuarios.values());
+            System.out.println(coleccionMedicos.values());
+        }
     }
-}

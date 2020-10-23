@@ -96,7 +96,7 @@ public class Usuario {
                         passwordConfirmado = true;
                         System.out.println("Registro éxitoso.");
                         salir = true;
-                    }else{
+                    } else {
                         System.out.println("Los password no coinciden.");
                     }
 
@@ -110,19 +110,15 @@ public class Usuario {
     }
 
     public static Boolean verificarLogin(String nombreUsuario, String password,
-                                      HashMap<Integer, String> coleccionUsuarios) {
-        try {
-            for (String usuarios : coleccionUsuarios.values()) {
-                if (usuarios.contains(nombreUsuario) && usuarios.contains(password)) {
-                    System.out.println("Bienvenido a MedVirtualDCS");
-                    return true;
-                } else {
-                    System.out.println("Usuario no encontrado o Contraseña incorrecta");
-                    return false;
-                }
+                                         HashMap<Integer, String> coleccionUsuarios) {
+
+        for (String usuarios : coleccionUsuarios.values()) {
+            if (usuarios.contains(nombreUsuario) && usuarios.contains(password)) {
+                System.out.println("Bienvenido a MedVirtualDCS");
+                return true;
+            } else {
+                System.out.println("Usuario no encontrado o Contraseña incorrecta");
             }
-        } catch (NullPointerException e) {
-            System.out.println("No hay usuarios registrados.");
         }
         return false;
     }
