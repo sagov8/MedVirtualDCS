@@ -96,6 +96,8 @@ public class Usuario {
                         passwordConfirmado = true;
                         System.out.println("Registro éxitoso.");
                         salir = true;
+                    }else{
+                        System.out.println("Los password no coinciden.");
                     }
 
                 }
@@ -119,6 +121,8 @@ public class Usuario {
                 }
             }
         } catch (NullPointerException e) {
+            System.out.println("No hay usuarios registrados.");
+        }finally {
             System.out.println("No hay usuarios registrados.");
         }
 

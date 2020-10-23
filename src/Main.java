@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner t = new Scanner(System.in);
-
+        int i = 0;
         //HashMap organiza datos de la manera <k, v> (clave, valor)
         HashMap<Integer, String> coleccionUsuarios = new HashMap<>();
         HashMap<Integer, String> coleccionMedicos = new HashMap<>();
@@ -30,15 +30,17 @@ public class Main {
                 case 1:
                     System.out.println("\nEscriba el tipo de usuario (medico/paciente):");
                     String tipoDeUsuario = t.next();
-
+                    i++;
                     if (tipoDeUsuario.equalsIgnoreCase("paciente")) {
                         Paciente paciente = new Paciente();
                         paciente.setTipoUsuario(tipoDeUsuario);
+                        paciente.setIdUsuario(i);
                         paciente.registrarUsuario(coleccionUsuarios, paciente.getNombreUsuario());
 
                     } else if (tipoDeUsuario.equalsIgnoreCase("medico")) {
                         Medico medico = new Medico();
                         medico.setTipoUsuario(tipoDeUsuario);
+                        medico.setIdUsuario(i);
 
                         System.out.println("Ingrese nombre de usuario: ");
                         medico.setNombreUsuario(t.next());
@@ -70,5 +72,7 @@ public class Main {
             }
         } while (!salir);
         //Código de prueba
+        System.out.println(coleccionUsuarios.values());
+        System.out.println(coleccionMedicos.values());
     }
 }
