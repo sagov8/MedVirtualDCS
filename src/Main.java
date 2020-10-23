@@ -2,17 +2,16 @@ package src;
 
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.TreeMap;
 
 public class Main {
 
     public static void main(String[] args) {
 
         Scanner t = new Scanner (System.in);
-
-        //Un TreeMap guarda datos de manera ordenada según la clave asignada.
-        TreeMap<String, HashMap<String, String>> coleccionUsuarios = new TreeMap<>();
+        Paciente paciente = new Paciente();
+        Medico medico = new Medico();
         //HashMap organiza datos de la manera <k, v> (clave, valor)
+        HashMap<String, String> coleccionUsuarios = new HashMap<>();
         HashMap<String, String> coleccionMedicos = new HashMap<>();
 
         boolean salir = false;//variable de salida
@@ -20,26 +19,28 @@ public class Main {
         do {
             System.out.println("**************************"+
                                 "\nBIENVENIDO A MEDVIRTUALDCS"+
-                                "\n**************************");
-            System.out.println("\nMenú de opciones: "+"\n1. Registrar usuario."
-                                +"\n2. Iniciar sesión."+"\n3. Salir.");
+                                "\n**************************")+
+                                "\nMenú de opciones: "+
+                                "\n1. Registrar usuario."+
+                                "\n2. Iniciar sesión."+
+                                "\n3. Salir.");
 
             int opcion = t.nextInt();
 
             switch (opcion) {
                 case 1:
                     System.out.println("\nElegir entre las siguientes opciones:" + "\n1. Paciente" +
-                            "\n2. Médico");
-                    int tipoDeUsuario = t.nextInt();//Recibe el tipo de usuario
+                                                                                   "\n2. Médico");
+                    int tipoDeUsuario = t.nextInt();
 
                     if (tipoDeUsuario == 1) {
-                        Paciente paciente = new Paciente();
-                        paciente.registrarUsuario(tipoDeUsuario, coleccionUsuarios, paciente.getIdUsuario());
+
+                        paciente.registrarUsuario();
                     } else if (tipoDeUsuario == 2) {
-                        Medico medico = new Medico();
-                        //Registar como usuario
-                        medico.registrarUsuario(tipoDeUsuario, coleccionUsuarios, medico.getIdUsuario());
-                        //Registrar como médico
+
+                        //Registar como usuario:
+                        medico.registrarUsuario();
+                        //Registrar como médico:
                         medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
                         System.out.println(coleccionUsuarios);
                     } else {
@@ -49,28 +50,8 @@ public class Main {
                 case 2:
                     System.out.println("Ingrese su nombre de usuario:");
                     String nombreUsuario = t.next();
-
-                    int i = 0;
-                    boolean usuarioExistente = false;
-                    do {
-                        if (coleccionUsuarios.get(String.valueOf(i)).get("nombre").equals(nombreUsuario)) {
-                            System.out.println("Digite su contraseña:");
-                            String password = t.next();
-                            if (coleccionUsuarios.get(String.valueOf(i)).get("password").equals(password)) {
-                                System.out.println("Bienvenido a MedVirtualDCS Dr. "+
-                                        coleccionMedicos.get("nombreMedico")+" "+
-                                        coleccionMedicos.get("apellidoMedico"));
-                                usuarioExistente = true;
-                                salir = true;
-                            }else{
-                                System.out.println("Contraseña incorrecta");
-                            }
-                        }
-                        i++;
-                    } while (i < coleccionUsuarios.size());
-                    if (!usuarioExistente){
-                        System.out.println("Usuario no encontrado");
-                    }
+                    System.out.println("Digite su contraseña:");
+                    String password = t.next();
                 break;
                 case 3:
                     System.out.println("Gracias por usar MedVirtualDCS, vuelva pronto.");
