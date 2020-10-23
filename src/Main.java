@@ -74,14 +74,14 @@ public class Main {
                 case 3:
                     System.out.println("Gracias por usar MedVirtualDCS, vuelva pronto.");
                     salir = true;
-                break;
+                    break;
                 default:
                     System.out.println("Ingrese una opción válida");
-                    }
             }
-            while (!salir) ;
-            //Código de prueba
-            System.out.println(coleccionUsuarios.values());
-            System.out.println(coleccionMedicos.values());
         }
+        while (!salir);
+        //Código de prueba
+        System.out.println(coleccionUsuarios.values());
+        System.out.println(coleccionMedicos.values());
     }
+}
