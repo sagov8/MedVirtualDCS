@@ -1,25 +1,25 @@
 package src;
 
 import java.util.HashMap;
+import java.util.Scanner;
 
 //Camilo
 public class Usuario {
 
     //Atributos usuario
     private int idUsuario;
-    private static int idNext = 1;
     private String nombreUsuario;
     private String password;
     private String tipoUsuario;
-    
+
     // Contructor
-    
-    public Usuario (){
-        
-        this.idUsuario= idNext++;
-        this.nombreUsuario= "";
-        this.password= "";
-        this.tipoUsuario= "";  
+
+    public Usuario() {
+
+        this.idUsuario = 0;
+        this.nombreUsuario = "";
+        this.password = "";
+        this.tipoUsuario = "";
     }
 
     public Usuario(int idUsuario, String nombreUsuario, String password, String tipoUsuario) {
@@ -62,35 +62,74 @@ public class Usuario {
     public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
-    
-    //Metodos y funciones
-    
-    public String registrarUsuario(HashMap<String, String> coleccionUsuarios,
-                                 int tipoUsuario,
-                                 int idUsuario){
 
-        return " ";
+    //Metodos y funciones
+
+    public String guardarUsuario() {
+        return "\nID: " +
+                idUsuario +
+                "\nNombre: " +
+                nombreUsuario +
+                "\nPassword: " +
+                password +
+                "\nTipo Usuario: " +
+                tipoUsuario;
     }
-    
-    public static String verificarLogin (String nombreUsuario, String password,
-                                HashMap<String, String> coleccionUsuarios,
-                                HashMap<String, String> coleccionMedicos,
-                                HashMap<String, String> coleccionPacientes){
-        try {
+
+    public void registrarUsuario(HashMap<Integer, String> coleccionUsuarios, String nombreUsuario) {
+        Scanner t = new Scanner(System.in);
+
+        boolean salir = false;
+        boolean usuarioDisponible = false;
+
+        while (!salir) {
+            /*
             for (String datos : coleccionUsuarios.values()) {
                 if (datos.contains(nombreUsuario)) {
-                    if (datos.contains(password)) {
-                        return ("Bienvenido a MedVirtualDCS");
+                    System.out.println("Usuario existente, elija otro nombre de usuario.");
+                } else {
+                    usuarioDisponible = true;
+                }
+            }*/
+            if (usuarioDisponible = true) {
+                boolean passwordConfirmado = false;
+                while (!passwordConfirmado) {
+                    System.out.println("Ingrese un password:");
+                    password = t.next();
+                    System.out.println("Ingrese otra vez el password:");
+                    String confirmacionPassword = t.next();
+                    if (password.equals(confirmacionPassword)) {
+                        coleccionUsuarios.put(idUsuario, guardarUsuario());
+                        passwordConfirmado = true;
+                        System.out.println("Registro éxitoso.");
+                        salir = true;
                     }
-                    return "Contraseña incorrecta";
+
+                }
+
+
+            }
+
+        }
+
+    }
+
+    public static void verificarLogin(String nombreUsuario, String password,
+                                      HashMap<Integer, String> coleccionUsuarios) {
+        try {
+            for (String datos : coleccionUsuarios.values()) {
+                System.out.println(datos);
+                if (datos.contains(nombreUsuario)) {
+                    if (datos.contains(password)) {
+                        System.out.println("Bienvenido a MedVirtualDCS");
+                    }
+                    System.out.println("Contraseña incorrecta");
                 }
             }
+        } catch (NullPointerException e) {
+            System.out.println("No hay usuarios registrados.");
         }
-        catch (NullPointerException e)
-        {
-            return("No hay usuarios registrados.");
-        }
-        return "Usuario no encontrado";
+        System.out.println("Usuario no encontrado");
     }
-    
+
 }

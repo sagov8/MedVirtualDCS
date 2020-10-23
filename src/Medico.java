@@ -6,7 +6,8 @@ import java.util.Scanner;
 //Santiago
 public class Medico extends Usuario{
     //Atributos
-    private String idMedico;
+    private int idMedico;
+    private static int idNext = 1;
     private String numeroTelefonicoMedico;
     private String nombreMedico;
     private String apellidoMedico;
@@ -16,7 +17,7 @@ public class Medico extends Usuario{
 
     //Constructores
     public Medico() {
-        this.idMedico = "";
+        this.idMedico = idNext++;
         this.numeroTelefonicoMedico = " ";
         this.nombreMedico = " ";
         this.apellidoMedico = " ";
@@ -31,7 +32,7 @@ public class Medico extends Usuario{
         setTipoUsuario(tipoUsuario);
     }
 
-    public Medico(String idMedico, String numeroTelefonicoMedico, String nombreMedico, String apellidoMedico,
+    public Medico(int idMedico, String numeroTelefonicoMedico, String nombreMedico, String apellidoMedico,
                   String cedulaMedico, String correoMedico, String especialidad) {
         this.idMedico = idMedico;
         this.numeroTelefonicoMedico = numeroTelefonicoMedico;
@@ -42,11 +43,11 @@ public class Medico extends Usuario{
         this.especialidad = especialidad;
     }
 
-    public String getIdMedico() {
+    public int getIdMedico() {
         return idMedico;
     }
 
-    public void setIdMedico(String idMedico) {
+    public void setIdMedico(int idMedico) {
         this.idMedico = idMedico;
     }
 
@@ -102,22 +103,24 @@ public class Medico extends Usuario{
     @Override
     public String toString(){
 
-        return "id:"+idMedico +"\nNombre: "+nombreMedico+"\nApellido: "+apellidoMedico+
+        return "id:"+getIdUsuario() +"\nNombre: "+nombreMedico+"\nApellido: "+apellidoMedico+
                 "\nEspecialidad: "+especialidad+ "\nCorreo: "+correoMedico+"\nCelular: "+
                 numeroTelefonicoMedico;
     }
-    public void registrarMedico(int id, HashMap<String, String> coleccionMedicos){
+    public void registrarMedico(int id, HashMap<Integer, String> coleccionMedicos){
         Scanner t = new Scanner(System.in);
         System.out.println("\nIngrese su nombre:");
-        coleccionMedicos.put("nombreMedico",t.next());
+        nombreMedico = t.next();
         System.out.println("Ingrese su apellido:");
-        coleccionMedicos.put("apellidoMedico",t.next());
+        apellidoMedico = t.next();
         System.out.println("Ingrese su especialidad");
-        coleccionMedicos.put("especialidad",t.next());
+        especialidad = t.next();
         System.out.println("Ingrese su teléfono:");
-        coleccionMedicos.put("telefono",t.next());
+        numeroTelefonicoMedico = t.next();
         System.out.println("Ingrese su correo");
-        coleccionMedicos.put("correo",t.next());
+        correoMedico = t.next();
+        idMedico = id;
+        coleccionMedicos.put(id, toString());
         System.out.println("Su información ha sido registrada con éxito.");
     }
 }
