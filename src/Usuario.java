@@ -114,10 +114,10 @@ public class Usuario {
 
         for (String usuarios : coleccionUsuarios.values()) {
             if (usuarios.contains(nombreUsuario) && usuarios.contains(password)) {
-                System.out.println("Bienvenido a MedVirtualDCS");
+                System.out.println("\nBienvenido a MedVirtualDCS\n");
                 return true;
             } else {
-                System.out.println("Usuario no encontrado o Contraseña incorrecta");
+                System.out.println("\nUsuario no encontrado o Contraseña incorrecta\n");
             }
         }
         return false;
