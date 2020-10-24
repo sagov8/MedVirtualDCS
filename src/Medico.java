@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 //Santiago
-public class Medico extends Usuario{
+public class Medico extends Usuario {
     //Atributos
     private int idMedico;
     private String numeroTelefonicoMedico;
@@ -94,13 +94,14 @@ public class Medico extends Usuario{
 
     //Métodos y funciones
     @Override
-    public String toString(){
+    public String toString() {
 
-        return "id: "+getIdUsuario() +"&Nombre: "+nombreMedico+"&Apellido: "+apellidoMedico+
-                "&Especialidad: "+especialidad+ "&Correo: "+correoMedico+"&Celular: "+
+        return "id: " + getIdUsuario() + "&Nombre: " + nombreMedico + "&Apellido: " + apellidoMedico +
+                "&Especialidad: " + especialidad + "&Correo: " + correoMedico + "&Celular: " +
                 numeroTelefonicoMedico;
     }
-    public void registrarMedico(int id, HashMap<Integer, String> coleccionMedicos){
+
+    public void registrarMedico(int id, HashMap<Integer, String> coleccionMedicos) {
         Scanner t = new Scanner(System.in);
         System.out.println("\nIngrese su nombre:");
         nombreMedico = t.next();

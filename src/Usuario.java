@@ -73,18 +73,17 @@ public class Usuario {
         Scanner t = new Scanner(System.in);
 
         boolean salir = false;
-        boolean usuarioDisponible = false;
+        boolean existente = false;
 
         while (!salir) {
-
             for (String datos : coleccionUsuarios.values()) {
                 if (datos.contains(nombreUsuario)) {
                     System.out.println("Usuario existente, elija otro nombre de usuario.");
-                } else {
-                    usuarioDisponible = true;
+                    existente = true;
+                    break;
                 }
             }
-            if (usuarioDisponible = true) {
+            if (!existente) {
                 boolean passwordConfirmado = false;
                 while (!passwordConfirmado) {
                     System.out.println("Ingrese un password:");
@@ -103,11 +102,13 @@ public class Usuario {
                 }
 
 
+            } else {
+                salir = true;
             }
 
         }
-
     }
+
 
     public static Boolean verificarLogin(String nombreUsuario, String password,
                                          HashMap<Integer, String> coleccionUsuarios) {

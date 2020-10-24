@@ -45,9 +45,9 @@ public class Main {
                         medico.setIdUsuario(id);
 
                         System.out.println("Ingrese nombre de usuario: ");
-                        medico.setNombreUsuario(t.next());
+                        String nombreUsuario = t.next();
 
-                        medico.registrarUsuario(coleccionUsuarios, medico.getNombreUsuario());
+                        medico.registrarUsuario(coleccionUsuarios, nombreUsuario);
 
                         medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
                         id++;
@@ -58,7 +58,9 @@ public class Main {
                     break;
                 case 2:
                     boolean verificado = false;
-                    if (coleccionUsuarios.size() != 0) {
+                    if (coleccionUsuarios.isEmpty()) {
+                        System.out.println("No hay usuarios registrados.");
+                    } else {
                         while (!verificado) {
                             System.out.println("Ingrese su nombre de usuario:");
                             String nombreUsuario = t.next();
@@ -67,8 +69,6 @@ public class Main {
                             verificado = Usuario.verificarLogin(nombreUsuario, password, coleccionUsuarios);
                         }
                         salir = true;
-                    } else {
-                        System.out.println("No hay usuarios registrados.");
                     }
                     break;
                 case 3:
