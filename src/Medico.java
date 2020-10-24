@@ -1,32 +1,37 @@
 package src;
 
-import java.util.Calendar;
-import java.util.TimeZone;
+import java.util.HashMap;
+import java.util.Scanner;
 
 //Santiago
-public class Medico extends Usuario{
+public class Medico extends Usuario {
     //Atributos
     private int idMedico;
     private String numeroTelefonicoMedico;
     private String nombreMedico;
     private String apellidoMedico;
+    private String cedulaMedico;
     private String correoMedico;
     private String especialidad;
 
-    //Constructor
+    //Constructores
     public Medico() {
         this.idMedico = 0;
         this.numeroTelefonicoMedico = " ";
         this.nombreMedico = " ";
         this.apellidoMedico = " ";
+        this.cedulaMedico = " ";
         this.correoMedico = " ";
         this.especialidad = " ";
     }
-    public Medico(int idMedico, String numeroTelefonicoMedico, String nombreMedico, String apellidoMedico, String correoMedico, String especialidad) {
+
+    public Medico(int idMedico, String numeroTelefonicoMedico, String nombreMedico, String apellidoMedico,
+                  String cedulaMedico, String correoMedico, String especialidad) {
         this.idMedico = idMedico;
         this.numeroTelefonicoMedico = numeroTelefonicoMedico;
         this.nombreMedico = nombreMedico;
         this.apellidoMedico = apellidoMedico;
+        this.cedulaMedico = cedulaMedico;
         this.correoMedico = correoMedico;
         this.especialidad = especialidad;
     }
@@ -63,6 +68,14 @@ public class Medico extends Usuario{
         this.apellidoMedico = apellidoMedico;
     }
 
+    public String getCedulaMedico() {
+        return cedulaMedico;
+    }
+
+    public void setCedulaMedico(String cedulaMedico) {
+        this.cedulaMedico = cedulaMedico;
+    }
+
     public String getCorreoMedico() {
         return correoMedico;
     }
@@ -95,10 +108,28 @@ public class Medico extends Usuario{
         return "";
     }
     @Override
-    public String toString(){
-        Calendar colombiaToday = Calendar.getInstance(TimeZone.getDefault());
-        return colombiaToday.getTime() + "\nNombre: " + nombreMedico + "\nApellido: " + apellidoMedico + "\nEspecialidad: " + especialidad +
-                "\nCorreo: " + correoMedico + "\nCelular: " + numeroTelefonicoMedico;
+    public String toString() {
+
+        return "id: " + getIdUsuario() + "&Nombre: " + nombreMedico + "&Apellido: " + apellidoMedico +
+                "&Especialidad: " + especialidad + "&Correo: " + correoMedico + "&Celular: " +
+                numeroTelefonicoMedico;
+    }
+
+    public void registrarMedico(int id, HashMap<Integer, String> coleccionMedicos) {
+        Scanner t = new Scanner(System.in);
+        System.out.println("\nIngrese su nombre:");
+        nombreMedico = t.next();
+        System.out.println("Ingrese su apellido:");
+        apellidoMedico = t.next();
+        System.out.println("Ingrese su especialidad");
+        especialidad = t.next();
+        System.out.println("Ingrese su teléfono:");
+        numeroTelefonicoMedico = t.next();
+        System.out.println("Ingrese su correo");
+        correoMedico = t.next();
+        idMedico = id;
+        coleccionMedicos.put(id, toString());
+        System.out.println("\nSu información ha sido registrada con éxito.\n");
 
     }
 }

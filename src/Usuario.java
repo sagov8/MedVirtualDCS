@@ -1,5 +1,8 @@
 package src;
 
+import java.util.HashMap;
+import java.util.Scanner;
+
 //Camilo
 public class Usuario {
 
@@ -8,24 +11,17 @@ public class Usuario {
     private String nombreUsuario;
     private String password;
     private String tipoUsuario;
-    
+
     // Contructor
-    
-    public Usuario (){
-        
-        this.idUsuario= 0;
-        this.nombreUsuario= "";
-        this.password= "";
-        this.tipoUsuario= "";  
+
+    public Usuario() {
+
+        this.idUsuario = 0;
+        this.nombreUsuario = "";
+        this.password = "";
+        this.tipoUsuario = "";
     }
 
-    public Usuario(int idUsuario, String nombreUsuario, String password, String tipoUsuario) {
-        this.idUsuario = idUsuario;
-        this.nombreUsuario = nombreUsuario;
-        this.password = password;
-        this.tipoUsuario = tipoUsuario;
-    }
-    
     //Getter y Setter
 
     public int getIdUsuario() {
@@ -59,15 +55,72 @@ public class Usuario {
     public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
-    
+
     //Metodos y funciones
-    
-    public void registrarUsuario(){
-        
+
+    public String guardarUsuario() {
+        return "\nID: " +
+                idUsuario +
+                "\nNombre: " +
+                nombreUsuario +
+                "\nPassword: " +
+                password +
+                "\nTipo Usuario: " +
+                tipoUsuario;
     }
-    
-    public void verificarLogin (){
-        
+
+    public void registrarUsuario(HashMap<Integer, String> coleccionUsuarios, String nombreUsuario) {
+        Scanner t = new Scanner(System.in);
+
+        boolean salir = false;
+        boolean usuarioDisponible = false;
+
+        while (!salir) {
+
+            for (String datos : coleccionUsuarios.values()) {
+                if (datos.contains(nombreUsuario)) {
+                    System.out.println("Usuario existente, elija otro nombre de usuario.");
+                } else {
+                    usuarioDisponible = true;
+                }
+            }
+            if (usuarioDisponible = true) {
+                boolean passwordConfirmado = false;
+                while (!passwordConfirmado) {
+                    System.out.println("Ingrese un password:");
+                    password = t.next();
+                    System.out.println("Ingrese otra vez el password:");
+                    String confirmacionPassword = t.next();
+                    if (password.equals(confirmacionPassword)) {
+                        coleccionUsuarios.put(idUsuario, guardarUsuario());
+                        passwordConfirmado = true;
+                        System.out.println("Registro éxitoso.");
+                        salir = true;
+                    } else {
+                        System.out.println("Los password no coinciden.");
+                    }
+
+                }
+
+
+            }
+
+        }
+
     }
-    
+
+    public static Boolean verificarLogin(String nombreUsuario, String password,
+                                         HashMap<Integer, String> coleccionUsuarios) {
+
+        for (String usuarios : coleccionUsuarios.values()) {
+            if (usuarios.contains(nombreUsuario) && usuarios.contains(password)) {
+                System.out.println("\nBienvenido a MedVirtualDCS\n");
+                return true;
+            } else {
+                System.out.println("\nUsuario no encontrado o Contraseña incorrecta\n");
+            }
+        }
+        return false;
+    }
+
 }
