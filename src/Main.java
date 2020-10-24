@@ -44,10 +44,13 @@ public class Main {
                         medico.setTipoUsuario(tipoDeUsuario);
                         medico.setIdUsuario(id);
 
-                        System.out.println("Ingrese nombre de usuario: ");
-                        String nombreUsuario = t.next();
+                        boolean registroExitoso = false;
+                        while (!registroExitoso){
+                            System.out.println("Ingrese nombre de usuario: ");
+                            String nombreUsuario = t.next();
 
-                        medico.registrarUsuario(coleccionUsuarios, nombreUsuario);
+                            registroExitoso = medico.registrarUsuario(coleccionUsuarios, nombreUsuario);
+                        }
 
                         medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
                         id++;
@@ -67,6 +70,9 @@ public class Main {
                             System.out.println("Digite su contraseña:");
                             String password = t.next();
                             verificado = Usuario.verificarLogin(nombreUsuario, password, coleccionUsuarios);
+                            if (!verificado) {
+                                System.out.println("\nUsuario no encontrado o Contraseña incorrecta\n");
+                            }
                         }
                         salir = true;
                     }

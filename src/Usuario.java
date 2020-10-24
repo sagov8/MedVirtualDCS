@@ -69,7 +69,7 @@ public class Usuario {
                 tipoUsuario;
     }
 
-    public void registrarUsuario(HashMap<Integer, String> coleccionUsuarios, String nombreUsuario) {
+    public Boolean registrarUsuario(HashMap<Integer, String> coleccionUsuarios, String nombreUsuario) {
         Scanner t = new Scanner(System.in);
 
         boolean salir = false;
@@ -78,36 +78,33 @@ public class Usuario {
         while (!salir) {
             for (String datos : coleccionUsuarios.values()) {
                 if (datos.contains(nombreUsuario)) {
-                    System.out.println("Usuario existente, elija otro nombre de usuario.");
-                    existente = true;
-                    break;
+                    return false;
                 }
             }
-            if (!existente) {
-                boolean passwordConfirmado = false;
-                while (!passwordConfirmado) {
-                    System.out.println("Ingrese un password:");
-                    password = t.next();
-                    System.out.println("Ingrese otra vez el password:");
-                    String confirmacionPassword = t.next();
-                    if (password.equals(confirmacionPassword)) {
-                        coleccionUsuarios.put(idUsuario, guardarUsuario());
-                        passwordConfirmado = true;
-                        System.out.println("Registro éxitoso.");
-                        salir = true;
-                    } else {
-                        System.out.println("Los password no coinciden.");
-                    }
-
+            this.nombreUsuario = nombreUsuario;
+            boolean passwordConfirmado = false;
+            while (!passwordConfirmado) {
+                System.out.println("Ingrese un password:");
+                password = t.next();
+                System.out.println("Ingrese otra vez el password:");
+                String confirmacionPassword = t.next();
+                if (password.equals(confirmacionPassword)) {
+                    coleccionUsuarios.put(idUsuario, guardarUsuario());
+                    passwordConfirmado = true;
+                    System.out.println("Registro éxitoso.");
+                    salir = true;
+                } else {
+                    System.out.println("Los password no coinciden.");
                 }
 
-
-            } else {
-                salir = true;
             }
+
 
         }
+        return true;
     }
+
+
 
 
     public static Boolean verificarLogin(String nombreUsuario, String password,
@@ -117,8 +114,6 @@ public class Usuario {
             if (usuarios.contains(nombreUsuario) && usuarios.contains(password)) {
                 System.out.println("\nBienvenido a MedVirtualDCS\n");
                 return true;
-            } else {
-                System.out.println("\nUsuario no encontrado o Contraseña incorrecta\n");
             }
         }
         return false;
