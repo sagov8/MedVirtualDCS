@@ -1,5 +1,6 @@
 package src;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -59,13 +60,13 @@ public class Usuario {
     //Metodos y funciones
 
     public String guardarUsuario() {
-        return "\nID: " +
+        return "ID: " +
                 idUsuario +
-                "\nUsuario: " +
+                "&Usuario: " +
                 nombreUsuario +
-                "\nPassword: " +
+                "&Password: " +
                 password +
-                "\nTipo Usuario: " +
+                "&Tipo Usuario: " +
                 tipoUsuario;
     }
 
@@ -105,18 +106,21 @@ public class Usuario {
     }
 
 
-
-
     public static Boolean verificarLogin(String nombreUsuario, String password,
                                          HashMap<Integer, String> coleccionUsuarios) {
 
+
         for (String usuarios : coleccionUsuarios.values()) {
-            if (usuarios.contains(nombreUsuario) && usuarios.contains(password)) {
+            String[] datos = usuarios.split("&");
+            System.out.println(datos[0]);
+            String nombreRegistrado = datos[1].split(" ")[1];
+            String passwordRegistrado = datos[2].split(" ")[1];
+
+            if (nombreRegistrado.equals(nombreUsuario) && passwordRegistrado.equals(password)) {
                 System.out.println("\nBienvenido a MedVirtualDCS\n");
                 return true;
             }
         }
         return false;
     }
-
 }
