@@ -47,7 +47,7 @@ public class Main {
 
                             registroExitoso = paciente.registrarUsuario(coleccionUsuarios, nombreUsuario);
                             if (!registroExitoso){
-                                System.out.println("\nUsuario existente." +
+                                System.out.println("\nUsuario existente. " +
                                         "Por favor ingrese otro nombre de usuario:\n");
                             }
                         }
