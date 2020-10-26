@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 //Santiago
-public class Medico extends Usuario{
+public class Medico extends Usuario {
     //Atributos
-    private String idMedico;
+    private int idMedico;
     private String numeroTelefonicoMedico;
     private String nombreMedico;
     private String apellidoMedico;
@@ -16,7 +16,7 @@ public class Medico extends Usuario{
 
     //Constructores
     public Medico() {
-        this.idMedico = "";
+        this.idMedico = 0;
         this.numeroTelefonicoMedico = " ";
         this.nombreMedico = " ";
         this.apellidoMedico = " ";
@@ -25,13 +25,7 @@ public class Medico extends Usuario{
         this.especialidad = " ";
     }
 
-    public Medico(String nombreUsuario, String password, String tipoUsuario){
-        setNombreUsuario(nombreUsuario);
-        setPassword(password);
-        setTipoUsuario(tipoUsuario);
-    }
-
-    public Medico(String idMedico, String numeroTelefonicoMedico, String nombreMedico, String apellidoMedico,
+    public Medico(int idMedico, String numeroTelefonicoMedico, String nombreMedico, String apellidoMedico,
                   String cedulaMedico, String correoMedico, String especialidad) {
         this.idMedico = idMedico;
         this.numeroTelefonicoMedico = numeroTelefonicoMedico;
@@ -42,11 +36,11 @@ public class Medico extends Usuario{
         this.especialidad = especialidad;
     }
 
-    public String getIdMedico() {
+    public int getIdMedico() {
         return idMedico;
     }
 
-    public void setIdMedico(String idMedico) {
+    public void setIdMedico(int idMedico) {
         this.idMedico = idMedico;
     }
 
@@ -100,24 +94,27 @@ public class Medico extends Usuario{
 
     //Métodos y funciones
     @Override
-    public String toString(){
+    public String toString() {
 
-        return "id:"+idMedico +"\nNombre: "+nombreMedico+"\nApellido: "+apellidoMedico+
-                "\nEspecialidad: "+especialidad+ "\nCorreo: "+correoMedico+"\nCelular: "+
+        return "id: " + getIdUsuario() + "&Nombre: " + nombreMedico + "&Apellido: " + apellidoMedico +
+                "&Especialidad: " + especialidad + "&Correo: " + correoMedico + "&Celular: " +
                 numeroTelefonicoMedico;
     }
-    public void registrarMedico(int id, HashMap<String, String> coleccionMedicos){
+
+    public void registrarMedico(int id, HashMap<Integer, String> coleccionMedicos) {
         Scanner t = new Scanner(System.in);
         System.out.println("\nIngrese su nombre:");
-        coleccionMedicos.put("nombreMedico",t.next());
+        nombreMedico = t.next();
         System.out.println("Ingrese su apellido:");
-        coleccionMedicos.put("apellidoMedico",t.next());
+        apellidoMedico = t.next();
         System.out.println("Ingrese su especialidad");
-        coleccionMedicos.put("especialidad",t.next());
+        especialidad = t.next();
         System.out.println("Ingrese su teléfono:");
-        coleccionMedicos.put("telefono",t.next());
+        numeroTelefonicoMedico = t.next();
         System.out.println("Ingrese su correo");
-        coleccionMedicos.put("correo",t.next());
-        System.out.println("Su información ha sido registrada con éxito.");
+        correoMedico = t.next();
+        idMedico = id;
+        coleccionMedicos.put(id, toString());
+        System.out.println("\nSu información ha sido registrada con éxito.\n");
     }
 }

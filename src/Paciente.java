@@ -2,10 +2,11 @@ package src;
 
 //Camilo
 public class Paciente extends Usuario {
-    
+
     //Atributos paciente
-    
+
     private int idPaciente;
+    private static int idNext = 1;
     private String tipoDocumento;
     private String nombrePaciente;
     private String apellidoPaciente;
@@ -15,28 +16,28 @@ public class Paciente extends Usuario {
     private String fechaDeNacimiento;
     private String genero;
     private float peso;
-    
+
     //Constructor
 
     public Paciente() {
-        
-        this.idPaciente= 0;
-        this.tipoDocumento= "";
-        this.nombrePaciente= "";
-        this.apellidoPaciente= "";
-        this.numeroTelefonicoPaciente= 0;
-        this.correoPaciente= "";
-        this.direccionDeDomicilio= "";
-        this.fechaDeNacimiento= "";
-        this.genero= "";
-        this.peso= 0;    
+
+        this.idPaciente = idNext++;
+        this.tipoDocumento = "";
+        this.nombrePaciente = "";
+        this.apellidoPaciente = "";
+        this.numeroTelefonicoPaciente = 0;
+        this.correoPaciente = "";
+        this.direccionDeDomicilio = "";
+        this.fechaDeNacimiento = "";
+        this.genero = "";
+        this.peso = 0;
     }
 
     public Paciente(int idPaciente, String tipoDocumento, String nombrePaciente,
-            String apellidoPaciente, int numeroTelefonicoPaciente, 
-            String correoPaciente, String direccionDeDomicilio, 
-            String fechaDeNacimiento, String genero, float peso) {
-        
+                    String apellidoPaciente, int numeroTelefonicoPaciente,
+                    String correoPaciente, String direccionDeDomicilio,
+                    String fechaDeNacimiento, String genero, float peso) {
+
         this.idPaciente = idPaciente;
         this.tipoDocumento = tipoDocumento;
         this.nombrePaciente = nombrePaciente;
@@ -47,9 +48,9 @@ public class Paciente extends Usuario {
         this.fechaDeNacimiento = fechaDeNacimiento;
         this.genero = genero;
         this.peso = peso;
-        
+
     }
-    
+
     //Getter y Setter
 
     public int getIdPaciente() {
@@ -131,11 +132,11 @@ public class Paciente extends Usuario {
     public void setPeso(float peso) {
         this.peso = peso;
     }
-    
+
     //Metodos y funciones
 
-    public String toString(){
-        return "Nombre: "+nombrePaciente+"\nNombre de usuario: "+getNombreUsuario();
+    public String toString() {
+        return "Nombre: " + nombrePaciente + "\nNombre de usuario: " + getNombreUsuario();
     }
 
 }

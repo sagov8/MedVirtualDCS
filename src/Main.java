@@ -2,7 +2,6 @@ package src;
 
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.TreeMap;
 
 public class Main {
 
@@ -12,74 +11,87 @@ public class Main {
         
         System.out.println("Sii");
 
-        Scanner t = new Scanner (System.in);
-        //Un TreeMap guarda datos de manera ordenada según la clave asignada.
-        TreeMap<String, HashMap<String, String>> coleccionUsuarios = new TreeMap<>();
-        HashMap<String, String> coleccionMedicos = new HashMap<>();
-        boolean salir = false;//variable de salida
-        //Menú de opciones
+        Scanner t = new Scanner(System.in);
+        int id = 0;
+        //HashMap organiza datos de la manera <k, v> (clave, valor)
+        HashMap<Integer, String> coleccionUsuarios = new HashMap<>();
+        HashMap<Integer, String> coleccionMedicos = new HashMap<>();
+
+        boolean salir = false;
+
         do {
-            System.out.println("**************************"+
-                                "\nBIENVENIDO A MEDVIRTUALDCS"+
-                                "\n**************************");
-            System.out.println("\nMenú de opciones: "+"\n1. Registrar usuario."
-                                +"\n2. Iniciar sesión."+"\n3. Salir.");
+            System.out.println("**************************" +
+                    "\nBIENVENIDO A MEDVIRTUALDCS" +
+                    "\n**************************" +
+                    "\nMenú de opciones: " +
+                    "\n1. Registrar usuario." +
+                    "\n2. Iniciar sesión." +
+                    "\n3. Salir.");
 
             int opcion = t.nextInt();
 
             switch (opcion) {
                 case 1:
-                    System.out.println("\nElegir entre las siguientes opciones:" + "\n1. Paciente" +
-                            "\n2. Médico");
-                    int tipoDeUsuario = t.nextInt();//Recibe el tipo de usuario
+                    System.out.println("\nEscriba el tipo de usuario (medico/paciente):");
+                    String tipoDeUsuario = t.next();
 
-                    if (tipoDeUsuario == 1) {
+                    if (tipoDeUsuario.equalsIgnoreCase("paciente")) {
                         Paciente paciente = new Paciente();
-                        paciente.registrarUsuario(tipoDeUsuario, coleccionUsuarios, paciente.getIdUsuario());
-                    } else if (tipoDeUsuario == 2) {
+                        paciente.setTipoUsuario(tipoDeUsuario);
+                        paciente.setIdUsuario(id);
+
+                        paciente.registrarUsuario(coleccionUsuarios, paciente.getNombreUsuario());
+                        id++;
+
+                    } else if (tipoDeUsuario.equalsIgnoreCase("medico")) {
                         Medico medico = new Medico();
-                        medico.registrarUsuario(tipoDeUsuario, coleccionUsuarios, medico.getIdUsuario());
+                        medico.setTipoUsuario(tipoDeUsuario);
+                        medico.setIdUsuario(id);
+
+                        boolean registroExitoso = false;
+                        while (!registroExitoso){
+                            System.out.println("Ingrese nombre de usuario: ");
+                            String nombreUsuario = t.next();
+
+                            registroExitoso = medico.registrarUsuario(coleccionUsuarios, nombreUsuario);
+                        }
 
                         medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
-                        System.out.println(coleccionUsuarios);
+                        id++;
+
                     } else {
                         System.out.println("Por favor ingrese una opción válida.");
                     }
-                break;
+                    break;
                 case 2:
-                    System.out.println("Ingrese su nombre de usuario:");
-                    String nombreUsuario = t.next();
-
-                    int i = 0;
-                    boolean usuarioExistente = false;
-                    do {
-                        if (coleccionUsuarios.get(String.valueOf(i)).get("nombre").equals(nombreUsuario)) {
+                    boolean verificado = false;
+                    if (coleccionUsuarios.isEmpty()) {
+                        System.out.println("No hay usuarios registrados.");
+                    } else {
+                        while (!verificado) {
+                            System.out.println("Ingrese su nombre de usuario:");
+                            String nombreUsuario = t.next();
                             System.out.println("Digite su contraseña:");
                             String password = t.next();
-                            if (coleccionUsuarios.get(String.valueOf(i)).get("password").equals(password)) {
-                                System.out.println("Bienvenido a MedVirtualDCS Dr. "+
-                                        coleccionMedicos.get("nombreMedico")+" "+
-                                        coleccionMedicos.get("apellidoMedico"));
-                                usuarioExistente = true;
-                                salir = true;
-                            }else{
-                                System.out.println("Contraseña incorrecta");
+                            verificado = Usuario.verificarLogin(nombreUsuario, password, coleccionUsuarios);
+                            if (!verificado) {
+                                System.out.println("\nUsuario no encontrado o Contraseña incorrecta\n");
                             }
                         }
-                        i++;
-                    } while (i < coleccionUsuarios.size());
-                    if (!usuarioExistente){
-                        System.out.println("Usuario no encontrado");
+                        salir = true;
                     }
-                break;
+                    break;
                 case 3:
                     System.out.println("Gracias por usar MedVirtualDCS, vuelva pronto.");
                     salir = true;
-                break;
-                default: System.out.println("Ingrese una opción válida");
+                    break;
+                default:
+                    System.out.println("Ingrese una opción válida");
             }
-        }while(!salir);
+        }
+        while (!salir);
         //Código de prueba
-
+        System.out.println(coleccionUsuarios.values());
+        System.out.println(coleccionMedicos.values());
     }
 }
