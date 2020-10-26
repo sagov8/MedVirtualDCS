@@ -40,7 +40,17 @@ public class Main {
                         paciente.setTipoUsuario(tipoDeUsuario);
                         paciente.setIdUsuario(id);
 
-                        paciente.registrarUsuario(coleccionUsuarios, paciente.getNombreUsuario());
+                        boolean registroExitoso = false;
+                        while (!registroExitoso){
+                            System.out.println("Ingrese nombre de usuario: ");
+                            String nombreUsuario = t.next();
+
+                            registroExitoso = paciente.registrarUsuario(coleccionUsuarios, nombreUsuario);
+                            if (!registroExitoso){
+                                System.out.println("\nUsuario existente." +
+                                        "Por favor ingrese otro nombre de usuario:\n");
+                            }
+                        }
                         id++;
 
                     } else if (tipoDeUsuario.equalsIgnoreCase("medico")) {
@@ -54,6 +64,10 @@ public class Main {
                             String nombreUsuario = t.next();
 
                             registroExitoso = medico.registrarUsuario(coleccionUsuarios, nombreUsuario);
+                            if (!registroExitoso){
+                                System.out.println("\nUsuario existente." +
+                                        "Por favor ingrese otro nombre de usuario:");
+                            }
                         }
 
                         medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
