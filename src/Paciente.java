@@ -12,7 +12,7 @@ public class Paciente extends Usuario {
     private int idPaciente;
     private static int idNext = 1;
     private String tipoDocumento;
-    private int numeroDocumento;
+    private long numeroDocumento;
     private String nombrePaciente;
     private String apellidoPaciente;
     private long numeroTelefonicoPaciente;
@@ -77,11 +77,11 @@ public class Paciente extends Usuario {
         this.tipoDocumento = tipoDocumento;
     }
 
-    public int getNumeroDocumento() {
+    public long getNumeroDocumento() {
         return numeroDocumento;
     }
 
-    public void setNumeroDocumento(int numeroDocumento) {
+    public void setNumeroDocumento(long numeroDocumento) {
         this.numeroDocumento = numeroDocumento;
     }
 
@@ -170,7 +170,7 @@ public class Paciente extends Usuario {
         System.out.println("Ingrese tipo de documetos (CC,TI,RC,CE): ");
         tipoDocumento = t.next();
         System.out.println("Ingrese número de documento: ");
-        numeroDocumento = t.nextInt();
+        numeroDocumento = t.nextLong();
         t.nextLine();
         System.out.println("Ingrese su nombre: ");
         nombrePaciente = t.next();
