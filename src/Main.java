@@ -6,11 +6,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        
-        System.out.println("Hola Mundo");
-        
-        System.out.println("Sii");
-
         Scanner t = new Scanner(System.in);
         int id = 0;
         //HashMap organiza datos de la manera <k, v> (clave, valor)
