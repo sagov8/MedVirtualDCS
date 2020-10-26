@@ -7,15 +7,12 @@ public class Main {
 
     public static void main(String[] args) {
         
-        System.out.println("Hola Mundo");
-        
-        System.out.println("Sii");
-
         Scanner t = new Scanner(System.in);
         int id = 0;
         //HashMap organiza datos de la manera <k, v> (clave, valor)
         HashMap<Integer, String> coleccionUsuarios = new HashMap<>();
         HashMap<Integer, String> coleccionMedicos = new HashMap<>();
+        HashMap<Integer, String> coleccionPacientes = new HashMap<>();
 
         boolean salir = false;
 
@@ -51,6 +48,9 @@ public class Main {
                                         "Por favor ingrese otro nombre de usuario:\n");
                             }
                         }
+                        
+                        paciente.registrarPaciente(id, coleccionPacientes);
+                        
                         id++;
 
                     } else if (tipoDeUsuario.equalsIgnoreCase("medico")) {
@@ -107,5 +107,7 @@ public class Main {
         //Código de prueba
         System.out.println(coleccionUsuarios.values());
         System.out.println(coleccionMedicos.values());
+        System.out.println(coleccionPacientes.values());
+        
     }
 }

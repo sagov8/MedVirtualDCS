@@ -61,7 +61,7 @@ public class Usuario {
     public String guardarUsuario() {
         return "\nID: " +
                 idUsuario +
-                "\nNombre: " +
+                "\nUsuario: " +
                 nombreUsuario +
                 "\nPassword: " +
                 password +

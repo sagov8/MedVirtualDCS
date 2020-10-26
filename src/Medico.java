@@ -105,14 +105,11 @@ public class Medico extends Usuario {
         Scanner t = new Scanner(System.in);
         System.out.println("\nPor favor digite sus datos personales:");
         System.out.println("\nIngrese su nombre:");
-        nombreMedico = t.nextLine();
-        t.nextLine();
+        nombreMedico = t.nextLine(); 
         System.out.println("Ingrese su apellido:");
         apellidoMedico = t.nextLine();
-        t.nextLine();
         System.out.println("Ingrese su especialidad:");
         especialidad = t.nextLine();
-        t.nextLine();
         System.out.println("Ingrese su número de celular:");
         numeroTelefonicoMedico = t.next();
         System.out.println("Ingrese su correo:");
