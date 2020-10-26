@@ -97,8 +97,8 @@ public class Medico extends Usuario {
     public String toString() {
 
         return "id: " + getIdUsuario() + "&Nombre: " + nombreMedico + "&Apellido: " + apellidoMedico +
-                "&Especialidad: " + especialidad + "&Correo: " + correoMedico + "&Celular: " +
-                numeroTelefonicoMedico;
+                "&Especialidad: " + especialidad + "&Celular: " + numeroTelefonicoMedico +
+                "&Correo: " + correoMedico;
     }
 
     public void registrarMedico(int id, HashMap<Integer, String> coleccionMedicos) {
@@ -108,11 +108,12 @@ public class Medico extends Usuario {
         nombreMedico = t.next();
         System.out.println("Ingrese su apellido:");
         apellidoMedico = t.next();
-        System.out.println("Ingrese su especialidad");
-        especialidad = t.next();
-        System.out.println("Ingrese su teléfono:");
+        System.out.println("Ingrese su especialidad:");
+        especialidad = t.nextLine();
+        t.nextLine();
+        System.out.println("Ingrese su número de celular:");
         numeroTelefonicoMedico = t.next();
-        System.out.println("Ingrese su correo");
+        System.out.println("Ingrese su correo:");
         correoMedico = t.next();
         idMedico = id;
         coleccionMedicos.put(id, toString());
