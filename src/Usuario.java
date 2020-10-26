@@ -91,7 +91,7 @@ public class Usuario {
                 if (password.equals(confirmacionPassword)) {
                     coleccionUsuarios.put(idUsuario, guardarUsuario());
                     passwordConfirmado = true;
-                    System.out.println("Registro éxitoso.");
+                    System.out.println("Usuario registrado satisfactoriamente.");
                     salir = true;
                 } else {
                     System.out.println("Los password no coinciden.");
