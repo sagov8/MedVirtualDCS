@@ -102,6 +102,12 @@ public class Medico extends Usuario {
     }
 
     public void registrarMedico(int id, HashMap<Integer, String> coleccionMedicos) {
+        /*
+        Se pide la información al médico para ingresarla dentro de los atributos de la clase
+        y a través del método sobrescrito de toString se le da un formato agregándole el símbolo
+        Ampersand (&) para poder obtener un dato específico si se requiere (ej &nombreMedico: Juan)
+        Si todos los datos se escriben correctamente se guarda la información en el Hashmap: coleccionMedicos.
+         */
         Scanner t = new Scanner(System.in);
         System.out.println("\nPor favor digite sus datos personales:");
         System.out.println("\nIngrese su nombre:");

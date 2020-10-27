@@ -10,7 +10,10 @@ public class Main {
         Scanner t = new Scanner(System.in);
         int id = 0;
         int usuarioActivo = -1;
-        //HashMap organiza datos de la manera <k, v> (clave, valor)
+        /*
+        HashMap organiza datos de la manera <k, v> (clave, valor), solo permite Clases, no datos
+        primitivos, por eso se usa Integer y no int.
+        */
         HashMap<Integer, String> coleccionUsuarios = new HashMap<>();
         HashMap<Integer, String> coleccionMedicos = new HashMap<>();
         HashMap<Integer, String> coleccionPacientes = new HashMap<>();
@@ -34,10 +37,14 @@ public class Main {
                     String tipoDeUsuario = t.next();
 
                     if (tipoDeUsuario.equalsIgnoreCase("paciente")) {
-                        Paciente paciente = new Paciente();
-                        paciente.setTipoUsuario(tipoDeUsuario);
+                        Paciente paciente = new Paciente();//Instancia el objeto paciente
+                        paciente.setTipoUsuario(tipoDeUsuario);//asigna el tipo de Usuario y el ID respectivo.
                         paciente.setIdUsuario(id);
 
+                        /* El método registrarUsuario() devuelve true en caso de que el registro de
+                        Usuario se complete exitosamente. De no ser así no permite registrar los datos
+                        personales del paciente ó médico. Si el registro se hace correctamente, guarda al
+                        usuario en el Hashmap coleccionUsuarios*/
                         boolean registroUsuarioExitoso = paciente.registrarUsuario(coleccionUsuarios);
                         if (registroUsuarioExitoso){
                             paciente.registrarPaciente(id, coleccionPacientes);
@@ -49,6 +56,7 @@ public class Main {
                         medico.setTipoUsuario(tipoDeUsuario);
                         medico.setIdUsuario(id);
 
+                        //Leer comentario de la línea 42
                         boolean registroUsuarioExitoso = medico.registrarUsuario(coleccionUsuarios);
                         if (registroUsuarioExitoso){
                             medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
@@ -59,6 +67,13 @@ public class Main {
                     }
                     break;
                 case 2:
+                    /*
+                    Para iniciar sesión primero se hace una verificación de la coleccionUsuarios
+                    en caso de estar vacía es porque no hay usuarios registrados, en caso contrario
+                    se pide un nombre de usuario y password y a través del método verificarLogin()
+                    se realiza el proceso de verificación retornando en caso éxitoso el ID del usuario
+                    que se realizó su login en el sistema.
+                     */
                     if (coleccionUsuarios.isEmpty()) {
                         System.out.println("No hay usuarios registrados.");
                     } else {
