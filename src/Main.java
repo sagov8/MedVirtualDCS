@@ -62,6 +62,7 @@ public class Main {
                         System.out.println("No hay usuarios registrados.");
                     } else {
                         usuarioActivo = Usuario.verificarLogin(coleccionUsuarios);
+                        salir = true;
                     }
                     break;
                 case 3:
