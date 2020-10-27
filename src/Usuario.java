@@ -1,6 +1,5 @@
 package src;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -16,7 +15,6 @@ public class Usuario {
     // Contructor
 
     public Usuario() {
-
         this.idUsuario = 0;
         this.nombreUsuario = "";
         this.password = "";
@@ -70,57 +68,68 @@ public class Usuario {
                 tipoUsuario;
     }
 
-    public Boolean registrarUsuario(HashMap<Integer, String> coleccionUsuarios, String nombreUsuario) {
+    public Boolean registrarUsuario(HashMap<Integer, String> coleccionUsuarios) {
         Scanner t = new Scanner(System.in);
 
         boolean salir = false;
-        boolean existente = false;
+        boolean salirPassword = false;
 
         while (!salir) {
-            for (String datos : coleccionUsuarios.values()) {
-                if (datos.contains(nombreUsuario)) {
-                    return false;
+            System.out.println("Ingrese nombre de usuario: ");
+            nombreUsuario = t.next();
+            for (String usuarios : coleccionUsuarios.values()) {
+                String[] nombre = usuarios.split("&");
+                String nombreRegistrado = nombre[1].split(" ")[1];
+                if (nombreRegistrado.equals(nombreUsuario)) {
+                    System.out.println("\nUsuario existente. " +
+                            "Por favor ingrese otro nombre de usuario:");
+                    salirPassword = true;
+                } else {
+                    salirPassword = false;
                 }
             }
-            this.nombreUsuario = nombreUsuario;
-            boolean passwordConfirmado = false;
-            while (!passwordConfirmado) {
+
+            while (!salirPassword) {
                 System.out.println("Ingrese un password:");
                 password = t.next();
                 System.out.println("Ingrese otra vez el password:");
                 String confirmacionPassword = t.next();
                 if (password.equals(confirmacionPassword)) {
                     coleccionUsuarios.put(idUsuario, guardarUsuario());
-                    passwordConfirmado = true;
                     System.out.println("Usuario registrado satisfactoriamente.");
+                    salirPassword = true;
                     salir = true;
                 } else {
                     System.out.println("Los password no coinciden.");
                 }
-
             }
-
-
         }
         return true;
     }
 
-
-    public static Boolean verificarLogin(String nombreUsuario, String password,
-                                         HashMap<Integer, String> coleccionUsuarios) {
-
-
-        for (String usuarios : coleccionUsuarios.values()) {
-            String[] datos = usuarios.split("&");
-            System.out.println(datos[0]);
-            String nombreRegistrado = datos[1].split(" ")[1];
-            String passwordRegistrado = datos[2].split(" ")[1];
-
-            if (nombreRegistrado.equals(nombreUsuario) && passwordRegistrado.equals(password)) {
-                System.out.println("\nBienvenido a MedVirtualDCS\n");
-                return true;
+    public static int verificarLogin(HashMap<Integer, String> coleccionUsuarios) {
+        Scanner t = new Scanner(System.in);
+        int idUsuarioActivo = -1;
+        boolean verificado = false;
+        while (!verificado) {
+            System.out.println("Ingrese su nombre de usuario:");
+            String nombreUsuario = t.next();
+            System.out.println("Digite su contraseña:");
+            String password = t.next();
+            for (String usuarios : coleccionUsuarios.values()) {
+                String[] datos = usuarios.split("&");
+                String nombreRegistrado = datos[1].split(" ")[1];
+                String passwordRegistrado = datos[2].split(" ")[1];
+                if (nombreRegistrado.equals(nombreUsuario) && passwordRegistrado.equals(password)) {
+                    System.out.println("\nBienvenido a MedVirtualDCS\n");
+                    idUsuarioActivo = Integer.parseInt(datos[0].split(" ")[1]);
+                    verificado = true;
+                } else {
+                    verificado = false;
+                }
             }
+            System.out.println("\nUsuario o contraseña incorrectos.\n");
         }
-        return false;
+        return idUsuarioActivo;
     }
 }

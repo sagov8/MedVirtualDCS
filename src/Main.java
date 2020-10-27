@@ -9,6 +9,7 @@ public class Main {
 
         Scanner t = new Scanner(System.in);
         int id = 0;
+        int usuarioActivo = -1;
         //HashMap organiza datos de la manera <k, v> (clave, valor)
         HashMap<Integer, String> coleccionUsuarios = new HashMap<>();
         HashMap<Integer, String> coleccionMedicos = new HashMap<>();
@@ -37,20 +38,9 @@ public class Main {
                         paciente.setTipoUsuario(tipoDeUsuario);
                         paciente.setIdUsuario(id);
 
-                        boolean registroExitoso = false;
-                        while (!registroExitoso){
-                            System.out.println("Ingrese nombre de usuario: ");
-                            String nombreUsuario = t.next();
-
-                            registroExitoso = paciente.registrarUsuario(coleccionUsuarios, nombreUsuario);
-                            if (!registroExitoso){
-                                System.out.println("\nUsuario existente. " +
-                                        "Por favor ingrese otro nombre de usuario:\n");
-                            }
+                        if (paciente.registrarUsuario(coleccionUsuarios)){
+                            paciente.registrarPaciente(id, coleccionPacientes);
                         }
-                        
-                        paciente.registrarPaciente(id, coleccionPacientes);
-                        
                         id++;
 
                     } else if (tipoDeUsuario.equalsIgnoreCase("medico")) {
@@ -58,19 +48,9 @@ public class Main {
                         medico.setTipoUsuario(tipoDeUsuario);
                         medico.setIdUsuario(id);
 
-                        boolean registroExitoso = false;
-                        while (!registroExitoso){
-                            System.out.println("Ingrese nombre de usuario: ");
-                            String nombreUsuario = t.next();
-
-                            registroExitoso = medico.registrarUsuario(coleccionUsuarios, nombreUsuario);
-                            if (!registroExitoso){
-                                System.out.println("\nUsuario existente. " +
-                                        "Por favor ingrese otro nombre de usuario:");
-                            }
+                        if (medico.registrarUsuario(coleccionUsuarios)) {
+                            medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
                         }
-
-                        medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
                         id++;
 
                     } else {
@@ -78,21 +58,10 @@ public class Main {
                     }
                     break;
                 case 2:
-                    boolean verificado = false;
                     if (coleccionUsuarios.isEmpty()) {
                         System.out.println("No hay usuarios registrados.");
                     } else {
-                        while (!verificado) {
-                            System.out.println("Ingrese su nombre de usuario:");
-                            String nombreUsuario = t.next();
-                            System.out.println("Digite su contraseña:");
-                            String password = t.next();
-                            verificado = Usuario.verificarLogin(nombreUsuario, password, coleccionUsuarios);
-                            if (!verificado) {
-                                System.out.println("\nUsuario no encontrado o Contraseña incorrecta\n");
-                            }
-                        }
-                        salir = true;
+                        usuarioActivo = Usuario.verificarLogin(coleccionUsuarios);
                     }
                     break;
                 case 3:
@@ -105,9 +74,6 @@ public class Main {
         }
         while (!salir);
         //Código de prueba
-        System.out.println(coleccionUsuarios.values());
-        System.out.println(coleccionMedicos.values());
-        System.out.println(coleccionPacientes.values());
-        
+        System.out.println(coleccionUsuarios.get(usuarioActivo));
     }
 }
