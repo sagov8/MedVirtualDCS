@@ -33,7 +33,13 @@ public class Main {
                     break;
 
                 case 2:
-                    Receta receta=new Receta();
+                    System.out.println("Ingrese recomendaciones: ");
+                    String recomendaciones=t.nextLine();
+                    System.out.println("Ingrese dosis: ");
+                    String dosis=t.nextLine();
+                    Date fechaReceta=new Date();
+                    Receta receta=new Receta(fechaReceta,recomendaciones,dosis);
+                    System.out.println(receta.toString());
                     break;
                 case 3:
                     Medicamento medicamento=new Medicamento();

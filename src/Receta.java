@@ -1,20 +1,24 @@
 package src;
-
+import java.util.*;
 //Diana
 public class Receta {
     //Atributos
     private int idReceta;
-    private String fechaReceta;
+    private Date fechaReceta;
+    private String recomendacion;
     private String dosis;
+    private static int idSiguiente=1;
     //Constructores
     public Receta() {
         this.idReceta = 0;
-        this.fechaReceta = "";
+        this.fechaReceta = null;
+        this.recomendacion="";
         this.dosis = "";
     }
-    public Receta(int idReceta, String fechaReceta, String dosis) {
-        this.idReceta = idReceta;
+    public Receta(Date fechaReceta,String recomendacion, String dosis) {
+        this.idReceta = idSiguiente++;
         this.fechaReceta = fechaReceta;
+        this.recomendacion=recomendacion;
         this.dosis = dosis;
     }
     //Getter y Setter
@@ -27,11 +31,11 @@ public class Receta {
         this.idReceta = idReceta;
     }
 
-    public String getFechaReceta() {
+    public Date getFechaReceta() {
         return fechaReceta;
     }
 
-    public void setFechaReceta(String fechaReceta) {
+    public void setFechaReceta(Date fechaReceta) {
         this.fechaReceta = fechaReceta;
     }
 
@@ -42,19 +46,35 @@ public class Receta {
     public void setDosis(String dosis) {
         this.dosis = dosis;
     }
+
+    public String getRecomendacion() {
+        return recomendacion;
+    }
+
+    public void setRecomendacion(String recomendacion) {
+        this.recomendacion = recomendacion;
+    }
     
     //Métodos
     public String crearReceta(int idPaciente){
         return "";
     }
 
-    public void imprimirReceta(){
+    /*public void imprimirReceta(){
         
-    }
+    }*/
     public void agregarMedicamento(){
         
     }
     public void guardarReceta(int idHistoriaClinica){
         
     }
+
+    @Override
+    public String toString() {
+        return "Receta{" + "idReceta=" + idReceta + ", fechaReceta=" + fechaReceta + ", recomendacion=" + recomendacion + ", dosis=" + dosis + '}';
+    }
+
+    
+    
 }
