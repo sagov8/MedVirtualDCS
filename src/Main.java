@@ -38,7 +38,8 @@ public class Main {
                         paciente.setTipoUsuario(tipoDeUsuario);
                         paciente.setIdUsuario(id);
 
-                        if (paciente.registrarUsuario(coleccionUsuarios)){
+                        boolean registroUsuarioExitoso = paciente.registrarUsuario(coleccionUsuarios);
+                        if (registroUsuarioExitoso){
                             paciente.registrarPaciente(id, coleccionPacientes);
                         }
                         id++;
@@ -48,11 +49,11 @@ public class Main {
                         medico.setTipoUsuario(tipoDeUsuario);
                         medico.setIdUsuario(id);
 
-                        if (medico.registrarUsuario(coleccionUsuarios)) {
+                        boolean registroUsuarioExitoso = medico.registrarUsuario(coleccionUsuarios);
+                        if (registroUsuarioExitoso){
                             medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
                         }
                         id++;
-
                     } else {
                         System.out.println("Por favor ingrese una opción válida.");
                     }
