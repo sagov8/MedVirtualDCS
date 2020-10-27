@@ -7,6 +7,8 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner t = new Scanner(System.in);
+        ArrayList<Medicamento> medicamentos = new ArrayList<>();
+        ArrayList<Diagnostico> diagnosticos = new ArrayList<>();
         boolean salirMenuDiagnostico = false;
         do {
             System.out.println("***********Menú Registro Diagnostico***********" +
@@ -30,6 +32,7 @@ public class Main {
                     //System.out.println("Fecha: "+fechaDiagnostico.getTime());
                     Diagnostico diagnostico=new Diagnostico(fechaDiagnostico,observacion,estadoPaciente);
                     System.out.println(diagnostico.toString());
+                    diagnosticos.add(diagnostico);
                     break;
 
                 case 2:
