@@ -85,7 +85,8 @@ public class Usuario {
             for (String usuarios : coleccionUsuarios.values()) {
                 String[] nombre = usuarios.split("&");//Divide la información del usuario con el símbolo "&" para
                                                             //obtener un Array, iterable con la info del usuario.
-                String nombreRegistrado = nombre[1].split(" ")[1];//Se obtiene a través del índice el dato que se
+                String nombreRegistrado = nombre[1].split(" ")[1];//Se divide de nuevo la cadena obtenida con " " y
+                                                                        // Se obtiene a través del índice el dato que se
                                                                         //requiere, en este caso el nombre corresponde al
                                                                         //índice 1.
                 if (nombreRegistrado.equals(nombreUsuario)) {
