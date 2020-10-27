@@ -1,14 +1,53 @@
 package src;
 
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
         Scanner t = new Scanner(System.in);
-        int id = 0;
+        boolean salirMenuDiagnostico = false;
+        do {
+            System.out.println("***********Menú Registro Diagnostico***********" +
+                    "\n1. Registrar Diagnóstico." +
+                    "\n2. Registrar Receta." +
+                    "\n3. Medicamento."+
+                    "\n4. Salir.");
+
+            int opcion = t.nextInt();
+            t.nextLine();
+
+            switch (opcion) {
+                case 1:
+                    System.out.println("Ingrese el diagnóstico: ");
+                    String observacion=(t.nextLine());
+                    System.out.println("Ingrese el estado del paciente: ");
+                    String estadoPaciente=(t.nextLine());
+                    Date fechaDiagnostico=new Date();
+                    //Calendar fechaDiagnostico = Calendar.getInstance(TimeZone.getDefault());
+                    //diagnostico.setFechaDiagnostico(fechaDiagnostico);
+                    //System.out.println("Fecha: "+fechaDiagnostico.getTime());
+                    Diagnostico diagnostico=new Diagnostico(fechaDiagnostico,observacion,estadoPaciente);
+                    System.out.println(diagnostico.toString());
+                    break;
+
+                case 2:
+                    Receta receta=new Receta();
+                    break;
+                case 3:
+                    Medicamento medicamento=new Medicamento();
+                    break;
+                case 4:
+                    System.out.println("Salió del menú de Registro Diagnostico");
+                    salirMenuDiagnostico = true;
+                    break;
+                default:
+                    System.out.println("Ingrese una opción válida");
+            }
+        }
+        while (!salirMenuDiagnostico);
+        /*int id = 0;
         //HashMap organiza datos de la manera <k, v> (clave, valor)
         HashMap<Integer, String> coleccionUsuarios = new HashMap<>();
         HashMap<Integer, String> coleccionMedicos = new HashMap<>();
@@ -82,6 +121,6 @@ public class Main {
         while (!salir);
         //Código de prueba
         System.out.println(coleccionUsuarios.values());
-        System.out.println(coleccionMedicos.values());
+        System.out.println(coleccionMedicos.values());*/
     }
 }

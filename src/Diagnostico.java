@@ -1,21 +1,23 @@
 package src;
 //Diana
+import java.util.*;
 public class Diagnostico {
 
     //Atributos
     private int idDiagnostico;
-    private String fechaDiagnostico;
+    private Date fechaDiagnostico;
     private String observacion;
     private String estadoPaciente;
+    private static int idSiguiente=1;
     //Constructores
     public Diagnostico() {
         this.idDiagnostico = 0;
-        this.fechaDiagnostico = "";
+        this.fechaDiagnostico = null;
         this.observacion = "";
         this.estadoPaciente = "";
     }
-    public Diagnostico(int idDiagnostico, String fechaDiagnostico, String observacion, String estadoPaciente) {
-        this.idDiagnostico = idDiagnostico;
+    public Diagnostico(Date fechaDiagnostico, String observacion, String estadoPaciente) {
+        this.idDiagnostico = idSiguiente++;;
         this.fechaDiagnostico = fechaDiagnostico;
         this.observacion = observacion;
         this.estadoPaciente = estadoPaciente;
@@ -29,11 +31,11 @@ public class Diagnostico {
         this.idDiagnostico = idDiagnostico;
     }
 
-    public String getFechaDiagnostico() {
+    public Date getFechaDiagnostico() {
         return fechaDiagnostico;
     }
 
-    public void setFechaDiagnostico(String fechaDiagnostico) {
+    public void setFechaDiagnostico(Date fechaDiagnostico) {
         this.fechaDiagnostico = fechaDiagnostico;
     }
 
@@ -56,10 +58,19 @@ public class Diagnostico {
     public String crearDiagnostico(int idPaciente){
         return "";
     }
-    public void imprimirDiagnostico(){
+    /*public void imprimirDiagnostico(){
         
-    }
+    }*/
     public void guardarDiagnostico(int idHistoriaClinica){
 
     }
+
+    @Override
+    public String toString() {
+        return "Diagnostico{" + "idDiagnostico=" + idDiagnostico + ", fechaDiagnostico=" + fechaDiagnostico + ", observacion=" + observacion + ", estadoPaciente=" + estadoPaciente + '}';
+    }
+    /*
+    void setFechaDiagnostico(Calendar fechaDiagnostico) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }*/
 }
