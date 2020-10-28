@@ -1,14 +1,17 @@
 package src;
 //Diana
-import java.util.*;
-public class Diagnostico {
 
+import java.util.Date;
+import java.util.Scanner;
+public class Diagnostico {
+    Scanner t=new Scanner(System.in);
     //Atributos
     private int idDiagnostico;
     private Date fechaDiagnostico;
     private String observacion;
     private String estadoPaciente;
-    private static int idSiguiente=1;
+    private static int idSiguiente = 1;
+
     //Constructores
     public Diagnostico() {
         this.idDiagnostico = 0;
@@ -16,12 +19,14 @@ public class Diagnostico {
         this.observacion = "";
         this.estadoPaciente = "";
     }
+
     public Diagnostico(Date fechaDiagnostico, String observacion, String estadoPaciente) {
         this.idDiagnostico = idSiguiente++;;
         this.fechaDiagnostico = fechaDiagnostico;
         this.observacion = observacion;
         this.estadoPaciente = estadoPaciente;
     }
+
     //Setter y Getter
     public int getIdDiagnostico() {
         return idDiagnostico;
@@ -54,14 +59,21 @@ public class Diagnostico {
     public void setEstadoPaciente(String estadoPaciente) {
         this.estadoPaciente = estadoPaciente;
     }
+
     //Métodos
-    public String crearDiagnostico(int idPaciente){
-        return "";
+    public void crearDiagnostico() {
+        System.out.println("Ingrese el diagnóstico: ");
+        this.observacion = t.nextLine();
+        System.out.println("Ingrese el estado del paciente: ");
+        this.estadoPaciente = (t.nextLine());
+        this.fechaDiagnostico=fechaDiagnostico;
+        
     }
+
     /*public void imprimirDiagnostico(){
         
     }*/
-    public void guardarDiagnostico(int idHistoriaClinica){
+    public void guardarDiagnostico(int idHistoriaClinica) {
 
     }
 

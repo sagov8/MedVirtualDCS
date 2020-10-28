@@ -1,6 +1,8 @@
 package src;
 
-import java.util.*;
+import java.util.Scanner;
+import java.util.Date;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -11,11 +13,11 @@ public class Main {
         ArrayList<Diagnostico> diagnosticos = new ArrayList<>();
         boolean salirMenuDiagnostico = false;
         do {
-            System.out.println("***********Menú Registro Diagnostico***********" +
-                    "\n1. Registrar Diagnóstico." +
-                    "\n2. Registrar Receta." +
-                    "\n3. Medicamento."+
-                    "\n4. Salir.");
+            System.out.println("***********Menú Registro Diagnostico***********"
+                    + "\n1. Registrar Diagnóstico."
+                    + "\n2. Registrar Receta."
+                    + "\n3. Medicamento."
+                    + "\n4. Salir.");
 
             int opcion = t.nextInt();
             t.nextLine();
@@ -23,29 +25,37 @@ public class Main {
             switch (opcion) {
                 case 1:
                     System.out.println("Ingrese el diagnóstico: ");
-                    String observacion=(t.nextLine());
+                    String observacion = (t.nextLine());
                     System.out.println("Ingrese el estado del paciente: ");
-                    String estadoPaciente=(t.nextLine());
-                    Date fechaDiagnostico=new Date();
-                    //Calendar fechaDiagnostico = Calendar.getInstance(TimeZone.getDefault());
-                    //diagnostico.setFechaDiagnostico(fechaDiagnostico);
-                    //System.out.println("Fecha: "+fechaDiagnostico.getTime());
-                    Diagnostico diagnostico=new Diagnostico(fechaDiagnostico,observacion,estadoPaciente);
-                    System.out.println(diagnostico.toString());
+                    String estadoPaciente = (t.nextLine());
+                    Date fechaDiagnostico = new Date();
+                    Diagnostico diagnostico = new Diagnostico(fechaDiagnostico, observacion, estadoPaciente);
                     diagnosticos.add(diagnostico);
+                    for (int i = 0; i < diagnosticos.size(); i++) {
+                        System.out.println("Diagnostico: " + (i + 1));
+                        Diagnostico diagnostico2 = diagnosticos.get(i);
+                        System.out.println("Id: " + diagnostico2.getIdDiagnostico());
+                        System.out.println("Fecha: " + diagnostico2.getFechaDiagnostico());
+                        System.out.println("Diagnostico: " + diagnostico2.getObservacion());
+                        System.out.println("Estado: " + diagnostico2.getEstadoPaciente());
+
+                    }
+                    //Calendar fechaDiagnostico = Calendar.getInstance(TimeZone.getDefault());
+                    //System.out.println("Fecha: "+fechaDiagnostico.getTime());
+
                     break;
 
                 case 2:
                     System.out.println("Ingrese recomendaciones: ");
-                    String recomendaciones=t.nextLine();
+                    String recomendaciones = t.nextLine();
                     System.out.println("Ingrese dosis: ");
-                    String dosis=t.nextLine();
-                    Date fechaReceta=new Date();
-                    Receta receta=new Receta(fechaReceta,recomendaciones,dosis);
+                    String dosis = t.nextLine();
+                    Date fechaReceta = new Date();
+                    Receta receta = new Receta(fechaReceta, recomendaciones, dosis);
                     System.out.println(receta.toString());
                     break;
                 case 3:
-                    Medicamento medicamento=new Medicamento();
+                    Medicamento medicamento = new Medicamento();
                     break;
                 case 4:
                     System.out.println("Salió del menú de Registro Diagnostico");
@@ -54,8 +64,7 @@ public class Main {
                 default:
                     System.out.println("Ingrese una opción válida");
             }
-        }
-        while (!salirMenuDiagnostico);
+        } while (!salirMenuDiagnostico);
         /*int id = 0;
         //HashMap organiza datos de la manera <k, v> (clave, valor)
         HashMap<Integer, String> coleccionUsuarios = new HashMap<>();

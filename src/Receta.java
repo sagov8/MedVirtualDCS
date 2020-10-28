@@ -1,5 +1,5 @@
 package src;
-import java.util.*;
+import java.util.Date;
 //Diana
 public class Receta {
     //Atributos
