@@ -14,14 +14,14 @@ public class Diagnostico {
 
     //Constructores
     public Diagnostico() {
-        this.idDiagnostico = 0;
+        this.idDiagnostico = idSiguiente++;
         this.fechaDiagnostico = null;
         this.observacion = "";
         this.estadoPaciente = "";
     }
 
     public Diagnostico(Date fechaDiagnostico, String observacion, String estadoPaciente) {
-        this.idDiagnostico = idSiguiente++;;
+        this.idDiagnostico = idSiguiente++;
         this.fechaDiagnostico = fechaDiagnostico;
         this.observacion = observacion;
         this.estadoPaciente = estadoPaciente;
@@ -66,10 +66,9 @@ public class Diagnostico {
         this.observacion = t.nextLine();
         System.out.println("Ingrese el estado del paciente: ");
         this.estadoPaciente = (t.nextLine());
-        this.fechaDiagnostico=fechaDiagnostico;
-        
+        Date fechaDiagostico=new Date();
+        this.fechaDiagnostico=fechaDiagostico;
     }
-
     /*public void imprimirDiagnostico(){
         
     }*/
@@ -81,8 +80,5 @@ public class Diagnostico {
     public String toString() {
         return "Diagnostico{" + "idDiagnostico=" + idDiagnostico + ", fechaDiagnostico=" + fechaDiagnostico + ", observacion=" + observacion + ", estadoPaciente=" + estadoPaciente + '}';
     }
-    /*
-    void setFechaDiagnostico(Calendar fechaDiagnostico) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }*/
+    
 }

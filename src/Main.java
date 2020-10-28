@@ -9,43 +9,39 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner t = new Scanner(System.in);
+        ArrayList<Diagnostico> diagnosticos = new ArrayList<>();//Crea un ArrayList de objetos
         ArrayList<Medicamento> medicamentos = new ArrayList<>();
-        ArrayList<Diagnostico> diagnosticos = new ArrayList<>();
+        
         boolean salirMenuDiagnostico = false;
         do {
-            System.out.println("***********Menú Registro Diagnostico***********"
-                    + "\n1. Registrar Diagnóstico."
-                    + "\n2. Registrar Receta."
-                    + "\n3. Medicamento."
-                    + "\n4. Salir.");
+            System.out.println("\n***********Menú Diagnostico***********"
+                    + "\n1. Crear Diagnóstico."
+                    + "\n2. Listar Diagnósticos."
+                    + "\n3. Crear Receta."
+                    + "\n4. Medicamento."
+                    + "\n5. Salir.");
 
             int opcion = t.nextInt();
             t.nextLine();
 
             switch (opcion) {
                 case 1:
-                    System.out.println("Ingrese el diagnóstico: ");
-                    String observacion = (t.nextLine());
-                    System.out.println("Ingrese el estado del paciente: ");
-                    String estadoPaciente = (t.nextLine());
-                    Date fechaDiagnostico = new Date();
-                    Diagnostico diagnostico = new Diagnostico(fechaDiagnostico, observacion, estadoPaciente);
-                    diagnosticos.add(diagnostico);
-                    for (int i = 0; i < diagnosticos.size(); i++) {
-                        System.out.println("Diagnostico: " + (i + 1));
-                        Diagnostico diagnostico2 = diagnosticos.get(i);
+                    Diagnostico diagnostico = new Diagnostico();//Crear objeto de la clase Diagnóstico
+                    diagnostico.crearDiagnostico();//Llama el método que solicita los datos del diagnóstico (Diagnóstico y estado)
+                    diagnosticos.add(diagnostico);//Guarda el diagnostico creado en el ArrayList
+                    break;
+                case 2:
+                    for (int i = 0; i < diagnosticos.size(); i++) {//Imprime los diagnósticos guardados en el ArrayList
+                        System.out.println("\nDiagnostico: " + (i + 1));
+                        Diagnostico diagnostico2 = diagnosticos.get(i);//Guarda en un objeto Diagnostico los datos del ArrayList
                         System.out.println("Id: " + diagnostico2.getIdDiagnostico());
                         System.out.println("Fecha: " + diagnostico2.getFechaDiagnostico());
                         System.out.println("Diagnostico: " + diagnostico2.getObservacion());
                         System.out.println("Estado: " + diagnostico2.getEstadoPaciente());
 
                     }
-                    //Calendar fechaDiagnostico = Calendar.getInstance(TimeZone.getDefault());
-                    //System.out.println("Fecha: "+fechaDiagnostico.getTime());
-
                     break;
-
-                case 2:
+                case 3:
                     System.out.println("Ingrese recomendaciones: ");
                     String recomendaciones = t.nextLine();
                     System.out.println("Ingrese dosis: ");
@@ -54,11 +50,11 @@ public class Main {
                     Receta receta = new Receta(fechaReceta, recomendaciones, dosis);
                     System.out.println(receta.toString());
                     break;
-                case 3:
+                case 4:
                     Medicamento medicamento = new Medicamento();
                     break;
-                case 4:
-                    System.out.println("Salió del menú de Registro Diagnostico");
+                case 5:
+                    System.out.println("Salió del menú Diagnostico");
                     salirMenuDiagnostico = true;
                     break;
                 default:
