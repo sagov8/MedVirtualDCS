@@ -6,20 +6,17 @@ public class Receta {
     private int idReceta;
     private Date fechaReceta;
     private String recomendacion;
-    private String dosis;
     private static int idSiguiente=1;
     //Constructores
     public Receta() {
         this.idReceta = 0;
         this.fechaReceta = null;
         this.recomendacion="";
-        this.dosis = "";
     }
     public Receta(Date fechaReceta,String recomendacion, String dosis) {
         this.idReceta = idSiguiente++;
         this.fechaReceta = fechaReceta;
         this.recomendacion=recomendacion;
-        this.dosis = dosis;
     }
     //Getter y Setter
 
@@ -37,14 +34,6 @@ public class Receta {
 
     public void setFechaReceta(Date fechaReceta) {
         this.fechaReceta = fechaReceta;
-    }
-
-    public String getDosis() {
-        return dosis;
-    }
-
-    public void setDosis(String dosis) {
-        this.dosis = dosis;
     }
 
     public String getRecomendacion() {
@@ -72,7 +61,7 @@ public class Receta {
 
     @Override
     public String toString() {
-        return "Receta{" + "idReceta=" + idReceta + ", fechaReceta=" + fechaReceta + ", recomendacion=" + recomendacion + ", dosis=" + dosis + '}';
+        return "Receta{" + "idReceta=" + idReceta + ", fechaReceta=" + fechaReceta + ", recomendacion=" + recomendacion + '}';
     }
 
     

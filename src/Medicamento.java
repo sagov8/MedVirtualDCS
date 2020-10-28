@@ -4,6 +4,8 @@ package src;
 public class Medicamento {
     //Atributos
     private int idMedicamento;
+    final String[] medicamento ={};
+    private String dosis;
     private String nombreMedicamento;
     private String principioActivo;
     private String viaAdministracion;
@@ -11,13 +13,15 @@ public class Medicamento {
     //Constructores
     public Medicamento() {
         this.idMedicamento = 0;
+        this.dosis="";
         this.nombreMedicamento = "";
         this.principioActivo = "";
         this.viaAdministracion = "";
         this.contraindicaciones = "";
     }
-    public Medicamento(int idMedicamento, String nombreMedicamento, String principioActivo, String viaAdministracion, String contraindicaciones) {
+    public Medicamento(int idMedicamento, String dosis,String nombreMedicamento, String principioActivo, String viaAdministracion, String contraindicaciones) {
         this.idMedicamento = idMedicamento;
+        this.dosis=dosis;
         this.nombreMedicamento = nombreMedicamento;
         this.principioActivo = principioActivo;
         this.viaAdministracion = viaAdministracion;
@@ -29,6 +33,12 @@ public class Medicamento {
     }
     public void setIdMedicamento(int idMedicamento) {
         this.idMedicamento = idMedicamento;
+    }
+    public String getDosis() {
+        return dosis;
+    }
+    public void setDosis(String dosis) {
+        this.dosis = dosis;
     }
     public String getNombreMedicamento() {
         return nombreMedicamento;
