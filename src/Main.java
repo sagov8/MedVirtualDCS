@@ -42,9 +42,10 @@ public class Main {
                         paciente.setIdUsuario(id);
 
                         /* El método registrarUsuario() devuelve true en caso de que el registro de
-                        Usuario se complete exitosamente. De no ser así no permite registrar los datos
+                        Usuario se complete exitósamente. De no ser así no permite registrar los datos
                         personales del paciente ó médico. Si el registro se hace correctamente, guarda al
-                        usuario en el Hashmap coleccionUsuarios*/
+                        usuario en el Hashmap coleccionUsuarios.
+                        La clase paciente hereda el método registrarUsuario de la clase Usuario.*/
                         boolean registroUsuarioExitoso = paciente.registrarUsuario(coleccionUsuarios);
                         if (registroUsuarioExitoso){
                             paciente.registrarPaciente(id, coleccionPacientes);
@@ -92,5 +93,7 @@ public class Main {
         while (!salir);
         //Código de prueba
         System.out.println(coleccionUsuarios.get(usuarioActivo));
+        System.out.println(coleccionPacientes.get(usuarioActivo));
+        System.out.println(coleccionMedicos.get(usuarioActivo));
     }
 }

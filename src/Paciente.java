@@ -149,10 +149,11 @@ public class Paciente extends Usuario {
         this.peso = peso;
     }
 
-    //Metodos y funciones
+    //Procedimientos y funciones
 
     @Override
     public String toString() {
+        //Sobrescritura de toString para obtener toda la info del paciente en un String separado por "&"
         return "idPaciente: " + idPaciente + "&TipoDocumento: "
                 + tipoDocumento + "&NumeroDocumento: " + numeroDocumento +
                 "&NombrePaciente: " + nombrePaciente + "&ApellidoPaciente: " +
@@ -165,7 +166,7 @@ public class Paciente extends Usuario {
 
     public void registrarPaciente(int id, HashMap<Integer, String> ColeccionPacientes) {
         Scanner t = new Scanner(System.in);
-
+        //Se pide y se guarda la información del paciente en cada variable.
         System.out.println("\nPor favor digite sus datos personales: ");
         System.out.println("Ingrese tipo de documetos (CC,TI,RC,CE): ");
         tipoDocumento = t.next();

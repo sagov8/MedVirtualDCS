@@ -55,10 +55,10 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
 
-    //Metodos y funciones
+    //Procedimientos y funciones
 
     public String guardarUsuario() {
-        return "ID: " +
+        return "ID: " +//Se retorna un String con la información del paciente usando el "&" como separador
                 idUsuario +
                 "&Usuario: " +
                 nombreUsuario +
@@ -82,6 +82,7 @@ public class Usuario {
         while (!salir) {
             System.out.println("Ingrese nombre de usuario: ");
             nombreUsuario = t.next();
+
             for (String usuarios : coleccionUsuarios.values()) {
                 String[] nombre = usuarios.split("&");//Divide la información del usuario con el símbolo "&" para
                                                             //obtener un Array, iterable con la info del usuario.
@@ -123,7 +124,6 @@ public class Usuario {
     public static int verificarLogin(HashMap<Integer, String> coleccionUsuarios) {
         Scanner t = new Scanner(System.in);
         int idUsuarioActivo;
-
         /*
         Para iniciar sesión se pide ingresar el nombre y password, se itera el HashMap con un ciclo
         for each buscando si el nombre y password ingresados corresponden al de un usuario registrado
@@ -136,10 +136,12 @@ public class Usuario {
             String nombreUsuario = t.next();
             System.out.println("Digite su contraseña:");
             String password = t.next();
+
             for (String usuarios : coleccionUsuarios.values()) {
                 String[] datos = usuarios.split("&");//Leer comentarios de la línea 86 a 90.
                 String nombreRegistrado = datos[1].split(" ")[1];
                 String passwordRegistrado = datos[2].split(" ")[1];
+
                 if (nombreRegistrado.equals(nombreUsuario) && passwordRegistrado.equals(password)) {
                     System.out.println("\nBienvenido a MedVirtualDCS\n");
                     idUsuarioActivo = Integer.parseInt(datos[0].split(" ")[1]);

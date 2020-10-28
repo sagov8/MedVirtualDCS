@@ -92,10 +92,10 @@ public class Medico extends Usuario {
         this.especialidad = especialidad;
     }
 
-    //Métodos y funciones
+    //Procedimientos y funciones
     @Override
     public String toString() {
-
+    //Sobrescritura del método toString para obtener toda la info del médico separada por el símbolo "&".
         return "id: " + getIdUsuario() + "&Nombre: " + nombreMedico + "&Apellido: " + apellidoMedico +
                 "&Especialidad: " + especialidad + "&Celular: " + numeroTelefonicoMedico +
                 "&Correo: " + correoMedico;
