@@ -3,11 +3,16 @@ package src;
 
 import java.util.Date;
 import java.util.Scanner;
+
 public class Diagnostico {
-    Scanner t=new Scanner(System.in);
+
+    Scanner t = new Scanner(System.in);
     //Atributos
     private int idDiagnostico;
     private Date fechaDiagnostico;
+    final String[] diagnostico = {"Diabetes tipo 1", "Diabetes tipo 2",
+        "Diabetes gestacional", "Diabetes relacionada con fibrosis quística",
+        "Diabetes MODY", "Diabetes secundaria a medicamentos"};
     private String observacion;
     private String estadoPaciente;
     private static int idSiguiente = 1;
@@ -62,23 +67,29 @@ public class Diagnostico {
 
     //Métodos
     public void crearDiagnostico() {
-        System.out.println("Ingrese el diagnóstico: ");
-        this.observacion = t.nextLine();
+
+        System.out.println("Elija uno de los siguientes diagnósticos:");
+        for (int i = 0; i < diagnostico.length; i++) {
+            System.out.println((i + 1) + ". " + diagnostico[i]);
+        }
+        int item = t.nextInt();
+        t.nextLine();
+        observacion=diagnostico[item-1];
         System.out.println("Ingrese el estado del paciente: ");
         this.estadoPaciente = (t.nextLine());
-        Date fechaDiagostico=new Date();
-        this.fechaDiagnostico=fechaDiagostico;
+        Date fechaDiagostico = new Date();
+        this.fechaDiagnostico = fechaDiagostico;
     }
-    /*public void imprimirDiagnostico(){
-        
-    }*/
+
     public void guardarDiagnostico(int idHistoriaClinica) {
 
     }
 
     @Override
     public String toString() {
-        return "Diagnostico{" + "idDiagnostico=" + idDiagnostico + ", fechaDiagnostico=" + fechaDiagnostico + ", observacion=" + observacion + ", estadoPaciente=" + estadoPaciente + '}';
+        return "Diagnostico{" + "idDiagnostico=" + idDiagnostico + ", "
+                + "fechaDiagnostico=" + fechaDiagnostico + ", observacion="
+                + observacion + ", estadoPaciente=" + estadoPaciente + '}';
     }
-    
+
 }

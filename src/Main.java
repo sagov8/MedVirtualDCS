@@ -11,7 +11,7 @@ public class Main {
         Scanner t = new Scanner(System.in);
         ArrayList<Diagnostico> diagnosticos = new ArrayList<>();//Crea un ArrayList de objetos
         ArrayList<Medicamento> medicamentos = new ArrayList<>();
-        
+
         boolean salirMenuDiagnostico = false;
         do {
             System.out.println("\n***********Menú Diagnostico***********"
