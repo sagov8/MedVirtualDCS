@@ -67,13 +67,15 @@ public class Diagnostico {
 
     //Métodos
     public void crearDiagnostico() {
-
-        System.out.println("Elija uno de los siguientes diagnósticos:");
-        for (int i = 0; i < diagnostico.length; i++) {
-            System.out.println((i + 1) + ". " + diagnostico[i]);
-        }
-        int item = t.nextInt();
-        t.nextLine();
+        int item=0;
+        do{
+            System.out.println("Elija uno de los siguientes diagnósticos:");
+            for (int i = 0; i < diagnostico.length; i++) {
+                System.out.println((i + 1) + ". " + diagnostico[i]);
+            }
+            item = t.nextInt();
+            t.nextLine();
+        }while(item<1 || item>6);    
         observacion=diagnostico[item-1];
         System.out.println("Ingrese el estado del paciente: ");
         this.estadoPaciente = (t.nextLine());
