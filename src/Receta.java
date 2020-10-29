@@ -1,7 +1,9 @@
 package src;
 import java.util.Date;
+import java.util.Scanner;
 //Diana
 public class Receta {
+    Scanner t=new Scanner(System.in);
     //Atributos
     private int idReceta;
     private Date fechaReceta;
@@ -9,7 +11,7 @@ public class Receta {
     private static int idSiguiente=1;
     //Constructores
     public Receta() {
-        this.idReceta = 0;
+        this.idReceta = idSiguiente++;
         this.fechaReceta = null;
         this.recomendacion="";
     }
@@ -46,14 +48,24 @@ public class Receta {
     
     //Métodos
     public void crearReceta( ){
-        
+        Date fechaReceta=new Date();
+        this.fechaReceta=fechaReceta;
+        System.out.println("Digite las recomendaciones: ");
+        recomendacion=t.nextLine();
+        System.out.println("Desea formular medicamento? 1.Si 2.No");
+        int formular=t.nextInt();
+        if(formular==1){
+            agregarMedicamento();
+        }
+        /*Date fechaDiagostico = new Date();
+        this.fechaDiagnostico = fechaDiagostico;*/
     }
 
     /*public void imprimirReceta(){
         
     }*/
     public void agregarMedicamento(){
-        
+        System.out.println("Medicamento Registrado");
     }
     public void guardarReceta(int idHistoriaClinica){
         

@@ -10,6 +10,7 @@ public class Main {
 
         Scanner t = new Scanner(System.in);
         ArrayList<Diagnostico> diagnosticos = new ArrayList<>();//Crea un ArrayList de objetos
+        ArrayList<Receta> recetas=new ArrayList<>();
         ArrayList<Medicamento> medicamentos = new ArrayList<>();
 
         boolean salirMenuDiagnostico = false;
@@ -42,17 +43,18 @@ public class Main {
                     }
                     break;
                 case 3:
-                    System.out.println("Ingrese recomendaciones: ");
-                    String recomendaciones = t.nextLine();
-                    System.out.println("Ingrese dosis: ");
-                    String dosis = t.nextLine();
-                    Date fechaReceta = new Date();
-                    Receta receta = new Receta(fechaReceta, recomendaciones, dosis);
-                    System.out.println(receta.toString());
-                    Medicamento medicamento = new Medicamento();
+                    Receta receta=new Receta();
+                    receta.crearReceta();
+                    recetas.add(receta);
                     break;
                 case 4:
-                    
+                    for (int i = 0; i < recetas.size(); i++) {
+                        System.out.println("\nReceta: " + (i + 1));
+                        Receta receta2=recetas.get(i);
+                        System.out.println("Id: "+receta2.getIdReceta());
+                        System.out.println("Fecha: "+receta2.getFechaReceta());
+                        System.out.println("Recomendación: "+receta2.getRecomendacion());
+                    }
                     break;
                 case 5:
                     System.out.println("Salió del menú Diagnostico");
