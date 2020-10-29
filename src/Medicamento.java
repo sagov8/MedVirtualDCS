@@ -4,7 +4,7 @@ package src;
 public class Medicamento {
     //Atributos
     private int idMedicamento;
-    final String[] medicamento ={};
+    final String[] medicamento ={"Med1","Med2","Med3","Med4","Med5","Med6","Med7",};
     private String dosis;
     private String nombreMedicamento;
     private String principioActivo;

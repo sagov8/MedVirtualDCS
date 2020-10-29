@@ -52,11 +52,14 @@ public class Receta {
         this.fechaReceta=fechaReceta;
         System.out.println("Digite las recomendaciones: ");
         recomendacion=t.nextLine();
-        System.out.println("Desea formular medicamento? 1.Si 2.No");
-        int formular=t.nextInt();
-        if(formular==1){
-            agregarMedicamento();
-        }
+        int formular=1;
+        do{
+            System.out.println("Desea formular medicamento? 1.Si 2.No");
+            formular=t.nextInt();
+            if(formular==1){
+                agregarMedicamento();
+            }
+        }while(formular!=2);    
         /*Date fechaDiagostico = new Date();
         this.fechaDiagnostico = fechaDiagostico;*/
     }
@@ -66,6 +69,19 @@ public class Receta {
     }*/
     public void agregarMedicamento(){
         System.out.println("Medicamento Registrado");
+        Medicamento medicamento=new Medicamento();
+        int item=0;
+        do{
+            System.out.println("Elija uno de los siguientes medicamentos:");
+            for (int i = 0; i < medicamento.medicamento.length; i++) {
+                System.out.println((i + 1) + ". " + medicamento.medicamento[i]);
+            }
+            item = t.nextInt();
+            t.nextLine();
+        }while(item<1 || item>20);    
+        medicamento.setNombreMedicamento(medicamento.medicamento[item-1]);
+        System.out.println("Ingrese la dosis: ");
+        medicamento.setDosis(t.nextLine());
     }
     public void guardarReceta(int idHistoriaClinica){
         
