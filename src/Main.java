@@ -18,7 +18,7 @@ public class Main {
                     + "\n1. Crear Diagnóstico."
                     + "\n2. Listar Diagnósticos."
                     + "\n3. Crear Receta."
-                    + "\n4. Medicamento."
+                    + "\n4. Listar Recetas."
                     + "\n5. Salir.");
 
             int opcion = t.nextInt();
@@ -49,9 +49,10 @@ public class Main {
                     Date fechaReceta = new Date();
                     Receta receta = new Receta(fechaReceta, recomendaciones, dosis);
                     System.out.println(receta.toString());
+                    Medicamento medicamento = new Medicamento();
                     break;
                 case 4:
-                    Medicamento medicamento = new Medicamento();
+                    
                     break;
                 case 5:
                     System.out.println("Salió del menú Diagnostico");
