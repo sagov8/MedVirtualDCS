@@ -48,6 +48,11 @@ public class Main {
                     break;
                 case 4:
                     for (int i = 0; i < recetas.size(); i++) {
+                        Receta receta2=recetas.get(i);
+                        receta2.imprimirReceta(i);
+                    }
+                    
+                    /*for (int i = 0; i < recetas.size(); i++) {
                         System.out.println("\nReceta: " + (i + 1));
                         Receta receta2=recetas.get(i);
                         System.out.println("Id: "+receta2.getIdReceta());
@@ -61,7 +66,7 @@ public class Main {
                                 System.out.println("Dosis: "+medicamento.getDosis());
                             }
                         }
-                    }
+                    }*/
                     break;
                 case 5:
                     System.out.println("Salió del menú Diagnostico");
