@@ -40,6 +40,14 @@ public class Receta {
         this.fechaReceta = fechaReceta;
     }
 
+    public ArrayList<Medicamento> getMedicamentos() {
+        return medicamentos;
+    }
+
+    public void setMedicamentos(ArrayList<Medicamento> medicamentos) {
+        this.medicamentos = medicamentos;
+    }
+
     public String getRecomendacion() {
         return recomendacion;
     }
@@ -61,16 +69,12 @@ public class Receta {
             if(formular==1){
                 agregarMedicamento();
             }
-        }while(formular!=2);    
-        /*Date fechaDiagostico = new Date();
-        this.fechaDiagnostico = fechaDiagostico;*/
+        }while(formular!=2);
     }
 
     /*public void imprimirReceta(){
-        
     }*/
     public void agregarMedicamento(){
-        System.out.println("Medicamento Registrado");
         Medicamento medicamento=new Medicamento();
         int item=0;
         do{
@@ -84,6 +88,7 @@ public class Receta {
         medicamento.setNombreMedicamento(medicamento.medicamento[item-1]);
         System.out.println("Ingrese la dosis: ");
         medicamento.setDosis(t.nextLine());
+        medicamentos.add(medicamento);
     }
     public void guardarReceta(int idHistoriaClinica){
         

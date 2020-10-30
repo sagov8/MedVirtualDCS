@@ -11,8 +11,7 @@ public class Main {
         Scanner t = new Scanner(System.in);
         ArrayList<Diagnostico> diagnosticos = new ArrayList<>();//Crea un ArrayList de objetos
         ArrayList<Receta> recetas=new ArrayList<>();
-        ArrayList<Medicamento> medicamentos = new ArrayList<>();
-
+        
         boolean salirMenuDiagnostico = false;
         do {
             System.out.println("\n***********Menú Diagnostico***********"
@@ -54,6 +53,14 @@ public class Main {
                         System.out.println("Id: "+receta2.getIdReceta());
                         System.out.println("Fecha: "+receta2.getFechaReceta());
                         System.out.println("Recomendación: "+receta2.getRecomendacion());
+                        if((receta2.getMedicamentos().size())!=0){
+                            for (int j = 0; j < receta2.getMedicamentos().size(); j++) {
+                                Medicamento medicamento=receta2.getMedicamentos().get(j);
+                                System.out.println("Medicamento :"+(j+1));
+                                System.out.println("Nombre: "+medicamento.getNombreMedicamento() );
+                                System.out.println("Dosis: "+medicamento.getDosis());
+                            }
+                        }
                     }
                     break;
                 case 5:
