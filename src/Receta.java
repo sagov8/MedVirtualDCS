@@ -1,6 +1,7 @@
 package src;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.ArrayList;
 //Diana
 public class Receta {
     Scanner t=new Scanner(System.in);
@@ -9,6 +10,7 @@ public class Receta {
     private Date fechaReceta;
     private String recomendacion;
     private static int idSiguiente=1;
+    private ArrayList<Medicamento> medicamentos = new ArrayList<>();
     //Constructores
     public Receta() {
         this.idReceta = idSiguiente++;
