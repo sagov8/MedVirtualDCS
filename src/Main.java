@@ -10,7 +10,7 @@ public class Main {
 
         Scanner t = new Scanner(System.in);
         ArrayList<Diagnostico> diagnosticos = new ArrayList<>();//Crea un ArrayList de objetos
-        ArrayList<Receta> recetas=new ArrayList<>();
+        ArrayList<Formula> recetas=new ArrayList<>();
         
         boolean salirMenuDiagnostico = false;
         do {
@@ -42,19 +42,19 @@ public class Main {
                     }
                     break;
                 case 3:
-                    Receta receta=new Receta();
+                    Formula receta=new Formula();
                     receta.crearReceta();
                     recetas.add(receta);
                     break;
                 case 4:
                     for (int i = 0; i < recetas.size(); i++) {
-                        Receta receta2=recetas.get(i);
+                        Formula receta2=recetas.get(i);
                         receta2.imprimirReceta(i);
                     }
                     
                     /*for (int i = 0; i < recetas.size(); i++) {
                         System.out.println("\nReceta: " + (i + 1));
-                        Receta receta2=recetas.get(i);
+                        Formula receta2=recetas.get(i);
                         System.out.println("Id: "+receta2.getIdReceta());
                         System.out.println("Fecha: "+receta2.getFechaReceta());
                         System.out.println("Recomendación: "+receta2.getRecomendacion());

@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 //Diana
 
-public class Receta {
+public class Formula {
 
     Scanner t = new Scanner(System.in);
     //Atributos
@@ -16,13 +16,13 @@ public class Receta {
     private ArrayList<Medicamento> medicamentos = new ArrayList<>();
 
     //Constructores
-    public Receta() {
+    public Formula() {
         this.idReceta = idSiguiente++;
         this.fechaReceta = null;
         this.recomendacion = "";
     }
 
-    public Receta(Date fechaReceta, String recomendacion, String dosis) {
+    public Formula(Date fechaReceta, String recomendacion, String dosis) {
         this.idReceta = idSiguiente++;
         this.fechaReceta = fechaReceta;
         this.recomendacion = recomendacion;
