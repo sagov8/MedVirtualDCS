@@ -1,7 +1,5 @@
 package src;
 
-import src.InicioDeSesion.InicioDeSesionInterfaz;
-
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -13,9 +11,6 @@ public class Main {
         //HashMap organiza datos de la manera <k, v> (clave, valor)
         HashMap<Integer, String> coleccionUsuarios = new HashMap<>();
         HashMap<Integer, String> coleccionMedicos = new HashMap<>();
-
-        InicioDeSesionInterfaz interfaz = new InicioDeSesionInterfaz();
-        interfaz.setVisible(true);
 
         boolean salir = false;
 
