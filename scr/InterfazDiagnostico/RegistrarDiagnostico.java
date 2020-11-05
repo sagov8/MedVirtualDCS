@@ -6,6 +6,8 @@ import java.util.Date;
 public class RegistrarDiagnostico extends javax.swing.JFrame {
 
     ArrayList<Diagnostico> diagnosticos = new ArrayList<>();//Crea un ArrayList de objetos
+    
+    
     public RegistrarDiagnostico() {
         initComponents();
     }
@@ -46,6 +48,9 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         jLDosis = new javax.swing.JLabel();
         jTFDosis = new javax.swing.JTextField();
         jBAgregarMedicamento = new javax.swing.JButton();
+        jBGuardarFormula = new javax.swing.JButton();
+        jBImprimirFormula = new javax.swing.JButton();
+        jBSalirFormula = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -175,6 +180,22 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
             }
         });
 
+        jBGuardarFormula.setText("Guardar");
+        jBGuardarFormula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarFormulaActionPerformed(evt);
+            }
+        });
+
+        jBImprimirFormula.setText("Imprimir");
+        jBImprimirFormula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBImprimirFormulaActionPerformed(evt);
+            }
+        });
+
+        jBSalirFormula.setText("Salir");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -201,6 +222,14 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(jBAgregarMedicamento)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(jBGuardarFormula)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBImprimirFormula)
+                .addGap(113, 113, 113)
+                .addComponent(jBSalirFormula)
+                .addGap(129, 129, 129))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,10 +249,15 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                     .addComponent(jLDosis)
                     .addComponent(jTFDosis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBAgregarMedicamento))
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addGap(121, 121, 121)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBGuardarFormula)
+                    .addComponent(jBImprimirFormula)
+                    .addComponent(jBSalirFormula))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Receta", jPanel2);
+        jTabbedPane1.addTab("Fórmula", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -248,7 +282,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
     }//GEN-LAST:event_jCBDiagnosticoActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-        //Botón Guardar
+        //Botón Guardar Diagnóstico
         Diagnostico diagnostico = new Diagnostico();//Crear objeto de la clase Diagnóstico
         diagnostico.setObservacion(jCBDiagnostico.getSelectedItem().toString());
         diagnostico.setEstadoPaciente(jTEstado.getText());
@@ -294,8 +328,49 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
     private void jBAgregarMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarMedicamentoActionPerformed
         // Botón agregar medicamento
+        Formula formula=new Formula();
+        Medicamento medicamento = new Medicamento();
+        medicamento.setNombreMedicamento(jCBMedicamentos.getSelectedItem().toString());
+        medicamento.setDosis(jTFDosis.getText());
+        
+        //formula.setMedicamentos(medicamentos);
+        //medicamentos.add(medicamento);
         JOptionPane.showMessageDialog(null, jCBMedicamentos.getSelectedItem().toString()+" agregado");
+        
     }//GEN-LAST:event_jBAgregarMedicamentoActionPerformed
+
+    private void jBGuardarFormulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarFormulaActionPerformed
+        // Botón Guardar Fórmula
+        
+        /*Diagnostico diagnostico = new Diagnostico();//Crear objeto de la clase Diagnóstico
+        diagnostico.setObservacion(jCBDiagnostico.getSelectedItem().toString());
+        diagnostico.setEstadoPaciente(jTEstado.getText());
+        Date fechaDiagostico = new Date();
+        diagnostico.setFechaDiagnostico(fechaDiagostico); 
+        diagnosticos.add(diagnostico);//Guarda el diagnostico creado en el ArrayList*/
+        /* Date fechaReceta = new Date();
+        this.fechaReceta = fechaReceta;
+        System.out.println("Digite las recomendaciones: ");
+        recomendacion = t.nextLine();*/
+        
+    }//GEN-LAST:event_jBGuardarFormulaActionPerformed
+
+    private void jBImprimirFormulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBImprimirFormulaActionPerformed
+        // Botón Imprimir Formula
+        /*System.out.println("\nReceta: " + (i + 1));//Imprimir receta
+            System.out.println("Id: " +idReceta);
+            System.out.println("Fecha: " + fechaReceta);
+            System.out.println("Recomendación: " + recomendacion);
+            if ((medicamentos.size()) != 0) {
+                for (int j = 0; j < medicamentos.size(); j++) {
+                    Medicamento medicamento = medicamentos.get(j);
+                    System.out.println("Medicamento :" + (j + 1));
+                    System.out.println("Nombre: " + medicamento.getNombreMedicamento());
+                    System.out.println("Dosis: " + medicamento.getDosis());
+                }
+            }
+*/
+    }//GEN-LAST:event_jBImprimirFormulaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,8 +419,11 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup6;
     private javax.swing.JButton jBAgregarMedicamento;
     private javax.swing.JButton jBGuardar;
+    private javax.swing.JButton jBGuardarFormula;
     private javax.swing.JButton jBImprimir;
+    private javax.swing.JButton jBImprimirFormula;
     private javax.swing.JButton jBSalir;
+    private javax.swing.JButton jBSalirFormula;
     private javax.swing.JComboBox<String> jCBDiagnostico;
     private javax.swing.JCheckBox jCBMedicNo;
     private javax.swing.JCheckBox jCBMedicSi;
