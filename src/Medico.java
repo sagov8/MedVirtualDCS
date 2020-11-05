@@ -92,7 +92,7 @@ public class Medico extends Usuario {
         this.especialidad = especialidad;
     }
 
-    //Procedimientos y funciones
+    //Métodos y funciones
     @Override
     public String toString() {
     //Sobrescritura del método toString para obtener toda la info del médico separada por el símbolo "&".
@@ -123,5 +123,6 @@ public class Medico extends Usuario {
         idMedico = id;
         coleccionMedicos.put(id, toString());
         System.out.println("\nSu información ha sido registrada con éxito.\n");
+
     }
 }

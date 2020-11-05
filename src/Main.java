@@ -102,5 +102,6 @@ public class Main {
         System.out.println(coleccionUsuarios.get(usuarioActivo));
         System.out.println(coleccionPacientes.get(usuarioActivo));
         System.out.println(coleccionMedicos.get(usuarioActivo));
+
     }
 }
