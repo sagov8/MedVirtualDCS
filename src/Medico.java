@@ -92,26 +92,33 @@ public class Medico extends Usuario {
         this.especialidad = especialidad;
     }
 
-    //Métodos y funciones
+    //Procedimientos y funciones
     @Override
     public String toString() {
-
+    //Sobrescritura del método toString para obtener toda la info del médico separada por el símbolo "&".
         return "id: " + getIdUsuario() + "&Nombre: " + nombreMedico + "&Apellido: " + apellidoMedico +
-                "&Especialidad: " + especialidad + "&Correo: " + correoMedico + "&Celular: " +
-                numeroTelefonicoMedico;
+                "&Especialidad: " + especialidad + "&Celular: " + numeroTelefonicoMedico +
+                "&Correo: " + correoMedico;
     }
 
     public void registrarMedico(int id, HashMap<Integer, String> coleccionMedicos) {
+        /*
+        Se pide la información al médico para ingresarla dentro de los atributos de la clase
+        y a través del método sobrescrito de toString se le da un formato agregándole el símbolo
+        Ampersand (&) para poder obtener un dato específico si se requiere (ej &nombreMedico: Juan)
+        Si todos los datos se escriben correctamente se guarda la información en el Hashmap: coleccionMedicos.
+         */
         Scanner t = new Scanner(System.in);
+        System.out.println("\nPor favor digite sus datos personales:");
         System.out.println("\nIngrese su nombre:");
-        nombreMedico = t.next();
+        nombreMedico = t.nextLine();
         System.out.println("Ingrese su apellido:");
-        apellidoMedico = t.next();
-        System.out.println("Ingrese su especialidad");
-        especialidad = t.next();
-        System.out.println("Ingrese su teléfono:");
+        apellidoMedico = t.nextLine();
+        System.out.println("Ingrese su especialidad:");
+        especialidad = t.nextLine();
+        System.out.println("Ingrese su número de celular:");
         numeroTelefonicoMedico = t.next();
-        System.out.println("Ingrese su correo");
+        System.out.println("Ingrese su correo:");
         correoMedico = t.next();
         idMedico = id;
         coleccionMedicos.put(id, toString());

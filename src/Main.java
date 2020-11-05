@@ -10,12 +10,20 @@ public class Main {
 
         Scanner t = new Scanner(System.in);
         int id = 0;
-        //HashMap organiza datos de la manera <k, v> (clave, valor)
+        int usuarioActivo = -1;
+        /*
+        HashMap organiza datos de la manera <k, v> (clave, valor), solo permite Clases, no datos
+        primitivos, por eso se usa Integer y no int.
+        */
         HashMap<Integer, String> coleccionUsuarios = new HashMap<>();
         HashMap<Integer, String> coleccionMedicos = new HashMap<>();
+
         
         InicioSesion ventana = new InicioSesion();
         ventana.setVisible(true);
+
+        HashMap<Integer, String> coleccionPacientes = new HashMap<>();
+
 
         boolean salir = false;
 
@@ -36,11 +44,19 @@ public class Main {
                     String tipoDeUsuario = t.next();
 
                     if (tipoDeUsuario.equalsIgnoreCase("paciente")) {
-                        Paciente paciente = new Paciente();
-                        paciente.setTipoUsuario(tipoDeUsuario);
+                        Paciente paciente = new Paciente();//Instancia el objeto paciente
+                        paciente.setTipoUsuario(tipoDeUsuario);//asigna el tipo de Usuario y el ID respectivo.
                         paciente.setIdUsuario(id);
 
-                        paciente.registrarUsuario(coleccionUsuarios, paciente.getNombreUsuario());
+                        /* El método registrarUsuario() devuelve true en caso de que el registro de
+                        Usuario se complete exitósamente. De no ser así no permite registrar los datos
+                        personales del paciente ó médico. Si el registro se hace correctamente, guarda al
+                        usuario en el Hashmap coleccionUsuarios.
+                        La clase paciente hereda el método registrarUsuario de la clase Usuario.*/
+                        boolean registroUsuarioExitoso = paciente.registrarUsuario(coleccionUsuarios);
+                        if (registroUsuarioExitoso){
+                            paciente.registrarPaciente(id, coleccionPacientes);
+                        }
                         id++;
 
                     } else if (tipoDeUsuario.equalsIgnoreCase("medico")) {
@@ -48,30 +64,28 @@ public class Main {
                         medico.setTipoUsuario(tipoDeUsuario);
                         medico.setIdUsuario(id);
 
-                        System.out.println("Ingrese nombre de usuario: ");
-                        medico.setNombreUsuario(t.next());
-
-                        medico.registrarUsuario(coleccionUsuarios, medico.getNombreUsuario());
-
-                        medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
+                        //Leer comentario de la línea 42
+                        boolean registroUsuarioExitoso = medico.registrarUsuario(coleccionUsuarios);
+                        if (registroUsuarioExitoso){
+                            medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
+                        }
                         id++;
-
                     } else {
                         System.out.println("Por favor ingrese una opción válida.");
                     }
                     break;
                 case 2:
-                    boolean verificado = false;
+                    /*
+                    Para iniciar sesión primero se hace una verificación de la coleccionUsuarios
+                    en caso de estar vacía es porque no hay usuarios registrados, en caso contrario
+                    se pide un nombre de usuario y password y a través del método verificarLogin()
+                    se realiza el proceso de verificación retornando en caso éxitoso el ID del usuario
+                    que se realizó su login en el sistema.
+                     */
                     if (coleccionUsuarios.isEmpty()) {
                         System.out.println("No hay usuarios registrados.");
                     } else {
-                        while (!verificado) {
-                            System.out.println("Ingrese su nombre de usuario:");
-                            String nombreUsuario = t.next();
-                            System.out.println("Digite su contraseña:");
-                            String password = t.next();
-                            verificado = Usuario.verificarLogin(nombreUsuario, password, coleccionUsuarios);
-                        }
+                        usuarioActivo = Usuario.verificarLogin(coleccionUsuarios);
                         salir = true;
                     }
                     break;
@@ -85,7 +99,8 @@ public class Main {
         }
         while (!salir);
         //Código de prueba
-        System.out.println(coleccionUsuarios.values());
-        System.out.println(coleccionMedicos.values());
+        System.out.println(coleccionUsuarios.get(usuarioActivo));
+        System.out.println(coleccionPacientes.get(usuarioActivo));
+        System.out.println(coleccionMedicos.get(usuarioActivo));
     }
 }
