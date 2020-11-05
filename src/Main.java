@@ -2,6 +2,7 @@ package src;
 
 import java.util.HashMap;
 import java.util.Scanner;
+import src.InterfazDeUsuario.InicioSesion;
 
 public class Main {
 
@@ -12,6 +13,9 @@ public class Main {
         //HashMap organiza datos de la manera <k, v> (clave, valor)
         HashMap<Integer, String> coleccionUsuarios = new HashMap<>();
         HashMap<Integer, String> coleccionMedicos = new HashMap<>();
+        
+        InicioSesion ventana = new InicioSesion();
+        ventana.setVisible(true);
 
         boolean salir = false;
 
