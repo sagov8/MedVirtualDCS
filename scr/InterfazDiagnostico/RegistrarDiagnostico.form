@@ -203,35 +203,29 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane1" min="-2" pref="261" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLMedicamento" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                      <Component id="jCBMedicSi" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="jCBMedicNo" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jCBMedicamentos" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLDosis" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jTFDosis" min="-2" pref="78" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                      <Component id="jBAgregarMedicamento" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" pref="261" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLMedicamento" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="jCBMedicSi" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="jCBMedicNo" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jCBMedicamentos" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jLDosis" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jTFDosis" min="-2" pref="78" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="jBAgregarMedicamento" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -256,9 +250,7 @@
                           <Component id="jTFDosis" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jBAgregarMedicamento" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="103" max="-2" attributes="0"/>
-                      <EmptySpace pref="133" max="32767" attributes="0"/>
+                      <EmptySpace pref="275" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -285,15 +277,17 @@
             <Component class="javax.swing.JComboBox" name="jCBMedicamentos">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="8">
-                    <StringItem index="0" value="Metformina"/>
-                    <StringItem index="1" value="Sulfonilureas"/>
-                    <StringItem index="2" value="Meglitinidas"/>
-                    <StringItem index="3" value="Tiazolidinadionas"/>
-                    <StringItem index="4" value="Inhibidores de la DPP-4"/>
-                    <StringItem index="5" value="Agonistas del receptor de la GLP-1"/>
-                    <StringItem index="6" value="Inhibidores de la SGLT2"/>
-                    <StringItem index="7" value="Insulina"/>
+                  <StringArray count="10">
+                    <StringItem index="0" value="Ninguno"/>
+                    <StringItem index="1" value="Metformina"/>
+                    <StringItem index="2" value="Sulfonilureas"/>
+                    <StringItem index="3" value="Meglitinidas"/>
+                    <StringItem index="4" value="Tiazolidinadionas"/>
+                    <StringItem index="5" value="Inhibidores de la DPP-4"/>
+                    <StringItem index="6" value="Agonistas del receptor de la GLP-1"/>
+                    <StringItem index="7" value="Inhibidores de la SGLT2"/>
+                    <StringItem index="8" value="Insulina"/>
+                    <StringItem index="9" value="Otro"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -327,34 +321,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCBMedicSiActionPerformed"/>
               </Events>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JList" name="jList1">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="8">
-                        <StringItem index="0" value="Metformina"/>
-                        <StringItem index="1" value="Sulfonilureas"/>
-                        <StringItem index="2" value="Meglitinidas"/>
-                        <StringItem index="3" value="Tiazolidinadionas"/>
-                        <StringItem index="4" value="Inhibidores de la DPP-4"/>
-                        <StringItem index="5" value="Agonistas del receptor de la GLP-1"/>
-                        <StringItem index="6" value="Inhibidores de la SGLT2"/>
-                        <StringItem index="7" value="Insulina"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-              </SubComponents>
-            </Container>
             <Component class="javax.swing.JLabel" name="jLDosis">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Dosis"/>
