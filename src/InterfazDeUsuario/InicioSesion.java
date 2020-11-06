@@ -59,8 +59,6 @@ public class InicioSesion extends javax.swing.JFrame {
             }
         });
 
-        jPasswordField1.setText("jPasswordField1");
-
         jLabel3.setText("Por favor Ingrese su nombre de Usuario y Contraseña");
         jLabel3.setMaximumSize(new java.awt.Dimension(500, 500));
 
