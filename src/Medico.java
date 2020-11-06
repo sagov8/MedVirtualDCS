@@ -95,19 +95,13 @@ public class Medico extends Usuario {
     //Métodos y funciones
     @Override
     public String toString() {
-    //Sobrescritura del método toString para obtener toda la info del médico separada por el símbolo "&".
+
         return "id: " + getIdUsuario() + "&Nombre: " + nombreMedico + "&Apellido: " + apellidoMedico +
                 "&Especialidad: " + especialidad + "&Celular: " + numeroTelefonicoMedico +
                 "&Correo: " + correoMedico;
     }
 
     public void registrarMedico(int id, HashMap<Integer, String> coleccionMedicos) {
-        /*
-        Se pide la información al médico para ingresarla dentro de los atributos de la clase
-        y a través del método sobrescrito de toString se le da un formato agregándole el símbolo
-        Ampersand (&) para poder obtener un dato específico si se requiere (ej &nombreMedico: Juan)
-        Si todos los datos se escriben correctamente se guarda la información en el Hashmap: coleccionMedicos.
-         */
         Scanner t = new Scanner(System.in);
         System.out.println("\nPor favor digite sus datos personales:");
         System.out.println("\nIngrese su nombre:");
@@ -123,6 +117,5 @@ public class Medico extends Usuario {
         idMedico = id;
         coleccionMedicos.put(id, toString());
         System.out.println("\nSu información ha sido registrada con éxito.\n");
-
     }
 }

@@ -8,8 +8,6 @@ public class Evolucion {
     private String fechaEvento;
     private String tipoDeEvento;
     private String descripcionEvento;
-    
-    
 
     //Constructores
     public Evolucion() {
@@ -65,9 +63,5 @@ public class Evolucion {
 
     public String imprimirEvento(){
         return "";
-    }
-
-    public Object[] getTime() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
