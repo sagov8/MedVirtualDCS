@@ -146,9 +146,16 @@ public class Usuario {
                     System.out.println("\nBienvenido a MedVirtualDCS\n");
                     idUsuarioActivo = Integer.parseInt(datos[0].split(" ")[1]);
                     return idUsuarioActivo;
+                    
+                   
                 }
+                
+                 
+                 
             }
             System.out.println("\nUsuario o contraseña incorrectos.\n");
         }
+        
+        
     }
 }

@@ -89,11 +89,18 @@ public class Main {
                 default:
                     System.out.println("Ingrese una opción válida");
             }
+                
         }
         while (!salir);
+        
+         Evolucion menuEvento=new Evolucion();
+                 
+         menuEvento.MenuEventosPaciente();
+        
+     /*   
         //Código de prueba
         System.out.println(coleccionUsuarios.get(usuarioActivo));
         System.out.println(coleccionPacientes.get(usuarioActivo));
-        System.out.println(coleccionMedicos.get(usuarioActivo));
+        System.out.println(coleccionMedicos.get(usuarioActivo));*/
     }
 }

@@ -168,7 +168,7 @@ public class Paciente extends Usuario {
         Scanner t = new Scanner(System.in);
         //Se pide y se guarda la información del paciente en cada variable.
         System.out.println("\nPor favor digite sus datos personales: ");
-        System.out.println("Ingrese tipo de documetos (CC,TI,RC,CE): ");
+      /*  System.out.println("Ingrese tipo de documetos (CC,TI,RC,CE): ");
         tipoDocumento = t.next();
         System.out.println("Ingrese número de documento: ");
         numeroDocumento = t.nextLong();
@@ -190,7 +190,7 @@ public class Paciente extends Usuario {
         System.out.println("Ingrese su género (Hombre/Mujer): ");
         genero = t.next();
         System.out.println("Ingrese su peso (kg): ");
-        peso = t.nextFloat();
+        peso = t.nextFloat();*/
         idPaciente = id;
 
         ColeccionPacientes.put(id, toString());
