@@ -66,8 +66,12 @@ public class Diagnostico {
     }
 
     //Métodos
-    public void crearDiagnostico() {
-        int item=0;
+    public void crearDiagnostico(String diagnostico,String estado) {
+        Date fechaDiagostico = new Date();
+        this.fechaDiagnostico = fechaDiagostico;
+        this.observacion=diagnostico;
+        this.estadoPaciente =estado;
+        /*int item=0;
         do{
             System.out.println("Elija uno de los siguientes diagnósticos:");
             for (int i = 0; i < diagnostico.length; i++) {
@@ -80,7 +84,7 @@ public class Diagnostico {
         System.out.println("Ingrese el estado del paciente: ");
         this.estadoPaciente = (t.nextLine());
         Date fechaDiagostico = new Date();
-        this.fechaDiagnostico = fechaDiagostico;
+        this.fechaDiagnostico = fechaDiagostico;*/
     }
 
     public void guardarDiagnostico(int idHistoriaClinica) {

@@ -26,7 +26,7 @@ public class Main {
             switch (opcion) {
                 case 1:
                     Diagnostico diagnostico = new Diagnostico();//Crear objeto de la clase Diagnóstico
-                    diagnostico.crearDiagnostico();//Llama el método que solicita los datos del diagnóstico (Diagnóstico y estado)
+                    //diagnostico.crearDiagnostico();//Llama el método que solicita los datos del diagnóstico (Diagnóstico y estado)
                     diagnosticos.add(diagnostico);//Guarda el diagnostico creado en el ArrayList
                     break;
                 case 2:

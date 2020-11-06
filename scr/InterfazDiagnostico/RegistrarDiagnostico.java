@@ -287,10 +287,11 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
         //Botón Guardar Diagnóstico
         Diagnostico diagnostico = new Diagnostico();//Crear objeto de la clase Diagnóstico
-        diagnostico.setObservacion(jCBDiagnostico.getSelectedItem().toString());
+        diagnostico.crearDiagnostico(jCBDiagnostico.getSelectedItem().toString(),jTEstado.getText());
+        /*diagnostico.setObservacion(jCBDiagnostico.getSelectedItem().toString());
         diagnostico.setEstadoPaciente(jTEstado.getText());
         Date fechaDiagostico = new Date();
-        diagnostico.setFechaDiagnostico(fechaDiagostico); 
+        diagnostico.setFechaDiagnostico(fechaDiagostico);*/ 
         diagnosticos.add(diagnostico);//Guarda el diagnostico creado en el ArrayList
     }//GEN-LAST:event_jBGuardarActionPerformed
 
@@ -316,10 +317,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
     }//GEN-LAST:event_jCBMedicamentosActionPerformed
 
     private void jCBAgregarMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBAgregarMedActionPerformed
-        // TODO add your handling code here:
-        if(jCBAgregarMed.isSelected()){
-            jCBMedicamentos.setEnabled(true);
-        }
+      
     }//GEN-LAST:event_jCBAgregarMedActionPerformed
 
     private void jBAgregarMedicamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarMedicamentoActionPerformed
@@ -340,12 +338,11 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         formula.setFechaFormula(fechaDiagostico);
         formula.setRecomendacion(jTARecomendaciones.getText());
         if(jCBAgregarMed.isSelected()){
-            /*Formula formula=new Formula();
-        Medicamento medicamento = new Medicamento();
-        medicamento.setNombreMedicamento(jCBMedicamentos.getSelectedItem().toString());
-        medicamento.setDosis(jTFDosis.getText());
-        formula.medicamentos.add(medicamento);
-        JOptionPane.showMessageDialog(null, jCBMedicamentos.getSelectedItem().toString()+" agregado");*/
+            /*Medicamento medicamento = new Medicamento();
+            medicamento.setNombreMedicamento(jCBMedicamentos.getSelectedItem().toString());
+            medicamento.setDosis(jTFDosis.getText());
+            formula.medicamentos.add(medicamento);
+            JOptionPane.showMessageDialog(null, jCBMedicamentos.getSelectedItem().toString()+" agregado");*/
         }
         formulas.add(formula);
     }//GEN-LAST:event_jBGuardarFormulaActionPerformed
@@ -369,7 +366,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
             }
         }
         JOptionPane.showMessageDialog(null,imprimirFormula,"Imprimir",JOptionPane.PLAIN_MESSAGE);
-        
+                
     }//GEN-LAST:event_jBImprimirFormulaActionPerformed
 
     private void jBSalirFormulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirFormulaActionPerformed
