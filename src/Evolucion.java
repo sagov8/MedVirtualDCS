@@ -11,6 +11,7 @@ public class Evolucion {
     private int idEvento;
     private String fechaEvento;
     private String tipoDeEvento;
+    private float nivelGlucosa;
     private String descripcionEvento;
 
     //Constructores
@@ -62,23 +63,32 @@ public class Evolucion {
     }
 
     //Métodos y funciones
+    public void descripcionEvento() {
+
+        Scanner t = new Scanner(System.in);
+
+        System.out.println("Descripcion del evento");
+        descripcionEvento = t.nextLine();
+        t.nextLine();
+
+    }
+
     public void guardarEvento() {
+        Scanner t = new Scanner(System.in);
+
+        System.out.println("Guarda evento");
 
     }
 
-    public String imprimirEvento() {
-        return "";
-    }
+    public void imprimirEvento() {
 
-    public Object[] getTime() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("");
+
     }
 
     public void validacionNivelGlucosa() {
 
         Scanner t = new Scanner(System.in);
-
-        float nivelGlucosa;
 
         System.out.println("Ingrese nivel de glucosa: " + "(mg/dl)");
         nivelGlucosa = t.nextFloat();
@@ -95,18 +105,6 @@ public class Evolucion {
             System.out.println("DIABETICO EN CONTROL");
 
         }
-
-    }
-
-    public void descripcionEvento() {
-
-        Scanner t = new Scanner(System.in);
-
-        String descripcionEvento = "";
-
-        System.out.println("Descripcion del evento");
-        descripcionEvento = t.nextLine();
-        t.nextLine();
 
     }
 
