@@ -3,21 +3,34 @@ import src.*;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.Date;
+
 public class RegistrarDiagnostico extends javax.swing.JFrame {
 
-    ArrayList<Diagnostico> diagnosticos = new ArrayList<>();//Crea un ArrayList de objetos de "Diagnostico"
-    ArrayList<Formula> formulas=new ArrayList<>();    
-    ArrayList<String> nombreMedicamento=new ArrayList<>();
-    ArrayList<String> dosisMedicamento=new ArrayList<>();
-    //Pacientes de prueba:
-    
-    /*(int idPaciente, String tipoDocumento, int numeroDocumento,
-                    String nombrePaciente, String apellidoPaciente,
-                    long numeroTelefonicoPaciente, String correoPaciente,
-                    String direccionDeDomicilio, String fechaDeNacimiento,
-                    String genero, float peso)*/
+    ArrayList<Formula> formulas=new ArrayList<>();
+    ArrayList<Paciente> pacientes=new ArrayList<>();
+    ArrayList<String> nombreMedicamento=new ArrayList<>();//Solo se usa en el Frame RegistrarDiagnostico
+    ArrayList<String> dosisMedicamento=new ArrayList<>();//Solo se usa en el Frame RegistrarDiagnostico
+    int indexPaciente;/*Solo se usa en el Frame RegistrarDiagnostico
+                        Posición en el array de pacientes del paciente a consultar*/
     public RegistrarDiagnostico() {
         initComponents();
+        //Pacientes de prueba:
+        Paciente paciente1=new Paciente("cédula",11111,"Juan","Jiménez",
+                320123456,"jjimenez@gmail.com","Calle 5 6-34","1990-08-23",
+                "Masculino",70);
+        Paciente paciente2=new Paciente("cédula",22222,"Pablo","Pérez",
+                320123457,"pperez@gmail.com","Carrera 2 7-93","1985-03-06",
+                "Masculino",68);
+        Paciente paciente3=new Paciente("cédula",33333,"Maria","Martínez",
+                320123458,"mmartinez@gmail.com","Calle 27 3-22","1963-12-10",
+                "Femenino",60);
+        Paciente paciente4=new Paciente("cédula",44444,"Ana","Arango",
+                320123459,"aarango@gmail.com","Carrera 35 1-60","1959-07-19",
+                "Femenino",58);
+        pacientes.add(paciente1);
+        pacientes.add(paciente2);
+        pacientes.add(paciente3);
+        pacientes.add(paciente4);
     }
 
     /**
@@ -46,7 +59,8 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         jBImprimirDiagnostico = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTFIdPaciente = new javax.swing.JTextField();
+        jBConsultarPaciente = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLMedicamento = new javax.swing.JLabel();
@@ -107,6 +121,19 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
         jLabel2.setText("Ingrese identificación del paciente:");
 
+        jTFIdPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFIdPacienteActionPerformed(evt);
+            }
+        });
+
+        jBConsultarPaciente.setText("Consultar");
+        jBConsultarPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBConsultarPacienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -117,7 +144,9 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(64, 64, 64)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTFIdPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addComponent(jBConsultarPaciente)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,11 +167,12 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(69, 69, 69)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
+                    .addComponent(jTFIdPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBConsultarPaciente))
+                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLDiagnostico)
                     .addComponent(jCBDiagnostico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -288,12 +318,18 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         //Botón Guardar Diagnóstico
         Diagnostico diagnostico = new Diagnostico();//Crear objeto de la clase Diagnóstico
         diagnostico.crearDiagnostico(jCBDiagnostico.getSelectedItem().toString(),jTEstado.getText());
-        diagnosticos.add(diagnostico);//Guarda el diagnostico creado en el ArrayList "diagnosticos"
-        jTEstado.setText(" ");
+        Paciente paciente=pacientes.get(indexPaciente);//Guarda en paciente la información de la cédula consultada
+        paciente.setDiagnosticos(diagnostico);//Guarda el diagnostico creado en el ArrayList diagnosticos del Paciente consultado
+        jTEstado.setText(" ");//Limpia el TextField del estado del paciente después de guardarlo
+        JOptionPane.showMessageDialog(null, "Diagnostico Registrado");
+        
     }//GEN-LAST:event_jBGuardarDiagnosticoActionPerformed
 
     private void jBImprimirDiagnosticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBImprimirDiagnosticoActionPerformed
         // Botón Imprimir Diagnóstico
+        ArrayList<Diagnostico> diagnosticos = new ArrayList<>();//Crea un ArrayList de objetos de "Diagnostico"
+        Paciente paciente=pacientes.get(indexPaciente);
+        diagnosticos=paciente.getDiagnosticos();
         String imprimir="";
         for (int i = 0; i < diagnosticos.size(); i++) {
             Diagnostico diagnostico = diagnosticos.get(i);
@@ -317,18 +353,13 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         // Botón agregar medicamento
         nombreMedicamento.add(jCBMedicamentos.getSelectedItem().toString());
         dosisMedicamento.add(jTFDosis.getText());
-        /*String ver="";//Probar que esté guardando los medicamentos en orden
-        for (int i = 0; i < nombreMedicamento.size(); i++) {
-            ver=ver+"\nNombre "+(i+1)+": "+nombreMedicamento.get(i)+
-                    "\nDosis: "+dosisMedicamento.get(i);
-        }
-        JOptionPane.showMessageDialog(null, ver);*/
         /*Formula formula=new Formula();
         Medicamento medicamento = new Medicamento();
         medicamento.setNombreMedicamento(jCBMedicamentos.getSelectedItem().toString());
         medicamento.setDosis(jTFDosis.getText());
         formula.medicamentos.add(medicamento);*/
         JOptionPane.showMessageDialog(null, jCBMedicamentos.getSelectedItem().toString()+" agregado");
+        jTFDosis.setText("  ");
         
     }//GEN-LAST:event_jBAgregarMedicamentoActionPerformed
 
@@ -339,18 +370,15 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         formula.setFechaFormula(fechaDiagostico);
         formula.setRecomendacion(jTARecomendaciones.getText());
         
-        String ver="";//Probar que esté guardando los medicamentos en orden
         for (int i = 0; i < nombreMedicamento.size(); i++) {
             Medicamento medicamento = new Medicamento();
             medicamento.setNombreMedicamento(nombreMedicamento.get(i));
             medicamento.setDosis(dosisMedicamento.get(i));
             formula.medicamentos.add(medicamento);
-            ver=ver+"\nFormula: "+formula.getIdFormula()+"\nNombre "+(i+1)+": "+medicamento.getNombreMedicamento()+
-                    "\nDosis: "+medicamento.getDosis();//Probar que esté guardando los medicamentos en orden
+            
         }
         formulas.add(formula);
-        JOptionPane.showMessageDialog(null, ver);
-        
+               
         nombreMedicamento.clear();
         dosisMedicamento.clear();
         
@@ -383,6 +411,29 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         // Botón Salir Formula
         System.exit(0);
     }//GEN-LAST:event_jBSalirFormulaActionPerformed
+
+    private void jBConsultarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarPacienteActionPerformed
+        // Botón Consultar Paciente
+        int cedula=Integer.parseInt(jTFIdPaciente.getText());
+        int cont=0;
+        boolean pacienteEncontrado=false;
+        do{
+            Paciente paciente=pacientes.get(cont);
+            if(cedula==paciente.getNumeroDocumento()){
+                pacienteEncontrado=true;
+                JOptionPane.showMessageDialog(null, paciente.toString());
+                indexPaciente=cont;
+            }
+            cont++;
+        }while(!pacienteEncontrado && cont<pacientes.size());    
+        if(!pacienteEncontrado){
+            JOptionPane.showMessageDialog(null, "Paciente NO registrado");
+        }
+    }//GEN-LAST:event_jBConsultarPacienteActionPerformed
+
+    private void jTFIdPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFIdPacienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFIdPacienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -430,6 +481,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.ButtonGroup buttonGroup6;
     private javax.swing.JButton jBAgregarMedicamento;
+    private javax.swing.JButton jBConsultarPaciente;
     private javax.swing.JButton jBGuardarDiagnostico;
     private javax.swing.JButton jBGuardarFormula;
     private javax.swing.JButton jBImprimirDiagnostico;
@@ -451,7 +503,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
     private javax.swing.JTextArea jTARecomendaciones;
     private javax.swing.JTextField jTEstado;
     private javax.swing.JTextField jTFDosis;
+    private javax.swing.JTextField jTFIdPaciente;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

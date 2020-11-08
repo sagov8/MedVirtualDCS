@@ -42,13 +42,13 @@ public class Paciente extends Usuario {
         this.peso = 0;
     }
 
-    public Paciente(int idPaciente, String tipoDocumento, int numeroDocumento,
+    public Paciente(String tipoDocumento, int numeroDocumento,
                     String nombrePaciente, String apellidoPaciente,
                     long numeroTelefonicoPaciente, String correoPaciente,
                     String direccionDeDomicilio, String fechaDeNacimiento,
                     String genero, float peso) {
 
-        this.idPaciente = idPaciente;
+        this.idPaciente = idNext++;
         this.tipoDocumento = tipoDocumento;
         this.numeroDocumento = numeroDocumento;
         this.nombrePaciente = nombrePaciente;
@@ -156,8 +156,8 @@ public class Paciente extends Usuario {
         return diagnosticos;
     }
 
-    public void setDiagnosticos(ArrayList<Diagnostico> diagnosticos) {
-        this.diagnosticos = diagnosticos;
+    public void setDiagnosticos(Diagnostico diagnostico) {
+        this.diagnosticos.add(diagnostico);
     }
 
     public ArrayList<Formula> getFormulas() {
@@ -174,13 +174,13 @@ public class Paciente extends Usuario {
     @Override
     public String toString() {
         //Sobrescritura de toString para obtener toda la info del paciente en un String separado por "&"
-        return "idPaciente: " + idPaciente + "&TipoDocumento: "
-                + tipoDocumento + "&NumeroDocumento: " + numeroDocumento +
-                "&NombrePaciente: " + nombrePaciente + "&ApellidoPaciente: " +
-                apellidoPaciente + "&NumeroCelular: " + numeroTelefonicoPaciente
-                + "&CorroElectronico: " + correoPaciente + "&Domicilio: " +
-                direccionDeDomicilio + "&FechaNacimiento: " + fechaDeNacimiento
-                + "&Genero: " + genero + "&Peso(kg): " + peso;
+        return "idPaciente: " + idPaciente + "\nTipoDocumento: "
+                + tipoDocumento + "\nNumeroDocumento: " + numeroDocumento +
+                "\nNombrePaciente: " + nombrePaciente + "\nApellidoPaciente: " +
+                apellidoPaciente + "\nNumeroCelular: " + numeroTelefonicoPaciente
+                + "\nCorroElectronico: " + correoPaciente + "\nDomicilio: " +
+                direccionDeDomicilio + "\nFechaNacimiento: " + fechaDeNacimiento
+                + "\nGenero: " + genero + "\nPeso(kg): " + peso;
     }
 
 
