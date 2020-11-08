@@ -23,7 +23,6 @@ public class Paciente extends Usuario {
     private String genero;
     private float peso;
     private ArrayList<Diagnostico> diagnosticos = new ArrayList<>();
-    private ArrayList<Formula> formulas=new ArrayList<>();
 
     //Constructor
 
@@ -159,15 +158,6 @@ public class Paciente extends Usuario {
     public void setDiagnosticos(Diagnostico diagnostico) {
         this.diagnosticos.add(diagnostico);
     }
-
-    public ArrayList<Formula> getFormulas() {
-        return formulas;
-    }
-
-    public void setFormulas(ArrayList<Formula> formulas) {
-        this.formulas = formulas;
-    }
-    
 
     //Procedimientos y funciones
 

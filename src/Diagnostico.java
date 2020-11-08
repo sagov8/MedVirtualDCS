@@ -16,6 +16,7 @@ public class Diagnostico {
     private String observacion;
     private String estadoPaciente;
     private static int idSiguiente = 1;
+    private Formula formula=new Formula();
 
     //Constructores
     public Diagnostico() {
@@ -65,26 +66,20 @@ public class Diagnostico {
         this.estadoPaciente = estadoPaciente;
     }
 
+    public Formula getFormula() {
+        return formula;
+    }
+
+    public void setFormula(Formula formula) {
+        this.formula = formula;
+    }
+
     //Métodos
     public void crearDiagnostico(String diagnostico,String estado) {
         Date fechaDiagostico = new Date();
         this.fechaDiagnostico = fechaDiagostico;
         this.observacion=diagnostico;
-        this.estadoPaciente =estado;
-        /*int item=0;
-        do{
-            System.out.println("Elija uno de los siguientes diagnósticos:");
-            for (int i = 0; i < diagnostico.length; i++) {
-                System.out.println((i + 1) + ". " + diagnostico[i]);
-            }
-            item = t.nextInt();
-            t.nextLine();
-        }while(item<1 || item>6);    
-        observacion=diagnostico[item-1];
-        System.out.println("Ingrese el estado del paciente: ");
-        this.estadoPaciente = (t.nextLine());
-        Date fechaDiagostico = new Date();
-        this.fechaDiagnostico = fechaDiagostico;*/
+        this.estadoPaciente =estado;        
     }
 
     public void guardarDiagnostico(int idHistoriaClinica) {
