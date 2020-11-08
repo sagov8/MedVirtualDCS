@@ -10,9 +10,9 @@ public class Diagnostico {
     //Atributos
     private int idDiagnostico;
     private Date fechaDiagnostico;
-    final String[] diagnostico = {"Diabetes tipo 1", "Diabetes tipo 2",
+    /*final String[] diagnostico = {"Diabetes tipo 1", "Diabetes tipo 2",
         "Diabetes gestacional", "Diabetes relacionada con fibrosis quística",
-        "Diabetes MODY", "Diabetes secundaria a medicamentos"};
+        "Diabetes MODY", "Diabetes secundaria a medicamentos"};*/
     private String observacion;
     private String estadoPaciente;
     private static int idSiguiente = 1;
