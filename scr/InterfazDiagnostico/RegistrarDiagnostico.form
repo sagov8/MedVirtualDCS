@@ -91,7 +91,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLEstado" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLDiagnostico" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jBGuardar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jBGuardarDiagnostico" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -99,7 +99,7 @@
                                   <Component id="jTEstado" min="-2" pref="177" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                      <Component id="jBImprimir" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jBImprimirDiagnostico" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
                                       <Component id="jBSalir" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -130,8 +130,8 @@
                       </Group>
                       <EmptySpace pref="182" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jBGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jBImprimir" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBGuardarDiagnostico" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBImprimirDiagnostico" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jBSalir" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
@@ -172,20 +172,20 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTEstado">
             </Component>
-            <Component class="javax.swing.JButton" name="jBGuardar">
+            <Component class="javax.swing.JButton" name="jBGuardarDiagnostico">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Guardar Diagn&#xf3;stico"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBGuardarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBGuardarDiagnosticoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jBImprimir">
+            <Component class="javax.swing.JButton" name="jBImprimirDiagnostico">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Imprimir Diagn&#xf3;stico"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBImprimirActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBImprimirDiagnosticoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jBSalir">
@@ -218,36 +218,39 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                      <Component id="jBGuardarFormula" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jBImprimirFormula" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                      <Component id="jBSalirFormula" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" min="-2" pref="261" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jBGuardarFormula" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jBImprimirFormula" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jBSalirFormula" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLMedicamento" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCBMedicamentos" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane1" min="-2" pref="261" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jLMedicamento" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCBMedicamentos" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jLDosis" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jTFDosis" min="-2" pref="78" max="-2" attributes="0"/>
+                                      <EmptySpace pref="39" max="32767" attributes="0"/>
+                                      <Component id="jBAgregarMedicamento" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLDosis" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTFDosis" min="-2" pref="78" max="-2" attributes="0"/>
-                              <EmptySpace pref="39" max="32767" attributes="0"/>
-                              <Component id="jBAgregarMedicamento" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

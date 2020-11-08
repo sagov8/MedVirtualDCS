@@ -4,6 +4,7 @@ package src;
 
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Paciente extends Usuario {
 
@@ -21,6 +22,8 @@ public class Paciente extends Usuario {
     private String fechaDeNacimiento;
     private String genero;
     private float peso;
+    private ArrayList<Diagnostico> diagnosticos = new ArrayList<>();
+    private ArrayList<Formula> formulas=new ArrayList<>();
 
     //Constructor
 
@@ -148,6 +151,23 @@ public class Paciente extends Usuario {
     public void setPeso(float peso) {
         this.peso = peso;
     }
+
+    public ArrayList<Diagnostico> getDiagnosticos() {
+        return diagnosticos;
+    }
+
+    public void setDiagnosticos(ArrayList<Diagnostico> diagnosticos) {
+        this.diagnosticos = diagnosticos;
+    }
+
+    public ArrayList<Formula> getFormulas() {
+        return formulas;
+    }
+
+    public void setFormulas(ArrayList<Formula> formulas) {
+        this.formulas = formulas;
+    }
+    
 
     //Procedimientos y funciones
 

@@ -7,75 +7,8 @@ import java.util.ArrayList;//Borrarformula
 public class Main {
 
     public static void main(String[] args) {
-        Scanner t = new Scanner(System.in);
-        ArrayList<Diagnostico> diagnosticos = new ArrayList<>();//Crea un ArrayList de objetos
-        ArrayList<Formula> formulas=new ArrayList<>();
+        HashMap<String,Paciente>colecionPacientes=new HashMap<>();
         
-        boolean salirMenuDiagnostico = false;
-        do {
-            System.out.println("\n***********Menú Diagnostico***********"
-                    + "\n1. Crear Diagnóstico."
-                    + "\n2. Listar Diagnósticos."
-                    + "\n3. Crear Formula."
-                    + "\n4. Listar Formulas."
-                    + "\n5. Salir.");
-
-            int opcion = t.nextInt();
-            t.nextLine();
-
-            switch (opcion) {
-                case 1:
-                    Diagnostico diagnostico = new Diagnostico();//Crear objeto de la clase Diagnóstico
-                    //diagnostico.crearDiagnostico();//Llama el método que solicita los datos del diagnóstico (Diagnóstico y estado)
-                    diagnosticos.add(diagnostico);//Guarda el diagnostico creado en el ArrayList
-                    break;
-                case 2:
-                    for (int i = 0; i < diagnosticos.size(); i++) {//Imprime los diagnósticos guardados en el ArrayList
-                        System.out.println("\nDiagnostico: " + (i + 1));
-                        Diagnostico diagnostico2 = diagnosticos.get(i);//Guarda en un objeto Diagnostico los datos del ArrayList
-                        System.out.println("Id: " + diagnostico2.getIdDiagnostico());
-                        System.out.println("Fecha: " + diagnostico2.getFechaDiagnostico());
-                        System.out.println("Diagnostico: " + diagnostico2.getObservacion());
-                        System.out.println("Estado: " + diagnostico2.getEstadoPaciente());
-
-                    }
-                    break;
-                case 3:
-                    Formula formula=new Formula();
-                    formula.crearFormula();
-                    formulas.add(formula);
-                    break;
-                case 4:
-                    for (int i = 0; i < formulas.size(); i++) {
-                        Formula formula2=formulas.get(i);
-                        formula2.imprimirFormula(i);
-                    }
-                    
-                    /*for (int i = 0; i < formulas.size(); i++) {
-                        System.out.println("\nFormula: " + (i + 1));
-                        Formula formula2=formulas.get(i);
-                        System.out.println("Id: "+formula2.getIdFormula());
-                        System.out.println("Fecha: "+fomula2.getFechaFormula());
-                        System.out.println("Recomendación: "+formula2.getRecomendacion());
-                        if((fomula2.getMedicamentos().size())!=0){
-                            for (int j = 0; j < formula2.getMedicamentos().size(); j++) {
-                                Medicamento medicamento=formula2.getMedicamentos().get(j);
-                                System.out.println("Medicamento :"+(j+1));
-                                System.out.println("Nombre: "+medicamento.getNombreMedicamento() );
-                                System.out.println("Dosis: "+medicamento.getDosis());
-                            }
-                        }
-                    }*/
-                    break;
-                case 5:
-                    System.out.println("Salió del menú Diagnostico");
-                    salirMenuDiagnostico = true;
-                    break;
-                default:
-                    System.out.println("Ingrese una opción válida");
-            }
-        } while (!salirMenuDiagnostico);
-
         /*Scanner t = new Scanner(System.in);
         int id = 0;
         int usuarioActivo = -1;*/
