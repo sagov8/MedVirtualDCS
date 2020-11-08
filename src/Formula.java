@@ -9,40 +9,40 @@ public class Formula {
 
     Scanner t = new Scanner(System.in);
     //Atributos
-    private int idReceta;
-    private Date fechaReceta;
+    private int idFormula;
+    private Date fechaFormula;
     private String recomendacion;
     private static int idSiguiente = 1;
-    private ArrayList<Medicamento> medicamentos = new ArrayList<>();
+    public ArrayList<Medicamento> medicamentos = new ArrayList<>();
 
     //Constructores
     public Formula() {
-        this.idReceta = idSiguiente++;
-        this.fechaReceta = null;
+        this.idFormula = idSiguiente++;
+        this.fechaFormula = null;
         this.recomendacion = "";
     }
 
-    public Formula(Date fechaReceta, String recomendacion, String dosis) {
-        this.idReceta = idSiguiente++;
-        this.fechaReceta = fechaReceta;
+    public Formula(Date fechaFormula, String recomendacion, String dosis) {
+        this.idFormula = idSiguiente++;
+        this.fechaFormula = fechaFormula;
         this.recomendacion = recomendacion;
     }
     //Getter y Setter
 
-    public int getIdReceta() {
-        return idReceta;
+    public int getIdFormula() {
+        return idFormula;
     }
 
-    public void setIdReceta(int idReceta) {
-        this.idReceta = idReceta;
+    public void setIdFormula(int idFormula) {
+        this.idFormula = idFormula;
     }
 
-    public Date getFechaReceta() {
-        return fechaReceta;
+    public Date getFechaFormula() {
+        return fechaFormula;
     }
 
-    public void setFechaReceta(Date fechaReceta) {
-        this.fechaReceta = fechaReceta;
+    public void setFechaFormula(Date fechaFormula) {
+        this.fechaFormula = fechaFormula;
     }
 
     public ArrayList<Medicamento> getMedicamentos() {
@@ -62,9 +62,9 @@ public class Formula {
     }
 
     //Métodos
-    public void crearReceta() {
-        Date fechaReceta = new Date();
-        this.fechaReceta = fechaReceta;
+    public void crearFormula() {
+        Date fechaFormula = new Date();
+        this.fechaFormula = fechaFormula;
         System.out.println("Digite las recomendaciones: ");
         recomendacion = t.nextLine();
         int formular = 1;
@@ -77,11 +77,11 @@ public class Formula {
         } while (formular != 2);
     }
 
-    public void imprimirReceta(int i) {
+    public void imprimirFormula(int i) {
        
-            System.out.println("\nReceta: " + (i + 1));
-            System.out.println("Id: " +idReceta);
-            System.out.println("Fecha: " + fechaReceta);
+            System.out.println("\nFormula: " + (i + 1));
+            System.out.println("Id: " +idFormula);
+            System.out.println("Fecha: " + fechaFormula);
             System.out.println("Recomendación: " + recomendacion);
             if ((medicamentos.size()) != 0) {
                 for (int j = 0; j < medicamentos.size(); j++) {
@@ -111,13 +111,13 @@ public class Formula {
         medicamentos.add(medicamento);
     }
 
-    public void guardarReceta(int idHistoriaClinica) {
+    public void guardarFormula(int idHistoriaClinica) {
 
     }
 
     @Override
     public String toString() {
-        return "Receta{" + "idReceta=" + idReceta + ", fechaReceta=" + fechaReceta + ", recomendacion=" + recomendacion + '}';
+        return "Formula{" + "idFormula=" + idFormula + ", fechaFormula=" + fechaFormula + ", recomendacion=" + recomendacion + '}';
     }
 
 }

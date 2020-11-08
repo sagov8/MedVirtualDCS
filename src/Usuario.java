@@ -15,7 +15,6 @@ public class Usuario {
     // Contructor
 
     public Usuario() {
-
         this.idUsuario = 0;
         this.nombreUsuario = "";
         this.password = "";
@@ -56,71 +55,100 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
     }
 
-    //Metodos y funciones
+    //Procedimientos y funciones
 
     public String guardarUsuario() {
-        return "\nID: " +
+        return "ID: " +//Se retorna un String con la información del paciente usando el "&" como separador
                 idUsuario +
-                "\nNombre: " +
+                "&Usuario: " +
                 nombreUsuario +
-                "\nPassword: " +
+                "&Password: " +
                 password +
-                "\nTipo Usuario: " +
+                "&Tipo Usuario: " +
                 tipoUsuario;
     }
 
-    public void registrarUsuario(HashMap<Integer, String> coleccionUsuarios, String nombreUsuario) {
+    public Boolean registrarUsuario(HashMap<Integer, String> coleccionUsuarios) {
         Scanner t = new Scanner(System.in);
 
         boolean salir = false;
-        boolean usuarioDisponible = false;
-
+        boolean salirPassword = false;
+        /*
+        Se valida primero si el nombre de usuario ingresado está disponible,
+        para ello, se pide el HashMap como parámetro ya que contiene la colección de usuarios,
+        se realiza la comparación del nombre ingresado con los nombres de usuarios ya registrados.
+        En caso de que ya exista vuelve a pedir otro nombre de usario, si no, continua con normalidad.
+         */
         while (!salir) {
+            System.out.println("Ingrese nombre de usuario: ");
+            nombreUsuario = t.next();
 
-            for (String datos : coleccionUsuarios.values()) {
-                if (datos.contains(nombreUsuario)) {
-                    System.out.println("Usuario existente, elija otro nombre de usuario.");
+            for (String usuarios : coleccionUsuarios.values()) {
+                String[] nombre = usuarios.split("&");//Divide la información del usuario con el símbolo "&" para
+                                                            //obtener un Array, iterable con la info del usuario.
+                String nombreRegistrado = nombre[1].split(" ")[1];//Se divide de nuevo la cadena obtenida con " " y
+                                                                        // Se obtiene a través del índice el dato que se
+                                                                        //requiere, en este caso el nombre corresponde al
+                                                                        //índice 1.
+                if (nombreRegistrado.equals(nombreUsuario)) {
+                    System.out.println("\nUsuario existente. " +
+                            "Por favor ingrese otro nombre de usuario:");
+                    salirPassword = true;
                 } else {
-                    usuarioDisponible = true;
+                    salirPassword = false;
                 }
             }
-            if (usuarioDisponible = true) {
-                boolean passwordConfirmado = false;
-                while (!passwordConfirmado) {
-                    System.out.println("Ingrese un password:");
-                    password = t.next();
-                    System.out.println("Ingrese otra vez el password:");
-                    String confirmacionPassword = t.next();
-                    if (password.equals(confirmacionPassword)) {
-                        coleccionUsuarios.put(idUsuario, guardarUsuario());
-                        passwordConfirmado = true;
-                        System.out.println("Registro éxitoso.");
-                        salir = true;
-                    } else {
-                        System.out.println("Los password no coinciden.");
-                    }
-
+            /*
+            Se realiza la validación del password, ingresado dos veces por el usuario, en caso de ser correcto
+            se sale del ciclo y retorna true. En caso negativo vuelve a pedir un password nuevamente que
+            coincide con el segundo que se escribe.
+             */
+            while (!salirPassword) {
+                System.out.println("Ingrese un password:");
+                password = t.next();
+                System.out.println("Ingrese otra vez el password:");
+                String confirmacionPassword = t.next();
+                if (password.equals(confirmacionPassword)) {
+                    coleccionUsuarios.put(idUsuario, guardarUsuario());
+                    System.out.println("Usuario registrado satisfactoriamente.");
+                    salirPassword = true;
+                    salir = true;
+                } else {
+                    System.out.println("Los password no coinciden.");
                 }
-
-
-            }
-
-        }
-
-    }
-
-    public static Boolean verificarLogin(String nombreUsuario, String password,
-                                         HashMap<Integer, String> coleccionUsuarios) {
-
-        for (String usuarios : coleccionUsuarios.values()) {
-            if (usuarios.contains(nombreUsuario) && usuarios.contains(password)) {
-                System.out.println("\nBienvenido a MedVirtualDCS\n");
-                return true;
-            } else {
-                System.out.println("\nUsuario no encontrado o Contraseña incorrecta\n");
             }
         }
-        return false;
+        return true;
     }
 
+    public static int verificarLogin(HashMap<Integer, String> coleccionUsuarios) {
+        Scanner t = new Scanner(System.in);
+        int idUsuarioActivo;
+        /*
+        Para iniciar sesión se pide ingresar el nombre y password, se itera el HashMap con un ciclo
+        for each buscando si el nombre y password ingresados corresponden al de un usuario registrado
+        en el sistema.
+        Si el usuario y password coinciden con el de un usuario registrado la función retorna el
+        identificador del usuario que ingresó al sistema.
+         */
+        while (true) {
+            System.out.println("Ingrese su nombre de usuario:");
+            String nombreUsuario = t.next();
+            System.out.println("Digite su contraseña:");
+            String password = t.next();
+
+            for (String usuarios : coleccionUsuarios.values()) {
+                String[] datos = usuarios.split("&");//Leer comentarios de la línea 86 a 90.
+                String nombreRegistrado = datos[1].split(" ")[1];
+                String passwordRegistrado = datos[2].split(" ")[1];
+
+                if (nombreRegistrado.equals(nombreUsuario) && passwordRegistrado.equals(password)) {
+                    System.out.println("\nBienvenido a MedVirtualDCS\n");
+                    idUsuarioActivo = Integer.parseInt(datos[0].split(" ")[1]);
+                    return idUsuarioActivo;
+                }
+            }
+            System.out.println("\nUsuario o contraseña incorrectos.\n");
+        }
+    }
 }

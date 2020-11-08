@@ -1,85 +1,30 @@
 package src;
 
+import java.util.HashMap;
 import java.util.Scanner;
-import java.util.Date;
-import java.util.ArrayList;
-
+import src.InterfazDeUsuario.InicioSesion;
+import java.util.ArrayList;//Borrarformula
 public class Main {
 
     public static void main(String[] args) {
-
-        Scanner t = new Scanner(System.in);
-        ArrayList<Diagnostico> diagnosticos = new ArrayList<>();//Crea un ArrayList de objetos
-        ArrayList<Formula> recetas=new ArrayList<>();
+        HashMap<String,Paciente>colecionPacientes=new HashMap<>();
         
-        boolean salirMenuDiagnostico = false;
-        do {
-            System.out.println("\n***********Menú Diagnostico***********"
-                    + "\n1. Crear Diagnóstico."
-                    + "\n2. Listar Diagnósticos."
-                    + "\n3. Crear Receta."
-                    + "\n4. Listar Recetas."
-                    + "\n5. Salir.");
-
-            int opcion = t.nextInt();
-            t.nextLine();
-
-            switch (opcion) {
-                case 1:
-                    Diagnostico diagnostico = new Diagnostico();//Crear objeto de la clase Diagnóstico
-                    diagnostico.crearDiagnostico();//Llama el método que solicita los datos del diagnóstico (Diagnóstico y estado)
-                    diagnosticos.add(diagnostico);//Guarda el diagnostico creado en el ArrayList
-                    break;
-                case 2:
-                    for (int i = 0; i < diagnosticos.size(); i++) {//Imprime los diagnósticos guardados en el ArrayList
-                        System.out.println("\nDiagnostico: " + (i + 1));
-                        Diagnostico diagnostico2 = diagnosticos.get(i);//Guarda en un objeto Diagnostico los datos del ArrayList
-                        System.out.println("Id: " + diagnostico2.getIdDiagnostico());
-                        System.out.println("Fecha: " + diagnostico2.getFechaDiagnostico());
-                        System.out.println("Diagnostico: " + diagnostico2.getObservacion());
-                        System.out.println("Estado: " + diagnostico2.getEstadoPaciente());
-
-                    }
-                    break;
-                case 3:
-                    Formula receta=new Formula();
-                    receta.crearReceta();
-                    recetas.add(receta);
-                    break;
-                case 4:
-                    for (int i = 0; i < recetas.size(); i++) {
-                        Formula receta2=recetas.get(i);
-                        receta2.imprimirReceta(i);
-                    }
-                    
-                    /*for (int i = 0; i < recetas.size(); i++) {
-                        System.out.println("\nReceta: " + (i + 1));
-                        Formula receta2=recetas.get(i);
-                        System.out.println("Id: "+receta2.getIdReceta());
-                        System.out.println("Fecha: "+receta2.getFechaReceta());
-                        System.out.println("Recomendación: "+receta2.getRecomendacion());
-                        if((receta2.getMedicamentos().size())!=0){
-                            for (int j = 0; j < receta2.getMedicamentos().size(); j++) {
-                                Medicamento medicamento=receta2.getMedicamentos().get(j);
-                                System.out.println("Medicamento :"+(j+1));
-                                System.out.println("Nombre: "+medicamento.getNombreMedicamento() );
-                                System.out.println("Dosis: "+medicamento.getDosis());
-                            }
-                        }
-                    }*/
-                    break;
-                case 5:
-                    System.out.println("Salió del menú Diagnostico");
-                    salirMenuDiagnostico = true;
-                    break;
-                default:
-                    System.out.println("Ingrese una opción válida");
-            }
-        } while (!salirMenuDiagnostico);
-        /*int id = 0;
-        //HashMap organiza datos de la manera <k, v> (clave, valor)
-        HashMap<Integer, String> coleccionUsuarios = new HashMap<>();
+        /*Scanner t = new Scanner(System.in);
+        int id = 0;
+        int usuarioActivo = -1;*/
+        /*
+        HashMap organiza datos de la manera <k, v> (clave, valor), solo permite Clases, no datos
+        primitivos, por eso se usa Integer y no int.
+        */
+        /*HashMap<Integer, String> coleccionUsuarios = new HashMap<>();
         HashMap<Integer, String> coleccionMedicos = new HashMap<>();
+
+        
+        InicioSesion ventana = new InicioSesion();
+        ventana.setVisible(true);
+
+        HashMap<Integer, String> coleccionPacientes = new HashMap<>();
+
 
         boolean salir = false;
 
@@ -100,11 +45,19 @@ public class Main {
                     String tipoDeUsuario = t.next();
 
                     if (tipoDeUsuario.equalsIgnoreCase("paciente")) {
-                        Paciente paciente = new Paciente();
-                        paciente.setTipoUsuario(tipoDeUsuario);
-                        paciente.setIdUsuario(id);
+                        Paciente paciente = new Paciente();//Instancia el objeto paciente
+                        paciente.setTipoUsuario(tipoDeUsuario);//asigna el tipo de Usuario y el ID respectivo.
+                        paciente.setIdUsuario(id);*/
 
-                        paciente.registrarUsuario(coleccionUsuarios, paciente.getNombreUsuario());
+                        /* El método registrarUsuario() devuelve true en caso de que el registro de
+                        Usuario se complete exitósamente. De no ser así no permite registrar los datos
+                        personales del paciente ó médico. Si el registro se hace correctamente, guarda al
+                        usuario en el Hashmap coleccionUsuarios.
+                        La clase paciente hereda el método registrarUsuario de la clase Usuario.*/
+                        /*boolean registroUsuarioExitoso = paciente.registrarUsuario(coleccionUsuarios);
+                        if (registroUsuarioExitoso){
+                            paciente.registrarPaciente(id, coleccionPacientes);
+                        }
                         id++;
 
                     } else if (tipoDeUsuario.equalsIgnoreCase("medico")) {
@@ -112,30 +65,28 @@ public class Main {
                         medico.setTipoUsuario(tipoDeUsuario);
                         medico.setIdUsuario(id);
 
-                        System.out.println("Ingrese nombre de usuario: ");
-                        medico.setNombreUsuario(t.next());
-
-                        medico.registrarUsuario(coleccionUsuarios, medico.getNombreUsuario());
-
-                        medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
+                        //Leer comentario de la línea 42
+                        boolean registroUsuarioExitoso = medico.registrarUsuario(coleccionUsuarios);
+                        if (registroUsuarioExitoso){
+                            medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
+                        }
                         id++;
-
                     } else {
                         System.out.println("Por favor ingrese una opción válida.");
                     }
                     break;
-                case 2:
-                    boolean verificado = false;
-                    if (coleccionUsuarios.isEmpty()) {
+                case 2:*/
+                    /*
+                    Para iniciar sesión primero se hace una verificación de la coleccionUsuarios
+                    en caso de estar vacía es porque no hay usuarios registrados, en caso contrario
+                    se pide un nombre de usuario y password y a través del método verificarLogin()
+                    se realiza el proceso de verificación retornando en caso éxitoso el ID del usuario
+                    que se realizó su login en el sistema.
+                     */
+                    /*if (coleccionUsuarios.isEmpty()) {
                         System.out.println("No hay usuarios registrados.");
                     } else {
-                        while (!verificado) {
-                            System.out.println("Ingrese su nombre de usuario:");
-                            String nombreUsuario = t.next();
-                            System.out.println("Digite su contraseña:");
-                            String password = t.next();
-                            verificado = Usuario.verificarLogin(nombreUsuario, password, coleccionUsuarios);
-                        }
+                        usuarioActivo = Usuario.verificarLogin(coleccionUsuarios);
                         salir = true;
                     }
                     break;
@@ -149,7 +100,9 @@ public class Main {
         }
         while (!salir);
         //Código de prueba
-        System.out.println(coleccionUsuarios.values());
-        System.out.println(coleccionMedicos.values());*/
+        System.out.println(coleccionUsuarios.get(usuarioActivo));
+        System.out.println(coleccionPacientes.get(usuarioActivo));
+        System.out.println(coleccionMedicos.get(usuarioActivo));*/
+
     }
 }

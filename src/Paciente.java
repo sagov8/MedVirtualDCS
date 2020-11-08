@@ -1,6 +1,11 @@
 package src;
 
 //Camilo
+
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.ArrayList;
+
 public class Paciente extends Usuario {
 
     //Atributos paciente
@@ -8,14 +13,17 @@ public class Paciente extends Usuario {
     private int idPaciente;
     private static int idNext = 1;
     private String tipoDocumento;
+    private long numeroDocumento;
     private String nombrePaciente;
     private String apellidoPaciente;
-    private int numeroTelefonicoPaciente;
+    private long numeroTelefonicoPaciente;
     private String correoPaciente;
     private String direccionDeDomicilio;
     private String fechaDeNacimiento;
     private String genero;
     private float peso;
+    private ArrayList<Diagnostico> diagnosticos = new ArrayList<>();
+    private ArrayList<Formula> formulas=new ArrayList<>();
 
     //Constructor
 
@@ -23,6 +31,7 @@ public class Paciente extends Usuario {
 
         this.idPaciente = idNext++;
         this.tipoDocumento = "";
+        this.numeroDocumento = 0;
         this.nombrePaciente = "";
         this.apellidoPaciente = "";
         this.numeroTelefonicoPaciente = 0;
@@ -33,13 +42,15 @@ public class Paciente extends Usuario {
         this.peso = 0;
     }
 
-    public Paciente(int idPaciente, String tipoDocumento, String nombrePaciente,
-                    String apellidoPaciente, int numeroTelefonicoPaciente,
-                    String correoPaciente, String direccionDeDomicilio,
-                    String fechaDeNacimiento, String genero, float peso) {
+    public Paciente(String tipoDocumento, int numeroDocumento,
+                    String nombrePaciente, String apellidoPaciente,
+                    long numeroTelefonicoPaciente, String correoPaciente,
+                    String direccionDeDomicilio, String fechaDeNacimiento,
+                    String genero, float peso) {
 
-        this.idPaciente = idPaciente;
+        this.idPaciente = idNext++;
         this.tipoDocumento = tipoDocumento;
+        this.numeroDocumento = numeroDocumento;
         this.nombrePaciente = nombrePaciente;
         this.apellidoPaciente = apellidoPaciente;
         this.numeroTelefonicoPaciente = numeroTelefonicoPaciente;
@@ -69,6 +80,14 @@ public class Paciente extends Usuario {
         this.tipoDocumento = tipoDocumento;
     }
 
+    public long getNumeroDocumento() {
+        return numeroDocumento;
+    }
+
+    public void setNumeroDocumento(long numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
+    }
+
     public String getNombrePaciente() {
         return nombrePaciente;
     }
@@ -85,11 +104,11 @@ public class Paciente extends Usuario {
         this.apellidoPaciente = apellidoPaciente;
     }
 
-    public int getNumeroTelefonicoPaciente() {
+    public long getNumeroTelefonicoPaciente() {
         return numeroTelefonicoPaciente;
     }
 
-    public void setNumeroTelefonicoPaciente(int numeroTelefonicoPaciente) {
+    public void setNumeroTelefonicoPaciente(long numeroTelefonicoPaciente) {
         this.numeroTelefonicoPaciente = numeroTelefonicoPaciente;
     }
 
@@ -133,12 +152,70 @@ public class Paciente extends Usuario {
         this.peso = peso;
     }
 
-    //Metodos y funciones
-
-    public String toString() {
-        return "Nombre: " + nombrePaciente + "\nNombre de usuario: " + getNombreUsuario();
+    public ArrayList<Diagnostico> getDiagnosticos() {
+        return diagnosticos;
     }
 
+    public void setDiagnosticos(Diagnostico diagnostico) {
+        this.diagnosticos.add(diagnostico);
+    }
+
+    public ArrayList<Formula> getFormulas() {
+        return formulas;
+    }
+
+    public void setFormulas(ArrayList<Formula> formulas) {
+        this.formulas = formulas;
+    }
+    
+
+    //Procedimientos y funciones
+
+    @Override
+    public String toString() {
+        //Sobrescritura de toString para obtener toda la info del paciente en un String separado por "&"
+        return "idPaciente: " + idPaciente + "\nTipoDocumento: "
+                + tipoDocumento + "\nNumeroDocumento: " + numeroDocumento +
+                "\nNombrePaciente: " + nombrePaciente + "\nApellidoPaciente: " +
+                apellidoPaciente + "\nNumeroCelular: " + numeroTelefonicoPaciente
+                + "\nCorroElectronico: " + correoPaciente + "\nDomicilio: " +
+                direccionDeDomicilio + "\nFechaNacimiento: " + fechaDeNacimiento
+                + "\nGenero: " + genero + "\nPeso(kg): " + peso;
+    }
+
+
+    public void registrarPaciente(int id, HashMap<Integer, String> ColeccionPacientes) {
+        Scanner t = new Scanner(System.in);
+        //Se pide y se guarda la información del paciente en cada variable.
+        System.out.println("\nPor favor digite sus datos personales: ");
+        System.out.println("Ingrese tipo de documetos (CC,TI,RC,CE): ");
+        tipoDocumento = t.next();
+        System.out.println("Ingrese número de documento: ");
+        numeroDocumento = t.nextLong();
+        t.nextLine();
+        System.out.println("Ingrese su nombre: ");
+        nombrePaciente = t.next();
+        System.out.println("Ingrese su apellido: ");
+        apellidoPaciente = t.next();
+        System.out.println("Ingrese su número de celular: ");
+        numeroTelefonicoPaciente = t.nextLong();
+        t.nextLine();
+        System.out.println("Ingrese su correo electrónico: ");
+        correoPaciente = t.next();
+        t.nextLine();
+        System.out.println("Ingrese dirección de domicilio: ");
+        direccionDeDomicilio = t.nextLine();
+        System.out.println("Ingrese su fecha de nacimiento dd-mm-yyyy: "); // Buscar metodo para calcular edad, libreria calendar
+        fechaDeNacimiento = t.nextLine();
+        System.out.println("Ingrese su género (Hombre/Mujer): ");
+        genero = t.next();
+        System.out.println("Ingrese su peso (kg): ");
+        peso = t.nextFloat();
+        idPaciente = id;
+
+        ColeccionPacientes.put(id, toString());
+        System.out.println("\nSu información ha sido registrada con éxito.\n");
+    }
 }
 
 
