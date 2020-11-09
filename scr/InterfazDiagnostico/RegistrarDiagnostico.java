@@ -76,6 +76,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLNombreP = new javax.swing.JLabel();
         jLDocumentoP = new javax.swing.JLabel();
+        jBEliminarDiagnostico = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -175,6 +176,8 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
         jLabel2.setText("Documento:");
 
+        jBEliminarDiagnostico.setText("Eliminar Diagnóstico");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -198,27 +201,6 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                         .addComponent(jCBDiagnostico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(135, 135, 135))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLMedicamento)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jCBMedicamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(50, 50, 50)
-                                        .addComponent(jLDosis)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                                        .addComponent(jTFDosis, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLRecomendaciones)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(27, 27, 27)
-                                .addComponent(jBAgregarMedicamento)))
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLIngresarIdPaciente)
@@ -230,17 +212,39 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                                 .addComponent(jLEstado)
                                 .addGap(43, 43, 43)
                                 .addComponent(jTEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLFormula)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jBGuardarDiagnostico)
-                                .addGap(52, 52, 52)
-                                .addComponent(jBImprimirDiagnostico)
-                                .addGap(82, 82, 82)
-                                .addComponent(jBSalir))
-                            .addComponent(jLFormula))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(jLMedicamento)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLRecomendaciones)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(166, 166, 166))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jCBMedicamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(jLDosis)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTFDosis, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                                .addComponent(jBAgregarMedicamento)
+                                .addGap(32, 32, 32))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jBGuardarDiagnostico)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBImprimirDiagnostico)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBEliminarDiagnostico)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBSalir)
+                        .addGap(43, 43, 43))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,9 +278,11 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                 .addComponent(jLFormula)
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLRecomendaciones)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLRecomendaciones)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
                 .addComponent(jLMedicamento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -284,12 +290,13 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                     .addComponent(jLDosis)
                     .addComponent(jTFDosis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBAgregarMedicamento))
-                .addGap(47, 47, 47)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBImprimirDiagnostico)
                     .addComponent(jBGuardarDiagnostico)
-                    .addComponent(jBSalir))
-                .addGap(163, 163, 163))
+                    .addComponent(jBImprimirDiagnostico)
+                    .addComponent(jBSalir)
+                    .addComponent(jBEliminarDiagnostico))
+                .addGap(146, 146, 146))
         );
 
         jTabbedPane1.addTab("Diagnostico", jPanel1);
@@ -460,6 +467,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup6;
     private javax.swing.JButton jBAgregarMedicamento;
     private javax.swing.JButton jBConsultarPaciente;
+    private javax.swing.JButton jBEliminarDiagnostico;
     private javax.swing.JButton jBGuardarDiagnostico;
     private javax.swing.JButton jBImprimirDiagnostico;
     private javax.swing.JButton jBSalir;
