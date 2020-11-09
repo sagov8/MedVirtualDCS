@@ -5,6 +5,8 @@
  */
 package src.InterfazHistorial;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -15,6 +17,7 @@ public class FormularioHistorial extends javax.swing.JFrame {
      * Creates new form FormularioHistorial
      */
     String id;
+
     public FormularioHistorial() {
         initComponents();
     }
@@ -76,7 +79,7 @@ public class FormularioHistorial extends javax.swing.JFrame {
         jBAgregarEvolucion = new javax.swing.JButton();
         jBAgregarDiagnostico = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel2.setText("Información del paciente:");
 
@@ -84,9 +87,22 @@ public class FormularioHistorial extends javax.swing.JFrame {
 
         jLabel4.setText("Apellidos:");
 
+        jTNombre.setEditable(false);
+        jTNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTNombreActionPerformed(evt);
+            }
+        });
+
+        jTApellido.setEditable(false);
+
         jLabel5.setText("Tipo de documento:");
 
         jLabel6.setText("No. de documento:");
+
+        jTDocumento.setEditable(false);
+
+        jTNumDocumento.setEditable(false);
 
         jLabel7.setText("Información de contacto:");
 
@@ -96,12 +112,16 @@ public class FormularioHistorial extends javax.swing.JFrame {
 
         jLabel10.setText("Correo electrónico:");
 
+        jTTelCel.setEditable(false);
+
+        jTCorreoElectronico.setEditable(false);
         jTCorreoElectronico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTCorreoElectronicoActionPerformed(evt);
             }
         });
 
+        jTDireccion.setEditable(false);
         jTDireccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTDireccionActionPerformed(evt);
@@ -114,8 +134,15 @@ public class FormularioHistorial extends javax.swing.JFrame {
 
         jLabel13.setText("Fecha de diagnóstico:");
 
+        jTDiagnostico.setEditable(false);
+
+        jTFechaDeDiagnostico.setEditable(false);
+
         jLabel14.setText("Estado:");
 
+        jTEstado.setEditable(false);
+
+        jTObservaciones.setEditable(false);
         jTObservaciones.setColumns(20);
         jTObservaciones.setRows(5);
         jScrollPane1.setViewportView(jTObservaciones);
@@ -268,6 +295,7 @@ public class FormularioHistorial extends javax.swing.JFrame {
 
         jLabel15.setText("Tratamiento del paciente:");
 
+        jTTratamiento.setEditable(false);
         jTTratamiento.setColumns(20);
         jTTratamiento.setRows(5);
         jScrollPane2.setViewportView(jTTratamiento);
@@ -328,6 +356,11 @@ public class FormularioHistorial extends javax.swing.JFrame {
         });
 
         jBConsultarHistoria.setText("Consultar Historia");
+        jBConsultarHistoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBConsultarHistoriaActionPerformed(evt);
+            }
+        });
 
         jBEditarHistoria.setText("Editar Historia");
 
@@ -409,10 +442,10 @@ public class FormularioHistorial extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
     private void jTIngresoIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTIngresoIDActionPerformed
         id = jTIngresoID.getText();
-        System.out.println(id);
     }//GEN-LAST:event_jTIngresoIDActionPerformed
 
     private void jBCrearHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearHistoriaActionPerformed
@@ -430,6 +463,20 @@ public class FormularioHistorial extends javax.swing.JFrame {
     private void jBGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarCambiosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBGuardarCambiosActionPerformed
+
+    private void jBConsultarHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarHistoriaActionPerformed
+        if (id.equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese el ID del paciente.");
+        } else {
+            
+
+        }
+    }//GEN-LAST:event_jBConsultarHistoriaActionPerformed
+
+    private void jTNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTNombreActionPerformed
+        jTNombre.setEditable(false);
+        jTNombre.setEnabled(false);
+    }//GEN-LAST:event_jTNombreActionPerformed
 
     /**
      * @param args the command line arguments

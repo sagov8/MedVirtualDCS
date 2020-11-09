@@ -1,11 +1,14 @@
 package src;
 
+import java.util.HashMap;
+import javax.swing.JOptionPane;
+
 //Santiago
 public class HistoriaClinica {
 
     //atributos
     private String fechaDeCreacion;
-    private int idHistoria;
+    private int idHistoria;          
 
     //Constructores
     public HistoriaClinica() {
@@ -18,7 +21,6 @@ public class HistoriaClinica {
         this.idHistoria = idHistoria;
     }
 
-    //Getters y Setters
     public String getFechaDeCreacion() {
         return fechaDeCreacion;
     }
@@ -37,20 +39,20 @@ public class HistoriaClinica {
 
     //Métodos y funciones
     @Override
-    public String toString(){
-        return "Fecha de creación: "+fechaDeCreacion +
-                "id: "+idHistoria;
+    public String toString() {
+        return "Fecha de creación: " + fechaDeCreacion
+                + "id: " + idHistoria;
     }
-    //anamnesis
-    public String[] crearHistoriaClinica(String infoPaciente, String infoMedico,
-                                       String diagnostico, String evolucion){
-        String [] historia = new String[4];
-        historia[0] = infoPaciente;
-        historia[1] = infoMedico;
-        historia[2] = diagnostico;
-        historia[3] = evolucion;
 
-        return historia;
+    //anamnesis
+    public void crearHistoriaClinica(HashMap<String, Object> historiasClinicas, String idPaciente) {
+        if (historiasClinicas.containsKey(idPaciente)) {
+            JOptionPane.showMessageDialog(null, "No se puede crear Historia Clínica. "
+                    + "\nEl paciente ya tiene una historia registrada.");
+        } else {
+        historiasClinicas.put(idPaciente, this);
+        
+        }
     }
 
 }

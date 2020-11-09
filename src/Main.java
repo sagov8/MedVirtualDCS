@@ -1,8 +1,9 @@
 package src;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Scanner;
-import src.InterfazDeUsuario.InicioSesion;
+import src.InterfazHistorial.FormularioHistorial;
 
 public class Main {
 
@@ -15,18 +16,34 @@ public class Main {
         HashMap organiza datos de la manera <k, v> (clave, valor), solo permite Clases, no datos
         primitivos, por eso se usa Integer y no int.
         */
-        HashMap<Integer, String> coleccionUsuarios = new HashMap<>();
-        HashMap<Integer, String> coleccionMedicos = new HashMap<>();
-
+        HashMap<String, Usuario> coleccionUsuarios = new HashMap<>();
+        HashMap<String, Medico> coleccionMedicos = new HashMap<>();
+        HashMap<String, Paciente> coleccionPacientes = new HashMap<>();
+        HashMap<String, HistoriaClinica> historiasClinicas = new HashMap<>();
+        ArrayList<Diagnostico> diagnosticos = new ArrayList<>();
+        ArrayList<Evolucion> evoluciones = new ArrayList<>();
         
-        InicioSesion ventana = new InicioSesion();
-        ventana.setVisible(true);
-
-        HashMap<Integer, String> coleccionPacientes = new HashMap<>();
-
-
+        FormularioHistorial form = new FormularioHistorial();
+        form.setVisible(true);
+        
+        Paciente paciente = new Paciente(1, "CC", 10123456, "Pepe", "Perez", "3124567891", "pperez@gmail.com", "Calle 1 #2 33", 
+        "8/8/1991", "Masculino", 45);
+        
+        Medico medico = new Medico();
+        
+        Usuario usuario = new Usuario(10123456, "pperez", "123456", "paciente");
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
         boolean salir = false;
-
         do {
             System.out.println("**************************" +
                     "\nBIENVENIDO A MEDVIRTUALDCS" +
@@ -48,11 +65,7 @@ public class Main {
                         paciente.setTipoUsuario(tipoDeUsuario);//asigna el tipo de Usuario y el ID respectivo.
                         paciente.setIdUsuario(id);
 
-                        /* El método registrarUsuario() devuelve true en caso de que el registro de
-                        Usuario se complete exitósamente. De no ser así no permite registrar los datos
-                        personales del paciente ó médico. Si el registro se hace correctamente, guarda al
-                        usuario en el Hashmap coleccionUsuarios.
-                        La clase paciente hereda el método registrarUsuario de la clase Usuario.*/
+                 
                         boolean registroUsuarioExitoso = paciente.registrarUsuario(coleccionUsuarios);
                         if (registroUsuarioExitoso){
                             paciente.registrarPaciente(id, coleccionPacientes);
@@ -75,13 +88,7 @@ public class Main {
                     }
                     break;
                 case 2:
-                    /*
-                    Para iniciar sesión primero se hace una verificación de la coleccionUsuarios
-                    en caso de estar vacía es porque no hay usuarios registrados, en caso contrario
-                    se pide un nombre de usuario y password y a través del método verificarLogin()
-                    se realiza el proceso de verificación retornando en caso éxitoso el ID del usuario
-                    que se realizó su login en el sistema.
-                     */
+                    
                     if (coleccionUsuarios.isEmpty()) {
                         System.out.println("No hay usuarios registrados.");
                     } else {
@@ -102,6 +109,6 @@ public class Main {
         System.out.println(coleccionUsuarios.get(usuarioActivo));
         System.out.println(coleccionPacientes.get(usuarioActivo));
         System.out.println(coleccionMedicos.get(usuarioActivo));
-
+        */
     }
 }
