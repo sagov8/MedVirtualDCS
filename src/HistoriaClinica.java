@@ -1,6 +1,7 @@
 package src;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 //Santiago
@@ -45,12 +46,13 @@ public class HistoriaClinica {
     }
 
     //anamnesis
-    public void crearHistoriaClinica(HashMap<String, Object> historiasClinicas, String idPaciente) {
+    public void crearHistoriaClinica(HashMap<String, ArrayList> historiasClinicas, String idPaciente, 
+            ArrayList<Object> datos) {
         if (historiasClinicas.containsKey(idPaciente)) {
             JOptionPane.showMessageDialog(null, "No se puede crear Historia Clínica. "
                     + "\nEl paciente ya tiene una historia registrada.");
         } else {
-        historiasClinicas.put(idPaciente, this);
+        historiasClinicas.put(idPaciente, datos );
         
         }
     }

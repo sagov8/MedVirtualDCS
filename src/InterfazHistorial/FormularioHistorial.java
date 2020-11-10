@@ -6,6 +6,7 @@
 package src.InterfazHistorial;
 
 import javax.swing.JOptionPane;
+import src.HistoriaClinica;
 
 /**
  *
@@ -292,6 +293,11 @@ public class FormularioHistorial extends javax.swing.JFrame {
         });
 
         jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
 
         jLabel15.setText("Tratamiento del paciente:");
 
@@ -468,8 +474,9 @@ public class FormularioHistorial extends javax.swing.JFrame {
         if (id.equals("")) {
             JOptionPane.showMessageDialog(null, "Por favor ingrese el ID del paciente.");
         } else {
+            HistoriaClinica hc = new HistoriaClinica();
             
-
+            
         }
     }//GEN-LAST:event_jBConsultarHistoriaActionPerformed
 
@@ -477,6 +484,12 @@ public class FormularioHistorial extends javax.swing.JFrame {
         jTNombre.setEditable(false);
         jTNombre.setEnabled(false);
     }//GEN-LAST:event_jTNombreActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        FormularioHistorial fh = new FormularioHistorial();
+        fh.setVisible(false);
+        fh.dispose();
+    }//GEN-LAST:event_jBSalirActionPerformed
 
     /**
      * @param args the command line arguments
