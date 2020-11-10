@@ -879,8 +879,6 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                 diagnostico.setEstadoPaciente(jTFEstadoModificar.getText());
                 Formula formula = diagnostico.getFormula();
                 formula.setRecomendacion(jTFRecomendacionesModificar.getText());
-                diagnostico.setFormula(formula);
-                paciente.setDiagnosticos(diagnostico);
                 jTFDiagnosticoModificar.setText(" ");
                 jTFEstadoModificar.setText(" ");
                 jTFRecomendacionesModificar.setText(" ");
@@ -888,7 +886,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
             }    
             cont++;
         }while(!idDiagEncontrado && cont<paciente.getDiagnosticos().size());
-        jTFIdDiagnosticoModificar.setText(" ");
+        jTFIdDiagnosticoModificar.setText("0");
     }//GEN-LAST:event_jBModificarDiagnosticoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
