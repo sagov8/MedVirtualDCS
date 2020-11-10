@@ -851,7 +851,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         if(!idDiagEncontrado){
             JOptionPane.showMessageDialog(null, "Id de diagnóstico NO encontrado");
         }
-        jTFIdDiagnosticoModificar.setText(" ");
+        
     }//GEN-LAST:event_jBIdDiagnosticoModificarActionPerformed
 
     private void jBModificarDiagnosticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarDiagnosticoActionPerformed
@@ -863,6 +863,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         do{
             Diagnostico diagnostico = paciente.getDiagnosticos().get(cont);
             if(diagnostico.getIdDiagnostico()==idDiagn){
+                idDiagEncontrado=true;
                 diagnostico.setObservacion(jTFDiagnosticoModificar.getText());
                 diagnostico.setEstadoPaciente(jTFEstadoModificar.getText());
                 Formula formula = diagnostico.getFormula();
@@ -876,18 +877,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
             }    
             cont++;
         }while(!idDiagEncontrado && cont<paciente.getDiagnosticos().size());
-        /*int cont=0;
-        boolean idDiagEncontrado=false;
-        Paciente paciente = pacientes.get(indexPaciente);
-        do{
-            Diagnostico diagnostico=paciente.getDiagnosticos().get(cont);
-            if(diagnostico.getIdDiagnostico()==idDiagn){
-                idDiagEncontrado=true;
-                paciente.getDiagnosticos().remove(cont);
-                JOptionPane.showMessageDialog(null, "Diagnóstico Eliminado");
-            }
-            cont++;
-        }while(!idDiagEncontrado && cont<paciente.getDiagnosticos().size());*/
+        jTFIdDiagnosticoModificar.setText(" ");
     }//GEN-LAST:event_jBModificarDiagnosticoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
