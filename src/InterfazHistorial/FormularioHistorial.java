@@ -468,11 +468,10 @@ public class FormularioHistorial extends javax.swing.JFrame {
 
 
     private void jTIngresoIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTIngresoIDActionPerformed
-
+        id = jTIngresoID.getText();
     }//GEN-LAST:event_jTIngresoIDActionPerformed
 
     private void jBCrearHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearHistoriaActionPerformed
-        id = jTIngresoID.getText();
         hc.crearHistoriaClinica(historiasClinicas, id, datosPaciente);
     }//GEN-LAST:event_jBCrearHistoriaActionPerformed
 
@@ -490,10 +489,13 @@ public class FormularioHistorial extends javax.swing.JFrame {
 
     private void jBConsultarHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarHistoriaActionPerformed
         id = jTIngresoID.getText();
+        System.out.println(historiasClinicas.get(id));
         if (id.equals("")) {
             JOptionPane.showMessageDialog(null, "Por favor ingrese el ID del paciente.");
-        } else if (historiasClinicas.containsKey(id)) {
+        }        
+        if (historiasClinicas.containsKey(id)) {
             System.out.println("Paciente encontrado");
+            
         }
     }//GEN-LAST:event_jBConsultarHistoriaActionPerformed
 
@@ -506,6 +508,8 @@ public class FormularioHistorial extends javax.swing.JFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     public void guardarDatos() {
+        
+        
         Usuario usuario = new Usuario(10123456, "pperez", "123456", "paciente");
 
         Paciente paciente = new Paciente(1, "CC", 10123456, "Pepe", "Perez", "3124567891", "pperez@gmail.com", "Calle 1 #2 33",
@@ -530,7 +534,9 @@ public class FormularioHistorial extends javax.swing.JFrame {
         datosPaciente.add(paciente);
         datosPaciente.add(diagnostico);
         
-        historiasClinicas.put(String.valueOf(paciente.getNumeroDocumento()), datosPaciente);
+        hc.crearHistoriaClinica(historiasClinicas, String.valueOf(paciente.getNumeroDocumento()), datosPaciente);
+      
+        System.out.println(historiasClinicas.get("10123456"));
     }
 
     /**
@@ -540,6 +546,8 @@ public class FormularioHistorial extends javax.swing.JFrame {
 
         FormularioHistorial fh = new FormularioHistorial();
         fh.guardarDatos();
+        
+        
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -39,25 +39,15 @@ public class HistoriaClinica {
     }
 
     //Métodos y funciones
-
-    //anamnesis
-    
-    public boolean verificarExistencia(String idPaciente, HashMap<String, ArrayList> historiasClinicas) {
-        if (historiasClinicas.containsKey(idPaciente)) {
-            return true;
-        } else {
-            return false;
-        }
+    @Override
+    public String toString(){
+        return "Historia Creada";
     }
+    //anamnesis
     
     public void crearHistoriaClinica(HashMap<String, ArrayList> historiasClinicas, String idPaciente,
             ArrayList<Object> datos) {
-        if (historiasClinicas.containsKey(idPaciente)) {
-            JOptionPane.showMessageDialog(null, "No se puede crear Historia Clínica. "
-                    + "\nEl paciente ya tiene una historia registrada.");
-        } else {
-            historiasClinicas.put(idPaciente, datos);
-        }
+        historiasClinicas.put(idPaciente, datos);
     }
     
     public void editarHistoria (HashMap<String, ArrayList> historiasClinicas, String idPaciente,
