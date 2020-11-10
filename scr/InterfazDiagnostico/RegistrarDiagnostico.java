@@ -258,9 +258,19 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
         jLIngresarIdPaciente.setText("Ingrese identificación del paciente:");
 
+        jTFIdPaciente.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFIdPacienteFocusLost(evt);
+            }
+        });
         jTFIdPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFIdPacienteActionPerformed(evt);
+            }
+        });
+        jTFIdPaciente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFIdPacienteKeyReleased(evt);
             }
         });
 
@@ -552,10 +562,11 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jLNombrePacienteEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLIdPacienteElim, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLNombrePacienteEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel5)
+                                .addComponent(jLIdPacienteElim, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addComponent(jLabel4)))
@@ -884,6 +895,19 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         // Botón consultar id paciente a midificar diagnóstico
         buscarIdPaciente(jTFIdModificar,jLNPacienteModificar,jLIdPacienteModificar);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTFIdPacienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFIdPacienteKeyReleased
+        
+    }//GEN-LAST:event_jTFIdPacienteKeyReleased
+
+    private void jTFIdPacienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFIdPacienteFocusLost
+        // Condición para que sólo ingrese números 
+        if(!jTFIdPaciente.getText().matches("[0-9]*$")){
+            JOptionPane.showMessageDialog(null,"ingresar solo valores numéricos ");
+            jTFIdPaciente.setText("  ");
+            jTFIdPaciente.requestFocus();
+        }
+    }//GEN-LAST:event_jTFIdPacienteFocusLost
     public void buscarIdPaciente(JTextField idConsultado,JLabel nombrePaciente, JLabel idPaciente){
         //Procedimiento para buscar si el id ingresado corresponde al de un paciente registrado
         int cedula = Integer.parseInt(idConsultado.getText());
@@ -908,7 +932,6 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         String doc=Long.toString(documento);//Pasar id de Long a String
         nombrePaciente.setText(nombre);//Imprimir en el label el nombre del paciente
         idPaciente.setText(doc);//Imprimir en el label el documento del paciente
-        idConsultado.setText(" ");//Limpiar el TextField donde se ingresa el id a consultar
     }
     /**
      * @param args the command line arguments
