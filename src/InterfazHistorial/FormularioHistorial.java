@@ -5,8 +5,16 @@
  */
 package src.InterfazHistorial;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
+import src.Diagnostico;
+import src.Evolucion;
 import src.HistoriaClinica;
+import src.Medico;
+import src.Paciente;
+import src.Usuario;
 
 /**
  *
@@ -14,10 +22,19 @@ import src.HistoriaClinica;
  */
 public class FormularioHistorial extends javax.swing.JFrame {
 
-    /**
+    String id;
+/**
      * Creates new form FormularioHistorial
      */
-    String id;
+    HistoriaClinica hc = new HistoriaClinica();
+    HashMap<String, Usuario> coleccionUsuarios = new HashMap<>();
+    HashMap<String, Medico> coleccionMedicos = new HashMap<>();
+    HashMap<String, Paciente> coleccionPacientes = new HashMap<>();
+    HashMap<String, ArrayList> historiasClinicas = new HashMap<>();
+    ArrayList<Diagnostico> diagnosticos = new ArrayList<>();
+    ArrayList<Evolucion> evoluciones = new ArrayList<>();
+    ArrayList<Object> datosPaciente = new ArrayList<>();
+    
 
     public FormularioHistorial() {
         initComponents();
@@ -448,18 +465,19 @@ public class FormularioHistorial extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    
+
+
     private void jTIngresoIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTIngresoIDActionPerformed
-        id = jTIngresoID.getText();
+
     }//GEN-LAST:event_jTIngresoIDActionPerformed
 
     private void jBCrearHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearHistoriaActionPerformed
-        // TODO add your handling code here:
+        id = jTIngresoID.getText();
+        hc.crearHistoriaClinica(historiasClinicas, id, datosPaciente);
     }//GEN-LAST:event_jBCrearHistoriaActionPerformed
 
     private void jTCorreoElectronicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCorreoElectronicoActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTCorreoElectronicoActionPerformed
 
     private void jTDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTDireccionActionPerformed
@@ -471,30 +489,58 @@ public class FormularioHistorial extends javax.swing.JFrame {
     }//GEN-LAST:event_jBGuardarCambiosActionPerformed
 
     private void jBConsultarHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarHistoriaActionPerformed
+        id = jTIngresoID.getText();
         if (id.equals("")) {
             JOptionPane.showMessageDialog(null, "Por favor ingrese el ID del paciente.");
-        } else {
-            HistoriaClinica hc = new HistoriaClinica();
-            
-            
+        } else if (historiasClinicas.containsKey(id)) {
+            System.out.println("Paciente encontrado");
         }
     }//GEN-LAST:event_jBConsultarHistoriaActionPerformed
 
     private void jTNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTNombreActionPerformed
-        jTNombre.setEditable(false);
-        jTNombre.setEnabled(false);
+
     }//GEN-LAST:event_jTNombreActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-        FormularioHistorial fh = new FormularioHistorial();
-        fh.setVisible(false);
-        fh.dispose();
+        System.exit(0);
     }//GEN-LAST:event_jBSalirActionPerformed
+
+    public void guardarDatos() {
+        Usuario usuario = new Usuario(10123456, "pperez", "123456", "paciente");
+
+        Paciente paciente = new Paciente(1, "CC", 10123456, "Pepe", "Perez", "3124567891", "pperez@gmail.com", "Calle 1 #2 33",
+                "8/8/1991", "Masculino", 45);
+
+        coleccionUsuarios.put(String.valueOf(paciente.getNumeroDocumento()), usuario);
+        coleccionPacientes.put(String.valueOf(paciente.getNumeroDocumento()), paciente);
+
+        Usuario user = new Usuario(20123456, "jsanchez", "987654321", "medico");
+
+        Medico medico = new Medico(20123456, "3159876543", "Juan", "Sanchez", "20123456", "jsanchez@gmail.com", "internista");
+
+        coleccionUsuarios.put(String.valueOf(medico.getCedulaMedico()), usuario);
+        coleccionMedicos.put(String.valueOf(medico.getCedulaMedico()), medico);
+
+        Date fecha = new Date();
+        Diagnostico diagnostico = new Diagnostico(fecha, "El paciente se encuentra con niveles altos de azucar",
+                "Diabetes aguda");
+
+        Evolucion evo = new Evolucion();
+
+        datosPaciente.add(paciente);
+        datosPaciente.add(diagnostico);
+        
+        historiasClinicas.put(String.valueOf(paciente.getNumeroDocumento()), datosPaciente);
+    }
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
+        FormularioHistorial fh = new FormularioHistorial();
+        fh.guardarDatos();
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

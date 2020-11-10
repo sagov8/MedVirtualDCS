@@ -9,7 +9,7 @@ public class HistoriaClinica {
 
     //atributos
     private String fechaDeCreacion;
-    private int idHistoria;          
+    private int idHistoria;
 
     //Constructores
     public HistoriaClinica() {
@@ -39,22 +39,39 @@ public class HistoriaClinica {
     }
 
     //Métodos y funciones
-    @Override
-    public String toString() {
-        return "Fecha de creación: " + fechaDeCreacion
-                + "id: " + idHistoria;
-    }
 
     //anamnesis
-    public void crearHistoriaClinica(HashMap<String, ArrayList> historiasClinicas, String idPaciente, 
+    
+    public boolean verificarExistencia(String idPaciente, HashMap<String, ArrayList> historiasClinicas) {
+        if (historiasClinicas.containsKey(idPaciente)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public void crearHistoriaClinica(HashMap<String, ArrayList> historiasClinicas, String idPaciente,
             ArrayList<Object> datos) {
         if (historiasClinicas.containsKey(idPaciente)) {
             JOptionPane.showMessageDialog(null, "No se puede crear Historia Clínica. "
                     + "\nEl paciente ya tiene una historia registrada.");
         } else {
-        historiasClinicas.put(idPaciente, datos );
-        
+            historiasClinicas.put(idPaciente, datos);
         }
     }
+    
+    public void editarHistoria (HashMap<String, ArrayList> historiasClinicas, String idPaciente,
+            ArrayList<Object> datos){
+        
+        if (historiasClinicas.containsKey(idPaciente)) {
+            historiasClinicas.put(idPaciente, datos);
+        } else {
+            JOptionPane.showMessageDialog(null,"No existe una historia clínica asociada a este paciente.");
+        }
+    }
+
+    
+    
+    
 
 }
