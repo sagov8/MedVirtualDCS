@@ -107,6 +107,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         jLPacienteImprimir = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLIdPacienteImrpimir = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jTFIdDiagnosticoEliminar = new javax.swing.JTextField();
@@ -118,6 +119,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLNombrePacienteEliminar = new javax.swing.JLabel();
         jLIdPacienteElim = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jTFIdDiagnosticoModificar = new javax.swing.JTextField();
@@ -137,6 +139,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         jLPacienteModificar = new javax.swing.JLabel();
         jLIdPacienteModificar = new javax.swing.JLabel();
         jLNPacienteModificar = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -263,16 +266,6 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                 jTFIdPacienteFocusLost(evt);
             }
         });
-        jTFIdPaciente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFIdPacienteActionPerformed(evt);
-            }
-        });
-        jTFIdPaciente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTFIdPacienteKeyReleased(evt);
-            }
-        });
 
         jBConsultarPaciente.setText("Consultar");
         jBConsultarPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -288,10 +281,15 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         jLMedicamento.setText("Seleccione Medicamento:");
 
         jCBMedicamentos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguno", "Metformina", "Sulfonilureas", "Meglitinidas", "Tiazolidinadionas", "Inhibidores de la DPP-4", "Agonistas del receptor de la GLP-1", "Inhibidores de la SGLT2", "Insulina", "Otro" }));
+        jCBMedicamentos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jCBMedicamentosKeyPressed(evt);
+            }
+        });
 
         jLDosis.setText("Dosis:");
 
-        jBAgregarMedicamento.setText("Agragar Medicamento");
+        jBAgregarMedicamento.setText("Agregar Medicamento");
         jBAgregarMedicamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBAgregarMedicamentoActionPerformed(evt);
@@ -406,7 +404,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                 .addComponent(jBGuardarDiagnostico)
                 .addGap(18, 18, 18)
                 .addComponent(jBSalir)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Crear Diagnostico", jPanel1);
@@ -424,6 +422,12 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
         jLIdPacienteCons.setText("Ingrese identicicación del paciente:");
 
+        jTFIdPacienteConsult.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFIdPacienteConsultFocusLost(evt);
+            }
+        });
+
         jBConsultarPacienteVer.setText("Consultar");
         jBConsultarPacienteVer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -434,6 +438,13 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         jLabel6.setText("Nombre del paciente:");
 
         jLabel9.setText("Documento:");
+
+        jButton3.setText("Salir");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -469,6 +480,10 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                         .addGap(259, 259, 259)
                         .addComponent(jBConsultarDiagnostico)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(32, 32, 32))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -489,7 +504,9 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(jBConsultarDiagnostico)
-                .addGap(44, 44, 44)
+                .addGap(6, 6, 6)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -497,6 +514,12 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         jTabbedPane1.addTab("Consultar Diagnóstico", jPanel7);
 
         jLabel3.setText("Ingresar id del diagnóstico de eliminar:");
+
+        jTFIdDiagnosticoEliminar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFIdDiagnosticoEliminarFocusLost(evt);
+            }
+        });
 
         jBEliminarDiagnostico.setText("ELIMINAR DIAGNÓSTICO");
         jBEliminarDiagnostico.addActionListener(new java.awt.event.ActionListener() {
@@ -506,6 +529,12 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         });
 
         jLIdPacienteEliminar.setText("Ingrese identificación del paciente:");
+
+        jTFIdPacienteEliminar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFIdPacienteEliminarFocusLost(evt);
+            }
+        });
 
         jBIdPacienteEliminar.setText("Consultar");
         jBIdPacienteEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -517,6 +546,13 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         jLabel4.setText("Nombre Paciente:");
 
         jLabel5.setText("Documento:");
+
+        jButton4.setText("Salir");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -550,6 +586,10 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                         .addGap(244, 244, 244)
                         .addComponent(jBEliminarDiagnostico)))
                 .addContainerGap(161, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(59, 59, 59))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -576,12 +616,20 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                     .addComponent(jTFIdDiagnosticoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53)
                 .addComponent(jBEliminarDiagnostico)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(46, 46, 46))
         );
 
         jTabbedPane1.addTab("Eliminar Diagnóstico", jPanel9);
 
         jLabel8.setText("Ingresar Id del diagnóstico a modificar:");
+
+        jTFIdDiagnosticoModificar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFIdDiagnosticoModificarFocusLost(evt);
+            }
+        });
 
         jBIdDiagnosticoModificar.setText("Consultar");
         jBIdDiagnosticoModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -605,6 +653,12 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
         jLabel13.setText("Ingresar identificación del paciente:");
 
+        jTFIdModificar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFIdModificarFocusLost(evt);
+            }
+        });
+
         jButton1.setText("Consultar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -616,14 +670,17 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
         jLabel15.setText("Documento:");
 
+        jButton5.setText("Salir");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jBModificarDiagnostico)
-                .addGap(303, 303, 303))
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -665,6 +722,15 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                                 .addGap(307, 307, 307)
                                 .addComponent(jLPacienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(261, 269, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addComponent(jBModificarDiagnostico)
+                        .addGap(303, 303, 303))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addComponent(jButton5)
+                        .addGap(66, 66, 66))))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -706,7 +772,9 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                     .addComponent(jTFRecomendacionesModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addComponent(jBModificarDiagnostico)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addGap(43, 43, 43))
         );
 
         jTabbedPane1.addTab("Modificar Diagnóstico", jPanel8);
@@ -721,8 +789,8 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82))
         );
 
         pack();
@@ -741,10 +809,6 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         buscarIdPaciente(jTFIdPaciente,jLNombreP,jLDocumentoP);
       
     }//GEN-LAST:event_jBConsultarPacienteActionPerformed
-
-    private void jTFIdPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFIdPacienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFIdPacienteActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         System.exit(0);
@@ -800,8 +864,8 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         if(!idDiagEncontrado){
             JOptionPane.showMessageDialog(null, "Id de diagnóstico NO encontrado");
         }
-        jTFIdDiagnosticoEliminar.setText(" ");
-      
+        jTFIdDiagnosticoEliminar.setText("0");
+       
     }//GEN-LAST:event_jBEliminarDiagnosticoActionPerformed
 
     private void jBIdPacienteEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBIdPacienteEliminarActionPerformed
@@ -834,7 +898,6 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                 }
             }
         }
-        //JOptionPane.showMessageDialog(null, imprimir, "Imprimir", JOptionPane.PLAIN_MESSAGE);
         jTAMostrarDiagnosticos.setText(imprimir);
     }//GEN-LAST:event_jBConsultarDiagnosticoActionPerformed
 
@@ -894,18 +957,69 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         buscarIdPaciente(jTFIdModificar,jLNPacienteModificar,jLIdPacienteModificar);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTFIdPacienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFIdPacienteKeyReleased
-        
-    }//GEN-LAST:event_jTFIdPacienteKeyReleased
-
     private void jTFIdPacienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFIdPacienteFocusLost
         // Condición para que sólo ingrese números 
-        if(!jTFIdPaciente.getText().matches("[0-9]*$")){
-            JOptionPane.showMessageDialog(null,"ingresar solo valores numéricos ");
-            jTFIdPaciente.setText("  ");
-            jTFIdPaciente.requestFocus();
-        }
+        ingresarSoloNumeros(jTFIdPaciente);
+        
     }//GEN-LAST:event_jTFIdPacienteFocusLost
+
+    private void jCBMedicamentosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jCBMedicamentosKeyPressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jCBMedicamentosKeyPressed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // Botón salir de consultar diagnósticos
+        System.exit(0);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // Botón salir de Eliminar Diagnóstico
+        System.exit(0);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // Botón salir de modificar diagnóstico
+        System.exit(0);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTFIdPacienteConsultFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFIdPacienteConsultFocusLost
+        // Condición para que sólo ingrese números 
+        ingresarSoloNumeros(jTFIdPacienteConsult);
+        
+    }//GEN-LAST:event_jTFIdPacienteConsultFocusLost
+
+    private void jTFIdPacienteEliminarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFIdPacienteEliminarFocusLost
+        // Condición para que sólo ingrese números 
+        ingresarSoloNumeros(jTFIdPacienteEliminar);
+        
+    }//GEN-LAST:event_jTFIdPacienteEliminarFocusLost
+
+    private void jTFIdModificarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFIdModificarFocusLost
+        // Condición para que sólo ingrese números 
+        ingresarSoloNumeros(jTFIdModificar);
+        
+    }//GEN-LAST:event_jTFIdModificarFocusLost
+
+    private void jTFIdDiagnosticoModificarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFIdDiagnosticoModificarFocusLost
+        // Condición para que sólo ingrese números 
+        ingresarSoloNumeros(jTFIdDiagnosticoModificar);
+        
+    }//GEN-LAST:event_jTFIdDiagnosticoModificarFocusLost
+
+    private void jTFIdDiagnosticoEliminarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFIdDiagnosticoEliminarFocusLost
+        // Condición para que sólo ingrese números 
+        ingresarSoloNumeros(jTFIdDiagnosticoEliminar);
+        
+    }//GEN-LAST:event_jTFIdDiagnosticoEliminarFocusLost
+    public void ingresarSoloNumeros(JTextField datoIngresado){
+        //Procedimiento para verificar que el dato ingresado sea un número 
+        if(!datoIngresado.getText().matches("[0-9]*$")){
+            JOptionPane.showMessageDialog(null,"ingresar solo valores numéricos ");
+            datoIngresado.setText("  ");
+            datoIngresado.requestFocus();
+        } 
+    }
     public void buscarIdPaciente(JTextField idConsultado,JLabel nombrePaciente, JLabel idPaciente){
         //Procedimiento para buscar si el id ingresado corresponde al de un paciente registrado
         int cedula = Integer.parseInt(idConsultado.getText());
@@ -930,6 +1044,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         String doc=Long.toString(documento);//Pasar id de Long a String
         nombrePaciente.setText(nombre);//Imprimir en el label el nombre del paciente
         idPaciente.setText(doc);//Imprimir en el label el documento del paciente
+        idConsultado.setText("0");
     }
     /**
      * @param args the command line arguments
@@ -987,6 +1102,9 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
     private javax.swing.JButton jBModificarDiagnostico;
     private javax.swing.JButton jBSalir;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jCBDiagnostico;
     private javax.swing.JComboBox<String> jCBMedicamentos;
     private javax.swing.JDialog jDialog1;
