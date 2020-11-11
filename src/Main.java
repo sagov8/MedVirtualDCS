@@ -4,7 +4,7 @@ import java.time.Instant;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Scanner;
-import src.InterfazHistorial.FormularioHistorial;
+import src.InterfazHistorial.FormularioHistorialVistaPaciente;
 import java.util.Date;
 
 public class Main {

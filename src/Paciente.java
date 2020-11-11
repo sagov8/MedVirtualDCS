@@ -10,7 +10,6 @@ public class Paciente extends Usuario {
     //Atributos paciente
 
     private int idPaciente;
-    private static int idNext = 1;
     private String tipoDocumento;
     private long numeroDocumento;
     private String nombrePaciente;
@@ -26,7 +25,7 @@ public class Paciente extends Usuario {
 
     public Paciente() {
 
-        this.idPaciente = idNext++;
+        this.idPaciente = 0;
         this.tipoDocumento = "";
         this.numeroDocumento = 0;
         this.nombrePaciente = "";
