@@ -26,16 +26,10 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
 /**
      * Creates new form FormularioHistorial
      */
-    HistoriaClinica hc = new HistoriaClinica();
-    HashMap<String, Usuario> coleccionUsuarios = new HashMap<>();
-    HashMap<String, Medico> coleccionMedicos = new HashMap<>();
-    HashMap<String, Paciente> coleccionPacientes = new HashMap<>();
+    
     HashMap<String, ArrayList> historiasClinicas = new HashMap<>();
-    ArrayList<Diagnostico> diagnosticos = new ArrayList<>();
-    ArrayList<Evolucion> evoluciones = new ArrayList<>();
     ArrayList<Object> datosPaciente = new ArrayList<>();
     
-
     public FormularioHistorialVistaPaciente() {
         initComponents();
     }
@@ -483,7 +477,7 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
 
 
     private void jBCrearHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearHistoriaActionPerformed
-        
+        HistoriaClinica hc = new HistoriaClinica();
     }//GEN-LAST:event_jBCrearHistoriaActionPerformed
 
     private void jBGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarCambiosActionPerformed
@@ -491,16 +485,8 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jBGuardarCambiosActionPerformed
 
     private void jBConsultarHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarHistoriaActionPerformed
-
-        System.out.println(id);
-        System.out.println(historiasClinicas.get(id));
-        if (id.equals("")) {
-            JOptionPane.showMessageDialog(null, "Por favor ingrese el ID del paciente.");
-        }        
-        if (historiasClinicas.containsKey(id)) {
-            System.out.println("Paciente encontrado");
-            
-        }
+        
+        
     }//GEN-LAST:event_jBConsultarHistoriaActionPerformed
 
     private void jTNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTNombreActionPerformed
@@ -518,15 +504,9 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
         Paciente paciente = new Paciente(1, "CC", 10123456, "Pepe", "Perez", "3124567891", "pperez@gmail.com", "Calle 1 #2 33",
                 "8/8/1991", "Masculino", 45);
 
-        coleccionUsuarios.put(String.valueOf(paciente.getNumeroDocumento()), usuario);
-        coleccionPacientes.put(String.valueOf(paciente.getNumeroDocumento()), paciente);
-
         Usuario user = new Usuario(20123456, "jsanchez", "987654321", "medico");
 
         Medico medico = new Medico(20123456, "3159876543", "Juan", "Sanchez", "20123456", "jsanchez@gmail.com", "internista");
-
-        coleccionUsuarios.put(String.valueOf(medico.getCedulaMedico()), usuario);
-        coleccionMedicos.put(String.valueOf(medico.getCedulaMedico()), medico);
 
         Date fecha = new Date();
         Diagnostico diagnostico = new Diagnostico(fecha, "El paciente se encuentra con niveles altos de azucar",
@@ -544,11 +524,8 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
     }
     
     public void escribirDatos(){
-        String nombre = jTNombre.getText();
-        jTApellido.setText(coleccionPacientes.get("10123456").getApellidoPaciente());
-        jTDocumento.setText(coleccionPacientes.get("10123456").getTipoDocumento());
-        jTNumDocumento.setText("10123456");
-        jTTelCel.setText(coleccionPacientes.get("10123456").getNumeroTelefonicoPaciente());
+        
+        
     }
 
     /**
@@ -590,6 +567,7 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
                 new FormularioHistorialVistaPaciente().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

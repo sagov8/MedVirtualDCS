@@ -9,15 +9,15 @@ public class HistoriaClinica {
 
     //atributos
     private String fechaDeCreacion;
-    private int idHistoria;
+    private String idHistoria;
 
     //Constructores
     public HistoriaClinica() {
         this.fechaDeCreacion = "";
-        this.idHistoria = 0;
+        this.idHistoria = " ";
     }
 
-    public HistoriaClinica(String fechaDeCreacion, int idHistoria) {
+    public HistoriaClinica(String fechaDeCreacion, String idHistoria) {
         this.fechaDeCreacion = fechaDeCreacion;
         this.idHistoria = idHistoria;
     }
@@ -30,38 +30,46 @@ public class HistoriaClinica {
         this.fechaDeCreacion = fechaDeCreacion;
     }
 
-    public int getIdHistoria() {
+    public String getIdHistoria() {
         return idHistoria;
     }
 
-    public void setIdHistoria(int idHistoria) {
+    public void setIdHistoria(String idHistoria) {
         this.idHistoria = idHistoria;
     }
 
     //Métodos y funciones
     @Override
-    public String toString(){
+    public String toString() {
         return "Historia Creada";
     }
     //anamnesis
-    
+
     public void crearHistoriaClinica(HashMap<String, ArrayList> historiasClinicas, String idPaciente,
             ArrayList<Object> datos) {
+
         historiasClinicas.put(idPaciente, datos);
     }
-    
-    public void editarHistoria (HashMap<String, ArrayList> historiasClinicas, String idPaciente,
-            ArrayList<Object> datos){
-        
+
+    public void editarHistoria(HashMap<String, ArrayList> historiasClinicas, String idPaciente,
+            ArrayList<Object> datos) {
+
         if (historiasClinicas.containsKey(idPaciente)) {
             historiasClinicas.put(idPaciente, datos);
         } else {
-            JOptionPane.showMessageDialog(null,"No existe una historia clínica asociada a este paciente.");
+            JOptionPane.showMessageDialog(null, "No existe una historia clínica asociada a este paciente.");
         }
     }
 
-    
-    
-    
+    public ArrayList consultarPaciente(HashMap<String, ArrayList> historiasClinicas, String idPaciente, ArrayList<Object> datosPaciente) {
+
+        idHistoria = idPaciente;
+        if (historiasClinicas.containsKey(idPaciente)) {
+            return historiasClinicas.get(idHistoria);
+        } else {
+            System.out.println("");
+        }
+        return datosPaciente; 
+    }
 
 }
