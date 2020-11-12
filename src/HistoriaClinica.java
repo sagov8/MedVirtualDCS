@@ -45,31 +45,20 @@ public class HistoriaClinica {
     }
     //anamnesis
 
-    public void crearHistoriaClinica(HashMap<String, ArrayList> historiasClinicas, String idPaciente,
-            ArrayList<Object> datos) {
+    public void crearHistoriaClinica(HashMap<String, Paciente> historiasClinicas, String idPaciente,
+            Paciente paciente) {
 
-        historiasClinicas.put(idPaciente, datos);
+        historiasClinicas.put(idPaciente, paciente);
     }
 
-    public void editarHistoria(HashMap<String, ArrayList> historiasClinicas, String idPaciente,
-            ArrayList<Object> datos) {
-
-        if (historiasClinicas.containsKey(idPaciente)) {
-            historiasClinicas.put(idPaciente, datos);
-        } else {
-            JOptionPane.showMessageDialog(null, "No existe una historia clínica asociada a este paciente.");
-        }
-    }
-
-    public ArrayList consultarPaciente(HashMap<String, ArrayList> historiasClinicas, String idPaciente, ArrayList<Object> datosPaciente) {
+    public Paciente consultarPaciente(HashMap<String, Paciente> historiasClinicas, String idPaciente) {
 
         idHistoria = idPaciente;
-        if (historiasClinicas.containsKey(idPaciente)) {
-            return historiasClinicas.get(idHistoria);
-        } else {
-            System.out.println("");
-        }
-        return datosPaciente; 
+        return historiasClinicas.get(idPaciente);
+    }
+    
+    public void modificarHistoria (HashMap<String, Paciente> historiasClinicas, String idPaciente, Paciente paciente){
+        historiasClinicas.put(idPaciente, paciente);
     }
 
 }

@@ -8,36 +8,36 @@ public class Diagnostico {
 
     Scanner t = new Scanner(System.in);
     //Atributos
-    private int idDiagnostico;
+    private String idDiagnostico;
     private Date fechaDiagnostico;
-    final String[] diagnostico = {"Diabetes tipo 1", "Diabetes tipo 2",
-        "Diabetes gestacional", "Diabetes relacionada con fibrosis quística",
-        "Diabetes MODY", "Diabetes secundaria a medicamentos"};
+    private String diagnostico; 
     private String observacion;
     private String estadoPaciente;
     private static int idSiguiente = 1;
 
     //Constructores
     public Diagnostico() {
-        this.idDiagnostico = idSiguiente++;
+        this.idDiagnostico = "";
         this.fechaDiagnostico = null;
         this.observacion = "";
         this.estadoPaciente = "";
     }
 
-    public Diagnostico(Date fechaDiagnostico, String observacion, String estadoPaciente) {
-        this.idDiagnostico = idSiguiente++;
+    public Diagnostico(String idPaciente, Date fechaDiagnostico, String observacion, 
+            String estadoPaciente, String diagnostico) {
+        this.idDiagnostico = idPaciente;
         this.fechaDiagnostico = fechaDiagnostico;
         this.observacion = observacion;
         this.estadoPaciente = estadoPaciente;
+        this.diagnostico = diagnostico;
     }
 
     //Setter y Getter
-    public int getIdDiagnostico() {
+    public String getIdDiagnostico() {
         return idDiagnostico;
     }
 
-    public void setIdDiagnostico(int idDiagnostico) {
+    public void setIdDiagnostico(String idDiagnostico) {
         this.idDiagnostico = idDiagnostico;
     }
 
@@ -67,20 +67,7 @@ public class Diagnostico {
 
     //Métodos
     public void crearDiagnostico() {
-        int item=0;
-        do{
-            System.out.println("Elija uno de los siguientes diagnósticos:");
-            for (int i = 0; i < diagnostico.length; i++) {
-                System.out.println((i + 1) + ". " + diagnostico[i]);
-            }
-            item = t.nextInt();
-            t.nextLine();
-        }while(item<1 || item>6);    
-        observacion=diagnostico[item-1];
-        System.out.println("Ingrese el estado del paciente: ");
-        this.estadoPaciente = (t.nextLine());
-        Date fechaDiagostico = new Date();
-        this.fechaDiagnostico = fechaDiagostico;
+       
     }
 
     public void guardarDiagnostico(int idHistoriaClinica) {

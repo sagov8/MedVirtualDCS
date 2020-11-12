@@ -20,6 +20,7 @@ public class Paciente extends Usuario {
     private String fechaDeNacimiento;
     private String genero;
     private float peso;
+    private String motivoConsulta;
 
     //Constructores
 
@@ -43,7 +44,7 @@ public class Paciente extends Usuario {
                     String nombrePaciente, String apellidoPaciente,
                     String numeroTelefonicoPaciente, String correoPaciente,
                     String direccionDeDomicilio, String fechaDeNacimiento,
-                    String genero, float peso) {
+                    String genero, float peso, String motivoConsulta) {
         
         super(idUsuario, nombreUsuario, password, tipoUsuario);
         this.idPaciente = idPaciente;
@@ -57,6 +58,7 @@ public class Paciente extends Usuario {
         this.fechaDeNacimiento = fechaDeNacimiento;
         this.genero = genero;
         this.peso = peso;
+        this.motivoConsulta = motivoConsulta;
 
     }
     
@@ -64,7 +66,7 @@ public class Paciente extends Usuario {
                     String nombrePaciente, String apellidoPaciente,
                     String numeroTelefonicoPaciente, String correoPaciente,
                     String direccionDeDomicilio, String fechaDeNacimiento,
-                    String genero, float peso) {
+                    String genero, float peso, String motivoConsulta) {
         this.idPaciente = idPaciente;
         this.tipoDocumento = tipoDocumento;
         this.numeroDocumento = numeroDocumento;
@@ -76,6 +78,7 @@ public class Paciente extends Usuario {
         this.fechaDeNacimiento = fechaDeNacimiento;
         this.genero = genero;
         this.peso = peso;
+        this.motivoConsulta = motivoConsulta;
 
     }
 
@@ -168,6 +171,16 @@ public class Paciente extends Usuario {
     public void setPeso(float peso) {
         this.peso = peso;
     }
+
+    public String getMotivoConsulta() {
+        return motivoConsulta;
+    }
+
+    public void setMotivoConsulta(String motivoConsulta) {
+        this.motivoConsulta = motivoConsulta;
+    }
+    
+    
 
     //Procedimientos y funciones
 
