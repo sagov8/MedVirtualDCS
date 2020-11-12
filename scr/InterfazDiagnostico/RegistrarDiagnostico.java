@@ -806,7 +806,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
     private void jBConsultarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarPacienteActionPerformed
         // Botón Consultar Paciente
-        buscarIdPaciente(jTFIdPaciente,jLNombreP,jLDocumentoP);
+        buscarIdPaciente(jTFIdPaciente,jLNombreP,jLDocumentoP);//1
       
     }//GEN-LAST:event_jBConsultarPacienteActionPerformed
 
@@ -870,8 +870,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
     private void jBIdPacienteEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBIdPacienteEliminarActionPerformed
         // Botón consultar id de paciente al que se le eliminará diagnóstico
-        buscarIdPaciente(jTFIdPacienteEliminar,jLNombrePacienteEliminar,jLIdPacienteElim);
-        
+        buscarIdPaciente(jTFIdPacienteEliminar,jLNombrePacienteEliminar,jLIdPacienteElim);//2
     }//GEN-LAST:event_jBIdPacienteEliminarActionPerformed
 
     private void jBConsultarDiagnosticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarDiagnosticoActionPerformed
@@ -903,7 +902,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
     private void jBConsultarPacienteVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarPacienteVerActionPerformed
         // Botón consultar id de paciente al que se le imprimirá diagnóstico
-        buscarIdPaciente(jTFIdPacienteConsult,jLPacienteImprimir,jLIdPacienteImrpimir);
+        buscarIdPaciente(jTFIdPacienteConsult,jLPacienteImprimir,jLIdPacienteImrpimir);//3
     }//GEN-LAST:event_jBConsultarPacienteVerActionPerformed
 
     private void jBIdDiagnosticoModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBIdDiagnosticoModificarActionPerformed
@@ -954,7 +953,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Botón consultar id paciente a midificar diagnóstico
-        buscarIdPaciente(jTFIdModificar,jLNPacienteModificar,jLIdPacienteModificar);
+        buscarIdPaciente(jTFIdModificar,jLNPacienteModificar,jLIdPacienteModificar);//4
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTFIdPacienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFIdPacienteFocusLost
@@ -1045,6 +1044,14 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         nombrePaciente.setText(nombre);//Imprimir en el label el nombre del paciente
         idPaciente.setText(doc);//Imprimir en el label el documento del paciente
         idConsultado.setText("0");
+        jLNombreP.setText(nombre);
+        jLDocumentoP.setText(doc);
+        jLNombrePacienteEliminar.setText(nombre);
+        jLIdPacienteElim.setText(doc);
+        jLPacienteImprimir.setText(nombre);
+        jLIdPacienteImrpimir.setText(doc);
+        jLNPacienteModificar.setText(nombre);
+        jLIdPacienteModificar.setText(doc);
     }
     /**
      * @param args the command line arguments
