@@ -623,6 +623,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_jBConsultarHistoriaActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        JOptionPane.showMessageDialog(null, "Gracias por usar MedVirtualDCS. Vuelva pronto.");
         System.exit(0);
     }//GEN-LAST:event_jBSalirActionPerformed
 
