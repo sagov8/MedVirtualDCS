@@ -10,10 +10,12 @@ public class Medicamento {
     private String dosis;
     private String nombreMedicamento;
     private String principioActivo;
-    private String[] viaAdministracion={"Oral"};
+    final String[] viaAdministracion;
     private String contraindicaciones;
+    private String idPaciente;
     //Constructores
     public Medicamento() {
+        this.viaAdministracion = new String[]{"Oral"};
         this.idMedicamento = 0;
         this.dosis="";
         this.nombreMedicamento = "";
@@ -22,12 +24,24 @@ public class Medicamento {
         this.contraindicaciones = "";
     }
     public Medicamento(int idMedicamento, String dosis,String nombreMedicamento, String principioActivo, String viaAdministracion, String contraindicaciones) {
+        this.viaAdministracion = new String[]{"Oral"};
         this.idMedicamento = idMedicamento;
         this.dosis=dosis;
         this.nombreMedicamento = nombreMedicamento;
         this.principioActivo = principioActivo;
         //this.viaAdministracion = viaAdministracion;
         this.contraindicaciones = contraindicaciones;
+    }
+    
+    public Medicamento(String idPaciente){
+        this.viaAdministracion = new String[]{"Oral"};
+        this.idMedicamento = 0;
+        this.dosis="1 vez al día";
+        this.nombreMedicamento = "Metformina";
+        this.principioActivo = "hidrocloruro de metformina";
+        this.contraindicaciones = "enfermedad hepática grave, enfermedad renal con uremia, "
+                + "complicaciones agudas de la diabetes";
+        this.idPaciente = idPaciente;
     }
     //Getter y Setter
     public int getIdMedicamento() {
@@ -60,4 +74,23 @@ public class Medicamento {
     public void setContraindicaciones(String contraindicaciones) {
         this.contraindicaciones = contraindicaciones;
     }
+
+    public String getIdPaciente() {
+        return idPaciente;
+    }
+
+    public void setIdPaciente(String idPaciente) {
+        this.idPaciente = idPaciente;
+    }
+    
+
+    @Override
+    public String toString() {
+        return "Medicamento: " + "\nidMedicamento: " + idMedicamento + "\nNombre: " +
+                nombreMedicamento + "\nDosis: " + dosis + "\nPrincipio activo: " + principioActivo +
+                "\nviaAdministración: " + viaAdministracion[0] + "\nContraindicaciones:" + 
+                contraindicaciones + "\nidPaciente:" + idPaciente;
+    }
+    
+    
 }

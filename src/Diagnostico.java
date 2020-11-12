@@ -13,6 +13,7 @@ public class Diagnostico {
     private String diagnostico; 
     private String observacion;
     private String estadoPaciente;
+    private String tratamiento;
     private static int idSiguiente = 1;
 
     //Constructores
@@ -30,6 +31,7 @@ public class Diagnostico {
         this.observacion = observacion;
         this.estadoPaciente = estadoPaciente;
         this.diagnostico = diagnostico;
+        this.tratamiento = "Dieta saludable, ejercicio 2 veces por semana";
     }
 
     //Setter y Getter
@@ -65,6 +67,23 @@ public class Diagnostico {
         this.estadoPaciente = estadoPaciente;
     }
 
+    public String getDiagnostico() {
+        return diagnostico;
+    }
+
+    public void setDiagnostico(String diagnostico) {
+        this.diagnostico = diagnostico;
+    }
+
+    public String getTratamiento() {
+        return tratamiento;
+    }
+
+    public void setTratamiento(String tratamiento) {
+        this.tratamiento = tratamiento;
+    }
+    
+    
     //Métodos
     public void crearDiagnostico() {
        

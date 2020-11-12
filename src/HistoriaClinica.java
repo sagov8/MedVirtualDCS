@@ -1,8 +1,7 @@
 package src;
 
 import java.util.HashMap;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
+
 
 //Santiago
 public class HistoriaClinica {
@@ -59,6 +58,10 @@ public class HistoriaClinica {
     
     public void modificarHistoria (HashMap<String, Paciente> historiasClinicas, String idPaciente, Paciente paciente){
         historiasClinicas.put(idPaciente, paciente);
+    }
+    
+    public void eliminarHistoria (HashMap<String, Paciente> historiasClinicas, String idPaciente){
+        historiasClinicas.remove(idPaciente);
     }
 
 }
