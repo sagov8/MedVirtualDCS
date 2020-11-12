@@ -1,6 +1,7 @@
 package src;
 
 //Santiago
+import java.util.Date;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import java.util.Scanner;
@@ -9,20 +10,21 @@ public class Evolucion {
 
     //Atributos
     private int idEvento;
-    private String fechaEvento;
+    private Date fechaEvento;
     private String tipoDeEvento;
     private float nivelGlucosa;
     private String descripcionEvento;
-
+    private static int idNext=1;
+    
     //Constructores
     public Evolucion() {
-        this.idEvento = 0;
-        this.fechaEvento = "";
+        this.idEvento = idNext++;
+        this.fechaEvento = null;
         this.tipoDeEvento = "";
         this.descripcionEvento = "";
     }
 
-    public Evolucion(int idEvento, String fechaEvento, String tipoDeEvento, String descripcionEvento) {
+    public Evolucion(int idEvento, Date fechaEvento, String tipoDeEvento, String descripcionEvento) {
         this.idEvento = idEvento;
         this.fechaEvento = fechaEvento;
         this.tipoDeEvento = tipoDeEvento;
@@ -30,6 +32,16 @@ public class Evolucion {
     }
 
     //Getters y Setters
+
+    public float getNivelGlucosa() {
+        return nivelGlucosa;
+    }
+
+    public void setNivelGlucosa(float nivelGlucosa) {
+        this.nivelGlucosa = nivelGlucosa;
+    }
+    
+    
     public int getIdEvento() {
         return idEvento;
     }
@@ -38,11 +50,11 @@ public class Evolucion {
         this.idEvento = idEvento;
     }
 
-    public String getFechaEvento() {
+    public Date getFechaEvento() {
         return fechaEvento;
     }
 
-    public void setFechaEvento(String fechaEvento) {
+    public void setFechaEvento(Date fechaEvento) {
         this.fechaEvento = fechaEvento;
     }
 

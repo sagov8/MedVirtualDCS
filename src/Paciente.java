@@ -39,7 +39,7 @@ public class Paciente extends Usuario {
         this.peso = 0;
     }
 
-    public Paciente(int idPaciente, String tipoDocumento, int numeroDocumento,
+    public Paciente(String tipoDocumento, long numeroDocumento,
                     String nombrePaciente, String apellidoPaciente,
                     long numeroTelefonicoPaciente, String correoPaciente,
                     String direccionDeDomicilio, String fechaDeNacimiento,
@@ -58,6 +58,7 @@ public class Paciente extends Usuario {
         this.peso = peso;
 
     }
+
 
     //Getter y Setter
 
