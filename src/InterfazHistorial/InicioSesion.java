@@ -5,6 +5,12 @@
  */
 package src.InterfazHistorial;
 
+import java.util.ArrayList;
+import src.Usuario;
+import src.Medico;
+import src.Paciente;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -14,8 +20,15 @@ public class InicioSesion extends javax.swing.JFrame {
     /**
      * Creates new form InicioSesion
      */
+    
+    ArrayList<Usuario> usuarios = new ArrayList<>();
+    
     public InicioSesion() {
         initComponents();
+        Medico medico = new Medico(1, "medico", "1234", "medico");
+        usuarios.add(medico);
+        Paciente paciente = new Paciente(2, "pperez", "1234", "paciente");
+        usuarios.add(paciente);
     }
 
     /**
@@ -28,12 +41,13 @@ public class InicioSesion extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jBIniciarSesion = new javax.swing.JButton();
+        jBRegistrarse = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTNombreUsuario = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jPassword = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -50,24 +64,21 @@ public class InicioSesion extends javax.swing.JFrame {
         setTitle("MedVirtualDCS");
         setSize(new java.awt.Dimension(800, 600));
 
-        jButton1.setText("Iniciar Sesión");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBIniciarSesion.setText("Iniciar Sesión");
+        jBIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBIniciarSesionActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Registrarse");
+        jBRegistrarse.setText("Registrarse");
 
         jLabel1.setText("Nombre de Usuario:");
 
         jLabel2.setText("Contraseña:");
 
-        jTNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTNombreUsuarioActionPerformed(evt);
-            }
-        });
+        jLabel3.setFont(new java.awt.Font("Javanese Text", 0, 24)); // NOI18N
+        jLabel3.setText("MedVirtualDCS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,50 +86,73 @@ public class InicioSesion extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(84, 84, 84)
+                                    .addComponent(jLabel1))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(jLabel2)))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jTNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel3)
+                            .addGap(33, 33, 33)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1)
+                        .addComponent(jBIniciarSesion)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)))
-                .addContainerGap(82, Short.MAX_VALUE))
+                        .addComponent(jBRegistrarse)))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
+                .addGap(50, 50, 50)
+                .addComponent(jLabel3)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(96, Short.MAX_VALUE))
+                    .addComponent(jBRegistrarse)
+                    .addComponent(jBIniciarSesion))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTNombreUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTNombreUsuarioActionPerformed
+    private void jBIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBIniciarSesionActionPerformed
+        String name = jTNombreUsuario.getText();
+        String password = jPassword.getText();
+        
+        Usuario user = new Usuario();
+        String response = user.verificarLogin(usuarios, name, password);
+        if (response.equals("medico")){
+            this.setVisible(false);
+            dispose();
+            FormularioHistorialVistaMedico fhvm = new FormularioHistorialVistaMedico();
+            fhvm.setVisible(true);
+        } else if (response.equals("paciente")){
+            this.setVisible(false);
+            dispose();
+            FormularioHistorialVistaPaciente fhvp = new FormularioHistorialVistaPaciente();
+            fhvp.setVisible(true);
+        } else {
+             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos. Vuelva a intentar.");
+        }
+    }//GEN-LAST:event_jBIniciarSesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,12 +190,13 @@ public class InicioSesion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jBIniciarSesion;
+    private javax.swing.JButton jBRegistrarse;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPassword;
     private javax.swing.JTextField jTNombreUsuario;
     // End of variables declaration//GEN-END:variables
 }
