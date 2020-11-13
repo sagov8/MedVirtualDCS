@@ -35,6 +35,12 @@ public class Medico extends Usuario {
         this.correoMedico = correoMedico;
         this.especialidad = especialidad;
     }
+    
+    public Medico(int idUsuario, String nombreUsuario, String password, String tipoUsuario){
+        super(idUsuario, nombreUsuario, password, tipoUsuario);
+    }
+    
+    //Getters and Setters
 
     public int getIdMedico() {
         return idMedico;

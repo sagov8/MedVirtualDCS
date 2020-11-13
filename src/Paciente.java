@@ -81,6 +81,10 @@ public class Paciente extends Usuario {
         this.motivoConsulta = motivoConsulta;
 
     }
+    public Paciente(int idUsuario, String nombreUsuario, String password, String tipoUsuario){
+        super(idUsuario, nombreUsuario, password, tipoUsuario);
+    }
+    
 
     //Getter y Setter
 

@@ -151,6 +151,8 @@ public class InicioSesion extends javax.swing.JFrame {
             fhvp.setVisible(true);
         } else {
              JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos. Vuelva a intentar.");
+             jTNombreUsuario.setText("");
+             jPassword.setText("");
         }
     }//GEN-LAST:event_jBIniciarSesionActionPerformed
 
@@ -182,10 +184,8 @@ public class InicioSesion extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new InicioSesion().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new InicioSesion().setVisible(true);
         });
     }
 

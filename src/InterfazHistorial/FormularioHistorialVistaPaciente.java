@@ -240,7 +240,7 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
                                             .addGroup(jPanel2Layout.createSequentialGroup()
                                                 .addContainerGap()
                                                 .addComponent(jLabel5)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 5, Short.MAX_VALUE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(jLabel3)
@@ -248,23 +248,23 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(jTNombre)
                                             .addComponent(jTTipoDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
-                                        .addGap(18, 18, 18)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGap(46, 46, 46)
+                                                .addComponent(jLabel2))
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                     .addComponent(jLabel6)
                                                     .addComponent(jLabel4))
-                                                .addGap(26, 26, 26)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                     .addComponent(jTNumDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jTApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addGap(46, 46, 46)
-                                                .addComponent(jLabel2)))
+                                                    .addComponent(jTApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                         .addGap(33, 33, 33)))
                                 .addGap(7, 7, 7)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
                             .addComponent(jScrollPane3)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel20)
@@ -276,11 +276,11 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
                                 .addComponent(jTGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(39, 39, 39)
                                 .addComponent(jLabel22)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 66, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel18)
@@ -411,9 +411,9 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator4)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(313, 313, 313)
                                 .addComponent(jLabel19)
-                                .addGap(412, 412, 412)))))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -423,11 +423,12 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel19))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel15)))
+                        .addGap(0, 16, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel19))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -522,8 +523,7 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
-    public void vaciarCampos(){
+    public void vaciarCampos() {
         jTNombre.setText("");
         jTApellido.setText("");
         jTTipoDocumento.setText("");
@@ -543,54 +543,65 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
 
         jTMedicamentos.setText("");
     }
-    
+
     private void jBCrearHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearHistoriaActionPerformed
         HistoriaClinica hc = new HistoriaClinica();
-        int idPaciente;
-        String tipoDocumento = jTTipoDocumento.getText();
-        long numeroDocumento = Long.parseLong(jTNumDocumento.getText());
-        String nombrePaciente = jTNombre.getText();
-        String apellidoPaciente = jTApellido.getText();
-        String numeroTelefonicoPaciente = jTTelCel.getText();
-        String correoPaciente = jTCorreoElectronico.getText();
-        String direccionDeDomicilio = jTDireccion.getText();
-        String fechaDeNacimiento = jTFechaNacimiento.getText();
-        String genero = jTGenero.getText();
-        float peso = Float.parseFloat(jTPeso.getText());
-        String motivoConsulta = jTMotivosConsulta.getText();
 
-        Paciente paciente = new Paciente(1, tipoDocumento, numeroDocumento, nombrePaciente, apellidoPaciente, numeroTelefonicoPaciente,
-                correoPaciente, direccionDeDomicilio, fechaDeNacimiento, genero, peso, motivoConsulta);
+        try {
+            int idPaciente;
+            String tipoDocumento = jTTipoDocumento.getText();
+            long numeroDocumento = Long.parseLong(jTNumDocumento.getText());
+            String nombrePaciente = jTNombre.getText();
+            String apellidoPaciente = jTApellido.getText();
+            String numeroTelefonicoPaciente = jTTelCel.getText();
+            String correoPaciente = jTCorreoElectronico.getText();
+            String direccionDeDomicilio = jTDireccion.getText();
+            String fechaDeNacimiento = jTFechaNacimiento.getText();
+            String genero = jTGenero.getText();
+            float peso = Float.parseFloat(jTPeso.getText());
+            String motivoConsulta = jTMotivosConsulta.getText();
 
-        hc.crearHistoriaClinica(historiasClinicas, String.valueOf(numeroDocumento), paciente);
+            Paciente paciente = new Paciente(1, tipoDocumento, numeroDocumento, nombrePaciente, apellidoPaciente, numeroTelefonicoPaciente,
+                    correoPaciente, direccionDeDomicilio, fechaDeNacimiento, genero, peso, motivoConsulta);
 
-        JOptionPane.showMessageDialog(null, "La historia ha sido creada con éxito");
+            hc.crearHistoriaClinica(historiasClinicas, String.valueOf(numeroDocumento), paciente);
 
-        vaciarCampos();
+            JOptionPane.showMessageDialog(null, "La historia ha sido creada con éxito");
+
+            vaciarCampos();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al crear historia, por favor llene todos los campos de información del paciente.");
+        }
+
+
     }//GEN-LAST:event_jBCrearHistoriaActionPerformed
 
     private void jBGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarCambiosActionPerformed
         HistoriaClinica hc = new HistoriaClinica();
-        int idPaciente;
-        String tipoDocumento = jTTipoDocumento.getText();
-        long numeroDocumento = Long.parseLong(jTNumDocumento.getText());
-        String nombrePaciente = jTNombre.getText();
-        String apellidoPaciente = jTApellido.getText();
-        String numeroTelefonicoPaciente = jTTelCel.getText();
-        String correoPaciente = jTCorreoElectronico.getText();
-        String direccionDeDomicilio = jTDireccion.getText();
-        String fechaDeNacimiento = jTFechaNacimiento.getText();
-        String genero = jTGenero.getText();
-        float peso = Float.parseFloat(jTPeso.getText());
-        String motivoConsulta = jTMotivosConsulta.getText();
 
-        Paciente paciente = new Paciente(1, tipoDocumento, numeroDocumento, nombrePaciente, apellidoPaciente, numeroTelefonicoPaciente,
-                correoPaciente, direccionDeDomicilio, fechaDeNacimiento, genero, peso, motivoConsulta);
+        try {
+            int idPaciente;
+            String tipoDocumento = jTTipoDocumento.getText();
+            long numeroDocumento = Long.parseLong(jTNumDocumento.getText());
+            String nombrePaciente = jTNombre.getText();
+            String apellidoPaciente = jTApellido.getText();
+            String numeroTelefonicoPaciente = jTTelCel.getText();
+            String correoPaciente = jTCorreoElectronico.getText();
+            String direccionDeDomicilio = jTDireccion.getText();
+            String fechaDeNacimiento = jTFechaNacimiento.getText();
+            String genero = jTGenero.getText();
+            float peso = Float.parseFloat(jTPeso.getText());
+            String motivoConsulta = jTMotivosConsulta.getText();
 
-        hc.modificarHistoria(historiasClinicas, String.valueOf(numeroDocumento), paciente);
+            Paciente paciente = new Paciente(1, tipoDocumento, numeroDocumento, nombrePaciente, apellidoPaciente, numeroTelefonicoPaciente,
+                    correoPaciente, direccionDeDomicilio, fechaDeNacimiento, genero, peso, motivoConsulta);
 
-        JOptionPane.showMessageDialog(null, "La historia ha sido editada con éxito");
+            hc.modificarHistoria(historiasClinicas, String.valueOf(numeroDocumento), paciente);
 
+            JOptionPane.showMessageDialog(null, "La historia ha sido editada con éxito");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al guardar la información, intente llenar correctamente cada campo.");
+        }
         vaciarCampos();
     }//GEN-LAST:event_jBGuardarCambiosActionPerformed
 
@@ -647,6 +658,7 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jBConsultarHistoriaActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        JOptionPane.showMessageDialog(null, "Gracias por usar MedVirtualDCS. Vuelva pronto.");
         System.exit(0);
     }//GEN-LAST:event_jBSalirActionPerformed
 
