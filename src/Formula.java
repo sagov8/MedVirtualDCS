@@ -10,7 +10,6 @@ public class Formula {
     Scanner t = new Scanner(System.in);
     //Atributos
     private int idFormula;
-    private Date fechaFormula;
     private String recomendacion;
     private static int idSiguiente = 1;
     public ArrayList<Medicamento> medicamentos = new ArrayList<>();
@@ -18,13 +17,11 @@ public class Formula {
     //Constructores
     public Formula() {
         this.idFormula = idSiguiente++;
-        this.fechaFormula = null;
         this.recomendacion = "";
     }
 
-    public Formula(Date fechaFormula, String recomendacion, String dosis) {
+    public Formula(String recomendacion, String dosis) {
         this.idFormula = idSiguiente++;
-        this.fechaFormula = fechaFormula;
         this.recomendacion = recomendacion;
     }
     //Getter y Setter
@@ -35,14 +32,6 @@ public class Formula {
 
     public void setIdFormula(int idFormula) {
         this.idFormula = idFormula;
-    }
-
-    public Date getFechaFormula() {
-        return fechaFormula;
-    }
-
-    public void setFechaFormula(Date fechaFormula) {
-        this.fechaFormula = fechaFormula;
     }
 
     public ArrayList<Medicamento> getMedicamentos() {
@@ -64,7 +53,6 @@ public class Formula {
     //Métodos
     public void crearFormula() {
         Date fechaFormula = new Date();
-        this.fechaFormula = fechaFormula;
         System.out.println("Digite las recomendaciones: ");
         recomendacion = t.nextLine();
         int formular = 1;
@@ -81,7 +69,6 @@ public class Formula {
        
             System.out.println("\nFormula: " + (i + 1));
             System.out.println("Id: " +idFormula);
-            System.out.println("Fecha: " + fechaFormula);
             System.out.println("Recomendación: " + recomendacion);
             if ((medicamentos.size()) != 0) {
                 for (int j = 0; j < medicamentos.size(); j++) {
@@ -117,7 +104,7 @@ public class Formula {
 
     @Override
     public String toString() {
-        return "Formula{" + "idFormula=" + idFormula + ", fechaFormula=" + fechaFormula + ", recomendacion=" + recomendacion + '}';
+        return "Formula{" + "idFormula=" + idFormula + ", recomendacion=" + recomendacion + '}';
     }
 
 }

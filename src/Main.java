@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
         HashMap<String,Paciente>colecionPacientes=new HashMap<>();
         
+        
         /*Scanner t = new Scanner(System.in);
         int id = 0;
         int usuarioActivo = -1;*/
