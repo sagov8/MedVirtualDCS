@@ -25,6 +25,7 @@ public class InicioSesion extends javax.swing.JFrame {
     
     public InicioSesion() {
         initComponents();
+        setTitle("MedVirtual DCS - Inicio de sesión");
         Medico medico = new Medico(1, "medico", "1234", "medico");
         usuarios.add(medico);
         Paciente paciente = new Paciente(2, "pperez", "1234", "paciente");

@@ -31,6 +31,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
 
     public FormularioHistorialVistaMedico() {
         initComponents();
+        setTitle("MedVirtualDCS - Historia clínica");
 
         jTDiagnostico.setEditable(false);
         jTFechaDeDiagnostico.setEditable(false);
