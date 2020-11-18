@@ -2,11 +2,9 @@ package src;
 //Diana
 
 import java.util.Date;
-import java.util.Scanner;
 
 public class Diagnostico {
 
-    Scanner t = new Scanner(System.in);
     //Atributos
     private String idDiagnostico;
     private Date fechaDiagnostico;
@@ -14,14 +12,17 @@ public class Diagnostico {
     private String observacion;
     private String estadoPaciente;
     private String tratamiento;
+    private String observacion;
+    private String recomendacion;
     private static int idSiguiente = 1;
+    private Formula formula=new Formula();
 
     //Constructores
     public Diagnostico() {
         this.idDiagnostico = "";
         this.fechaDiagnostico = null;
         this.observacion = "";
-        this.estadoPaciente = "";
+        this.recomendacion = "";
     }
 
     public Diagnostico(String idPaciente, Date fechaDiagnostico, String observacion, 
@@ -32,6 +33,7 @@ public class Diagnostico {
         this.estadoPaciente = estadoPaciente;
         this.diagnostico = diagnostico;
         this.tratamiento = "Dieta saludable, ejercicio 2 veces por semana";
+        this.recomendacion = estadoPaciente;
     }
 
     //Setter y Getter
@@ -59,12 +61,20 @@ public class Diagnostico {
         this.observacion = observacion;
     }
 
-    public String getEstadoPaciente() {
-        return estadoPaciente;
+    public String getRecomendacion() {
+        return recomendacion;
     }
 
-    public void setEstadoPaciente(String estadoPaciente) {
-        this.estadoPaciente = estadoPaciente;
+    public void setRecomendacion(String estadoPaciente) {
+        this.recomendacion = estadoPaciente;
+    }
+
+    public Formula getFormula() {
+        return formula;
+    }
+
+    public void setFormula(Formula formula) {
+        this.formula = formula;
     }
 
     public String getDiagnostico() {
@@ -85,8 +95,12 @@ public class Diagnostico {
     
     
     //Métodos
-    public void crearDiagnostico() {
-       
+
+    public void crearDiagnostico(String diagnostico,String recomendacion) {
+        Date fechaDiagostico = new Date();
+        this.fechaDiagnostico = fechaDiagostico;
+        this.observacion=diagnostico;
+        this.recomendacion =recomendacion;        
     }
 
     public void guardarDiagnostico(int idHistoriaClinica) {
@@ -97,7 +111,7 @@ public class Diagnostico {
     public String toString() {
         return "Diagnostico{" + "idDiagnostico=" + idDiagnostico + ", "
                 + "fechaDiagnostico=" + fechaDiagnostico + ", observacion="
-                + observacion + ", estadoPaciente=" + estadoPaciente + '}';
+                + observacion + ", recomendacion=" + recomendacion + '}';
     }
 
 }

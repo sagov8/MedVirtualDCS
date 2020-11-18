@@ -4,6 +4,7 @@ package src;
 
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Paciente extends Usuario {
 
@@ -21,6 +22,7 @@ public class Paciente extends Usuario {
     private String genero;
     private float peso;
     private String motivoConsulta;
+    private ArrayList<Diagnostico> diagnosticos = new ArrayList<>();
 
     //Constructores
 
@@ -39,8 +41,7 @@ public class Paciente extends Usuario {
         this.peso = 0;
     }
 
-    public Paciente(int idUsuario, String nombreUsuario, String password, String tipoUsuario,
-                    int idPaciente, String tipoDocumento, long numeroDocumento,
+    public Paciente(String tipoDocumento, long numeroDocumento,
                     String nombrePaciente, String apellidoPaciente,
                     String numeroTelefonicoPaciente, String correoPaciente,
                     String direccionDeDomicilio, String fechaDeNacimiento,
@@ -68,6 +69,7 @@ public class Paciente extends Usuario {
                     String direccionDeDomicilio, String fechaDeNacimiento,
                     String genero, float peso, String motivoConsulta) {
         this.idPaciente = idPaciente;
+        this.idPaciente = idNext++;
         this.tipoDocumento = tipoDocumento;
         this.numeroDocumento = numeroDocumento;
         this.nombrePaciente = nombrePaciente;
@@ -185,19 +187,26 @@ public class Paciente extends Usuario {
     }
     
     
+    public ArrayList<Diagnostico> getDiagnosticos() {
+        return diagnosticos;
+    }
+
+    public void setDiagnosticos(Diagnostico diagnostico) {
+        this.diagnosticos.add(diagnostico);
+    }
 
     //Procedimientos y funciones
 
     @Override
     public String toString() {
         //Sobrescritura de toString para obtener toda la info del paciente en un String separado por "&"
-        return "idPaciente: " + idPaciente + "&TipoDocumento: "
-                + tipoDocumento + "&NumeroDocumento: " + numeroDocumento +
-                "&NombrePaciente: " + nombrePaciente + "&ApellidoPaciente: " +
-                apellidoPaciente + "&NumeroCelular: " + numeroTelefonicoPaciente
-                + "&CorroElectronico: " + correoPaciente + "&Domicilio: " +
-                direccionDeDomicilio + "&FechaNacimiento: " + fechaDeNacimiento
-                + "&Genero: " + genero + "&Peso(kg): " + peso;
+        return "idPaciente: " + idPaciente + "\nTipoDocumento: "
+                + tipoDocumento + "\nNumeroDocumento: " + numeroDocumento +
+                "\nNombrePaciente: " + nombrePaciente + "\nApellidoPaciente: " +
+                apellidoPaciente + "\nNumeroCelular: " + numeroTelefonicoPaciente
+                + "\nCorroElectronico: " + correoPaciente + "\nDomicilio: " +
+                direccionDeDomicilio + "\nFechaNacimiento: " + fechaDeNacimiento
+                + "\nGenero: " + genero + "\nPeso(kg): " + peso;
     }
 
 
