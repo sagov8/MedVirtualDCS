@@ -17,6 +17,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                         Posición en el array de pacientes del paciente a consultar*/
     public RegistrarDiagnostico() {
         initComponents();
+        setTitle("MedVirtualDCS - Registro Tratamiento");
         //Pacientes de prueba:
         Paciente paciente1 = new Paciente("cédula", 11111, "Juan", "Jiménez",
                 320123456, "jjimenez@gmail.com", "Calle 5 6-34", "1990-08-23",
