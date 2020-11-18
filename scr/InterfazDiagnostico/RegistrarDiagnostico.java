@@ -24,7 +24,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         Paciente paciente2 = new Paciente("cédula", 22222, "Pablo", "Pérez",
                 320123457, "pperez@gmail.com", "Carrera 2 7-93", "1985-03-06",
                 "Masculino", 68);
-        Paciente paciente3 = new Paciente("cédula", 33333, "Maria", "Martínez",
+        Paciente paciente3 = new Paciente("cédula", 1061087630, "Rocio", "Bravo",
                 320123458, "mmartinez@gmail.com", "Calle 27 3-22", "1963-12-10",
                 "Femenino", 60);
         Paciente paciente4 = new Paciente("cédula", 44444, "Ana", "Arango",
