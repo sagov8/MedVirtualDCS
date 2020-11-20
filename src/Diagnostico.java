@@ -1,6 +1,7 @@
 package src;
 //Diana
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -82,8 +83,27 @@ public class Diagnostico {
         this.recomendacion =recomendacion;        
     }
 
-    public void guardarDiagnostico(int idHistoriaClinica) {
-
+    public String imprimirDiagnostico(ArrayList<Diagnostico> diagnosticos) {
+        String imprimir="";
+        for (int i = 0; i < diagnosticos.size(); i++) {
+            Diagnostico diagnostico = diagnosticos.get(i);
+            Formula formula=diagnostico.getFormula();
+            imprimir = imprimir +"\n\nDIAGNÓSTICO " + (i + 1)+":"
+            + "\nId Diagnóstico: " + diagnostico.getIdDiagnostico()
+            + "\nFecha: " + diagnostico.getFechaDiagnostico()
+            + "\nDiagnostico: " + diagnostico.getObservacion()
+            + "\nRecomendacion: " + diagnostico.getRecomendacion();
+            if (formula.medicamentos.size() != 0) {
+                imprimir =imprimir+"\nFÓRMULA: ";
+                for (int j = 0; j < formula.medicamentos.size(); j++) {
+                    Medicamento medicamento = formula.medicamentos.get(j);
+                    imprimir = imprimir +"\nMedicamento " + (j + 1)+": "
+                    + "\nNombre: " + medicamento.getNombreMedicamento()
+                    + "\nDosis: " + medicamento.getDosis();
+                }
+            }
+        }
+        return imprimir;
     }
 
     @Override

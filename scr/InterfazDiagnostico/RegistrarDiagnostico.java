@@ -345,11 +345,6 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         jLDiagnostico.setText("Seleccione Diagnóstico");
 
         jCBDiagnostico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Diabetes tipo 1", "Diabetes tipo 2", "Diabetes gestacional", "Diabetes relacionada con fibrosis quística", "Diabetes MODY", "Diabetes secundaria a medicamentos" }));
-        jCBDiagnostico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCBDiagnosticoActionPerformed(evt);
-            }
-        });
 
         jLRecomendaciones.setText("Ingrese Recomendaciones:");
 
@@ -1051,10 +1046,6 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jBGuardarDiagnosticoActionPerformed
 
-    private void jCBDiagnosticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBDiagnosticoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCBDiagnosticoActionPerformed
-
     private void jBEliminarDiagnosticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarDiagnosticoActionPerformed
         // Botón eliminar Diagnóstico
         int idDiagn=Integer.parseInt(jTFIdDiagnosticoEliminar.getText());
@@ -1088,23 +1079,8 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         Paciente paciente = pacientes.get(indexPaciente);
         diagnosticos = paciente.getDiagnosticos();
         String imprimir = "";
-        for (int i = 0; i < diagnosticos.size(); i++) {
-            Diagnostico diagnostico = diagnosticos.get(i);
-            Formula formula=diagnostico.getFormula();
-            imprimir = imprimir +"\n\nDIAGNÓSTICO: " + (i + 1)
-            + "\nId Diagnóstico: " + diagnostico.getIdDiagnostico()
-            + "\nFecha: " + diagnostico.getFechaDiagnostico()
-            + "\nDiagnostico: " + diagnostico.getObservacion()
-            + "\nRecomendacion: " + diagnostico.getRecomendacion();
-            if (formula.medicamentos.size() != 0) {
-                for (int j = 0; j < formula.medicamentos.size(); j++) {
-                    Medicamento medicamento = formula.medicamentos.get(j);
-                    imprimir = imprimir +"\nFÓRMULA: " +"\nMedicamento " + (j + 1)+": "
-                    + "\nNombre: " + medicamento.getNombreMedicamento()
-                    + "\nDosis: " + medicamento.getDosis();
-                }
-            }
-        }
+        Diagnostico diagnostico=new Diagnostico();
+        imprimir=diagnostico.imprimirDiagnostico(diagnosticos);
         jTAMostrarDiagnosticos.setText(imprimir);
     }//GEN-LAST:event_jBConsultarDiagnosticoActionPerformed
 
@@ -1219,7 +1195,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         //Procedimiento para verificar que el dato ingresado sea un número 
         if(!datoIngresado.getText().matches("[0-9]*$")){
             JOptionPane.showMessageDialog(null,"ingresar solo valores numéricos ");
-            datoIngresado.setText("  ");
+            datoIngresado.setText("0");
             datoIngresado.requestFocus();
         } 
     }
