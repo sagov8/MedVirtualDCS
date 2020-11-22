@@ -16,7 +16,7 @@ import src.Medicamento;
 
 /**
  *
- * @author User
+ * @author Santiago
  */
 public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
 
@@ -52,6 +52,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
         jTGenero.setEditable(false);
         jTPeso.setEditable(false);
         jTMotivosConsulta.setEditable(false);
+        
         Paciente paciente = new Paciente(1, "CC", 10123456, "Pepe", "Perez", "3124567891", "pperez@gmail.com", "Calle 1 #2 33",
                 "8/8/1991", "M", 45, "Mareos constantes");
 

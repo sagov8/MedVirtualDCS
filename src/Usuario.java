@@ -3,7 +3,7 @@ package src;
 import java.util.ArrayList;
 
 //Camilo
-public class Usuario {
+public abstract class Usuario {
 
     //Atributos usuario
     private int idUsuario;
@@ -72,18 +72,15 @@ public class Usuario {
                 + tipoUsuario;
     }
 
-    public void registrarUsuario(ArrayList<Usuario> usuarios) {
-        
-    }
+    public abstract void registrarUsuario();
 
-    public String verificarLogin(ArrayList<Usuario> coleccionUsuarios,
+    public static String verificarLogin(ArrayList<Usuario> coleccionUsuarios,
             String nombreUsuario, String password) {
        
         for (Usuario user : coleccionUsuarios) {
             if (user.getNombreUsuario().equals(nombreUsuario) && user.getPassword().equals(password)) {
                 return user.getTipoUsuario();
             }
-
         }
         return "No encontrado";
     }

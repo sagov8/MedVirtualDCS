@@ -1,14 +1,12 @@
 package src;
 
 //Camilo
-
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Paciente extends Usuario {
 
     //Atributos paciente
-
     private int idPaciente;
     private String tipoDocumento;
     private long numeroDocumento;
@@ -23,7 +21,6 @@ public class Paciente extends Usuario {
     private String motivoConsulta;
 
     //Constructores
-
     public Paciente() {
 
         this.idPaciente = 0;
@@ -40,12 +37,12 @@ public class Paciente extends Usuario {
     }
 
     public Paciente(int idUsuario, String nombreUsuario, String password, String tipoUsuario,
-                    int idPaciente, String tipoDocumento, long numeroDocumento,
-                    String nombrePaciente, String apellidoPaciente,
-                    String numeroTelefonicoPaciente, String correoPaciente,
-                    String direccionDeDomicilio, String fechaDeNacimiento,
-                    String genero, float peso, String motivoConsulta) {
-        
+            int idPaciente, String tipoDocumento, long numeroDocumento,
+            String nombrePaciente, String apellidoPaciente,
+            String numeroTelefonicoPaciente, String correoPaciente,
+            String direccionDeDomicilio, String fechaDeNacimiento,
+            String genero, float peso, String motivoConsulta) {
+
         super(idUsuario, nombreUsuario, password, tipoUsuario);
         this.idPaciente = idPaciente;
         this.tipoDocumento = tipoDocumento;
@@ -61,12 +58,13 @@ public class Paciente extends Usuario {
         this.motivoConsulta = motivoConsulta;
 
     }
-    
+
     public Paciente(int idPaciente, String tipoDocumento, long numeroDocumento,
-                    String nombrePaciente, String apellidoPaciente,
-                    String numeroTelefonicoPaciente, String correoPaciente,
-                    String direccionDeDomicilio, String fechaDeNacimiento,
-                    String genero, float peso, String motivoConsulta) {
+            String nombrePaciente, String apellidoPaciente,
+            String numeroTelefonicoPaciente, String correoPaciente,
+            String direccionDeDomicilio, String fechaDeNacimiento,
+            String genero, float peso, String motivoConsulta) {
+
         this.idPaciente = idPaciente;
         this.tipoDocumento = tipoDocumento;
         this.numeroDocumento = numeroDocumento;
@@ -81,13 +79,12 @@ public class Paciente extends Usuario {
         this.motivoConsulta = motivoConsulta;
 
     }
-    public Paciente(int idUsuario, String nombreUsuario, String password, String tipoUsuario){
+
+    public Paciente(int idUsuario, String nombreUsuario, String password, String tipoUsuario) {
         super(idUsuario, nombreUsuario, password, tipoUsuario);
     }
-    
 
     //Getter y Setter
-
     public int getIdPaciente() {
         return idPaciente;
     }
@@ -183,23 +180,19 @@ public class Paciente extends Usuario {
     public void setMotivoConsulta(String motivoConsulta) {
         this.motivoConsulta = motivoConsulta;
     }
-    
-    
 
     //Procedimientos y funciones
-
     @Override
     public String toString() {
         //Sobrescritura de toString para obtener toda la info del paciente en un String separado por "&"
         return "idPaciente: " + idPaciente + "&TipoDocumento: "
-                + tipoDocumento + "&NumeroDocumento: " + numeroDocumento +
-                "&NombrePaciente: " + nombrePaciente + "&ApellidoPaciente: " +
-                apellidoPaciente + "&NumeroCelular: " + numeroTelefonicoPaciente
-                + "&CorroElectronico: " + correoPaciente + "&Domicilio: " +
-                direccionDeDomicilio + "&FechaNacimiento: " + fechaDeNacimiento
+                + tipoDocumento + "&NumeroDocumento: " + numeroDocumento
+                + "&NombrePaciente: " + nombrePaciente + "&ApellidoPaciente: "
+                + apellidoPaciente + "&NumeroCelular: " + numeroTelefonicoPaciente
+                + "&CorroElectronico: " + correoPaciente + "&Domicilio: "
+                + direccionDeDomicilio + "&FechaNacimiento: " + fechaDeNacimiento
                 + "&Genero: " + genero + "&Peso(kg): " + peso;
     }
-
 
     public void registrarPaciente(int id, HashMap<Integer, String> ColeccionPacientes) {
         Scanner t = new Scanner(System.in);
@@ -233,7 +226,10 @@ public class Paciente extends Usuario {
         ColeccionPacientes.put(id, toString());
         System.out.println("\nSu información ha sido registrada con éxito.\n");
     }
+
+    @Override
+    public void registrarUsuario() {
+        
+        
+    }
 }
-
-
-
