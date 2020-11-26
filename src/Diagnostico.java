@@ -18,6 +18,8 @@ public class Diagnostico {
     private String recomendacion;
     private static int idSiguiente = 1;
     private Formula formula=new Formula();
+    private Dieta dieta=new Dieta();
+    private Cirugia cirugia=new Cirugia();
 
     //Constructores
     public Diagnostico() {
@@ -75,6 +77,22 @@ public class Diagnostico {
         this.formula = formula;
     }
 
+    public Dieta getDieta() {
+        return dieta;
+    }
+
+    public void setDieta(Dieta dieta) {
+        this.dieta = dieta;
+    }
+
+    public Cirugia getCirugia() {
+        return cirugia;
+    }
+
+    public void setCirugia(Cirugia cirugia) {
+        this.cirugia = cirugia;
+    }
+
     //Métodos
     public void crearDiagnostico(String diagnostico,String recomendacion) {
         Date fechaDiagostico = new Date();
@@ -101,6 +119,11 @@ public class Diagnostico {
                     + "\nNombre: " + medicamento.getNombreMedicamento()
                     + "\nDosis: " + medicamento.getDosis();
                 }
+            }
+            if(!dieta.isExiste()){
+                System.out.println("No hay dieta");
+            }else{
+                System.out.println("Si hay dieta");
             }
         }
         return imprimir;

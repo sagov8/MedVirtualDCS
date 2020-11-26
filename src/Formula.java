@@ -3,7 +3,7 @@ package src;
 import java.util.ArrayList;
 //Diana
 
-public class Formula {
+public class Formula extends Tratamiento{
 
     //Atributos
     private int idFormula;
@@ -23,15 +23,7 @@ public class Formula {
     }
     //Getter y Setter
 
-    public int getIdFormula() {
-        return idFormula;
-    }
-
-    public void setIdFormula(int idFormula) {
-        this.idFormula = idFormula;
-    }
-
-    public ArrayList<Medicamento> getMedicamentos() {
+       public ArrayList<Medicamento> getMedicamentos() {
         return medicamentos;
     }
 

@@ -9,8 +9,10 @@ import javax.swing.JTextField;
 
 public class RegistrarDiagnostico extends javax.swing.JFrame {
     
-    ArrayList<Formula> formulas = new ArrayList<>();
     ArrayList<Paciente> pacientes = new ArrayList<>();
+    ArrayList<Formula> formulas = new ArrayList<>();
+    Dieta dieta=new Dieta();
+    Cirugia cirugia=new Cirugia();
     ArrayList<String> nombreMedicamento = new ArrayList<>();//Solo se usa en el Frame RegistrarDiagnostico
     ArrayList<String> dosisMedicamento = new ArrayList<>();//Solo se usa en el Frame RegistrarDiagnostico
     int indexPaciente;/*Solo se usa en el Frame RegistrarDiagnostico
@@ -116,7 +118,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         jBAgregarDieta = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTADieta = new javax.swing.JTextArea();
         jPanel21 = new javax.swing.JPanel();
         jBAgregarCirugia = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
@@ -548,12 +550,17 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         jPanel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
         jBAgregarDieta.setText("Agregar Dieta");
+        jBAgregarDieta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAgregarDietaActionPerformed(evt);
+            }
+        });
 
         jLabel17.setText("DIETA");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane8.setViewportView(jTextArea1);
+        jTADieta.setColumns(20);
+        jTADieta.setRows(5);
+        jScrollPane8.setViewportView(jTADieta);
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -1385,6 +1392,13 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
         }
         diagnostico.setFormula(formula);//Guarda la formula al diagnóstico del paciente consultado
+        diagnostico.setDieta(dieta);//Guarda la dieta al diagnóstico del paciente consultado
+        String exis="no";//Borrar
+        if(diagnostico.getDieta().isExiste()){//Borrar
+            exis="si";
+            
+        }
+        JOptionPane.showMessageDialog(null, "Prueba: "+exis);//Borrar
         nombreMedicamento.clear();
         dosisMedicamento.clear();
         jTARecomendaciones.setText(" ");
@@ -1394,6 +1408,15 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Diagnostico Registrado");
 
     }//GEN-LAST:event_jBGuardarDiagnosticoActionPerformed
+
+    private void jBAgregarDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarDietaActionPerformed
+        // Botón agregar Dieta
+        dieta.setDescripcion(jTADieta.getText());
+        dieta.setExiste(true);
+        JOptionPane.showMessageDialog(null, "Dieta Agregada");
+        jTADieta.setText(" ");
+        JOptionPane.showMessageDialog(null, "Dieta: "+dieta.getDescripcion());//Borrar
+    }//GEN-LAST:event_jBAgregarDietaActionPerformed
     public void ingresarSoloNumeros(JTextField datoIngresado){
         //Procedimiento para verificar que el dato ingresado sea un número 
         if(!datoIngresado.getText().matches("[0-9]*$")){
@@ -1576,6 +1599,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JTextArea jTADieta;
     private javax.swing.JTextArea jTAMostrarDiagnosticos;
     private javax.swing.JTextArea jTANuevaRecomendacion;
     private javax.swing.JTextArea jTARecomendacionModificar;
@@ -1604,7 +1628,6 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane9;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
