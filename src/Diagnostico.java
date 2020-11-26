@@ -1,6 +1,7 @@
 package src;
 //Diana
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class Diagnostico {
         "Diabetes gestacional", "Diabetes relacionada con fibrosis quística",
         "Diabetes MODY", "Diabetes secundaria a medicamentos"};*/
     private String observacion;
-    private String estadoPaciente;
+    private String recomendacion;
     private static int idSiguiente = 1;
     private Formula formula=new Formula();
 
@@ -23,14 +24,14 @@ public class Diagnostico {
         this.idDiagnostico = idSiguiente++;
         this.fechaDiagnostico = null;
         this.observacion = "";
-        this.estadoPaciente = "";
+        this.recomendacion = "";
     }
 
     public Diagnostico(Date fechaDiagnostico, String observacion, String estadoPaciente) {
         this.idDiagnostico = idSiguiente++;
         this.fechaDiagnostico = fechaDiagnostico;
         this.observacion = observacion;
-        this.estadoPaciente = estadoPaciente;
+        this.recomendacion = estadoPaciente;
     }
 
     //Setter y Getter
@@ -58,12 +59,12 @@ public class Diagnostico {
         this.observacion = observacion;
     }
 
-    public String getEstadoPaciente() {
-        return estadoPaciente;
+    public String getRecomendacion() {
+        return recomendacion;
     }
 
-    public void setEstadoPaciente(String estadoPaciente) {
-        this.estadoPaciente = estadoPaciente;
+    public void setRecomendacion(String estadoPaciente) {
+        this.recomendacion = estadoPaciente;
     }
 
     public Formula getFormula() {
@@ -75,22 +76,41 @@ public class Diagnostico {
     }
 
     //Métodos
-    public void crearDiagnostico(String diagnostico,String estado) {
+    public void crearDiagnostico(String diagnostico,String recomendacion) {
         Date fechaDiagostico = new Date();
         this.fechaDiagnostico = fechaDiagostico;
         this.observacion=diagnostico;
-        this.estadoPaciente =estado;        
+        this.recomendacion =recomendacion;        
     }
 
-    public void guardarDiagnostico(int idHistoriaClinica) {
-
+    public String imprimirDiagnostico(ArrayList<Diagnostico> diagnosticos) {
+        String imprimir="";
+        for (int i = 0; i < diagnosticos.size(); i++) {
+            Diagnostico diagnostico = diagnosticos.get(i);
+            Formula formula=diagnostico.getFormula();
+            imprimir = imprimir +"\n\nDIAGNÓSTICO " + (i + 1)+":"
+            + "\nId Diagnóstico: " + diagnostico.getIdDiagnostico()
+            + "\nFecha: " + diagnostico.getFechaDiagnostico()
+            + "\nDiagnostico: " + diagnostico.getObservacion()
+            + "\nRecomendacion: " + diagnostico.getRecomendacion();
+            if (formula.medicamentos.size() != 0) {
+                imprimir =imprimir+"\nFÓRMULA: ";
+                for (int j = 0; j < formula.medicamentos.size(); j++) {
+                    Medicamento medicamento = formula.medicamentos.get(j);
+                    imprimir = imprimir +"\nMedicamento " + (j + 1)+": "
+                    + "\nNombre: " + medicamento.getNombreMedicamento()
+                    + "\nDosis: " + medicamento.getDosis();
+                }
+            }
+        }
+        return imprimir;
     }
 
     @Override
     public String toString() {
         return "Diagnostico{" + "idDiagnostico=" + idDiagnostico + ", "
                 + "fechaDiagnostico=" + fechaDiagnostico + ", observacion="
-                + observacion + ", estadoPaciente=" + estadoPaciente + '}';
+                + observacion + ", recomendacion=" + recomendacion + '}';
     }
 
 }
