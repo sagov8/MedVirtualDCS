@@ -9,6 +9,7 @@ public class HistoriaClinica {
     //atributos
     private String fechaDeCreacion;
     private String idHistoria;
+    private Paciente paciente;
 
     //Constructores
     public HistoriaClinica() {
@@ -16,9 +17,10 @@ public class HistoriaClinica {
         this.idHistoria = " ";
     }
 
-    public HistoriaClinica(String fechaDeCreacion, String idHistoria) {
+    public HistoriaClinica(String fechaDeCreacion, String idHistoria, Paciente paciente) {
         this.fechaDeCreacion = fechaDeCreacion;
         this.idHistoria = idHistoria;
+        this.paciente = paciente;
     }
 
     public String getFechaDeCreacion() {

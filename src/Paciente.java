@@ -16,10 +16,11 @@ public class Paciente extends Usuario {
     private String correoPaciente;
     private String direccionDeDomicilio;
     private String fechaDeNacimiento;
-    private String genero;
+    private char genero;
     private float peso;
     private String motivoConsulta;
-
+    private Evolucion evolucion;
+    private Diagnostico diagnostico;
     //Constructores
     public Paciente() {
 
@@ -32,7 +33,7 @@ public class Paciente extends Usuario {
         this.correoPaciente = "";
         this.direccionDeDomicilio = "";
         this.fechaDeNacimiento = "";
-        this.genero = "";
+        this.genero = ' ';
         this.peso = 0;
     }
 
@@ -41,7 +42,7 @@ public class Paciente extends Usuario {
             String nombrePaciente, String apellidoPaciente,
             String numeroTelefonicoPaciente, String correoPaciente,
             String direccionDeDomicilio, String fechaDeNacimiento,
-            String genero, float peso, String motivoConsulta) {
+            char genero, float peso, String motivoConsulta) {
 
         super(idUsuario, nombreUsuario, password, tipoUsuario);
         this.idPaciente = idPaciente;
@@ -63,7 +64,7 @@ public class Paciente extends Usuario {
             String nombrePaciente, String apellidoPaciente,
             String numeroTelefonicoPaciente, String correoPaciente,
             String direccionDeDomicilio, String fechaDeNacimiento,
-            String genero, float peso, String motivoConsulta) {
+            char genero, float peso, String motivoConsulta) {
 
         this.idPaciente = idPaciente;
         this.tipoDocumento = tipoDocumento;
@@ -157,11 +158,11 @@ public class Paciente extends Usuario {
         this.fechaDeNacimiento = fechaDeNacimiento;
     }
 
-    public String getGenero() {
+    public char getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(char genero) {
         this.genero = genero;
     }
 
@@ -218,7 +219,7 @@ public class Paciente extends Usuario {
         System.out.println("Ingrese su fecha de nacimiento dd-mm-yyyy: "); // Buscar metodo para calcular edad, libreria calendar
         fechaDeNacimiento = t.nextLine();
         System.out.println("Ingrese su género (Hombre/Mujer): ");
-        genero = t.next();
+        genero = t.next().charAt(0);
         System.out.println("Ingrese su peso (kg): ");
         peso = t.nextFloat();
         idPaciente = id;

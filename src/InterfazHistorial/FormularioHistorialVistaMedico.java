@@ -54,10 +54,10 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
         jTMotivosConsulta.setEditable(false);
         
         Paciente paciente = new Paciente(1, "CC", 10123456, "Pepe", "Perez", "3124567891", "pperez@gmail.com", "Calle 1 #2 33",
-                "8/8/1991", "M", 45, "Mareos constantes");
+                "8/8/1991", 'M', 45, "Mareos constantes");
 
         Paciente paciente2 = new Paciente(2, "CC", 10654321, "Juan", "Bolaños", "3186543210", "juanbo@gmail.com", "Calle 2 #3 45",
-                "5/10/1984", "M", 65, "Desmayos y adormecimiento de extremidades");
+                "5/10/1984", 'M', 65, "Desmayos y adormecimiento de extremidades");
 
         Date fecha = new Date();
         Diagnostico diagnostico = new Diagnostico(String.valueOf(paciente.getNumeroDocumento()), fecha,
