@@ -11,9 +11,6 @@ public class Diagnostico {
     //Atributos
     private int idDiagnostico;
     private Date fechaDiagnostico;
-    /*final String[] diagnostico = {"Diabetes tipo 1", "Diabetes tipo 2",
-        "Diabetes gestacional", "Diabetes relacionada con fibrosis quística",
-        "Diabetes MODY", "Diabetes secundaria a medicamentos"};*/
     private String observacion;
     private String recomendacion;
     private static int idSiguiente = 1;
@@ -26,7 +23,7 @@ public class Diagnostico {
         this.idDiagnostico = idSiguiente++;
         this.fechaDiagnostico = null;
         this.observacion = "";
-        this.recomendacion = "";
+        this.recomendacion = null;
     }
 
     public Diagnostico(Date fechaDiagnostico, String observacion, String estadoPaciente) {
@@ -106,6 +103,8 @@ public class Diagnostico {
         for (int i = 0; i < diagnosticos.size(); i++) {
             Diagnostico diagnostico = diagnosticos.get(i);
             Formula formula=diagnostico.getFormula();
+            Dieta dieta=diagnostico.getDieta();
+            Cirugia cirugia=diagnostico.getCirugia();
             imprimir = imprimir +"\n\nDIAGNÓSTICO " + (i + 1)+":"
             + "\nId Diagnóstico: " + diagnostico.getIdDiagnostico()
             + "\nFecha: " + diagnostico.getFechaDiagnostico()
@@ -120,11 +119,10 @@ public class Diagnostico {
                     + "\nDosis: " + medicamento.getDosis();
                 }
             }
-            if(!dieta.isExiste()){
-                System.out.println("No hay dieta");
-            }else{
-                System.out.println("Si hay dieta");
-            }
+            if(dieta.getDescripcion()!=null)
+                imprimir=imprimir+"\nDieta: "+dieta.getDescripcion();
+            if(cirugia.getDescripcion()!=null)
+                imprimir=imprimir+"\nCirugía: "+cirugia.getDescripcion();
         }
         return imprimir;
     }

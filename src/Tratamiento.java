@@ -1,10 +1,9 @@
-//Clase padre de Fórmula, Dieta y Cirugua
+//Clase padre de Fórmula, Dieta y Cirugía
 package src;
 
 public class Tratamiento {
     public int id;
     public String descripcion;
-    public boolean existe=false;
 
     public int getId() {
         return id;
@@ -21,11 +20,5 @@ public class Tratamiento {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    public boolean isExiste() {
-        return existe;
-    }
-
-    public void setExiste(boolean existe) {
-        this.existe = existe;
-    }
+    
 }
