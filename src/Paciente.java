@@ -19,6 +19,7 @@ public class Paciente extends Usuario {
     private String genero;
     private float peso;
     private String motivoConsulta;
+    private Diagnostico diagnosticoYTratamiento;
 
     //Constructores
     public Paciente() {
@@ -41,7 +42,8 @@ public class Paciente extends Usuario {
             String nombrePaciente, String apellidoPaciente,
             String numeroTelefonicoPaciente, String correoPaciente,
             String direccionDeDomicilio, String fechaDeNacimiento,
-            String genero, float peso, String motivoConsulta) {
+            String genero, float peso, String motivoConsulta,
+            Diagnostico diagnosticoYTratamiento) {
 
         super(idUsuario, nombreUsuario, password, tipoUsuario);
         this.idPaciente = idPaciente;
@@ -56,6 +58,7 @@ public class Paciente extends Usuario {
         this.genero = genero;
         this.peso = peso;
         this.motivoConsulta = motivoConsulta;
+        this.diagnosticoYTratamiento = diagnosticoYTratamiento;
 
     }
 
@@ -63,7 +66,8 @@ public class Paciente extends Usuario {
             String nombrePaciente, String apellidoPaciente,
             String numeroTelefonicoPaciente, String correoPaciente,
             String direccionDeDomicilio, String fechaDeNacimiento,
-            String genero, float peso, String motivoConsulta) {
+            String genero, float peso, String motivoConsulta,
+            Diagnostico diagnosticoYTratamiento) {
 
         this.idPaciente = idPaciente;
         this.tipoDocumento = tipoDocumento;
@@ -77,7 +81,7 @@ public class Paciente extends Usuario {
         this.genero = genero;
         this.peso = peso;
         this.motivoConsulta = motivoConsulta;
-
+        this.diagnosticoYTratamiento = diagnosticoYTratamiento;
     }
 
     public Paciente(int idUsuario, String nombreUsuario, String password, String tipoUsuario) {
@@ -180,6 +184,15 @@ public class Paciente extends Usuario {
     public void setMotivoConsulta(String motivoConsulta) {
         this.motivoConsulta = motivoConsulta;
     }
+
+    public Diagnostico getDiagnosticoYTratamiento() {
+        return diagnosticoYTratamiento;
+    }
+
+    public void setDiagnosticoYTratamiento(Diagnostico diagnosticoYTratamiento) {
+        this.diagnosticoYTratamiento = diagnosticoYTratamiento;
+    }
+    
 
     //Procedimientos y funciones
     @Override
