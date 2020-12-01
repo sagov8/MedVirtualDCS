@@ -25,9 +25,9 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
      * Creates new form FormularioHistorial
      */
 
-    HashMap<String, Paciente> historiasClinicas = new HashMap<>();
     ArrayList<Diagnostico> diagnosticos = new ArrayList<>();
     ArrayList<Medicamento> medicamentos = new ArrayList<>();
+    HistoriaClinica hc = new HistoriaClinica();
 
     public FormularioHistorialVistaMedico() {
         initComponents();
@@ -67,14 +67,11 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
 
         Medicamento medicamento = new Medicamento(String.valueOf(paciente.getNumeroDocumento()));
         medicamentos.add(medicamento);
-
-        id = String.valueOf(paciente.getNumeroDocumento());
-        HistoriaClinica hc = new HistoriaClinica();
-        hc.crearHistoriaClinica(historiasClinicas, id, paciente);
-
-        id = String.valueOf(paciente2.getNumeroDocumento());
-        HistoriaClinica hc2 = new HistoriaClinica();
-        hc2.crearHistoriaClinica(historiasClinicas, id, paciente2);
+        
+        
+        hc.crearHistoriaClinica(paciente);
+       
+        hc.crearHistoriaClinica(paciente2);
     }
 
     /**
@@ -585,10 +582,9 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
 
     private void jBConsultarHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarHistoriaActionPerformed
         String idPaciente = JOptionPane.showInputDialog("Introduzca el número de identificación del paciente:");
-        HistoriaClinica hc = new HistoriaClinica();
 
         try {
-            Paciente paciente = hc.consultarPaciente(historiasClinicas, idPaciente);
+            Paciente paciente = hc.consultarPaciente(idPaciente);
 
             jTNombre.setText(paciente.getNombrePaciente());
             jTApellido.setText(paciente.getApellidoPaciente());
@@ -646,7 +642,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
         String idPaciente = JOptionPane.showInputDialog("Ingrese el número de identificación del paciente:");
         JOptionPane.showConfirmDialog(rootPane, "¿Seguro que quiere eliminar la historia clínica?");
         HistoriaClinica hc = new HistoriaClinica();
-        hc.eliminarHistoria(historiasClinicas, idPaciente);
+        hc.eliminarHistoria(idPaciente);
 
         JOptionPane.showMessageDialog(null, "La historia clínica ha sido eliminada");
         vaciarCampos();

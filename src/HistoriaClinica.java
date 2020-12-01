@@ -9,6 +9,7 @@ public class HistoriaClinica {
     //atributos
     private String fechaDeCreacion;
     private String idHistoria;
+    private HashMap<String, Paciente> historiasClinicas = new HashMap<>();
 
     //Constructores
     public HistoriaClinica() {
@@ -37,6 +38,14 @@ public class HistoriaClinica {
         this.idHistoria = idHistoria;
     }
 
+    public HashMap<String, Paciente> getHistoriasClinicas() {
+        return historiasClinicas;
+    }
+
+    public void setHistoriasClinicas(HashMap<String, Paciente> historiasClinicas) {
+        this.historiasClinicas = historiasClinicas;
+    }
+
     //Métodos y funciones
     @Override
     public String toString() {
@@ -44,23 +53,34 @@ public class HistoriaClinica {
     }
     //anamnesis
 
-    public void crearHistoriaClinica(HashMap<String, Paciente> historiasClinicas, String idPaciente,
-            Paciente paciente) {
+    public void crearHistoriaClinica(Paciente paciente) {
 
-        historiasClinicas.put(idPaciente, paciente);
+        historiasClinicas.put(String.valueOf(paciente.getNumeroDocumento()), paciente);
     }
 
-    public Paciente consultarPaciente(HashMap<String, Paciente> historiasClinicas, String idPaciente) {
+    public Paciente consultarPaciente(String idPaciente) {
 
-        idHistoria = idPaciente;
-        return historiasClinicas.get(idPaciente);
+        try{
+            return historiasClinicas.get(idPaciente);
+        }catch(Exception e){
+            System.out.println("Paciente no encontrado");
+        }
+        return null;
     }
     
-    public void modificarHistoria (HashMap<String, Paciente> historiasClinicas, String idPaciente, Paciente paciente){
-        historiasClinicas.put(idPaciente, paciente);
+    public void modificarHistoria (Paciente paciente){
+        try{
+            String key = String.valueOf(paciente.getNumeroDocumento());
+            if (historiasClinicas.containsKey(paciente)){
+                historiasClinicas.replace(key, paciente);
+            }
+        }catch(Exception e){
+            System.out.println("Paciente no encontrado");
+        }
+        
     }
     
-    public void eliminarHistoria (HashMap<String, Paciente> historiasClinicas, String idPaciente){
+    public void eliminarHistoria (String idPaciente){
         historiasClinicas.remove(idPaciente);
     }
 

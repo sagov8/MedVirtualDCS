@@ -1,94 +1,40 @@
 package src;
 
-import java.time.Instant;
-import java.util.HashMap;
-import java.util.ArrayList;
 import java.util.Scanner;
-import src.InterfazHistorial.FormularioHistorialVistaPaciente;
 import java.util.Date;
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
 
         Scanner t = new Scanner(System.in);
-        /*
-        HashMap organiza datos de la manera <k, v> (clave, valor), solo permite Clases, no datos
-        primitivos, por eso se usa Integer y no int.
-        */
         
+        Date fecha = new Date();
+        Evolucion evo = new Evolucion(1, String.valueOf(fecha), "Nivel de Glucosa", "1.8");    
+        Evolucion evo2 = new Evolucion(2, String.valueOf(fecha), "Nuevo síntoma", "Mareo en las mañanas");
+        ArrayList <Evolucion> evoluciones = new ArrayList<>();
         
+        evoluciones.add(evo);
+        evoluciones.add(evo2);
         
+        Tratamiento tratamiento = new Tratamiento(1, "El paciente requiere una segunda evaluación",
+                evoluciones);
         
-        /*
-        int id = 0;
-        int usuarioActivo = -1;
-        boolean salir = false;
-        do {
-            System.out.println("**************************" +
-                    "\nBIENVENIDO A MEDVIRTUALDCS" +
-                    "\n**************************" +
-                    "\nMenú de opciones: " +
-                    "\n1. Registrar usuario." +
-                    "\n2. Iniciar sesión." +
-                    "\n3. Salir.");
-
-            int opcion = t.nextInt();
-
-            switch (opcion) {
-                case 1:
-                    System.out.println("\nEscriba el tipo de usuario (medico/paciente):");
-                    String tipoDeUsuario = t.next();
-
-                    if (tipoDeUsuario.equalsIgnoreCase("paciente")) {
-                        Paciente paciente = new Paciente();//Instancia el objeto paciente
-                        paciente.setTipoUsuario(tipoDeUsuario);//asigna el tipo de Usuario y el ID respectivo.
-                        paciente.setIdUsuario(id);
-
-                 
-                        boolean registroUsuarioExitoso = paciente.registrarUsuario(coleccionUsuarios);
-                        if (registroUsuarioExitoso){
-                            paciente.registrarPaciente(id, coleccionPacientes);
-                        }
-                        id++;
-
-                    } else if (tipoDeUsuario.equalsIgnoreCase("medico")) {
-                        Medico medico = new Medico();
-                        medico.setTipoUsuario(tipoDeUsuario);
-                        medico.setIdUsuario(id);
-
-                        //Leer comentario de la línea 42
-                        boolean registroUsuarioExitoso = medico.registrarUsuario(coleccionUsuarios);
-                        if (registroUsuarioExitoso){
-                            medico.registrarMedico(medico.getIdUsuario(), coleccionMedicos);
-                        }
-                        id++;
-                    } else {
-                        System.out.println("Por favor ingrese una opción válida.");
-                    }
-                    break;
-                case 2:
-                    
-                    if (coleccionUsuarios.isEmpty()) {
-                        System.out.println("No hay usuarios registrados.");
-                    } else {
-                        usuarioActivo = Usuario.verificarLogin(coleccionUsuarios);
-                        salir = true;
-                    }
-                    break;
-                case 3:
-                    System.out.println("Gracias por usar MedVirtualDCS, vuelva pronto.");
-                    salir = true;
-                    break;
-                default:
-                    System.out.println("Ingrese una opción válida");
-            }
-        }
-        while (!salir);
-        //Código de prueba
-        System.out.println(coleccionUsuarios.get(usuarioActivo));
-        System.out.println(coleccionPacientes.get(usuarioActivo));
-        System.out.println(coleccionMedicos.get(usuarioActivo));
-        */
+        Medico medico = new Medico (1234, "8123456", "Juan", "Cruz", "10611231234", "jcruz@gmail.com", "internista");
+        
+        Paciente paciente = new Paciente(1, "CC", 10123456, "Pepe", "Perez", "3124567891", "pperez@gmail.com", "Calle 1 #2 33",
+                "8/8/1991", "M", 45, "Mareos constantes");
+        
+        Diagnostico diagnostico = new Diagnostico(String.valueOf(paciente.getNumeroDocumento()), fecha, 
+                "Diabetes tipo 2", "Realizar pruebas de laboratorio", "estable",
+                tratamiento, medico);
+        
+        paciente.setDiagnosticoYTratamiento(diagnostico);
+        
+        HistoriaClinica hc = new HistoriaClinica();
+        hc.crearHistoriaClinica(paciente);
+        System.out.println(hc.consultarPaciente(String.valueOf(paciente.getNumeroDocumento())).getDiagnosticoYTratamiento());
+        
     }
 }

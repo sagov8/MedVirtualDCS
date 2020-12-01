@@ -42,8 +42,7 @@ public class Paciente extends Usuario {
             String nombrePaciente, String apellidoPaciente,
             String numeroTelefonicoPaciente, String correoPaciente,
             String direccionDeDomicilio, String fechaDeNacimiento,
-            String genero, float peso, String motivoConsulta,
-            Diagnostico diagnosticoYTratamiento) {
+            String genero, float peso, String motivoConsulta) {
 
         super(idUsuario, nombreUsuario, password, tipoUsuario);
         this.idPaciente = idPaciente;
@@ -58,7 +57,6 @@ public class Paciente extends Usuario {
         this.genero = genero;
         this.peso = peso;
         this.motivoConsulta = motivoConsulta;
-        this.diagnosticoYTratamiento = diagnosticoYTratamiento;
 
     }
 
@@ -66,9 +64,29 @@ public class Paciente extends Usuario {
             String nombrePaciente, String apellidoPaciente,
             String numeroTelefonicoPaciente, String correoPaciente,
             String direccionDeDomicilio, String fechaDeNacimiento,
-            String genero, float peso, String motivoConsulta,
-            Diagnostico diagnosticoYTratamiento) {
+            String genero, float peso, String motivoConsulta) {
 
+        this.idPaciente = idPaciente;
+        this.tipoDocumento = tipoDocumento;
+        this.numeroDocumento = numeroDocumento;
+        this.nombrePaciente = nombrePaciente;
+        this.apellidoPaciente = apellidoPaciente;
+        this.numeroTelefonicoPaciente = numeroTelefonicoPaciente;
+        this.correoPaciente = correoPaciente;
+        this.direccionDeDomicilio = direccionDeDomicilio;
+        this.fechaDeNacimiento = fechaDeNacimiento;
+        this.genero = genero;
+        this.peso = peso;
+        this.motivoConsulta = motivoConsulta;
+    }
+
+    public Paciente(int idPaciente, String tipoDocumento, long numeroDocumento, 
+            String nombrePaciente, String apellidoPaciente, String numeroTelefonicoPaciente, 
+            String correoPaciente, String direccionDeDomicilio, String fechaDeNacimiento, 
+            String genero, float peso, String motivoConsulta, Diagnostico diagnosticoYTratamiento, 
+            int idUsuario, String nombreUsuario, String password, String tipoUsuario) {
+        
+        super(idUsuario, nombreUsuario, password, tipoUsuario);
         this.idPaciente = idPaciente;
         this.tipoDocumento = tipoDocumento;
         this.numeroDocumento = numeroDocumento;
@@ -83,6 +101,8 @@ public class Paciente extends Usuario {
         this.motivoConsulta = motivoConsulta;
         this.diagnosticoYTratamiento = diagnosticoYTratamiento;
     }
+    
+        
 
     public Paciente(int idUsuario, String nombreUsuario, String password, String tipoUsuario) {
         super(idUsuario, nombreUsuario, password, tipoUsuario);

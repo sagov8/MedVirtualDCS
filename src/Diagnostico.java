@@ -36,14 +36,13 @@ public class Diagnostico {
     }
 
     public Diagnostico(String idDiagnostico, Date fechaDiagnostico, String diagnostico, 
-            String observacion, String estadoPaciente, String tratamiento, Tratamiento informe,
+            String observacion, String estadoPaciente,  Tratamiento informe,
             Medico encargado) {
         this.idDiagnostico = idDiagnostico;
         this.fechaDiagnostico = fechaDiagnostico;
         this.diagnostico = diagnostico;
         this.observacion = observacion;
         this.estadoPaciente = estadoPaciente;
-        this.tratamiento = tratamiento;
         this.informe = informe;
         this.encargado = encargado;
     }

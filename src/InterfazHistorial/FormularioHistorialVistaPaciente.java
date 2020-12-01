@@ -28,6 +28,7 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
     HashMap<String, Paciente> historiasClinicas = new HashMap<>();
     ArrayList<Diagnostico> diagnosticos = new ArrayList<>();
     ArrayList<Medicamento> medicamentos = new ArrayList<>();
+    HistoriaClinica hc = new HistoriaClinica();
 
     public FormularioHistorialVistaPaciente() {
         initComponents();
@@ -54,8 +55,8 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
         medicamentos.add(medicamento);
 
         id = String.valueOf(paciente.getNumeroDocumento());
-        HistoriaClinica hc = new HistoriaClinica();
-        hc.crearHistoriaClinica(historiasClinicas, id, paciente);
+        
+        hc.crearHistoriaClinica(paciente);
 
     }
 
@@ -565,7 +566,7 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
             Paciente paciente = new Paciente(1, tipoDocumento, numeroDocumento, nombrePaciente, apellidoPaciente, numeroTelefonicoPaciente,
                     correoPaciente, direccionDeDomicilio, fechaDeNacimiento, genero, peso, motivoConsulta);
 
-            hc.crearHistoriaClinica(historiasClinicas, String.valueOf(numeroDocumento), paciente);
+            hc.crearHistoriaClinica(paciente);
 
             JOptionPane.showMessageDialog(null, "La historia ha sido creada con éxito");
 
@@ -597,7 +598,7 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
             Paciente paciente = new Paciente(1, tipoDocumento, numeroDocumento, nombrePaciente, apellidoPaciente, numeroTelefonicoPaciente,
                     correoPaciente, direccionDeDomicilio, fechaDeNacimiento, genero, peso, motivoConsulta);
 
-            hc.modificarHistoria(historiasClinicas, String.valueOf(numeroDocumento), paciente);
+            hc.modificarHistoria(paciente);
 
             JOptionPane.showMessageDialog(null, "La historia ha sido editada con éxito");
         } catch (Exception e) {
@@ -608,9 +609,9 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
 
     private void jBConsultarHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarHistoriaActionPerformed
         String idPaciente = JOptionPane.showInputDialog("Introduzca su número de identificación:");
-        HistoriaClinica hc = new HistoriaClinica();
+        
 
-        Paciente paciente = hc.consultarPaciente(historiasClinicas, idPaciente);
+        Paciente paciente = hc.consultarPaciente(idPaciente);
 
         jTNombre.setText(paciente.getNombrePaciente());
         jTApellido.setText(paciente.getApellidoPaciente());
