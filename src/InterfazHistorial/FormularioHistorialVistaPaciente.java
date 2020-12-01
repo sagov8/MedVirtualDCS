@@ -42,7 +42,7 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
         jTEvolucion.setEditable(false);
 
         Paciente paciente = new Paciente(1, "CC", 10123456, "Pepe", "Perez", "3124567891", "pperez@gmail.com", "Calle 1 #2 33",
-                "8/8/1991", "Masculino", 45, "Mareos constantes");
+                "8/8/1991", 'M', 45, "Mareos constantes");
 
         Date fecha = new Date();
         Diagnostico diagnostico = new Diagnostico(String.valueOf(paciente.getNumeroDocumento()), fecha,
@@ -558,7 +558,7 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
             String correoPaciente = jTCorreoElectronico.getText();
             String direccionDeDomicilio = jTDireccion.getText();
             String fechaDeNacimiento = jTFechaNacimiento.getText();
-            String genero = jTGenero.getText();
+            char genero = jTGenero.getText().charAt(0);
             float peso = Float.parseFloat(jTPeso.getText());
             String motivoConsulta = jTMotivosConsulta.getText();
 
@@ -590,11 +590,12 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
             String correoPaciente = jTCorreoElectronico.getText();
             String direccionDeDomicilio = jTDireccion.getText();
             String fechaDeNacimiento = jTFechaNacimiento.getText();
-            String genero = jTGenero.getText();
+            char genero = jTGenero.getText().charAt(0);
             float peso = Float.parseFloat(jTPeso.getText());
             String motivoConsulta = jTMotivosConsulta.getText();
 
-            Paciente paciente = new Paciente(1, tipoDocumento, numeroDocumento, nombrePaciente, apellidoPaciente, numeroTelefonicoPaciente,
+            Paciente paciente;
+            paciente = new Paciente(1, tipoDocumento, numeroDocumento, nombrePaciente, apellidoPaciente, numeroTelefonicoPaciente,
                     correoPaciente, direccionDeDomicilio, fechaDeNacimiento, genero, peso, motivoConsulta);
 
             hc.modificarHistoria(historiasClinicas, String.valueOf(numeroDocumento), paciente);
@@ -620,7 +621,7 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
         jTCorreoElectronico.setText(paciente.getCorreoPaciente());
         jTDireccion.setText(paciente.getDireccionDeDomicilio());
         jTFechaNacimiento.setText(paciente.getFechaDeNacimiento());
-        jTGenero.setText(paciente.getGenero());
+        jTGenero.setText(String.valueOf(paciente.getGenero()));
         jTPeso.setText(String.valueOf(paciente.getPeso()));
         jTMotivosConsulta.setText(paciente.getMotivoConsulta());
 
