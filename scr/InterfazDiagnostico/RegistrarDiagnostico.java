@@ -328,9 +328,9 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
         jLIngresarIdPaciente.setText("Ingrese identificación del paciente:");
 
-        jTFIdPaciente.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTFIdPacienteFocusLost(evt);
+        jTFIdPaciente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFIdPacienteKeyReleased(evt);
             }
         });
 
@@ -550,7 +550,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                     .addComponent(jTFMedicamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -587,7 +587,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jBAgregarDieta)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -618,12 +618,8 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                 .addComponent(jTFCirugia, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(213, 213, 213)
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel21Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBAgregarCirugia))
-                    .addGroup(jPanel21Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBAgregarCirugía)))
+                    .addComponent(jBAgregarCirugia)
+                    .addComponent(jBAgregarCirugía))
                 .addContainerGap())
         );
         jPanel21Layout.setVerticalGroup(
@@ -696,9 +692,9 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
         jLIdPacienteCons.setText("Ingrese identicicación del paciente:");
 
-        jTFIdPacienteConsult.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTFIdPacienteConsultFocusLost(evt);
+        jTFIdPacienteConsult.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFIdPacienteConsultKeyReleased(evt);
             }
         });
 
@@ -811,9 +807,9 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
         jLabel13.setText("Ingresar identificación del paciente:");
 
-        jTFIdModificar.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTFIdModificarFocusLost(evt);
+        jTFIdModificar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFIdModificarKeyReleased(evt);
             }
         });
 
@@ -1021,7 +1017,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                 .addComponent(jBModificarDiagnostico)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Modificar Diagnóstico", jPanel8);
@@ -1035,9 +1031,9 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
         jLIdPacienteEliminar.setText("Ingrese identificación del paciente:");
 
-        jTFIdPacienteEliminar.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTFIdPacienteEliminarFocusLost(evt);
+        jTFIdPacienteEliminar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFIdPacienteEliminarKeyReleased(evt);
             }
         });
 
@@ -1240,18 +1236,6 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jTFIdPacienteConsultFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFIdPacienteConsultFocusLost
-        // Condición para que sólo ingrese números 
-        ingresarSoloNumeros(jTFIdPacienteConsult);
-        
-    }//GEN-LAST:event_jTFIdPacienteConsultFocusLost
-
-    private void jTFIdPacienteEliminarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFIdPacienteEliminarFocusLost
-        // Condición para que sólo ingrese números 
-        ingresarSoloNumeros(jTFIdPacienteEliminar);
-        
-    }//GEN-LAST:event_jTFIdPacienteEliminarFocusLost
-
     private void jTFIdDiagnosticoEliminarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFIdDiagnosticoEliminarFocusLost
         // Condición para que sólo ingrese números 
         ingresarSoloNumeros(jTFIdDiagnosticoEliminar);
@@ -1262,12 +1246,6 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         // Botón consultar id paciente a midificar diagnóstico
         buscarIdPaciente(jTFIdModificar,jLNPacienteModificar,jLIdPacienteModificar);//4
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTFIdModificarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFIdModificarFocusLost
-        // Condición para que sólo ingrese números
-        ingresarSoloNumeros(jTFIdModificar);
-
-    }//GEN-LAST:event_jTFIdModificarFocusLost
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // Botón salir de modificar diagnóstico
@@ -1370,12 +1348,6 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jBConsultarPacienteActionPerformed
 
-    private void jTFIdPacienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFIdPacienteFocusLost
-        // Condición para que sólo ingrese números
-        ingresarSoloNumeros(jTFIdPaciente);
-
-    }//GEN-LAST:event_jTFIdPacienteFocusLost
-
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jBSalirActionPerformed
@@ -1428,11 +1400,31 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Cirugia Agregada");
         jTFCirugia.setText(null);
     }//GEN-LAST:event_jBAgregarCirugíaActionPerformed
+
+    private void jTFIdPacienteKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFIdPacienteKeyReleased
+        // Condición para que sólo ingrese números al consultar la identificación del paciente
+        ingresarSoloNumeros(jTFIdPaciente);
+    }//GEN-LAST:event_jTFIdPacienteKeyReleased
+
+    private void jTFIdPacienteConsultKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFIdPacienteConsultKeyReleased
+        // Condición para que sólo ingrese números al consultar la identificación del paciente
+        ingresarSoloNumeros(jTFIdPacienteConsult);
+    }//GEN-LAST:event_jTFIdPacienteConsultKeyReleased
+
+    private void jTFIdModificarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFIdModificarKeyReleased
+        // Condición para que sólo ingrese números al consultar la identificación del paciente
+        ingresarSoloNumeros(jTFIdModificar);
+    }//GEN-LAST:event_jTFIdModificarKeyReleased
+
+    private void jTFIdPacienteEliminarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFIdPacienteEliminarKeyReleased
+        // Condición para que sólo ingrese números al consultar la identificación del paciente
+        ingresarSoloNumeros(jTFIdPacienteEliminar);
+    }//GEN-LAST:event_jTFIdPacienteEliminarKeyReleased
     public void ingresarSoloNumeros(JTextField datoIngresado){
         //Procedimiento para verificar que el dato ingresado sea un número 
         if(!datoIngresado.getText().matches("[0-9]*$")){
             JOptionPane.showMessageDialog(null,"ingresar solo valores numéricos ");
-            datoIngresado.setText("0");
+            datoIngresado.setText(null);
             datoIngresado.requestFocus();
         } 
     }
@@ -1460,7 +1452,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         String doc=Long.toString(documento);//Pasar id de Long a String
         nombrePaciente.setText(nombre);//Imprimir en el label el nombre del paciente
         idPaciente.setText(doc);//Imprimir en el label el documento del paciente
-        idConsultado.setText("0");
+        idConsultado.setText(null);
         jLNombreP.setText(nombre);
         jLDocumentoP.setText(doc);
         jLNombrePacienteEliminar.setText(nombre);

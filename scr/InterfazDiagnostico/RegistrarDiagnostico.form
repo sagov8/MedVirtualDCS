@@ -466,7 +466,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTFIdPaciente">
                   <Events>
-                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFIdPacienteFocusLost"/>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFIdPacienteKeyReleased"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jBConsultarPaciente">
@@ -695,7 +695,7 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane7" min="-2" pref="90" max="-2" attributes="0"/>
-                          <EmptySpace pref="16" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -833,7 +833,7 @@
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="15" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jBAgregarDieta" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane8" min="-2" pref="35" max="-2" attributes="0"/>
@@ -895,14 +895,8 @@
                           <Component id="jTFCirugia" min="-2" pref="377" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jBAgregarCirugia" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="26" max="32767" attributes="0"/>
-                                  <Component id="jBAgregarCirugía" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jBAgregarCirugia" min="-2" max="-2" attributes="0"/>
+                              <Component id="jBAgregarCirugía" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -1086,7 +1080,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTFIdPacienteConsult">
               <Events>
-                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFIdPacienteConsultFocusLost"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFIdPacienteConsultKeyReleased"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jBConsultarPacienteVer">
@@ -1192,7 +1186,7 @@
                       <Component id="jBModificarDiagnostico" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="34" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1280,7 +1274,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTFIdModificar">
                   <Events>
-                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFIdModificarFocusLost"/>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFIdModificarKeyReleased"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButton1">
@@ -1616,7 +1610,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTFIdPacienteEliminar">
                   <Events>
-                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFIdPacienteEliminarFocusLost"/>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFIdPacienteEliminarKeyReleased"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jBIdPacienteEliminar">
