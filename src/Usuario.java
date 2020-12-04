@@ -79,8 +79,6 @@ public abstract class Usuario {
         for (Usuario user : coleccionUsuarios) {
             if (user.getNombreUsuario().equals(nombreUsuario) && user.getPassword().equals(password)) {
                 return user.getTipoUsuario();
-            } else {
-                return null;
             }
         }
         return null;

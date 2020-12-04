@@ -61,8 +61,8 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
         jTMotivosConsulta.setEditable(false);
 
         Date fecha = new Date();
-        Evolucion evo = new Evolucion(1, String.valueOf(fecha), "Nivel de Glucosa", "1.8");
-        Evolucion evo2 = new Evolucion(2, String.valueOf(fecha), "Nuevo síntoma", "Mareo en las mañanas");
+        Evolucion evo = new Evolucion(1, fecha, "Nivel de Glucosa", "1.8");
+        Evolucion evo2 = new Evolucion(2, fecha, "Nuevo síntoma", "Mareo en las mañanas");
 
         evoluciones.add(evo);
         evoluciones.add(evo2);

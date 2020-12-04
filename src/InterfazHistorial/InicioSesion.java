@@ -139,20 +139,29 @@ public class InicioSesion extends javax.swing.JFrame {
         String password = jPassword.getText();
         
         String response = Usuario.verificarLogin(usuarios, name, password);
-        if (response.equals("medico")){
-            this.setVisible(false);
-            dispose();
-            FormularioHistorialVistaMedico fhvm = new FormularioHistorialVistaMedico();
-            fhvm.setVisible(true);
-        } else if (response.equals("paciente")){
-            this.setVisible(false);
-            dispose();
-            FormularioHistorialVistaPaciente fhvp = new FormularioHistorialVistaPaciente();
-            fhvp.setVisible(true);
-        } else {
-             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos. Vuelva a intentar.");
-             jTNombreUsuario.setText("");
-             jPassword.setText("");
+        
+        try{
+            switch (response) {
+                case "medico":
+                    this.setVisible(false);
+                    dispose();
+                    FormularioHistorialVistaMedico fhvm = new FormularioHistorialVistaMedico();
+                    fhvm.setVisible(true);
+                    break;
+                case "paciente":
+                    this.setVisible(false);
+                    dispose();
+                    FormularioHistorialVistaPaciente fhvp = new FormularioHistorialVistaPaciente();
+                    fhvp.setVisible(true);
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos. Vuelva a intentar.");
+                    jTNombreUsuario.setText("");
+                    jPassword.setText("");
+                    break;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos. Vuelva a intentar.");
         }
     }//GEN-LAST:event_jBIniciarSesionActionPerformed
 

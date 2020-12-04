@@ -142,6 +142,13 @@ public class Diagnostico {
         this.cirugia = cirugia;
     }
 
+    public String getEstadoPaciente() {
+        return estadoPaciente;
+    }
+
+    public void setEstadoPaciente(String estadoPaciente) {
+        this.estadoPaciente = estadoPaciente;
+    }
     //Métodos
 
     public void crearDiagnostico(String diagnostico,String recomendacion) {
