@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Tratamiento {
 
-    private int id;
+    int id;
     private String descripcion;
     private ArrayList<Evolucion> evoluciones;
 
@@ -15,6 +15,10 @@ public class Tratamiento {
         this.id = id;
         this.descripcion = descripcion;
         this.evoluciones = evoluciones;
+    }
+    
+    public Tratamiento(){
+        
     }
     
     public int getId() {

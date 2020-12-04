@@ -46,7 +46,6 @@ public class Paciente extends Usuario {
             String direccionDeDomicilio, String fechaDeNacimiento,
             String genero, float peso, String motivoConsulta) {
 
-
         super(idUsuario, nombreUsuario, password, tipoUsuario);
         this.idPaciente = idPaciente;
         this.tipoDocumento = tipoDocumento;
@@ -63,7 +62,6 @@ public class Paciente extends Usuario {
 
     }
 
-
     public Paciente(int idPaciente, String tipoDocumento, long numeroDocumento,
             String nombrePaciente, String apellidoPaciente,
             String numeroTelefonicoPaciente, String correoPaciente,
@@ -71,7 +69,6 @@ public class Paciente extends Usuario {
             String genero, float peso, String motivoConsulta) {
 
         this.idPaciente = idPaciente;
-        this.idPaciente = idNext++;
         this.tipoDocumento = tipoDocumento;
         this.numeroDocumento = numeroDocumento;
         this.nombrePaciente = nombrePaciente;
@@ -86,13 +83,12 @@ public class Paciente extends Usuario {
     }
 
     //Getter y Setter
-
-    public Paciente(int idPaciente, String tipoDocumento, long numeroDocumento, 
-            String nombrePaciente, String apellidoPaciente, String numeroTelefonicoPaciente, 
-            String correoPaciente, String direccionDeDomicilio, String fechaDeNacimiento, 
-            String genero, float peso, String motivoConsulta, Diagnostico diagnosticoYTratamiento, 
+    public Paciente(int idPaciente, String tipoDocumento, long numeroDocumento,
+            String nombrePaciente, String apellidoPaciente, String numeroTelefonicoPaciente,
+            String correoPaciente, String direccionDeDomicilio, String fechaDeNacimiento,
+            String genero, float peso, String motivoConsulta, Diagnostico diagnosticoYTratamiento,
             int idUsuario, String nombreUsuario, String password, String tipoUsuario) {
-        
+
         super(idUsuario, nombreUsuario, password, tipoUsuario);
         this.idPaciente = idPaciente;
         this.tipoDocumento = tipoDocumento;
@@ -108,11 +104,13 @@ public class Paciente extends Usuario {
         this.motivoConsulta = motivoConsulta;
         this.diagnosticoYTratamiento = diagnosticoYTratamiento;
     }
-    
-        
 
     public Paciente(int idUsuario, String nombreUsuario, String password, String tipoUsuario) {
         super(idUsuario, nombreUsuario, password, tipoUsuario);
+    }
+
+    public Paciente(String cédula, int i, String juan, String jiménez, int i0, String jjimenezgmailcom, String calle_5_634, String string, String masculino, int i1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     //Getter y Setter
@@ -219,7 +217,7 @@ public class Paciente extends Usuario {
     public void setDiagnosticoYTratamiento(Diagnostico diagnosticoYTratamiento) {
         this.diagnosticoYTratamiento = diagnosticoYTratamiento;
     }
-    
+
     public ArrayList<Diagnostico> getDiagnosticos() {
         return diagnosticos;
     }
@@ -232,19 +230,20 @@ public class Paciente extends Usuario {
     @Override
     public String toString() {
         return "idPaciente: " + idPaciente + "\nTipoDocumento: "
-                + tipoDocumento + "\nNumeroDocumento: " + numeroDocumento +
-                "\nNombrePaciente: " + nombrePaciente + "\nApellidoPaciente: " +
-                apellidoPaciente + "\nNumeroCelular: " + numeroTelefonicoPaciente
-                + "\nCorroElectronico: " + correoPaciente + "\nDomicilio: " +
-                direccionDeDomicilio + "\nFechaNacimiento: " + fechaDeNacimiento
+                + tipoDocumento + "\nNumeroDocumento: " + numeroDocumento
+                + "\nNombrePaciente: " + nombrePaciente + "\nApellidoPaciente: "
+                + apellidoPaciente + "\nNumeroCelular: " + numeroTelefonicoPaciente
+                + "\nCorroElectronico: " + correoPaciente + "\nDomicilio: "
+                + direccionDeDomicilio + "\nFechaNacimiento: " + fechaDeNacimiento
                 + "\nGenero: " + genero + "\nPeso(kg): " + peso;
 
+    }
 
     public void registrarPaciente(int id, HashMap<Integer, String> ColeccionPacientes) {
         Scanner t = new Scanner(System.in);
         //Se pide y se guarda la información del paciente en cada variable.
         System.out.println("\nPor favor digite sus datos personales: ");
-      /*  System.out.println("Ingrese tipo de documetos (CC,TI,RC,CE): ");
+        /*  System.out.println("Ingrese tipo de documetos (CC,TI,RC,CE): ");
         tipoDocumento = t.next();
         System.out.println("Ingrese número de documento: ");
         numeroDocumento = t.nextLong();
@@ -272,4 +271,5 @@ public class Paciente extends Usuario {
         ColeccionPacientes.put(id, toString());
         System.out.println("\nSu información ha sido registrada con éxito.\n");
     }
+
 }

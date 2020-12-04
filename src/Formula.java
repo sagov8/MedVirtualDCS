@@ -9,15 +9,13 @@ public class Formula extends Tratamiento{
     private static int idSiguiente = 1;
     public ArrayList<Medicamento> medicamentos = new ArrayList<>();
     private String dosis;
-
+    
     //Constructores
     public Formula() {
-        this.id = idSiguiente++;
         this.dosis="";
     }
 
     public Formula( String dosis) {
-        this.id = idSiguiente++;
         this.dosis=dosis;
     }
     //Getter y Setter

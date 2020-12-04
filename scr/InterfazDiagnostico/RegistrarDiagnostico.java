@@ -932,7 +932,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         Paciente paciente = pacientes.get(indexPaciente);
         do{
             Diagnostico diagnostico=paciente.getDiagnosticos().get(cont);
-            if(diagnostico.getIdDiagnostico()==idDiagn){
+            if(diagnostico.getIdDiagnostico().equals(String.valueOf(idDiagn))){
                 idDiagEncontrado=true;
                 paciente.getDiagnosticos().remove(cont);
                 JOptionPane.showMessageDialog(null, "Diagnóstico Eliminado");
@@ -989,18 +989,20 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un medicamento");
             jTFDosis.setText(null);//Limpiar el cuadro de dosis
             jTFMedicamento.setText(null);
-        }else if(jCBMedicamentos.getSelectedItem().toString()!="Seleccione" && jCBMedicamentos.getSelectedItem().toString()!="Otro"){
+        }else if(!jCBMedicamentos.getSelectedItem().toString().equals("Seleccione") && !jCBMedicamentos.getSelectedItem().toString().equals("Otro")){
             nombreMedicamento.add(jCBMedicamentos.getSelectedItem().toString());
             dosisMedicamento.add(jTFDosis.getText());
             JOptionPane.showMessageDialog(null, jCBMedicamentos.getSelectedItem().toString() + " agregado");
             jTFDosis.setText(null);//Limpiar el cuadro de dosis después de guardar el medicamento
             jTFMedicamento.setText(null);
-        }else if(jCBMedicamentos.getSelectedItem().toString().equals("Otro")){
-            nombreMedicamento.add(jTFMedicamento.getText());
-            dosisMedicamento.add(jTFDosis.getText());
-            JOptionPane.showMessageDialog(null, jTFMedicamento.getText() + " agregado");
-            jTFDosis.setText(null);//Limpiar el cuadro de dosis después de guardar el medicamento
-            jTFMedicamento.setText(null);
+        }else {
+            if(jCBMedicamentos.getSelectedItem().toString().equals("Otro")){
+                nombreMedicamento.add(jTFMedicamento.getText());
+                dosisMedicamento.add(jTFDosis.getText());
+                JOptionPane.showMessageDialog(null, jTFMedicamento.getText() + " agregado");
+                jTFDosis.setText(null);//Limpiar el cuadro de dosis después de guardar el medicamento
+                jTFMedicamento.setText(null);
+            }
         }
         String matriz[][]=new String[nombreMedicamento.size()][3];
         for (int i = 0; i < nombreMedicamento.size(); i++) {
@@ -1013,7 +1015,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
     private void jCBMedicamentosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCBMedicamentosItemStateChanged
         // Habilita el textFiel para agregar un medicamento que no esté en el comboBox
-        if(jCBMedicamentos.getSelectedItem().toString()!=("Otro")){
+        if(!jCBMedicamentos.getSelectedItem().toString().equals("Otro")){
             jTFMedicamento.enable(false);
         }else{
             jTFMedicamento.enable(true);
@@ -1046,9 +1048,11 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
         }
         diagnostico.setFormula(formula);//Guarda la formula al diagnóstico del paciente consultado
-        Dieta dieta=new Dieta(dietaDescripcion);
+        Dieta dieta=new Dieta();
+        dieta.setDescripcion(dietaDescripcion);
         diagnostico.setDieta(dieta);//Guarda la dieta al diagnóstico del paciente consultado
-        Cirugia cirugia=new Cirugia(cirugiaDescripcion);
+        Cirugia cirugia=new Cirugia();
+        cirugia.setDescripcion(cirugiaDescripcion);
         diagnostico.setCirugia(cirugia);//Guarda la cirugía al diagnóstico del paciente consultado
         
         nombreMedicamento.clear();

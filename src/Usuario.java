@@ -72,8 +72,6 @@ public abstract class Usuario {
                 + tipoUsuario;
     }
 
-    public abstract void registrarUsuario();
-
 
     public static String verificarLogin(ArrayList<Usuario> coleccionUsuarios,
             String nombreUsuario, String password) {
@@ -85,5 +83,6 @@ public abstract class Usuario {
                 return null;
             }
         }
+        return null;
     }
 }
