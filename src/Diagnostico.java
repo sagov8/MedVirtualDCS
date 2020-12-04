@@ -1,6 +1,7 @@
 package src;
 //Diana
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Diagnostico {
@@ -12,17 +13,18 @@ public class Diagnostico {
     private String observacion;
     private String estadoPaciente;
     private String tratamiento;
-    private String observacion;
     private String recomendacion;
     private static int idSiguiente = 1;
     private Formula formula=new Formula();
+    private Dieta dieta=new Dieta();
+    private Cirugia cirugia=new Cirugia();
 
     //Constructores
     public Diagnostico() {
         this.idDiagnostico = "";
         this.fechaDiagnostico = null;
         this.observacion = "";
-        this.recomendacion = "";
+        this.recomendacion = null;
     }
 
     public Diagnostico(String idPaciente, Date fechaDiagnostico, String observacion, 
@@ -94,6 +96,22 @@ public class Diagnostico {
     }
     
     
+    public Dieta getDieta() {
+        return dieta;
+    }
+
+    public void setDieta(Dieta dieta) {
+        this.dieta = dieta;
+    }
+
+    public Cirugia getCirugia() {
+        return cirugia;
+    }
+
+    public void setCirugia(Cirugia cirugia) {
+        this.cirugia = cirugia;
+    }
+
     //Métodos
 
     public void crearDiagnostico(String diagnostico,String recomendacion) {
@@ -103,8 +121,33 @@ public class Diagnostico {
         this.recomendacion =recomendacion;        
     }
 
-    public void guardarDiagnostico(int idHistoriaClinica) {
-
+    public String imprimirDiagnostico(ArrayList<Diagnostico> diagnosticos) {
+        String imprimir="";
+        for (int i = 0; i < diagnosticos.size(); i++) {
+            Diagnostico diagnostico = diagnosticos.get(i);
+            Formula formula=diagnostico.getFormula();
+            Dieta dieta=diagnostico.getDieta();
+            Cirugia cirugia=diagnostico.getCirugia();
+            imprimir = imprimir +"\n\nDIAGNÓSTICO " + (i + 1)+":"
+            + "\nId Diagnóstico: " + diagnostico.getIdDiagnostico()
+            + "\nFecha: " + diagnostico.getFechaDiagnostico()
+            + "\nDiagnostico: " + diagnostico.getObservacion()
+            + "\nRecomendacion: " + diagnostico.getRecomendacion();
+            if (formula.medicamentos.size() != 0) {
+                imprimir =imprimir+"\nFÓRMULA: ";
+                for (int j = 0; j < formula.medicamentos.size(); j++) {
+                    Medicamento medicamento = formula.medicamentos.get(j);
+                    imprimir = imprimir +"\nMedicamento " + (j + 1)+": "
+                    + "\nNombre: " + medicamento.getNombreMedicamento()
+                    + "\nDosis: " + medicamento.getDosis();
+                }
+            }
+            if(dieta.getDescripcion()!=null)
+                imprimir=imprimir+"\nDieta: "+dieta.getDescripcion();
+            if(cirugia.getDescripcion()!=null)
+                imprimir=imprimir+"\nCirugía: "+cirugia.getDescripcion();
+        }
+        return imprimir;
     }
 
     @Override
