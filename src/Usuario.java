@@ -74,14 +74,16 @@ public abstract class Usuario {
 
     public abstract void registrarUsuario();
 
+
     public static String verificarLogin(ArrayList<Usuario> coleccionUsuarios,
             String nombreUsuario, String password) {
        
         for (Usuario user : coleccionUsuarios) {
             if (user.getNombreUsuario().equals(nombreUsuario) && user.getPassword().equals(password)) {
                 return user.getTipoUsuario();
+            } else {
+                return null;
             }
         }
-        return "No encontrado";
     }
 }

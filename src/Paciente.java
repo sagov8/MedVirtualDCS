@@ -46,6 +46,7 @@ public class Paciente extends Usuario {
             String direccionDeDomicilio, String fechaDeNacimiento,
             String genero, float peso, String motivoConsulta) {
 
+
         super(idUsuario, nombreUsuario, password, tipoUsuario);
         this.idPaciente = idPaciente;
         this.tipoDocumento = tipoDocumento;
@@ -61,6 +62,7 @@ public class Paciente extends Usuario {
         this.motivoConsulta = motivoConsulta;
 
     }
+
 
     public Paciente(int idPaciente, String tipoDocumento, long numeroDocumento,
             String nombrePaciente, String apellidoPaciente,
@@ -82,6 +84,8 @@ public class Paciente extends Usuario {
         this.peso = peso;
         this.motivoConsulta = motivoConsulta;
     }
+
+    //Getter y Setter
 
     public Paciente(int idPaciente, String tipoDocumento, long numeroDocumento, 
             String nombrePaciente, String apellidoPaciente, String numeroTelefonicoPaciente, 
@@ -240,7 +244,7 @@ public class Paciente extends Usuario {
         Scanner t = new Scanner(System.in);
         //Se pide y se guarda la información del paciente en cada variable.
         System.out.println("\nPor favor digite sus datos personales: ");
-        System.out.println("Ingrese tipo de documetos (CC,TI,RC,CE): ");
+      /*  System.out.println("Ingrese tipo de documetos (CC,TI,RC,CE): ");
         tipoDocumento = t.next();
         System.out.println("Ingrese número de documento: ");
         numeroDocumento = t.nextLong();
@@ -262,7 +266,7 @@ public class Paciente extends Usuario {
         System.out.println("Ingrese su género (Hombre/Mujer): ");
         genero = t.next();
         System.out.println("Ingrese su peso (kg): ");
-        peso = t.nextFloat();
+        peso = t.nextFloat();*/
         idPaciente = id;
 
         ColeccionPacientes.put(id, toString());

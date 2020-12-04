@@ -1,22 +1,30 @@
 package src;
 
 //Santiago
+import java.util.Date;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import java.util.Scanner;
+
 public class Evolucion {
 
     //Atributos
     private int idEvento;
-    private String fechaEvento;
+    private Date fechaEvento;
     private String tipoDeEvento;
+    private float nivelGlucosa;
     private String descripcionEvento;
-
+    private static int idNext=1;
+    
     //Constructores
     public Evolucion() {
-        this.idEvento = 0;
-        this.fechaEvento = "";
+        this.idEvento = idNext++;
+        this.fechaEvento = null;
         this.tipoDeEvento = "";
         this.descripcionEvento = "";
     }
-    public Evolucion(int idEvento, String fechaEvento, String tipoDeEvento, String descripcionEvento) {
+
+    public Evolucion(int idEvento, Date fechaEvento, String tipoDeEvento, String descripcionEvento) {
         this.idEvento = idEvento;
         this.fechaEvento = fechaEvento;
         this.tipoDeEvento = tipoDeEvento;
@@ -24,6 +32,16 @@ public class Evolucion {
     }
 
     //Getters y Setters
+
+    public float getNivelGlucosa() {
+        return nivelGlucosa;
+    }
+
+    public void setNivelGlucosa(float nivelGlucosa) {
+        this.nivelGlucosa = nivelGlucosa;
+    }
+    
+    
     public int getIdEvento() {
         return idEvento;
     }
@@ -32,11 +50,11 @@ public class Evolucion {
         this.idEvento = idEvento;
     }
 
-    public String getFechaEvento() {
+    public Date getFechaEvento() {
         return fechaEvento;
     }
 
-    public void setFechaEvento(String fechaEvento) {
+    public void setFechaEvento(Date fechaEvento) {
         this.fechaEvento = fechaEvento;
     }
 
@@ -57,15 +75,117 @@ public class Evolucion {
     }
 
     //Métodos y funciones
-    public void guardarEvento(){
+    public void descripcionEvento() {
+
+        Scanner t = new Scanner(System.in);
+
+        System.out.println("Descripcion del evento");
+        descripcionEvento = t.nextLine();
+        t.nextLine();
 
     }
 
-    public String imprimirEvento(){
-        return "";
+    public void guardarEvento() {
+        Scanner t = new Scanner(System.in);
+
+        System.out.println("Guarda evento");
+
     }
 
-    public Object[] getTime() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void imprimirEvento() {
+
+        System.out.println("");
+
     }
+
+    public void validacionNivelGlucosa() {
+
+        Scanner t = new Scanner(System.in);
+
+        System.out.println("Ingrese nivel de glucosa: " + "(mg/dl)");
+        nivelGlucosa = t.nextFloat();
+
+        if (nivelGlucosa > 168) {
+            System.out.println("PELIGRO: Consultar medico, nivel de "
+                    + "glucosa muy ALTO");
+        }
+        if (nivelGlucosa <= 154 && nivelGlucosa > 139) {
+            System.out.println("ALARMA: Tomar medicamentos");
+
+        }
+        if (nivelGlucosa <= 126 && nivelGlucosa >= 97) {
+            System.out.println("DIABETICO EN CONTROL");
+
+        }
+
+    }
+
+    public void MenuEventosPaciente() {
+
+        Scanner t = new Scanner(System.in);
+
+        /* String DescripcionEvento = "";
+        float nivelGlucosa;*/
+        do {
+            System.out.println("\nModulo - Paciente");
+            System.out.println("\nInformacion del paciente: ");
+            System.out.println("Nombre: ");
+            System.out.println("\nMenu de opciones: ");
+            System.out.println("1. Consultar historia clinica");
+            System.out.println("2. Crear evento");
+            System.out.println("3. Cerrar sesión");
+            int optionMenuEvvolucion = t.nextInt();
+
+            switch (optionMenuEvvolucion) {
+
+                case 1:
+                    System.out.println("Consulta tu Historia Clinica: ");
+
+                    break;
+
+                case 2:
+
+                    validacionNivelGlucosa();
+
+                    descripcionEvento();
+
+                    /*    System.out.println("Crear Evolucion");
+                    System.out.println("Ingrese nivel de glucosa: " + "(mg/dl)");
+                    nivelGlucosa = t.nextFloat();
+
+                    if (nivelGlucosa > 168) {
+                        System.out.println("PELIGRO: Consultar medico, nivel de "
+                                + "glucosa muy ALTO");
+                    }
+                    if (nivelGlucosa <= 154 && nivelGlucosa > 139) {
+                        System.out.println("ALARMA: Tomar medicamentos");
+
+                    }
+                    if (nivelGlucosa <= 126 && nivelGlucosa >= 97) {
+                        System.out.println("DIABETICO EN CONTROL");
+
+                    }
+
+                    System.out.println("Descripcion del evento: ");
+                    descripcionEvento=t.nextLine();
+                    t.nextLine();*/
+ /*    System.out.println("*************************"
+                            + "Evento guardado Satisfactoriamente"
+                            + "******************************");*/
+                    break;
+
+                case 3:
+
+                    System.out.println("Sesión Finalizada - MedVirtualDCS, vuelva pronto.");
+                    System.exit(0);
+                default:
+
+                    System.out.println("Ingrese una opción valida");
+
+            }
+
+        } while (true);
+
+    }
+
 }
