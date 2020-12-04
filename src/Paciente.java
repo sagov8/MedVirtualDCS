@@ -1,7 +1,6 @@
 package src;
 
 //Camilo
-
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -9,7 +8,6 @@ import java.util.ArrayList;
 public class Paciente extends Usuario {
 
     //Atributos paciente
-
     private int idPaciente;
     private String tipoDocumento;
     private long numeroDocumento;
@@ -23,9 +21,9 @@ public class Paciente extends Usuario {
     private float peso;
     private String motivoConsulta;
     private ArrayList<Diagnostico> diagnosticos = new ArrayList<>();
+    private Diagnostico diagnosticoYTratamiento;
 
     //Constructores
-
     public Paciente() {
 
         this.idPaciente = 0;
@@ -41,11 +39,55 @@ public class Paciente extends Usuario {
         this.peso = 0;
     }
 
-    public Paciente(String tipoDocumento, long numeroDocumento,
-                    String nombrePaciente, String apellidoPaciente,
-                    String numeroTelefonicoPaciente, String correoPaciente,
-                    String direccionDeDomicilio, String fechaDeNacimiento,
-                    String genero, float peso, String motivoConsulta) {
+    public Paciente(int idUsuario, String nombreUsuario, String password, String tipoUsuario,
+            int idPaciente, String tipoDocumento, long numeroDocumento,
+            String nombrePaciente, String apellidoPaciente,
+            String numeroTelefonicoPaciente, String correoPaciente,
+            String direccionDeDomicilio, String fechaDeNacimiento,
+            String genero, float peso, String motivoConsulta) {
+
+        super(idUsuario, nombreUsuario, password, tipoUsuario);
+        this.idPaciente = idPaciente;
+        this.tipoDocumento = tipoDocumento;
+        this.numeroDocumento = numeroDocumento;
+        this.nombrePaciente = nombrePaciente;
+        this.apellidoPaciente = apellidoPaciente;
+        this.numeroTelefonicoPaciente = numeroTelefonicoPaciente;
+        this.correoPaciente = correoPaciente;
+        this.direccionDeDomicilio = direccionDeDomicilio;
+        this.fechaDeNacimiento = fechaDeNacimiento;
+        this.genero = genero;
+        this.peso = peso;
+        this.motivoConsulta = motivoConsulta;
+
+    }
+
+    public Paciente(int idPaciente, String tipoDocumento, long numeroDocumento,
+            String nombrePaciente, String apellidoPaciente,
+            String numeroTelefonicoPaciente, String correoPaciente,
+            String direccionDeDomicilio, String fechaDeNacimiento,
+            String genero, float peso, String motivoConsulta) {
+
+        this.idPaciente = idPaciente;
+        this.idPaciente = idNext++;
+        this.tipoDocumento = tipoDocumento;
+        this.numeroDocumento = numeroDocumento;
+        this.nombrePaciente = nombrePaciente;
+        this.apellidoPaciente = apellidoPaciente;
+        this.numeroTelefonicoPaciente = numeroTelefonicoPaciente;
+        this.correoPaciente = correoPaciente;
+        this.direccionDeDomicilio = direccionDeDomicilio;
+        this.fechaDeNacimiento = fechaDeNacimiento;
+        this.genero = genero;
+        this.peso = peso;
+        this.motivoConsulta = motivoConsulta;
+    }
+
+    public Paciente(int idPaciente, String tipoDocumento, long numeroDocumento, 
+            String nombrePaciente, String apellidoPaciente, String numeroTelefonicoPaciente, 
+            String correoPaciente, String direccionDeDomicilio, String fechaDeNacimiento, 
+            String genero, float peso, String motivoConsulta, Diagnostico diagnosticoYTratamiento, 
+            int idUsuario, String nombreUsuario, String password, String tipoUsuario) {
         
         super(idUsuario, nombreUsuario, password, tipoUsuario);
         this.idPaciente = idPaciente;
@@ -60,36 +102,16 @@ public class Paciente extends Usuario {
         this.genero = genero;
         this.peso = peso;
         this.motivoConsulta = motivoConsulta;
-
+        this.diagnosticoYTratamiento = diagnosticoYTratamiento;
     }
     
-    public Paciente(int idPaciente, String tipoDocumento, long numeroDocumento,
-                    String nombrePaciente, String apellidoPaciente,
-                    String numeroTelefonicoPaciente, String correoPaciente,
-                    String direccionDeDomicilio, String fechaDeNacimiento,
-                    String genero, float peso, String motivoConsulta) {
-        this.idPaciente = idPaciente;
-        this.idPaciente = idNext++;
-        this.tipoDocumento = tipoDocumento;
-        this.numeroDocumento = numeroDocumento;
-        this.nombrePaciente = nombrePaciente;
-        this.apellidoPaciente = apellidoPaciente;
-        this.numeroTelefonicoPaciente = numeroTelefonicoPaciente;
-        this.correoPaciente = correoPaciente;
-        this.direccionDeDomicilio = direccionDeDomicilio;
-        this.fechaDeNacimiento = fechaDeNacimiento;
-        this.genero = genero;
-        this.peso = peso;
-        this.motivoConsulta = motivoConsulta;
+        
 
-    }
-    public Paciente(int idUsuario, String nombreUsuario, String password, String tipoUsuario){
+    public Paciente(int idUsuario, String nombreUsuario, String password, String tipoUsuario) {
         super(idUsuario, nombreUsuario, password, tipoUsuario);
     }
-    
 
     //Getter y Setter
-
     public int getIdPaciente() {
         return idPaciente;
     }
@@ -185,7 +207,14 @@ public class Paciente extends Usuario {
     public void setMotivoConsulta(String motivoConsulta) {
         this.motivoConsulta = motivoConsulta;
     }
-    
+
+    public Diagnostico getDiagnosticoYTratamiento() {
+        return diagnosticoYTratamiento;
+    }
+
+    public void setDiagnosticoYTratamiento(Diagnostico diagnosticoYTratamiento) {
+        this.diagnosticoYTratamiento = diagnosticoYTratamiento;
+    }
     
     public ArrayList<Diagnostico> getDiagnosticos() {
         return diagnosticos;
@@ -196,10 +225,8 @@ public class Paciente extends Usuario {
     }
 
     //Procedimientos y funciones
-
     @Override
     public String toString() {
-        //Sobrescritura de toString para obtener toda la info del paciente en un String separado por "&"
         return "idPaciente: " + idPaciente + "\nTipoDocumento: "
                 + tipoDocumento + "\nNumeroDocumento: " + numeroDocumento +
                 "\nNombrePaciente: " + nombrePaciente + "\nApellidoPaciente: " +
@@ -207,7 +234,6 @@ public class Paciente extends Usuario {
                 + "\nCorroElectronico: " + correoPaciente + "\nDomicilio: " +
                 direccionDeDomicilio + "\nFechaNacimiento: " + fechaDeNacimiento
                 + "\nGenero: " + genero + "\nPeso(kg): " + peso;
-    }
 
 
     public void registrarPaciente(int id, HashMap<Integer, String> ColeccionPacientes) {
@@ -243,6 +269,3 @@ public class Paciente extends Usuario {
         System.out.println("\nSu información ha sido registrada con éxito.\n");
     }
 }
-
-
-

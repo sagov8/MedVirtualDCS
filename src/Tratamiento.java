@@ -1,10 +1,22 @@
+
 //Clase padre de Fórmula, Dieta y Cirugía
 package src;
 
-public class Tratamiento {
-    public int id;
-    public String descripcion;
+import java.util.ArrayList;
 
+public class Tratamiento {
+
+    private int id;
+    private String descripcion;
+    private ArrayList<Evolucion> evoluciones;
+
+    //Constructor
+    public Tratamiento(int id, String descripcion, ArrayList<Evolucion> evoluciones) {
+        this.id = id;
+        this.descripcion = descripcion;
+        this.evoluciones = evoluciones;
+    }
+    
     public int getId() {
         return id;
     }
@@ -20,5 +32,14 @@ public class Tratamiento {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
+
+
+    public ArrayList<Evolucion> getEvoluciones() {
+        return evoluciones;
+    }
+
+    public void setEvoluciones(ArrayList<Evolucion> evoluciones) {
+        this.evoluciones = evoluciones;
+    }   
 }
+

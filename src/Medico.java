@@ -131,4 +131,9 @@ public class Medico extends Usuario {
         System.out.println("\nSu información ha sido registrada con éxito.\n");
 
     }
+    
+    @Override
+    public void registrarUsuario(){
+        
+    }
 }

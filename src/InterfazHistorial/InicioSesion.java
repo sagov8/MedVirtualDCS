@@ -138,8 +138,7 @@ public class InicioSesion extends javax.swing.JFrame {
         String name = jTNombreUsuario.getText();
         String password = jPassword.getText();
         
-        Usuario user = new Usuario();
-        String response = user.verificarLogin(usuarios, name, password);
+        String response = Usuario.verificarLogin(usuarios, name, password);
         if (response.equals("medico")){
             this.setVisible(false);
             dispose();

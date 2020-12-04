@@ -8,8 +8,6 @@ public class Evolucion {
     private String fechaEvento;
     private String tipoDeEvento;
     private String descripcionEvento;
-    
-    
 
     //Constructores
     public Evolucion() {
