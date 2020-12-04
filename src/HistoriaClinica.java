@@ -71,8 +71,9 @@ public class HistoriaClinica {
     public void modificarHistoria (Paciente paciente){
         try{
             String key = String.valueOf(paciente.getNumeroDocumento());
-            if (historiasClinicas.containsKey(paciente)){
-                historiasClinicas.replace(key, paciente);
+            if (historiasClinicas.containsKey(key)){
+                historiasClinicas.remove(key);
+                historiasClinicas.put(key, paciente);
             }
         }catch(Exception e){
             System.out.println("Paciente no encontrado");

@@ -7,12 +7,14 @@ package src.InterfazHistorial;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import javax.swing.JOptionPane;
 import src.Diagnostico;
+import src.Evolucion;
 import src.HistoriaClinica;
 import src.Paciente;
 import src.Medicamento;
+import src.Medico;
+import src.Tratamiento;
 
 /**
  *
@@ -27,7 +29,12 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
 
     ArrayList<Diagnostico> diagnosticos = new ArrayList<>();
     ArrayList<Medicamento> medicamentos = new ArrayList<>();
+    ArrayList<Evolucion> evoluciones = new ArrayList<>();
     HistoriaClinica hc = new HistoriaClinica();
+    Medico medico = new Medico(1234, "8123456", "Juan", "Cruz", "10611231234",
+            "jcruz@gmail.com", "internista");
+    
+    int i = 0;
 
     public FormularioHistorialVistaMedico() {
         initComponents();
@@ -52,26 +59,27 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
         jTGenero.setEditable(false);
         jTPeso.setEditable(false);
         jTMotivosConsulta.setEditable(false);
-        
+
+        Date fecha = new Date();
+        Evolucion evo = new Evolucion(1, String.valueOf(fecha), "Nivel de Glucosa", "1.8");
+        Evolucion evo2 = new Evolucion(2, String.valueOf(fecha), "Nuevo síntoma", "Mareo en las mañanas");
+
+        evoluciones.add(evo);
+        evoluciones.add(evo2);
+
+        Tratamiento tratamiento = new Tratamiento(1, "El paciente requiere una segunda evaluación",
+                evoluciones);
+
         Paciente paciente = new Paciente(1, "CC", 10123456, "Pepe", "Perez", "3124567891", "pperez@gmail.com", "Calle 1 #2 33",
                 "8/8/1991", "M", 45, "Mareos constantes");
 
-        Paciente paciente2 = new Paciente(2, "CC", 10654321, "Juan", "Bolaños", "3186543210", "juanbo@gmail.com", "Calle 2 #3 45",
-                "5/10/1984", "M", 65, "Desmayos y adormecimiento de extremidades");
-
-        Date fecha = new Date();
         Diagnostico diagnostico = new Diagnostico(String.valueOf(paciente.getNumeroDocumento()), fecha,
-                "El paciente se encuentra con niveles altos de Glucosa en la sangre, pendiente medicación",
-                "Estable", "Diabetes Tipo 1");
-        diagnosticos.add(diagnostico);
+                "Diabetes tipo 2", "Realizar pruebas de laboratorio", "estable",
+                tratamiento, medico);
 
-        Medicamento medicamento = new Medicamento(String.valueOf(paciente.getNumeroDocumento()));
-        medicamentos.add(medicamento);
-        
-        
+        paciente.setDiagnosticoYTratamiento(diagnostico);
+
         hc.crearHistoriaClinica(paciente);
-       
-        hc.crearHistoriaClinica(paciente2);
     }
 
     /**
@@ -559,24 +567,22 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
     private void jBGuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarCambiosActionPerformed
         String idPaciente = jTNumDocumento.getText();
         Date fecha = new Date();
-        
-        try{
-        for (Diagnostico diagnostico : diagnosticos) {
-            if (diagnostico.getIdDiagnostico().equals(idPaciente)) {
-                diagnosticos.remove(diagnostico);
-            }
-        }
-        Diagnostico dg;
-        dg = new Diagnostico(idPaciente, fecha,
-                jTObservaciones.getText(), jTEstado.getText(),
-                jTDiagnostico.getText());
-        dg.setTratamiento(jTTratamiento.getText());
-        diagnosticos.add(dg);
-        JOptionPane.showMessageDialog(null, "La historia ha sido editada con éxito");
-        vaciarCampos();
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "No se han realizado cambios");
+        i++;
+        Paciente paciente2 = new Paciente();
+
+        Tratamiento tratamiento = new Tratamiento(i, jTTratamiento.getText(), evoluciones);
+        Diagnostico dg = new Diagnostico(String.valueOf(i), fecha, jTObservaciones.getText(), jTEstado.getText(),
+                jTDiagnostico.getText(), tratamiento, medico);
+
+        paciente2.setDiagnosticoYTratamiento(dg);
+
+        try {
+            hc.modificarHistoria(paciente2);
+            System.out.println(hc.consultarPaciente(idPaciente).getDiagnosticoYTratamiento());
+
+            JOptionPane.showMessageDialog(null, "La historia ha sido editada con éxito");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Por favor ingrese el numero de documento en el campo correspondiente");
         }
     }//GEN-LAST:event_jBGuardarCambiosActionPerformed
 
@@ -598,26 +604,12 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
             jTPeso.setText(String.valueOf(paciente.getPeso()));
             jTMotivosConsulta.setText(paciente.getMotivoConsulta());
 
-            if (!diagnosticos.isEmpty()) {
-                for (Diagnostico diagnostico : diagnosticos) {
-                    if (diagnostico.getIdDiagnostico().equals(idPaciente)) {
-                        jTDiagnostico.setText(diagnostico.getDiagnostico());
-                        jTFechaDeDiagnostico.setText(String.valueOf(diagnostico.getFechaDiagnostico()));
-                        jTEstado.setText(diagnostico.getEstadoPaciente());
-                        jTObservaciones.setText(diagnostico.getObservacion());
-                        jTTratamiento.setText(diagnostico.getTratamiento());
-                    }
-                }
+            jTDiagnostico.setText(paciente.getDiagnosticoYTratamiento().getDiagnostico());
+            jTFechaDeDiagnostico.setText(String.valueOf(paciente.getDiagnosticoYTratamiento().getFechaDiagnostico()));
+            jTEstado.setText(paciente.getDiagnosticoYTratamiento().getEstadoPaciente());
+            jTObservaciones.setText(paciente.getDiagnosticoYTratamiento().getObservacion());
+            jTTratamiento.setText(paciente.getDiagnosticoYTratamiento().getTratamiento());
 
-            }
-
-            if (!medicamentos.isEmpty()) {
-                for (Medicamento medicamento : medicamentos) {
-                    if (medicamento.getIdPaciente().equals(idPaciente)) {
-                        jTMedicamentos.setText(medicamento.toString());
-                    }
-                }
-            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "El paciente no ha sido encontrado");
         }
@@ -641,7 +633,6 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
     private void jBBorrarHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBorrarHistoriaActionPerformed
         String idPaciente = JOptionPane.showInputDialog("Ingrese el número de identificación del paciente:");
         JOptionPane.showConfirmDialog(rootPane, "¿Seguro que quiere eliminar la historia clínica?");
-        HistoriaClinica hc = new HistoriaClinica();
         hc.eliminarHistoria(idPaciente);
 
         JOptionPane.showMessageDialog(null, "La historia clínica ha sido eliminada");

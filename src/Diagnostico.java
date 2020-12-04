@@ -17,6 +17,7 @@ public class Diagnostico {
     private static int idSiguiente = 1;
     private Tratamiento informe;
     private Medico encargado;
+    
     //Constructores
     public Diagnostico() {
         this.idDiagnostico = "";

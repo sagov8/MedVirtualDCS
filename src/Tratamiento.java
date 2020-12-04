@@ -3,8 +3,8 @@ package src;
 import java.util.ArrayList;
 
 public class Tratamiento {
-    public int id;
-    public String descripcion;
+    private int id;
+    private String descripcion;
     private ArrayList<Evolucion> evoluciones;
 
     public Tratamiento(int id, String descripcion, ArrayList<Evolucion> evoluciones) {
