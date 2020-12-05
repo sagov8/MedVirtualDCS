@@ -13,7 +13,7 @@ public class Paciente extends Usuario {
     private long numeroDocumento;
     private String nombrePaciente;
     private String apellidoPaciente;
-    private String numeroTelefonicoPaciente;
+    private String numeroTelefonicoPaciente;//POR QUÉ ES UN STRING?????
     private String correoPaciente;
     private String direccionDeDomicilio;
     private String fechaDeNacimiento;
@@ -23,6 +23,22 @@ public class Paciente extends Usuario {
     private ArrayList<Diagnostico> diagnosticos = new ArrayList<>();
     private Diagnostico diagnosticoYTratamiento;
 
+    //Constructor Temporal para usar el paciente de prueba en "RegistrarDiagnostico" (BORRAR AL TERMINAR)
+    public Paciente(String tipoDocumento,long numeroDocumento,String nombrePaciente,String apellidoPaciente
+                    ,String numeroTelefonicoPaciente,String correoPaciente,String direccionDeDomicilio
+                    ,String fechaDeNacimiento,String genero,float peso){
+        this.tipoDocumento=tipoDocumento;
+        this.numeroDocumento=numeroDocumento;
+        this.nombrePaciente=nombrePaciente;
+        this.apellidoPaciente=apellidoPaciente;
+        this.numeroTelefonicoPaciente=numeroTelefonicoPaciente;
+        this.correoPaciente=correoPaciente;
+        this.direccionDeDomicilio=direccionDeDomicilio;
+        this.fechaDeNacimiento=fechaDeNacimiento;
+        this.genero=genero; 
+        this.peso=peso;
+        
+    }
     //Constructores
     public Paciente() {
 
@@ -38,7 +54,7 @@ public class Paciente extends Usuario {
         this.genero = "";
         this.peso = 0;
     }
-
+    
     public Paciente(int idUsuario, String nombreUsuario, String password, String tipoUsuario,
             int idPaciente, String tipoDocumento, long numeroDocumento,
             String nombrePaciente, String apellidoPaciente,
@@ -109,9 +125,9 @@ public class Paciente extends Usuario {
         super(idUsuario, nombreUsuario, password, tipoUsuario);
     }
 
-    public Paciente(String cédula, int i, String juan, String jiménez, int i0, String jjimenezgmailcom, String calle_5_634, String string, String masculino, int i1) {
+    /*public Paciente(String cédula, int i, String juan, String jiménez, int i0, String jjimenezgmailcom, String calle_5_634, String string, String masculino, int i1) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    }*/
 
     //Getter y Setter
     public int getIdPaciente() {

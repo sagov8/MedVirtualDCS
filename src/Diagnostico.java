@@ -7,7 +7,7 @@ import java.util.Date;
 public class Diagnostico {
 
     //Atributos
-    private String idDiagnostico;
+    private int idDiagnostico;
     private Date fechaDiagnostico;
     private String diagnostico; 
     private String observacion;
@@ -23,15 +23,14 @@ public class Diagnostico {
     
     //Constructores
     public Diagnostico() {
-        this.idDiagnostico = "";
         this.fechaDiagnostico = null;
         this.observacion = "";
         this.recomendacion = null;
     }
-
+   
     public Diagnostico(String idPaciente, Date fechaDiagnostico, String observacion, 
             String estadoPaciente, String diagnostico) {
-        this.idDiagnostico = idPaciente;
+        //this.idDiagnostico = idPaciente;////Está comentada porque idDiagnostico es int no String
         this.fechaDiagnostico = fechaDiagnostico;
         this.observacion = observacion;
         this.estadoPaciente = estadoPaciente;
@@ -43,7 +42,7 @@ public class Diagnostico {
     public Diagnostico(String idDiagnostico, Date fechaDiagnostico, String diagnostico, 
             String observacion, String estadoPaciente,  Tratamiento informe,
             Medico encargado) {
-        this.idDiagnostico = idDiagnostico;
+        //this.idDiagnostico = idDiagnostico;//Está comentada porque idDiagnostico es int no String
         this.fechaDiagnostico = fechaDiagnostico;
         this.diagnostico = diagnostico;
         this.observacion = observacion;
@@ -53,11 +52,11 @@ public class Diagnostico {
     }
 
     //Setter y Getter
-    public String getIdDiagnostico() {
+    public int getIdDiagnostico() {
         return idDiagnostico;
     }
 
-    public void setIdDiagnostico(String idDiagnostico) {
+    public void setIdDiagnostico(int idDiagnostico) {
         this.idDiagnostico = idDiagnostico;
     }
 
@@ -152,6 +151,7 @@ public class Diagnostico {
     //Métodos
 
     public void crearDiagnostico(String diagnostico,String recomendacion) {
+        this.idDiagnostico = idSiguiente++;
         Date fechaDiagostico = new Date();
         this.fechaDiagnostico = fechaDiagostico;
         this.observacion=diagnostico;

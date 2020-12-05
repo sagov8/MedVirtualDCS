@@ -24,16 +24,16 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         setTitle("MedVirtualDCS - Registro Tratamiento");
         //Pacientes de prueba:
         Paciente paciente1 = new Paciente("cédula", 11111, "Juan", "Jiménez",
-                320123456, "jjimenez@gmail.com", "Calle 5 6-34", "1990-08-23",
+                "320123456", "jjimenez@gmail.com", "Calle 5 6-34", "1990-08-23",
                 "Masculino", 70);
         Paciente paciente2 = new Paciente("cédula", 22222, "Pablo", "Pérez",
-                320123457, "pperez@gmail.com", "Carrera 2 7-93", "1985-03-06",
+                "320123457", "pperez@gmail.com", "Carrera 2 7-93", "1985-03-06",
                 "Masculino", 68);
         Paciente paciente3 = new Paciente("cédula", 1061087630, "Rocio", "Bravo",
-                320123458, "mmartinez@gmail.com", "Calle 27 3-22", "1963-12-10",
+                "320123458", "mmartinez@gmail.com", "Calle 27 3-22", "1963-12-10",
                 "Femenino", 60);
         Paciente paciente4 = new Paciente("cédula", 44444, "Ana", "Arango",
-                320123459, "aarango@gmail.com", "Carrera 35 1-60", "1959-07-19",
+                "320123459", "aarango@gmail.com", "Carrera 35 1-60", "1959-07-19",
                 "Femenino", 58);
         pacientes.add(paciente1);
         pacientes.add(paciente2);
@@ -932,7 +932,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         Paciente paciente = pacientes.get(indexPaciente);
         do{
             Diagnostico diagnostico=paciente.getDiagnosticos().get(cont);
-            if(diagnostico.getIdDiagnostico().equals(String.valueOf(idDiagn))){
+            if(diagnostico.getIdDiagnostico()==idDiagn){
                 idDiagEncontrado=true;
                 paciente.getDiagnosticos().remove(cont);
                 JOptionPane.showMessageDialog(null, "Diagnóstico Eliminado");
@@ -948,7 +948,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
     private void jBIdPacienteEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBIdPacienteEliminarActionPerformed
         // Botón consultar id de paciente al que se le eliminará diagnóstico
-        buscarIdPaciente(jTFIdPacienteEliminar,jLNombrePacienteEliminar,jLIdPacienteElim);//2
+        buscarIdPaciente(jTFIdPacienteEliminar,jLNombrePacienteEliminar,jLIdPacienteElim);
     }//GEN-LAST:event_jBIdPacienteEliminarActionPerformed
 
     private void jBConsultarDiagnosticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarDiagnosticoActionPerformed
@@ -964,7 +964,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
     private void jBConsultarPacienteVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarPacienteVerActionPerformed
         // Botón consultar id de paciente al que se le imprimirá diagnóstico
-        buscarIdPaciente(jTFIdPacienteConsult,jLPacienteImprimir,jLIdPacienteImrpimir);//3
+        buscarIdPaciente(jTFIdPacienteConsult,jLPacienteImprimir,jLIdPacienteImrpimir);
     }//GEN-LAST:event_jBConsultarPacienteVerActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1024,7 +1024,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
 
     private void jBConsultarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarPacienteActionPerformed
         // Botón Consultar Paciente
-        buscarIdPaciente(jTFIdPaciente,jLNombreP,jLDocumentoP);//1
+        buscarIdPaciente(jTFIdPaciente,jLNombreP,jLDocumentoP);
 
     }//GEN-LAST:event_jBConsultarPacienteActionPerformed
 
@@ -1107,7 +1107,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
     }
     public void buscarIdPaciente(JTextField idConsultado,JLabel nombrePaciente, JLabel idPaciente){
         //Procedimiento para buscar si el id ingresado corresponde al de un paciente registrado
-        int cedula = Integer.parseInt(idConsultado.getText());
+        long cedula = Long.parseLong(idConsultado.getText());
         int cont = 0;
         boolean pacienteEncontrado = false;
         String nombre="";

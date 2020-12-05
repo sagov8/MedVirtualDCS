@@ -639,13 +639,13 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
 
         if (!diagnosticos.isEmpty()) {
             for (Diagnostico diagnostico : diagnosticos) {
-                if (diagnostico.getIdDiagnostico().equals(idPaciente)) {
+                /*if (diagnostico.getIdDiagnostico().equals(idPaciente)) {//IdDiagnostico debe ser int
                     jTDiagnostico.setText(diagnostico.getDiagnostico());
                     jTFechaDeDiagnostico.setText(String.valueOf(diagnostico.getFechaDiagnostico()));
                     jTEstado.setText(diagnostico.getEstadoPaciente());
                     jTObservaciones.setText(diagnostico.getObservacion());
                     jTTratamiento.setText(diagnostico.getTratamiento());
-                }
+                }*/
             }
 
         }

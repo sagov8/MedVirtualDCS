@@ -15,7 +15,7 @@ import src.Paciente;
 public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
 
     Paciente paciente1 = new Paciente("cédula", 1061087630, "Rocio", "Bravo",
-            311309118, "rbravo@medvirtual.com", "Calle 15 # 7-71", "1980-01-05",
+            "311309118", "rbravo@medvirtual.com", "Calle 15 # 7-71", "1980-01-05",
             "Femenino", 65);
 
     public static ArrayList<Evolucion> eventosPaciente = new ArrayList<>();
