@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package src.InterfazHistorial;
 
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import scr.InterfazDiagnostico.RegistrarDiagnostico;
 import src.Diagnostico;
 import src.Evolucion;
 import src.HistoriaClinica;
@@ -147,6 +143,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
         jBConsultarHistoria = new javax.swing.JButton();
         jBEditarHistoria = new javax.swing.JButton();
         jBBorrarHistoria = new javax.swing.JButton();
+        jBDiagnostico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -487,6 +484,13 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
             }
         });
 
+        jBDiagnostico.setText("Diagnostico");
+        jBDiagnostico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBDiagnosticoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -495,8 +499,9 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
                 .addGap(0, 28, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jBEditarHistoria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBConsultarHistoria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                    .addComponent(jBBorrarHistoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jBConsultarHistoria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jBBorrarHistoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBDiagnostico, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(51, 51, 51))
         );
         jPanel1Layout.setVerticalGroup(
@@ -508,7 +513,9 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
                 .addComponent(jBEditarHistoria)
                 .addGap(18, 18, 18)
                 .addComponent(jBBorrarHistoria)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jBDiagnostico)
+                .addContainerGap(196, Short.MAX_VALUE))
         );
 
         jToolBar1.add(jPanel1);
@@ -639,6 +646,14 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
         vaciarCampos();
     }//GEN-LAST:event_jBBorrarHistoriaActionPerformed
 
+    private void jBDiagnosticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDiagnosticoActionPerformed
+        //Botón Diagnostico
+        this.setVisible(false);
+        dispose();
+        RegistrarDiagnostico registroDiagnostico = new RegistrarDiagnostico();
+        registroDiagnostico.setVisible(true);
+    }//GEN-LAST:event_jBDiagnosticoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -682,6 +697,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBorrarHistoria;
     private javax.swing.JButton jBConsultarHistoria;
+    private javax.swing.JButton jBDiagnostico;
     private javax.swing.JButton jBEditarHistoria;
     private javax.swing.JButton jBGuardarCambios;
     private javax.swing.JButton jBSalir;

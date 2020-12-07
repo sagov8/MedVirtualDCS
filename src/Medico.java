@@ -10,6 +10,8 @@ public class Medico extends Usuario {
     private String numeroTelefonicoMedico;
     private String nombreMedico;
     private String apellidoMedico;
+    private String tipoDocumento;
+    private long numeroDocumento;
     private String cedulaMedico;
     private String correoMedico;
     private String especialidad;
@@ -35,7 +37,11 @@ public class Medico extends Usuario {
         this.correoMedico = correoMedico;
         this.especialidad = especialidad;
     }
-    
+    public Medico( String nombreUsuario, String password, String tipoUsuario,String nombreMedico,String apellidoMedico,
+                    String tipoDocumento,long numeroDocumento){//Se usa en RegistrarUsuario
+        super(nombreUsuario, password, tipoUsuario);
+        
+    }
     public Medico(int idUsuario, String nombreUsuario, String password, String tipoUsuario){
         super(idUsuario, nombreUsuario, password, tipoUsuario);
     }

@@ -1,6 +1,8 @@
 package src;
 
 import java.util.ArrayList;
+import static src.InterfazHistorial.RegistrarUsuario.listaMedicos;
+import static src.InterfazHistorial.RegistrarUsuario.listaPacientes;
 
 //Camilo
 public abstract class Usuario {
@@ -10,6 +12,7 @@ public abstract class Usuario {
     private String nombreUsuario;
     private String password;
     private String tipoUsuario;
+    private static int idNext = 1;
 
     // Contructor
     public Usuario() {
@@ -18,7 +21,12 @@ public abstract class Usuario {
         this.password = "";
         this.tipoUsuario = "";
     }
-
+    public Usuario(String nombreUsuario, String password, String tipoUsuario) {
+        this.idUsuario = idNext++;
+        this.nombreUsuario = nombreUsuario;
+        this.password = password;
+        this.tipoUsuario = tipoUsuario;
+    }
     public Usuario(int idUsuario, String nombreUsuario, String password, String tipoUsuario) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
@@ -82,5 +90,33 @@ public abstract class Usuario {
             }
         }
         return null;
+    }
+    public static String verificaLogin(String nombreUsuario, String password) {//Se usa en InicioSesion
+       
+        for (Usuario user : listaPacientes) {
+            if (user.getNombreUsuario().equals(nombreUsuario) && user.getPassword().equals(password)) {
+                return user.getTipoUsuario();
+            }
+        }
+        for (Usuario user : listaMedicos) {
+            if (user.getNombreUsuario().equals(nombreUsuario) && user.getPassword().equals(password)) {
+                return user.getTipoUsuario();
+            }
+        }
+        return null;
+    }
+    public static boolean verificaUsuarioRepetido(String nombreUsuario, String password) {//Se usa en RegistrarUsuario
+       
+        for (Usuario user : listaPacientes) {
+            if (user.getNombreUsuario().equals(nombreUsuario) && user.getPassword().equals(password)) {
+                return true;
+            }
+        }
+        for (Usuario user : listaMedicos) {
+            if (user.getNombreUsuario().equals(nombreUsuario) && user.getPassword().equals(password)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

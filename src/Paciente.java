@@ -124,7 +124,14 @@ public class Paciente extends Usuario {
     public Paciente(int idUsuario, String nombreUsuario, String password, String tipoUsuario) {
         super(idUsuario, nombreUsuario, password, tipoUsuario);
     }
-
+    public Paciente(String nombreUsuario, String password, String tipoUsuario,String nombrePaciente, String apellidoPaciente,
+                    String tipoDocumento, long numeroDocumento) {//Se usa en RegistrarUsuario
+        super(nombreUsuario, password, tipoUsuario);
+        this.nombrePaciente=nombrePaciente;
+        this.apellidoPaciente=apellidoPaciente;
+        this.tipoDocumento=tipoDocumento;
+        this.numeroDocumento=numeroDocumento;
+    }
     /*public Paciente(String cédula, int i, String juan, String jiménez, int i0, String jjimenezgmailcom, String calle_5_634, String string, String masculino, int i1) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }*/
