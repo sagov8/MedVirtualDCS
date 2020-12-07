@@ -191,19 +191,15 @@ public class RegistrarUsuario extends javax.swing.JFrame {
                         Paciente paciente=new Paciente(usuario,pass1,"paciente",nombre,apellido,jCBTipoDocumento.getSelectedItem().toString(),numDocumento);
                         listaPacientes.add(paciente);
                         JOptionPane.showMessageDialog(null,"Registro de paciente exitoso"+"\nPuede iniciar sesión");
-                        this.setVisible(false);
-                        dispose();
-                        InicioSesion inicioSesion = new InicioSesion();
-                        inicioSesion.setVisible(true);
                     }else if(jCBTipoUsuario.getSelectedItem().toString().equals("Médico")){
                         Medico medico=new Medico(usuario,pass1,"medico",nombre,apellido,jCBTipoDocumento.getSelectedItem().toString(),numDocumento);
                         listaMedicos.add(medico);
                         JOptionPane.showMessageDialog(null,"Registro de médico exitoso"+"\nPuede iniciar sesión");
-                        this.setVisible(false);
-                        dispose();
-                        InicioSesion inicioSesion = new InicioSesion();
-                        inicioSesion.setVisible(true);
-                    }  
+                    }
+                    this.setVisible(false);
+                    dispose();
+                    InicioSesion inicioSesion = new InicioSesion();
+                    inicioSesion.setVisible(true);
                 }else{
                     JOptionPane.showMessageDialog(null,"El nombre de usuario ya existe");
                 }    

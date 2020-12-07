@@ -3,6 +3,7 @@ package src;
 import java.util.ArrayList;
 import static src.InterfazHistorial.RegistrarUsuario.listaMedicos;
 import static src.InterfazHistorial.RegistrarUsuario.listaPacientes;
+import static src.InterfazHistorial.FormularioHistorialVistaMedico.indexPaciente;
 
 //Camilo
 public abstract class Usuario {
@@ -92,11 +93,13 @@ public abstract class Usuario {
         return null;
     }
     public static String verificaLogin(String nombreUsuario, String password) {//Se usa en InicioSesion
-       
+        int cont=0;
         for (Usuario user : listaPacientes) {
             if (user.getNombreUsuario().equals(nombreUsuario) && user.getPassword().equals(password)) {
+                indexPaciente=cont;
                 return user.getTipoUsuario();
             }
+            cont++;
         }
         for (Usuario user : listaMedicos) {
             if (user.getNombreUsuario().equals(nombreUsuario) && user.getPassword().equals(password)) {
@@ -108,12 +111,12 @@ public abstract class Usuario {
     public static boolean verificaUsuarioRepetido(String nombreUsuario, String password) {//Se usa en RegistrarUsuario
        
         for (Usuario user : listaPacientes) {
-            if (user.getNombreUsuario().equals(nombreUsuario) && user.getPassword().equals(password)) {
+            if (user.getNombreUsuario().equals(nombreUsuario) ) {
                 return true;
             }
         }
         for (Usuario user : listaMedicos) {
-            if (user.getNombreUsuario().equals(nombreUsuario) && user.getPassword().equals(password)) {
+            if (user.getNombreUsuario().equals(nombreUsuario) ) {
                 return true;
             }
         }

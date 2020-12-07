@@ -22,6 +22,7 @@ public class Paciente extends Usuario {
     private String motivoConsulta;
     private ArrayList<Diagnostico> diagnosticos = new ArrayList<>();
     private Diagnostico diagnosticoYTratamiento;
+    private ArrayList<Evolucion> evoluciones=new ArrayList<>();
 
     //Constructor Temporal para usar el paciente de prueba en "RegistrarDiagnostico" (BORRAR AL TERMINAR)
     public Paciente(String tipoDocumento,long numeroDocumento,String nombrePaciente,String apellidoPaciente
@@ -248,7 +249,13 @@ public class Paciente extends Usuario {
     public void setDiagnosticos(Diagnostico diagnostico) {
         this.diagnosticos.add(diagnostico);
     }
+    public ArrayList<Evolucion> getEvoluciones() {
+        return evoluciones;
+    }
 
+    public void setEvoluciones(Evolucion evolucion) {
+        this.evoluciones.add(evolucion);
+    }
     //Procedimientos y funciones
     @Override
     public String toString() {

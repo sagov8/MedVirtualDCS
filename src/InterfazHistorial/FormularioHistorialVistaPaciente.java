@@ -11,6 +11,7 @@ import java.util.HashMap;
 import javax.swing.JOptionPane;
 import src.Diagnostico;
 import src.HistoriaClinica;
+import src.InterfazEvolucionPaciente.RegistrarEvolucionPaciente;
 import src.Paciente;
 import src.Medicamento;
 
@@ -431,7 +432,6 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
                             .addComponent(jLabel19))))
-                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -467,6 +467,11 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
         });
 
         jBAgregarEvolucion.setText("Agregar Evolución");
+        jBAgregarEvolucion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAgregarEvolucionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -661,7 +666,11 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         JOptionPane.showMessageDialog(null, "Gracias por usar MedVirtualDCS. Vuelva pronto.");
-        System.exit(0);
+        //System.exit(0);
+        this.setVisible(false);
+        dispose();
+        InicioSesion inicioSesion = new InicioSesion();
+        inicioSesion.setVisible(true);
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jBEditarHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarHistoriaActionPerformed
@@ -677,6 +686,14 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
         jTPeso.setEditable(true);
         jTMotivosConsulta.setEditable(true);
     }//GEN-LAST:event_jBEditarHistoriaActionPerformed
+
+    private void jBAgregarEvolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarEvolucionActionPerformed
+        // Botón Agregar Evolución
+        this.setVisible(false);
+        dispose();
+        RegistrarEvolucionPaciente registroEvolucionPaciente = new RegistrarEvolucionPaciente();
+        registroEvolucionPaciente.setVisible(true);
+    }//GEN-LAST:event_jBAgregarEvolucionActionPerformed
 
     /**
      * @param args the command line arguments

@@ -6,27 +6,18 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import src.Evolucion;
 import src.InterfazEvolucionPaciente.RegistrarEvolucionPaciente;
+import static src.InterfazHistorial.FormularioHistorialVistaMedico.indexPaciente;
+import src.InterfazHistorial.FormularioHistorialVistaPaciente;
+import static src.InterfazHistorial.RegistrarUsuario.listaPacientes;
 import src.Paciente;
 
-/**
- *
- * @author Usuario
- */
 public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
 
-    Paciente paciente1 = new Paciente("cédula", 1061087630, "Rocio", "Bravo",
-            "311309118", "rbravo@medvirtual.com", "Calle 15 # 7-71", "1980-01-05",
-            "Femenino", 65);
-
-    public static ArrayList<Evolucion> eventosPaciente = new ArrayList<>();
-
-    /**
-     * Creates new form RegistrarEvolucionPaciente
-     */
     public RegistrarEvolucionPaciente() {
         initComponents();
         setResizable(false);
         setTitle("MedVirtualDCS - Evolución Paciente");
+        llenarDatos();
         //   setIconImage(new ImageIcon(getClass().getResource("/MedVirtualDCS/iconoAplicacion.png")).getImage());
     }
 
@@ -38,24 +29,21 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
-        jLIDpaciente = new javax.swing.JLabel();
         jLNivelAzucar = new javax.swing.JLabel();
         jBGuardarEventoPaciente = new javax.swing.JButton();
         jBImprimirEvento = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
-        jTIDpaciente = new javax.swing.JTextField();
         jLDescripcionEvento = new javax.swing.JLabel();
         jLNombrePaciente = new javax.swing.JLabel();
-        jTNombrePaciente = new javax.swing.JTextField();
         jLApellidoPaciente = new javax.swing.JLabel();
-        jTApellidoPaciente = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTDescripcionEvento = new javax.swing.JTextArea();
         jBEliminarEvento = new javax.swing.JButton();
-        jBConsultarPaciente = new javax.swing.JButton();
         jTIngresarNivelAzucar = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jLNombre = new javax.swing.JLabel();
+        jLApellido = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
 
         jMenu1.setText("File");
@@ -68,9 +56,6 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Registrar Evolución");
-
-        jLIDpaciente.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLIDpaciente.setText("Cédula paciente:");
 
         jLNivelAzucar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLNivelAzucar.setText("Nivel de Azucar:");
@@ -93,12 +78,6 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBSalirActionPerformed(evt);
-            }
-        });
-
-        jTIDpaciente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTIDpacienteActionPerformed(evt);
             }
         });
 
@@ -125,13 +104,6 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
             }
         });
 
-        jBConsultarPaciente.setText("Consultar");
-        jBConsultarPaciente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBConsultarPacienteActionPerformed(evt);
-            }
-        });
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("mg/dl");
         setJMenuBar(jMenuBar2);
@@ -147,46 +119,43 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLNivelAzucar)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTIngresarNivelAzucar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(178, 178, 178)
                                         .addComponent(jLabel8))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLIDpaciente)
+                                        .addGap(132, 132, 132)
+                                        .addComponent(jLabel1)))
+                                .addGap(0, 321, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLNivelAzucar)
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel1)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jTIDpaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jTIngresarNivelAzucar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jBConsultarPaciente))))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(96, 96, 96)
-                                            .addComponent(jBEliminarEvento)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jBImprimirEvento)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jBSalir))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(jLNombrePaciente)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jTNombrePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(24, 24, 24)
-                                            .addComponent(jLApellidoPaciente)
-                                            .addGap(12, 12, 12)
-                                            .addComponent(jTApellidoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 55, Short.MAX_VALUE))))
+                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jBEliminarEvento)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jBImprimirEvento))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLNombrePaciente)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLApellidoPaciente)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jLApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jBSalir)))
+                                .addContainerGap())))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jBGuardarEventoPaciente)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -199,20 +168,15 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLIDpaciente)
-                    .addComponent(jTIDpaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBConsultarPaciente))
-                .addGap(24, 24, 24)
+                .addGap(65, 65, 65)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLNombrePaciente)
-                    .addComponent(jTNombrePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLApellidoPaciente)
-                    .addComponent(jTApellidoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                    .addComponent(jLNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLNivelAzucar)
                     .addComponent(jTIngresarNivelAzucar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -227,7 +191,7 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
                     .addComponent(jBImprimirEvento)
                     .addComponent(jBSalir)
                     .addComponent(jBEliminarEvento))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         pack();
@@ -238,47 +202,38 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
         Date fecha = new Date();
         SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/YYYY");
         return formatoFecha.format(fecha);
-
     }
 
 
-    private void jTIDpacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTIDpacienteActionPerformed
-
-
-    }//GEN-LAST:event_jTIDpacienteActionPerformed
-
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-        System.exit(0);
+        //System.exit(0);
+        this.setVisible(false);
+        dispose();
+        FormularioHistorialVistaPaciente fhvp = new FormularioHistorialVistaPaciente();
+        fhvp.setVisible(true);
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jBGuardarEventoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarEventoPacienteActionPerformed
-        Evolucion guardarEvolucion = new Evolucion();
+        Evolucion evolucion = new Evolucion();
         float nivelGlucosa = Float.parseFloat(jTIngresarNivelAzucar.getText());
-        guardarEvolucion.setNivelGlucosa(nivelGlucosa);
-        guardarEvolucion.setDescripcionEvento(jTDescripcionEvento.getText());
+        evolucion.setNivelGlucosa(nivelGlucosa);
+        evolucion.setDescripcionEvento(jTDescripcionEvento.getText());
         Date fechaEvento = new Date();
-        guardarEvolucion.setFechaEvento(fechaEvento);
-        eventosPaciente.add(guardarEvolucion);
-        JOptionPane.showMessageDialog(null, "Evento Guardo con Éxito");
-
+        evolucion.setFechaEvento(fechaEvento);
+        Paciente paciente = listaPacientes.get(indexPaciente);//Guarda en paciente la información de la cédula consultada
+        paciente.setEvoluciones(evolucion);//Guarda la evolucion creado en el ArrayList evoluciones del Paciente consultado
+        JOptionPane.showMessageDialog(null, "Evento Guardado");
+        jTIngresarNivelAzucar.setText(null);
+        jTDescripcionEvento.setText(null);
     }//GEN-LAST:event_jBGuardarEventoPacienteActionPerformed
 
-    private void jBConsultarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarPacienteActionPerformed
-        int cedula = Integer.parseInt(jTIDpaciente.getText());
-        if (cedula == paciente1.getNumeroDocumento()) {
-            jTNombrePaciente.setText(paciente1.getNombrePaciente());
-            jTApellidoPaciente.setText(paciente1.getApellidoPaciente());
-
-        }
-
-    }//GEN-LAST:event_jBConsultarPacienteActionPerformed
-
     private void jBImprimirEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBImprimirEventoActionPerformed
-
+        Paciente paciente = listaPacientes.get(indexPaciente);
+        ArrayList<Evolucion> evoluciones = paciente.getEvoluciones();
         String mostrarEventos = "";
 
-        for (int i = 0; i < eventosPaciente.size(); i++) {
-            Evolucion eventoGuardado = eventosPaciente.get(i);
+        for (int i = 0; i < evoluciones.size(); i++) {
+            Evolucion eventoGuardado = evoluciones.get(i);
             mostrarEventos = mostrarEventos + "\nEVENTO " + (i + 1) + ":"
                     + "\nID Evento: " + eventoGuardado.getIdEvento()
                     + "\nFecha evento: " + eventoGuardado.getFechaEvento()
@@ -288,8 +243,7 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
         }
 
         JOptionPane.showMessageDialog(null, mostrarEventos);
-
-
+        
     }//GEN-LAST:event_jBImprimirEventoActionPerformed
 
     private void jBEliminarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarEventoActionPerformed
@@ -299,7 +253,11 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jBEliminarEventoActionPerformed
-
+    public void llenarDatos(){
+        Paciente paciente = listaPacientes.get(indexPaciente);
+        jLNombre.setText(paciente.getNombrePaciente());
+        jLApellido.setText(paciente.getApellidoPaciente());
+    }
     /**
      * @param args the command line arguments
      */
@@ -336,15 +294,15 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBConsultarPaciente;
     private javax.swing.JButton jBEliminarEvento;
     private javax.swing.JButton jBGuardarEventoPaciente;
     private javax.swing.JButton jBImprimirEvento;
     private javax.swing.JButton jBSalir;
+    private javax.swing.JLabel jLApellido;
     private javax.swing.JLabel jLApellidoPaciente;
     private javax.swing.JLabel jLDescripcionEvento;
-    private javax.swing.JLabel jLIDpaciente;
     private javax.swing.JLabel jLNivelAzucar;
+    private javax.swing.JLabel jLNombre;
     private javax.swing.JLabel jLNombrePaciente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -354,10 +312,7 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTApellidoPaciente;
     private javax.swing.JTextArea jTDescripcionEvento;
-    private javax.swing.JTextField jTIDpaciente;
     private javax.swing.JTextField jTIngresarNivelAzucar;
-    private javax.swing.JTextField jTNombrePaciente;
     // End of variables declaration//GEN-END:variables
 }

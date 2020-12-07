@@ -5,8 +5,12 @@
  */
 package src.InterfazEvolucionPaciente;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import src.Evolucion;
+import static src.InterfazHistorial.FormularioHistorialVistaMedico.indexPaciente;
+import static src.InterfazHistorial.RegistrarUsuario.listaPacientes;
+import src.Paciente;
 
 /**
  *
@@ -153,12 +157,13 @@ public class EliminarEventosPaciente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBConsultarEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarEventosActionPerformed
-      int idEventoCreado=Integer.parseInt(jTidEvento.getText());
+        Paciente paciente = listaPacientes.get(indexPaciente);
+        ArrayList<Evolucion> evoluciones = paciente.getEvoluciones();
+        int idEventoCreado=Integer.parseInt(jTidEvento.getText());
        
-      
-      for (int i = 0; i < RegistrarEvolucionPaciente.eventosPaciente.size(); i++) {
+        for (int i = 0; i < evoluciones.size(); i++) {
         
-            Evolucion eventoConsultado=RegistrarEvolucionPaciente.eventosPaciente.get(i);
+            Evolucion eventoConsultado=evoluciones.get(i);
             if (idEventoCreado==eventoConsultado.getIdEvento()) {
                jTDescripcionEvento.setText(
                      "\nID Evento: " + eventoConsultado.getIdEvento()
@@ -167,17 +172,18 @@ public class EliminarEventosPaciente extends javax.swing.JFrame {
                     + "\nDescripcion Evento: " + eventoConsultado.getDescripcionEvento());
             }
         }
-        
-       
+    
     }//GEN-LAST:event_jBConsultarEventosActionPerformed
 
     private void jBModificarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarEventoActionPerformed
-       int idEventoCreado=Integer.parseInt(jTidEvento.getText());
+        Paciente paciente = listaPacientes.get(indexPaciente);
+        ArrayList<Evolucion> evoluciones = paciente.getEvoluciones();
+        int idEventoCreado=Integer.parseInt(jTidEvento.getText());
        
       
-      for (int i = 0; i < RegistrarEvolucionPaciente.eventosPaciente.size(); i++) {
+        for (int i = 0; i < evoluciones.size(); i++) {
         
-            Evolucion eventoModificado=RegistrarEvolucionPaciente.eventosPaciente.get(i);
+            Evolucion eventoModificado=evoluciones.get(i);
             if (idEventoCreado==eventoModificado.getIdEvento()) {
                 int nivelGlucosa=Integer.parseInt(jTNuevoNivelGlucosa.getText());
                 eventoModificado.setNivelGlucosa(nivelGlucosa);
@@ -189,14 +195,16 @@ public class EliminarEventosPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jBModificarEventoActionPerformed
 
     private void jBEliminarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarEventoActionPerformed
+        Paciente paciente = listaPacientes.get(indexPaciente);
+        ArrayList<Evolucion> evoluciones = paciente.getEvoluciones();
         int idEventoCreado=Integer.parseInt(jTidEvento.getText());
        
       
-      for (int i = 0; i < RegistrarEvolucionPaciente.eventosPaciente.size(); i++) {
+         for (int i = 0; i < evoluciones.size(); i++) {
         
-            Evolucion eventoEliminar=RegistrarEvolucionPaciente.eventosPaciente.get(i);
+            Evolucion eventoEliminar=evoluciones.get(i);
             if (idEventoCreado==eventoEliminar.getIdEvento()) {
-                RegistrarEvolucionPaciente.eventosPaciente.remove(i);
+                evoluciones.remove(i);
                 JOptionPane.showMessageDialog(null, "Evento eliminado correctamente"); 
                        
             }
