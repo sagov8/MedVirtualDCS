@@ -6,6 +6,7 @@ import src.Medico;
 import src.Paciente;
 import javax.swing.JOptionPane;
 import static src.InterfazHistorial.RegistrarUsuario.listaMedicos;//Temporal para hacer pruebas BORRAR AL TERMINAR (para usar el médico de prueba)
+import static src.InterfazHistorial.RegistrarUsuario.listaPacientes;//Temporal para hacer pruebas BORRAR AL TERMINAR (para usar el paciente de prueba)
 
 public class InicioSesion extends javax.swing.JFrame {
 
@@ -17,7 +18,9 @@ public class InicioSesion extends javax.swing.JFrame {
         Medico medico = new Medico(1, "medico", "1234", "medico");//Temporal para hacer pruebas BORRAR AL TERMINAR
         listaMedicos.add(medico);//Temporal para hacer pruebas BORRAR AL TERMINAR
         Paciente paciente = new Paciente(2, "pperez", "1234", "paciente");//Temporal para hacer pruebas BORRAR AL TERMINAR
-        usuarios.add(paciente);//Temporal para hacer pruebas BORRAR AL TERMINAR
+        listaPacientes.add(paciente);//Temporal para hacer pruebas BORRAR AL TERMINAR
+        Paciente paciente2 = new Paciente(3, "p", "1", "paciente");//Temporal para hacer pruebas BORRAR AL TERMINAR
+        listaPacientes.add(paciente2);//Temporal para hacer pruebas BORRAR AL TERMINAR
     }
 
     @SuppressWarnings("unchecked")

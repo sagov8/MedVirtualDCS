@@ -14,14 +14,17 @@ public class Evolucion {
     private String tipoDeEvento;
     private float nivelGlucosa;
     private String descripcionEvento;
-    private static int idNext=1;
-    
+    private static int idNext = 1;
+    private boolean alerta;
+    private String estadoNivel;
+
     //Constructores
     public Evolucion() {
         this.idEvento = idNext++;
         this.fechaEvento = null;
         this.tipoDeEvento = "";
         this.descripcionEvento = "";
+        this.alerta = false;
     }
 
     public Evolucion(int idEvento, Date fechaEvento, String tipoDeEvento, String descripcionEvento) {
@@ -32,7 +35,6 @@ public class Evolucion {
     }
 
     //Getters y Setters
-
     public float getNivelGlucosa() {
         return nivelGlucosa;
     }
@@ -40,14 +42,29 @@ public class Evolucion {
     public void setNivelGlucosa(float nivelGlucosa) {
         this.nivelGlucosa = nivelGlucosa;
     }
-    
-    
+
     public int getIdEvento() {
         return idEvento;
     }
 
     public void setIdEvento(int idEvento) {
         this.idEvento = idEvento;
+    }
+
+    public boolean isAlerta() {
+        return alerta;
+    }
+
+    public void setAlerta(boolean alerta) {
+        this.alerta = alerta;
+    }
+
+    public String getEstadoNivel() {
+        return estadoNivel;
+    }
+
+    public void setEstadoNivel(String estadoNivel) {
+        this.estadoNivel = estadoNivel;
     }
 
     public Date getFechaEvento() {
@@ -98,26 +115,22 @@ public class Evolucion {
 
     }
 
-    public void validacionNivelGlucosa() {
+    public void validacionNivelGlucosa(float nivelGlucosa) {
 
-        Scanner t = new Scanner(System.in);
-
-        System.out.println("Ingrese nivel de glucosa: " + "(mg/dl)");
-        nivelGlucosa = t.nextFloat();
-
-        if (nivelGlucosa > 168) {
-            System.out.println("PELIGRO: Consultar medico, nivel de "
-                    + "glucosa muy ALTO");
+        if (nivelGlucosa > 200) {
+            estadoNivel = "NIVEL CRÍTICO";
+            alerta = true;
         }
-        if (nivelGlucosa <= 154 && nivelGlucosa > 139) {
-            System.out.println("ALARMA: Tomar medicamentos");
-
+        if (nivelGlucosa > 140 && nivelGlucosa <= 200) {
+            estadoNivel = "NIVEL ELEVADO: Tomar medicamentos";
         }
-        if (nivelGlucosa <= 126 && nivelGlucosa >= 97) {
-            System.out.println("DIABETICO EN CONTROL");
-
+        if (nivelGlucosa > 70 && nivelGlucosa <= 140) {
+            estadoNivel = "NIVEL NORMAL";
         }
-
+        if (nivelGlucosa <=70) {
+            estadoNivel = "HIPOGLUCEMIA";
+            alerta = true;
+        }
     }
 
     public void MenuEventosPaciente() {
@@ -145,8 +158,7 @@ public class Evolucion {
 
                 case 2:
 
-                    validacionNivelGlucosa();
-
+                    //validacionNivelGlucosa();
                     descripcionEvento();
 
                     /*    System.out.println("Crear Evolucion");
