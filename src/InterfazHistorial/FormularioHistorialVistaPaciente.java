@@ -34,6 +34,7 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
     public FormularioHistorialVistaPaciente() {
         initComponents();
         setTitle("MedVirtualDCS - Historia clínica");
+        llenarDatos();
 
         jTDiagnostico.setEditable(false);
         jTFechaDeDiagnostico.setEditable(false);
@@ -694,7 +695,14 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
         RegistrarEvolucionPaciente registroEvolucionPaciente = new RegistrarEvolucionPaciente();
         registroEvolucionPaciente.setVisible(true);
     }//GEN-LAST:event_jBAgregarEvolucionActionPerformed
-
+    public void llenarDatos(){
+        Paciente paciente=RegistrarUsuario.listaPacientes.get(FormularioHistorialVistaMedico.indexPaciente);
+        jTNombre.setText(paciente.getNombrePaciente());
+        jTApellido.setText(paciente.getApellidoPaciente());
+        jTTipoDocumento.setText(paciente.getTipoDocumento());
+        String doc=String.valueOf(paciente.getNumeroDocumento());
+        jTNumDocumento.setText(doc);
+    }
     /**
      * @param args the command line arguments
      */

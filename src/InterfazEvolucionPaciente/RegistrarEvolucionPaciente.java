@@ -55,10 +55,15 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTAConsultar = new javax.swing.JTextArea();
         jBConsultarEvolucion = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTEvolucion = new javax.swing.JTable();
+        jBSalir1 = new javax.swing.JButton();
+        jBSalir2 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jTidEventoEliminar = new javax.swing.JTextField();
         jBEliminarEvento1 = new javax.swing.JButton();
+        jBSalir3 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jTidEvento = new javax.swing.JTextField();
@@ -70,6 +75,7 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
         jTNuevaDescripcionEvento = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jBModificarEvento = new javax.swing.JButton();
+        jBSalir4 = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
 
         jMenu1.setText("File");
@@ -238,26 +244,56 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
             }
         });
 
+        jTEvolucion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Fecha y Hora", "Nivel Glucosa", "Estado", "Descripción"
+            }
+        ));
+        jScrollPane5.setViewportView(jTEvolucion);
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBConsultarEvolucion)
-                .addGap(190, 190, 190))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 576, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(255, 255, 255)
+                        .addComponent(jBConsultarEvolucion)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(jBConsultarEvolucion))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(jBConsultarEvolucion)
+                .addContainerGap())
         );
+
+        jBSalir1.setText("Salir");
+        jBSalir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalir1ActionPerformed(evt);
+            }
+        });
+
+        jBSalir2.setText("Salir");
+        jBSalir2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalir2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -266,14 +302,30 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(0, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBSalir2)
+                .addGap(96, 96, 96))
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(318, 318, 318)
+                    .addComponent(jBSalir1)
+                    .addContainerGap(319, Short.MAX_VALUE)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addGap(1, 1, 1)
+                .addComponent(jBSalir2)
+                .addGap(8, 8, 8))
+            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGap(153, 153, 153)
+                    .addComponent(jBSalir1)
+                    .addContainerGap(154, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Consultar ", jPanel5);
@@ -293,6 +345,13 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
             }
         });
 
+        jBSalir3.setText("Salir");
+        jBSalir3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalir3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -305,6 +364,10 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jBEliminarEvento1)
                 .addContainerGap(368, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBSalir3)
+                .addGap(182, 182, 182))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -314,7 +377,9 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jTidEventoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBEliminarEvento1))
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
+                .addComponent(jBSalir3)
+                .addGap(41, 41, 41))
         );
 
         jTabbedPane1.addTab("Eliminar ", jPanel7);
@@ -349,6 +414,13 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
             }
         });
 
+        jBSalir4.setText("Salir");
+        jBSalir4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalir4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -369,7 +441,8 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
                                     .addComponent(jLabel4)
                                     .addGap(18, 18, 18)
                                     .addComponent(jTNuevoNivelGlucosa, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jBSalir4))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -399,7 +472,9 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
                     .addComponent(jTNuevaDescripcionEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(jBModificarEvento)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jBSalir4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Modificar", jPanel6);
@@ -436,7 +511,7 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
         ArrayList<Evolucion> evoluciones = paciente.getEvoluciones();
         String mostrarEventos = "";
 
-        for (int i = 0; i < evoluciones.size(); i++) {
+        /*for (int i = 0; i < evoluciones.size(); i++) {
             Evolucion eventoGuardado = evoluciones.get(i);
             mostrarEventos = mostrarEventos + "\nEVENTO " + (i + 1) + ":"
                     + "\nID Evento: " + eventoGuardado.getIdEvento()
@@ -445,7 +520,22 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
                     + "\nDescripcion Evento: " + eventoGuardado.getDescripcionEvento();
 
         }
-        jTAConsultar.setText(mostrarEventos);
+        jTAConsultar.setText(mostrarEventos);*/
+        String matriz[][]=new String[evoluciones.size()][5];
+        for (int i = 0; i < evoluciones.size(); i++) {
+            Evolucion eventoGuardado = evoluciones.get(i);
+            String idEvolucion=String.valueOf(eventoGuardado.getIdEvento());
+            String fechaEv=String.valueOf(eventoGuardado.getFechaEvento());
+            String nivelG=String.valueOf(eventoGuardado.getNivelGlucosa());
+            matriz[i][0]=idEvolucion;
+            matriz[i][1]=fechaEv;
+            matriz[i][2]=nivelG;
+            matriz[i][3]=eventoGuardado.getEstadoNivel();
+            matriz[i][4]=eventoGuardado.getDescripcionEvento();
+        }
+        jTEvolucion.setModel(new javax.swing.table.DefaultTableModel(matriz,new String[]{"ID",
+                    "Fecha y Hora","Nivel Glucosa","Estado","Descripción"}));
+        
     }//GEN-LAST:event_jBConsultarEvolucionActionPerformed
 
     private void jBConsultarEventosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarEventosActionPerformed
@@ -541,6 +631,31 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
         // verificar que el dato ingresado sea un número
         ingresarSoloNumeros(jTidEvento);
     }//GEN-LAST:event_jTidEventoKeyReleased
+
+    private void jBSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalir1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBSalir1ActionPerformed
+
+    private void jBSalir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalir2ActionPerformed
+        this.setVisible(false);
+        dispose();
+        FormularioHistorialVistaPaciente fhvp = new FormularioHistorialVistaPaciente();
+        fhvp.setVisible(true);
+    }//GEN-LAST:event_jBSalir2ActionPerformed
+
+    private void jBSalir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalir3ActionPerformed
+        this.setVisible(false);
+        dispose();
+        FormularioHistorialVistaPaciente fhvp = new FormularioHistorialVistaPaciente();
+        fhvp.setVisible(true);
+    }//GEN-LAST:event_jBSalir3ActionPerformed
+
+    private void jBSalir4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalir4ActionPerformed
+        this.setVisible(false);
+        dispose();
+        FormularioHistorialVistaPaciente fhvp = new FormularioHistorialVistaPaciente();
+        fhvp.setVisible(true);
+    }//GEN-LAST:event_jBSalir4ActionPerformed
     public void llenarDatos(){
         Paciente paciente = listaPacientes.get(indexPaciente);
         jLNombre.setText(paciente.getNombrePaciente());
@@ -596,6 +711,10 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
     private javax.swing.JButton jBGuardarEventoPaciente;
     private javax.swing.JButton jBModificarEvento;
     private javax.swing.JButton jBSalir;
+    private javax.swing.JButton jBSalir1;
+    private javax.swing.JButton jBSalir2;
+    private javax.swing.JButton jBSalir3;
+    private javax.swing.JButton jBSalir4;
     private javax.swing.JLabel jLApellido;
     private javax.swing.JLabel jLApellidoPaciente;
     private javax.swing.JLabel jLDescripcionEvento;
@@ -623,10 +742,12 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTextArea jTAConsultar;
     private javax.swing.JTextArea jTConsultaDescripcion;
     private javax.swing.JTextArea jTDescripcionEvento;
+    private javax.swing.JTable jTEvolucion;
     private javax.swing.JTextField jTIngresarNivelAzucar;
     private javax.swing.JTextField jTNuevaDescripcionEvento;
     private javax.swing.JTextField jTNuevoNivelGlucosa;

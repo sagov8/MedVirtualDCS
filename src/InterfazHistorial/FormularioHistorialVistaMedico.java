@@ -3,6 +3,7 @@ package src.InterfazHistorial;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import scr.InterfazDiagnostico.RegistrarDiagnostico;
 import src.Diagnostico;
 import src.Evolucion;
@@ -493,6 +494,12 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
 
         jLabel1.setText("Ingresar ID del Paciente:");
 
+        jTFIdPacienteConsultar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTFIdPacienteConsultarKeyReleased(evt);
+            }
+        });
+
         jButton1.setText("Consultar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -740,6 +747,17 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
         }    
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jTFIdPacienteConsultarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFIdPacienteConsultarKeyReleased
+        ingresarSoloNumeros(jTFIdPacienteConsultar);
+    }//GEN-LAST:event_jTFIdPacienteConsultarKeyReleased
+    public void ingresarSoloNumeros(JTextField datoIngresado){
+        //Procedimiento para verificar que el dato ingresado sea un número 
+        if(!datoIngresado.getText().matches("[0-9]*$")){
+            JOptionPane.showMessageDialog(null,"ingresar solo valores numéricos ");
+            datoIngresado.setText(null);
+            datoIngresado.requestFocus();
+        } 
+    }
     /**
      * @param args the command line arguments
      */
