@@ -492,7 +492,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel17)
                 .addGap(55, 55, 55)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBAgregarDieta)
                 .addContainerGap())
@@ -531,8 +531,8 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel18)
                 .addGap(37, 37, 37)
-                .addComponent(jTFCirugia, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(213, 213, 213)
+                .addComponent(jTFCirugia, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(338, 338, 338)
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBAgregarCirugia)
                     .addComponent(jBAgregarCirugía))
@@ -838,7 +838,7 @@ public class RegistrarDiagnostico extends javax.swing.JFrame {
         diagnosticos = paciente.getDiagnosticos();
         String imprimir = "";
         Diagnostico diagnostico=new Diagnostico();
-        imprimir=diagnostico.imprimirDiagnostico(diagnosticos);
+        imprimir=diagnostico.imprimirDiagnostico(diagnosticos,"");
         jTAMostrarDiagnosticos.setText(imprimir);
     }//GEN-LAST:event_jBConsultarDiagnosticoActionPerformed
 

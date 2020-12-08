@@ -158,7 +158,7 @@ public class Diagnostico {
         this.recomendacion =recomendacion;        
     }
 
-    public String imprimirDiagnostico(ArrayList<Diagnostico> diagnosticos) {
+    public String imprimirDiagnostico(ArrayList<Diagnostico> diagnosticos, String motivoConsulta) {
         String imprimir="";
         for (int i = 0; i < diagnosticos.size(); i++) {
             Diagnostico diagnostico = diagnosticos.get(i);
@@ -169,6 +169,7 @@ public class Diagnostico {
             + "\nId Diagnóstico: " + diagnostico.getIdDiagnostico()
             + "\nFecha: " + diagnostico.getFechaDiagnostico()
             + "\nDiagnostico: " + diagnostico.getObservacion()
+            + "\nMotivo Consulta: " + motivoConsulta        
             + "\nRecomendacion: " + diagnostico.getRecomendacion();
             if (formula.medicamentos.size() != 0) {
                 imprimir =imprimir+"\nFÓRMULA: ";
