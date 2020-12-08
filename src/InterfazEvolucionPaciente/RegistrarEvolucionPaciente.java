@@ -558,6 +558,7 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jBConsultarEventosActionPerformed
 
     private void jBModificarEventoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarEventoActionPerformed
+        //Botón modificar
         Paciente paciente = listaPacientes.get(indexPaciente);
         ArrayList<Evolucion> evoluciones = paciente.getEvoluciones();
         int idEventoCreado=Integer.parseInt(jTidEvento.getText());
@@ -569,6 +570,7 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
                 int nivelGlucosa=Integer.parseInt(jTNuevoNivelGlucosa.getText());
                 eventoModificado.setNivelGlucosa(nivelGlucosa);
                 eventoModificado.setDescripcionEvento(jTNuevaDescripcionEvento.getText());
+                eventoModificado.validacionNivelGlucosa(nivelGlucosa);//Valida si el nivel de glucosa es normal o no
                 JOptionPane.showMessageDialog(null, "Evento modificado correctamente");
 
             }
