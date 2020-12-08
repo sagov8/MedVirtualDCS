@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import java.util.Scanner;
+import static src.InterfazHistorial.InicioSesion.alertaMedico;
 
 public class Evolucion {
 
@@ -120,6 +121,7 @@ public class Evolucion {
         if (nivelGlucosa > 200) {
             estadoNivel = "NIVEL CRÍTICO";
             alerta = true;
+            alertaMedico=true;
         }
         if (nivelGlucosa > 140 && nivelGlucosa <= 200) {
             estadoNivel = "NIVEL ELEVADO: Tomar medicamentos";

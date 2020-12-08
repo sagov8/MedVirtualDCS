@@ -11,6 +11,7 @@ import static src.InterfazHistorial.RegistrarUsuario.listaPacientes;//Temporal p
 public class InicioSesion extends javax.swing.JFrame {
 
     ArrayList<Usuario> usuarios = new ArrayList<>();
+    public static boolean alertaMedico;
     
     public InicioSesion() {
         initComponents();

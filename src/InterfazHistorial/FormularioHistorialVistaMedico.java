@@ -1,5 +1,6 @@
 package src.InterfazHistorial;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -8,6 +9,7 @@ import scr.InterfazDiagnostico.RegistrarDiagnostico;
 import src.Diagnostico;
 import src.Evolucion;
 import src.HistoriaClinica;
+import static src.InterfazHistorial.InicioSesion.alertaMedico;
 import static src.InterfazHistorial.RegistrarUsuario.listaPacientes;
 import src.Paciente;
 import src.Medicamento;
@@ -28,6 +30,10 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
 
     public FormularioHistorialVistaMedico() {
         initComponents();
+        if(alertaMedico){
+            JOptionPane.showMessageDialog(null, "PACIENTE EN ESTADO DE ALERTA");
+            jLAlerta.setForeground(Color.red);
+        }
         setTitle("MedVirtualDCS - Historia clínica");
 
         jTDiagnostico.setEditable(false);
@@ -143,6 +149,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
         jTFIdPacienteConsultar = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jBAlertas = new javax.swing.JButton();
+        jLAlerta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -538,6 +545,8 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
 
         jBAlertas.setText("Alertas");
 
+        jLAlerta.setText("ALERTA");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -553,7 +562,10 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
                         .addComponent(jBEditarHistoria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBConsultarHistoria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addComponent(jBBorrarHistoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBDiagnostico, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jBDiagnostico, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jLAlerta)))
                 .addGap(51, 51, 51))
         );
         jPanel1Layout.setVerticalGroup(
@@ -569,7 +581,9 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
                 .addComponent(jBBorrarHistoria)
                 .addGap(18, 18, 18)
                 .addComponent(jBDiagnostico)
-                .addGap(72, 72, 72)
+                .addGap(43, 43, 43)
+                .addComponent(jLAlerta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jBAlertas)
                 .addContainerGap(83, Short.MAX_VALUE))
         );
@@ -596,9 +610,8 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(25, 25, 25)
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -807,6 +820,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
     private javax.swing.JButton jBGuardarCambios;
     private javax.swing.JButton jBSalir;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLAlerta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
