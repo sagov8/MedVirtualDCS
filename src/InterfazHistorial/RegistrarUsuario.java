@@ -65,7 +65,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
 
         jLabel5.setText("Tipo Usuario:");
 
-        jCBTipoDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "", "Tarjeta de Identidad", "Cédula de Extranjería", "Registro Civil", "Carné Diplomatico", "Pasaporte", "Permiso especial de Permanencia", "NIT", "Pasaporte de la ONU", "Certificado Nacido Vivo" }));
+        jCBTipoDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Cédula de Ciudadanía", "Tarjeta de Identidad", "Cédula de Extranjería", "Registro Civil", "Carné Diplomatico", "Pasaporte", "Permiso especial de Permanencia", "NIT", "Pasaporte de la ONU", "Certificado Nacido Vivo" }));
 
         jBRegistroUsuario.setText("Registrarme");
         jBRegistroUsuario.addActionListener(new java.awt.event.ActionListener() {

@@ -132,6 +132,7 @@ public class Evolucion {
         if (nivelGlucosa <=70) {
             estadoNivel = "HIPOGLUCEMIA";
             alerta = true;
+            alertaMedico=true;
         }
         
     }

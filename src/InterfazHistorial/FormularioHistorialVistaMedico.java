@@ -1697,7 +1697,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
             Paciente paciente=listaPacientes.get(j);
             ArrayList<Evolucion> evoluciones=paciente.getEvoluciones();
             for (int k = 0; k < evoluciones.size(); k++) {
-                Evolucion eventoGuardado = evoluciones.get(i);
+                Evolucion eventoGuardado = evoluciones.get(k);
                 if(eventoGuardado.isAlerta()){
                     pacientesAlerta.add(paciente);
                     eventoGuardado.setAlerta(false);
