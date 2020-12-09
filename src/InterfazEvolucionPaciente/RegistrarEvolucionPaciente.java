@@ -480,9 +480,9 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
         evolucion.validacionNivelGlucosa(nivelGlucosa);//Valida si el nivel de glucosa es normal o no
         Paciente paciente = listaPacientes.get(indexPaciente);//Guarda en paciente la información de la cédula consultada
         paciente.setEvoluciones(evolucion);//Guarda la evolucion creado en el ArrayList evoluciones del Paciente consultado
-        JOptionPane.showMessageDialog(null, "Evento Guardado\n"+evolucion.getEstadoNivel());
+        JOptionPane.showMessageDialog(null, "Evento Guardado\n\n"+evolucion.getEstadoNivel());
         if(evolucion.isAlerta()){
-            JOptionPane.showMessageDialog(rootPane, "GLUCOSA EN NIVEL DE ALERTA"+
+            JOptionPane.showMessageDialog(rootPane, "GLUCOSA EN NIVEL DE ALERTA\n"+
                                     "\nSOLICITE ATENCIÓN MÉDICA DE INMEDIATO", "ALERTA", HEIGHT);
         }
         jTIngresarNivelAzucar.setText(null);

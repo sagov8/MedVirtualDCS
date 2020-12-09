@@ -119,18 +119,18 @@ public class Evolucion {
     public void validacionNivelGlucosa(float nivelGlucosa) {
 
         if (nivelGlucosa > 200) {
-            estadoNivel = "NIVEL CRÍTICO";
+            this.estadoNivel = "NIVEL CRÍTICO";
             alerta = true;
             alertaMedico=true;
         }
         if (nivelGlucosa > 140 && nivelGlucosa <= 200) {
-            estadoNivel = "NIVEL ELEVADO: Tomar medicamentos";
+            this.estadoNivel = "NIVEL ELEVADO: Tomar medicamentos";
         }
         if (nivelGlucosa > 70 && nivelGlucosa <= 140) {
-            estadoNivel = "NIVEL NORMAL";
+            this.estadoNivel = "NIVEL NORMAL";
         }
         if (nivelGlucosa <=70) {
-            estadoNivel = "HIPOGLUCEMIA";
+            this.estadoNivel = "HIPOGLUCEMIA";
             alerta = true;
             alertaMedico=true;
         }
