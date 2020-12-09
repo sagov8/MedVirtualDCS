@@ -41,7 +41,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
 
     public FormularioHistorialVistaMedico() {
         initComponents();
-        setTitle("MedVirtualDCS - Historia clínica");
+        setTitle("MedVirtualDCS - Módulo Médico");
         if(alertaMedico){
             JOptionPane.showMessageDialog(rootPane, "PACIENTE EN ESTADO DE ALERTA", "ALERTA", HEIGHT);
             jLAlerta.setForeground(Color.red);
