@@ -16,13 +16,21 @@ public class InicioSesion extends javax.swing.JFrame {
     public InicioSesion() {
         initComponents();
         setTitle("MedVirtual DCS - Inicio de sesión");
-        Medico medico = new Medico(1, "medico", "1234", "medico");//Temporal para hacer pruebas BORRAR AL TERMINAR
-        listaMedicos.add(medico);//Temporal para hacer pruebas BORRAR AL TERMINAR
-        Paciente paciente = new Paciente(2, "pperez", "1234", "paciente");//Temporal para hacer pruebas BORRAR AL TERMINAR
-        listaPacientes.add(paciente);//Temporal para hacer pruebas BORRAR AL TERMINAR
-        Paciente paciente2 = new Paciente(3, "p", "1", "paciente");//Temporal para hacer pruebas BORRAR AL TERMINAR
-        paciente2.setNumeroDocumento(1);//Temporal para hacer pruebas BORRAR AL TERMINAR
-        listaPacientes.add(paciente2);//Temporal para hacer pruebas BORRAR AL TERMINAR
+        //Médicos de prueba BORRAR AL TERMINAR
+        Medico medico = new Medico(1, "medico", "1234", "medico");
+        usuarios.add(medico);
+        listaMedicos.add(medico);
+        Medico medico2 = new Medico(1, "luis", "1234", "medico");
+        listaMedicos.add(medico2);
+        //Pacientes de prueba BORRAR AL TERMINAR
+        Paciente paciente = new Paciente(2, "pperez", "1234", "paciente");
+        usuarios.add(paciente);
+        Paciente paciente2 = new Paciente("juan", "1234","paciente","Juan", "Gómez", "Cédula de Ciudadanía", 222);
+        listaPacientes.add(paciente2);
+        Paciente paciente3 = new Paciente("ana", "1234","paciente","Ana", "Valencia", "Cédula de Ciudadanía", 333);
+        listaPacientes.add(paciente3);
+        Paciente paciente4 = new Paciente("pedro", "1234","paciente","Pedro", "Carvajal", "Cédula de Ciudadanía", 444);
+        listaPacientes.add(paciente4);
     }
 
     @SuppressWarnings("unchecked")

@@ -173,7 +173,7 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="11">
             <StringItem index="0" value="Seleccione"/>
-            <StringItem index="1" value="C&#xe9;dula de Ciudadan&#xed;a"/>
+            <StringItem index="1" value=""/>
             <StringItem index="2" value="Tarjeta de Identidad"/>
             <StringItem index="3" value="C&#xe9;dula de Extranjer&#xed;a"/>
             <StringItem index="4" value="Registro Civil"/>
