@@ -21,6 +21,7 @@ public class InicioSesion extends javax.swing.JFrame {
         Paciente paciente = new Paciente(2, "pperez", "1234", "paciente");//Temporal para hacer pruebas BORRAR AL TERMINAR
         listaPacientes.add(paciente);//Temporal para hacer pruebas BORRAR AL TERMINAR
         Paciente paciente2 = new Paciente(3, "p", "1", "paciente");//Temporal para hacer pruebas BORRAR AL TERMINAR
+        paciente2.setNumeroDocumento(1);//Temporal para hacer pruebas BORRAR AL TERMINAR
         listaPacientes.add(paciente2);//Temporal para hacer pruebas BORRAR AL TERMINAR
     }
 
@@ -94,13 +95,12 @@ public class InicioSesion extends javax.swing.JFrame {
                                 .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(jLabel3)
-                            .addGap(33, 33, 33)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jBIniciarSesion)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBRegistrarse)))
+                            .addComponent(jBIniciarSesion)
+                            .addGap(18, 18, 18)
+                            .addComponent(jBRegistrarse)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(187, 187, 187)
+                        .addComponent(jLabel3)))
                 .addContainerGap(109, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

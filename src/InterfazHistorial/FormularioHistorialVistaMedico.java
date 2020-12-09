@@ -24,8 +24,9 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
     ArrayList<Formula> formulas = new ArrayList<>();
     String dietaDescripcion;
     String cirugiaDescripcion;
-    ArrayList<String> nombreMedicamento = new ArrayList<>();//Solo se usa en el Frame RegistrarDiagnostico
-    ArrayList<String> dosisMedicamento = new ArrayList<>();//Solo se usa en el Frame RegistrarDiagnostico
+    ArrayList<String> nombreMedicamento = new ArrayList<>();
+    ArrayList<String> dosisMedicamento = new ArrayList<>();
+    ArrayList<Paciente> pacientesAlerta=new ArrayList<>();
     
     public static int indexPaciente;
     String id;
@@ -40,11 +41,15 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
 
     public FormularioHistorialVistaMedico() {
         initComponents();
-        if(alertaMedico){
-            JOptionPane.showMessageDialog(null, "PACIENTE EN ESTADO DE ALERTA");
-            jLAlerta.setForeground(Color.red);
-        }
         setTitle("MedVirtualDCS - Historia clínica");
+        if(alertaMedico){
+            JOptionPane.showMessageDialog(rootPane, "PACIENTE EN ESTADO DE ALERTA", "ALERTA", HEIGHT);
+            jLAlerta.setForeground(Color.red);
+            buscarPacientesAlerta();
+            llenarTablaAlertas();
+        }
+        jTFMedicamento.enable(false);//Desabilita testField de medicamento "otro"
+        jBGuardarDiagnostico.enable(false);//Desabilita botón guardar diagnóstico hasta que ingrese documento de algún paciente registrado
         
         jTDiagnostico.setEditable(false);
         jTFechaDeDiagnostico.setEditable(false);
@@ -103,7 +108,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jPanel17 = new javax.swing.JPanel();
         jScrollPane14 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        jTAlertas = new javax.swing.JTable();
         jLAlerta = new javax.swing.JLabel();
         jBSalir = new javax.swing.JButton();
         jToolBar1 = new javax.swing.JToolBar();
@@ -280,7 +285,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        jTAlertas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -288,7 +293,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
                 "Id Paciente", "Nombre Paciente", "Hora y fecha del evento", "Nivel Glucosa"
             }
         ));
-        jScrollPane14.setViewportView(jTable5);
+        jScrollPane14.setViewportView(jTAlertas);
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -882,10 +887,10 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
                                     .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 11, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(454, 454, 454)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBGuardarDiagnostico)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(486, 486, 486))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1457,11 +1462,15 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         JOptionPane.showMessageDialog(null, "Gracias por usar MedVirtualDCS. Vuelva pronto.");
-        //System.exit(0);
+        //Regresa a Inicio de Sesión
         this.setVisible(false);
         dispose();
         InicioSesion inicioSesion = new InicioSesion();
         inicioSesion.setVisible(true);
+        //Desactiva la alerta porque ya la vio
+        alertaMedico=false;
+        jLAlerta.setForeground(Color.black);
+        
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jBEditarHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarHistoriaActionPerformed
@@ -1510,6 +1519,9 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
                 }
                 cont++;
             } while (!pacienteEncontrado && cont < listaPacientes.size());
+            if(pacienteEncontrado){
+                jBGuardarDiagnostico.enable(true);
+            }
             if (!pacienteEncontrado) {
                 JOptionPane.showMessageDialog(null, "Paciente NO registrado");
             }
@@ -1562,6 +1574,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
         Paciente paciente = listaPacientes.get(indexPaciente);//Guarda en paciente la información de la cédula consultada
         paciente.setMotivoConsulta(jTMotivosConsulta2.getText());
         paciente.setDiagnosticos(diagnostico);//Guarda el diagnostico creado en el ArrayList diagnosticos del Paciente consultado
+        jTMotivosConsulta2.setText(null);
         JOptionPane.showMessageDialog(null, "Diagnostico Registrado");
     }//GEN-LAST:event_jBGuardarDiagnosticoActionPerformed
 
@@ -1675,6 +1688,43 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
         }
         jTable1.setModel(new javax.swing.table.DefaultTableModel(matriz,new String[]{"ID",
                     "Fecha y Hora","Nivel Glucosa","Estado","Descripción"}));
+    }
+    public void buscarPacientesAlerta(){
+        for (int j = 0; j < listaPacientes.size(); j++) {
+            Paciente paciente=listaPacientes.get(j);
+            ArrayList<Evolucion> evoluciones=paciente.getEvoluciones();
+            for (int k = 0; k < evoluciones.size(); k++) {
+                Evolucion eventoGuardado = evoluciones.get(i);
+                if(eventoGuardado.isAlerta()){
+                    pacientesAlerta.add(paciente);
+                    eventoGuardado.setAlerta(false);
+                }
+            }
+        }
+    }
+    public void llenarTablaAlertas(){
+        String hora="";
+        String nivel="";
+        String matriz[][]=new String[pacientesAlerta.size()][4];
+        for (int i = 0; i < pacientesAlerta.size(); i++) {
+            Paciente paciente = pacientesAlerta.get(i);
+            ArrayList<Evolucion> evoluciones=paciente.getEvoluciones();
+            for (int j = 0; j < evoluciones.size(); j++) {
+                Evolucion eventoGuardado = evoluciones.get(j);
+                hora=String.valueOf(eventoGuardado.getFechaEvento());
+                nivel=String.valueOf(eventoGuardado.getNivelGlucosa());
+            }
+            String idPaciente=String.valueOf(paciente.getNumeroDocumento());
+            String nombre=paciente.getNombrePaciente()+" "+paciente.getApellidoPaciente();
+            String fechaEv=String.valueOf(0);
+            String nivelG=String.valueOf(0);
+            matriz[i][0]=idPaciente;
+            matriz[i][1]=nombre;
+            matriz[i][2]=hora;
+            matriz[i][3]=nivel;
+        }
+        jTAlertas.setModel(new javax.swing.table.DefaultTableModel(matriz,new String[]{"No. Documento",
+                    "Nombre Paciente","Hora y fecha del evento","Nivel de glucosa"}));
     }
     /**
      * @param args the command line arguments
@@ -1821,6 +1871,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
     private javax.swing.JTextArea jTADieta;
     private javax.swing.JTextArea jTAMostrarDiagnosticos;
     private javax.swing.JTextArea jTARecomendaciones;
+    private javax.swing.JTable jTAlertas;
     private javax.swing.JTextField jTApellido;
     private javax.swing.JTextField jTApellido1;
     private javax.swing.JTextField jTCorreoElectronico;
@@ -1861,7 +1912,6 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }

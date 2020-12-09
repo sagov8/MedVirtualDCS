@@ -133,6 +133,7 @@ public class Evolucion {
             estadoNivel = "HIPOGLUCEMIA";
             alerta = true;
         }
+        
     }
 
     public void MenuEventosPaciente() {
