@@ -52,11 +52,6 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
         jTEvolucion = new javax.swing.JTable();
         jBSalir1 = new javax.swing.JButton();
         jBSalir2 = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jTidEventoEliminar = new javax.swing.JTextField();
-        jBEliminarEvento1 = new javax.swing.JButton();
-        jBSalir3 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jTidEvento = new javax.swing.JTextField();
@@ -69,6 +64,7 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jBModificarEvento = new javax.swing.JButton();
         jBSalir4 = new javax.swing.JButton();
+        jBEliminarEvento2 = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
 
         jMenu1.setText("File");
@@ -153,26 +149,27 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLDescripcionEvento)
-                    .addComponent(jLNivelAzucar))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTIngresarNivelAzucar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(265, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jBSalir)
                 .addGap(209, 209, 209))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(228, 228, 228)
-                .addComponent(jBGuardarEventoPaciente)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLDescripcionEvento)
+                            .addComponent(jLNivelAzucar))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jTIngresarNivelAzucar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(228, 228, 228)
+                        .addComponent(jBGuardarEventoPaciente)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -287,60 +284,6 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Consultar ", jPanel5);
 
-        jLabel6.setText("ID Evento: ");
-
-        jTidEventoEliminar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTidEventoEliminarKeyReleased(evt);
-            }
-        });
-
-        jBEliminarEvento1.setText("Eliminar");
-        jBEliminarEvento1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBEliminarEvento1ActionPerformed(evt);
-            }
-        });
-
-        jBSalir3.setText("Salir");
-        jBSalir3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBSalir3ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTidEventoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jBEliminarEvento1)
-                .addContainerGap(368, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBSalir3)
-                .addGap(182, 182, 182))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTidEventoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBEliminarEvento1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
-                .addComponent(jBSalir3)
-                .addGap(41, 41, 41))
-        );
-
-        jTabbedPane1.addTab("Eliminar ", jPanel7);
-
         jLabel3.setText("ID Evento: ");
 
         jTidEvento.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -378,35 +321,43 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
             }
         });
 
+        jBEliminarEvento2.setText("Eliminar");
+        jBEliminarEvento2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarEvento2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTidEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jBConsultarEventos))
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jTNuevoNivelGlucosa, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jBSalir4))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTNuevaDescripcionEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTidEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jBConsultarEventos))
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addGap(18, 18, 18)
+                            .addComponent(jTNuevoNivelGlucosa, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBSalir4))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(jBModificarEvento)))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(jBModificarEvento)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jBEliminarEvento2)
+                            .addComponent(jTNuevaDescripcionEvento, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(314, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -427,14 +378,16 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jTNuevaDescripcionEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(jBModificarEvento)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBModificarEvento)
+                    .addComponent(jBEliminarEvento2))
+                .addGap(20, 20, 20)
                 .addComponent(jBSalir4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Modificar", jPanel6);
+        jTabbedPane1.addTab("Modificar/Eliminar", jPanel6);
 
         setJMenuBar(jMenuBar2);
 
@@ -522,23 +475,9 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
 
             }
         }
+        jTidEvento.setText(null);
+        jTConsultaDescripcion.setText(null);
     }//GEN-LAST:event_jBModificarEventoActionPerformed
-
-    private void jBEliminarEvento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarEvento1ActionPerformed
-        Paciente paciente = listaPacientes.get(indexPaciente);
-        ArrayList<Evolucion> evoluciones = paciente.getEvoluciones();
-        int idEventoEliminar=Integer.parseInt(jTidEventoEliminar.getText());
-
-        for (int i = 0; i < evoluciones.size(); i++) {
-
-            Evolucion eventoEliminar=evoluciones.get(i);
-            if (idEventoEliminar==eventoEliminar.getIdEvento()) {
-                evoluciones.remove(i);
-                JOptionPane.showMessageDialog(null, "Evento eliminado correctamente");
-
-            }
-        }
-    }//GEN-LAST:event_jBEliminarEvento1ActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         this.setVisible(false);
@@ -571,11 +510,6 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
         ingresarSoloNumeros(jTIngresarNivelAzucar);
     }//GEN-LAST:event_jTIngresarNivelAzucarKeyReleased
 
-    private void jTidEventoEliminarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTidEventoEliminarKeyReleased
-        // verificar que el dato ingresado sea un número
-        ingresarSoloNumeros(jTidEventoEliminar);
-    }//GEN-LAST:event_jTidEventoEliminarKeyReleased
-
     private void jTidEventoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTidEventoKeyReleased
         // verificar que el dato ingresado sea un número
         ingresarSoloNumeros(jTidEvento);
@@ -592,19 +526,31 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
         fhvp.setVisible(true);
     }//GEN-LAST:event_jBSalir2ActionPerformed
 
-    private void jBSalir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalir3ActionPerformed
-        this.setVisible(false);
-        dispose();
-        FormularioHistorialVistaPaciente fhvp = new FormularioHistorialVistaPaciente();
-        fhvp.setVisible(true);
-    }//GEN-LAST:event_jBSalir3ActionPerformed
-
     private void jBSalir4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalir4ActionPerformed
         this.setVisible(false);
         dispose();
         FormularioHistorialVistaPaciente fhvp = new FormularioHistorialVistaPaciente();
         fhvp.setVisible(true);
     }//GEN-LAST:event_jBSalir4ActionPerformed
+
+    private void jBEliminarEvento2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarEvento2ActionPerformed
+        // Botón eliminar evento
+        Paciente paciente = listaPacientes.get(indexPaciente);
+        ArrayList<Evolucion> evoluciones = paciente.getEvoluciones();
+        int idEventoEliminar=Integer.parseInt(jTidEvento.getText());
+
+        for (int i = 0; i < evoluciones.size(); i++) {
+
+            Evolucion eventoEliminar=evoluciones.get(i);
+            if (idEventoEliminar==eventoEliminar.getIdEvento()) {
+                evoluciones.remove(i);
+                JOptionPane.showMessageDialog(null, "Evento eliminado correctamente");
+
+            }
+        }
+        jTidEvento.setText(null);
+        jTConsultaDescripcion.setText(null);
+    }//GEN-LAST:event_jBEliminarEvento2ActionPerformed
     public void ingresarSoloNumeros(JTextField datoIngresado){
         //Procedimiento para verificar que el dato ingresado sea un número 
         if(!datoIngresado.getText().matches("[0-9]*$")){
@@ -651,13 +597,12 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBConsultarEventos;
     private javax.swing.JButton jBConsultarEvolucion;
-    private javax.swing.JButton jBEliminarEvento1;
+    private javax.swing.JButton jBEliminarEvento2;
     private javax.swing.JButton jBGuardarEventoPaciente;
     private javax.swing.JButton jBModificarEvento;
     private javax.swing.JButton jBSalir;
     private javax.swing.JButton jBSalir1;
     private javax.swing.JButton jBSalir2;
-    private javax.swing.JButton jBSalir3;
     private javax.swing.JButton jBSalir4;
     private javax.swing.JLabel jLDescripcionEvento;
     private javax.swing.JLabel jLNivelAzucar;
@@ -665,7 +610,6 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -676,7 +620,6 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -692,6 +635,5 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTidEvento;
-    private javax.swing.JTextField jTidEventoEliminar;
     // End of variables declaration//GEN-END:variables
 }
