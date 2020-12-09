@@ -50,7 +50,6 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
         jBConsultarEvolucion = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTEvolucion = new javax.swing.JTable();
-        jBSalir1 = new javax.swing.JButton();
         jBSalir2 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -235,13 +234,6 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jBSalir1.setText("Salir");
-        jBSalir1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBSalir1ActionPerformed(evt);
-            }
-        });
-
         jBSalir2.setText("Salir");
         jBSalir2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -261,11 +253,6 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBSalir2)
                 .addGap(96, 96, 96))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(318, 318, 318)
-                    .addComponent(jBSalir1)
-                    .addContainerGap(319, Short.MAX_VALUE)))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,11 +262,6 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addComponent(jBSalir2)
                 .addGap(8, 8, 8))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(153, 153, 153)
-                    .addComponent(jBSalir1)
-                    .addContainerGap(154, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Consultar ", jPanel5);
@@ -517,10 +499,6 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
         ingresarSoloNumeros(jTidEvento);
     }//GEN-LAST:event_jTidEventoKeyReleased
 
-    private void jBSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalir1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBSalir1ActionPerformed
-
     private void jBSalir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalir2ActionPerformed
         this.setVisible(false);
         dispose();
@@ -603,7 +581,6 @@ public class RegistrarEvolucionPaciente extends javax.swing.JFrame {
     private javax.swing.JButton jBGuardarEventoPaciente;
     private javax.swing.JButton jBModificarEvento;
     private javax.swing.JButton jBSalir;
-    private javax.swing.JButton jBSalir1;
     private javax.swing.JButton jBSalir2;
     private javax.swing.JButton jBSalir4;
     private javax.swing.JLabel jLDescripcionEvento;

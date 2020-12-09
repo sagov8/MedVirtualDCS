@@ -123,7 +123,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
                                 .addGap(106, 106, 106)
                                 .addComponent(jLabel1))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(142, 142, 142)
+                        .addGap(183, 183, 183)
                         .addComponent(jBRegistroUsuario)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
