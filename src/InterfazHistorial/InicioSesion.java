@@ -23,13 +23,20 @@ public class InicioSesion extends javax.swing.JFrame {
         Medico medico2 = new Medico(1, "luis", "1234", "medico");
         listaMedicos.add(medico2);
         //Pacientes de prueba BORRAR AL TERMINAR
+        /*(int idUsuario, String nombreUsuario, String password, String tipoUsuario,
+                    String tipoDocumento,long numeroDocumento,String nombrePaciente,String apellidoPaciente
+                    ,String numeroTelefonicoPaciente,String correoPaciente,String direccionDeDomicilio
+                    ,String fechaDeNacimiento,String genero,float peso)*/
         Paciente paciente = new Paciente(2, "pperez", "1234", "paciente");
         usuarios.add(paciente);
-        Paciente paciente2 = new Paciente("juan", "1234","paciente","Juan", "Gómez", "Cédula de Ciudadanía", 222);
+        Paciente paciente2 = new Paciente("juan", "1234","paciente","Cédula de Ciudadanía", 
+                222,"Juan", "Gómez","3202786533","juangomez@gmail.com","Calle 27 #6-38","1987-04-23","M",67);
         listaPacientes.add(paciente2);
-        Paciente paciente3 = new Paciente("ana", "1234","paciente","Ana", "Valencia", "Cédula de Ciudadanía", 333);
+        Paciente paciente3 = new Paciente("ana", "1234","paciente", "Cédula de Ciudadanía", 
+                333,"Ana", "Valencia","3159305836","avalencia@gmail.com","Calle 1 #36-07","1957-11-02","F",54);
         listaPacientes.add(paciente3);
-        Paciente paciente4 = new Paciente("pedro", "1234","paciente","Pedro", "Carvajal", "Cédula de Ciudadanía", 444);
+        Paciente paciente4 = new Paciente("pedro", "1234","paciente", "Cédula de Ciudadanía", 
+                444,"Pedro", "Carvajal","3005839601","pedro@gmail.com","Carrera 4 #10-15","1970-07-16","M",81);
         listaPacientes.add(paciente4);
     }
 

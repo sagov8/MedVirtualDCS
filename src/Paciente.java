@@ -24,10 +24,12 @@ public class Paciente extends Usuario {
     private Diagnostico diagnosticoYTratamiento;
     private ArrayList<Evolucion> evoluciones=new ArrayList<>();
 
-    //Constructor Temporal para usar el paciente de prueba en "RegistrarDiagnostico" (BORRAR AL TERMINAR)
-    public Paciente(String tipoDocumento,long numeroDocumento,String nombrePaciente,String apellidoPaciente
+    //Constructor Temporal para usar el paciente de prueba en "InicioSesión" (BORRAR AL TERMINAR)
+    public Paciente(String nombreUsuario, String password, String tipoUsuario,
+                    String tipoDocumento,long numeroDocumento,String nombrePaciente,String apellidoPaciente
                     ,String numeroTelefonicoPaciente,String correoPaciente,String direccionDeDomicilio
                     ,String fechaDeNacimiento,String genero,float peso){
+        super(nombreUsuario, password, tipoUsuario);
         this.tipoDocumento=tipoDocumento;
         this.numeroDocumento=numeroDocumento;
         this.nombrePaciente=nombrePaciente;
