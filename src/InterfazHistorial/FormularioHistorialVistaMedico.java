@@ -1517,6 +1517,12 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
                     jTTipoDocumento1.setText(paciente.getTipoDocumento());
                     String doc=Long.toString(paciente.getNumeroDocumento());
                     jTNumDocumento1.setText(doc);
+                    jTFechaNacimiento1.setText(paciente.getFechaDeNacimiento());
+                    jTGenero1.setText(paciente.getGenero());
+                    jTPeso1.setText(String.valueOf(paciente.getPeso()));
+                    jTTelCel1.setText(paciente.getNumeroTelefonicoPaciente());
+                    jTDireccion1.setText(paciente.getDireccionDeDomicilio());
+                    jTCorreoElectronico1.setText(paciente.getCorreoPaciente());
                     llenarTablaEvolucion();
                 }
                 cont++;
