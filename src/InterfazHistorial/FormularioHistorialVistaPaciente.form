@@ -854,6 +854,9 @@
                   </SubComponents>
                 </Container>
                 <Component class="javax.swing.JTextField" name="jTNuevoNivelGlucosa">
+                  <Events>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTNuevoNivelGlucosaKeyReleased"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTNuevaDescripcionEvento">
                 </Component>

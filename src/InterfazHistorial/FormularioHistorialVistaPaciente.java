@@ -616,6 +616,12 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
         jTConsultaDescripcion.setRows(5);
         jScrollPane10.setViewportView(jTConsultaDescripcion);
 
+        jTNuevoNivelGlucosa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTNuevoNivelGlucosaKeyReleased(evt);
+            }
+        });
+
         jBEliminarEvento2.setText("Eliminar");
         jBEliminarEvento2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1574,6 +1580,11 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
         jTCorreoElectronico1.setText(jTCorreoElectronico2.getText());
         JOptionPane.showMessageDialog(null, "Datos actualizados");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTNuevoNivelGlucosaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTNuevoNivelGlucosaKeyReleased
+        // Verifica que solo se ingresen números
+        ingresarSoloNumeros(jTNuevoNivelGlucosa);
+    }//GEN-LAST:event_jTNuevoNivelGlucosaKeyReleased
     public void llenarDatos(){
         Paciente paciente=listaPacientes.get(indexPaciente);
         //Paciente paciente=RegistrarUsuario.listaPacientes.get(FormularioHistorialVistaMedico.indexPaciente);
