@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import scr.InterfazDiagnostico.RegistrarDiagnostico;
 import src.Cirugia;
 import src.Diagnostico;
 import src.Dieta;
@@ -1510,7 +1509,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
                 Paciente paciente = listaPacientes.get(cont);
                 if (cedula == paciente.getNumeroDocumento()) {
                     pacienteEncontrado = true;
-                    JOptionPane.showMessageDialog(null, paciente.toString());
+                    //JOptionPane.showMessageDialog(null, paciente.toString());
                     indexPaciente = cont;
                     jTNombre1.setText(paciente.getNombrePaciente());//Imprimir en el label el nombre del paciente
                     jTApellido1.setText(paciente.getApellidoPaciente());
