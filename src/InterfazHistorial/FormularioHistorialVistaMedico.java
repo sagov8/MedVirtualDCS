@@ -48,8 +48,9 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
             buscarPacientesAlerta();
             llenarTablaAlertas();
         }
+        
         jTFMedicamento.enable(false);//Desabilita testField de medicamento "otro"
-        jBGuardarDiagnostico.enable(false);//Desabilita botón guardar diagnóstico hasta que ingrese documento de algún paciente registrado
+        jBGuardarDiagnostico.setEnabled(false);//Desabilita botón guardar diagnóstico hasta que ingrese documento de algún paciente registrado
         
         jTDiagnostico.setEditable(false);
         jTFechaDeDiagnostico.setEditable(false);
@@ -1528,7 +1529,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
                 cont++;
             } while (!pacienteEncontrado && cont < listaPacientes.size());
             if(pacienteEncontrado){
-                jBGuardarDiagnostico.enable(true);
+                jBGuardarDiagnostico.setEnabled(true);//Habilita el botón que guarda el diagnóstico
             }
             if (!pacienteEncontrado) {
                 JOptionPane.showMessageDialog(null, "Paciente NO registrado");
