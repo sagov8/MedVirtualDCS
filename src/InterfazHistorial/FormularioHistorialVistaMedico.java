@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import scr.InterfazDiagnostico.RegistrarDiagnostico;
+//import scr.InterfazDiagnostico.RegistrarDiagnostico;
 import src.Cirugia;
 import src.Diagnostico;
 import src.Dieta;
@@ -1584,6 +1584,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
         Paciente paciente = listaPacientes.get(indexPaciente);//Guarda en paciente la información de la cédula consultada
         paciente.setMotivoConsulta(jTMotivosConsulta2.getText());
         paciente.setDiagnosticos(diagnostico);//Guarda el diagnostico creado en el ArrayList diagnosticos del Paciente consultado
+        //hc.crearHistoriaClinica(paciente);
         jTMotivosConsulta2.setText(null);
         JOptionPane.showMessageDialog(null, "Diagnostico Registrado");
     }//GEN-LAST:event_jBGuardarDiagnosticoActionPerformed
