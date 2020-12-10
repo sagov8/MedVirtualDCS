@@ -1510,7 +1510,7 @@ public class FormularioHistorialVistaMedico extends javax.swing.JFrame {
                 Paciente paciente = listaPacientes.get(cont);
                 if (cedula == paciente.getNumeroDocumento()) {
                     pacienteEncontrado = true;
-                    JOptionPane.showMessageDialog(null, paciente.toString());
+                    //JOptionPane.showMessageDialog(null, paciente.toString());
                     indexPaciente = cont;
                     jTNombre1.setText(paciente.getNombrePaciente());//Imprimir en el label el nombre del paciente
                     jTApellido1.setText(paciente.getApellidoPaciente());
