@@ -80,6 +80,7 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jBSalir = new javax.swing.JButton();
         jToolBar1 = new javax.swing.JToolBar();
+        jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -251,12 +252,25 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addComponent(jBSalir)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
         jToolBar1.setRollover(true);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 242, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 602, Short.MAX_VALUE)
+        );
+
+        jToolBar1.add(jPanel1);
 
         jLabel23.setText("Información del paciente:");
 
@@ -457,12 +471,6 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
         jTabbedPane1.addTab("Información del paciente", jPanel5);
 
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-
-        jTIngresarNivelAzucar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTIngresarNivelAzucarKeyReleased(evt);
-            }
-        });
 
         jTDescripcionEvento.setColumns(20);
         jTDescripcionEvento.setRows(5);
@@ -1243,13 +1251,14 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 921, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 921, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1423,11 +1432,6 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
         jTPeso.setEditable(true);
         jTMotivosConsulta.setEditable(true);
     }//GEN-LAST:event_jBEditarHistoriaActionPerformed
-
-    private void jTIngresarNivelAzucarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTIngresarNivelAzucarKeyReleased
-        // verificar que el dato ingresado sea un número
-        ingresarSoloNumeros(jTIngresarNivelAzucar);
-    }//GEN-LAST:event_jTIngresarNivelAzucarKeyReleased
     public void ingresarSoloNumeros(JTextField datoIngresado){
         //Procedimiento para verificar que el dato ingresado sea un número 
         if(!datoIngresado.getText().matches("[0-9]*$")){
@@ -1716,6 +1720,7 @@ public class FormularioHistorialVistaPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
